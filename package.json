@@ -1,0 +1,23 @@
+{
+  "name": "mainserver",
+  "version": "1.0.0",
+  "description": "paquete del servidor express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gti-sos/SOS1920-11.git"
+  },
+  "author": "sos1920-11",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gti-sos/SOS1920-11/issues"
+  },
+  "homepage": "https://github.com/gti-sos/SOS1920-11#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
