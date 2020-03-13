@@ -9,6 +9,8 @@ app.get("/public",(request,response)=>{
 });
 
 
-app.listen(80);
+app.listen(80, ()=>{
+	console.log("Ready!")
+});
 
 console.log("iniciando servidor...")
