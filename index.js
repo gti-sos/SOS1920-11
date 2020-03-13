@@ -4,12 +4,15 @@ var app = express();
 
 var tiempo= new Date()
 
+var port = process.env.PORT || 80;
+/**
 app.get("/public",(request,response)=>{
 	response.sendFile("/public/", { root: __dirname });
-});
+});**/
 
+app.use("/",express.static("./public"));
 
-app.listen(80, ()=>{
+app.listen(port, ()=>{
 	console.log("Ready!")
 });
 
