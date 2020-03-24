@@ -112,6 +112,10 @@ app.delete(BASE_API_URL+"/rpcs/:country", (req,res)=>{
 	
 });
 
+//Acceso al recurso economic-freedom-indexes
+var efis= require('./efi/efi.js');
+
+app.use((BASE_API_URL+'economic-freedom-indexes', efis));
 
 app.listen(port, () => {
 	console.log("Server ready");
