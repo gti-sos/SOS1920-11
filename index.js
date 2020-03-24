@@ -71,7 +71,7 @@ app.delete(BASE_API_URL+"/rpcs", (req,res)=>{
 });
 
 
-// GET CONTACT/XXX
+// GET RPCS/XXX
 
 app.get(BASE_API_URL+"/rpcs/:country", (req,res)=>{
 	
