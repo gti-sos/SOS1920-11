@@ -76,15 +76,26 @@ app.get(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
 
 // PUT CONTACT/XXX
 
-app.put(BASE_API_URL+"/crimeratestats", (req,res)=>{
+router.put('/:country', (req,res)=>{
 	
-	var name = req.params.country;
-	np
-	if(x == 0){
-	   
-	} else {
-	   
-	   }
+	var country= req.params.country;
+	var filtro = crimeratestats.filter((c) => {
+		return (c.country == country);
+	});
+	
+	if (filtro.length==0){
+		res.sendStatus(404,"COUNTRY NOT FOUND");	
+	}else{
+		var body= req.body;
+		var nuevocrate=crimeratestats.map((c)=>{
+			if(c.country==country){
+				c.country=body["country"];
+				c.year=body["year"];
+				c.cr_rate=body["cr_rate"];
+			}
+		});
+		res.sendStatus(200,"OK");
+	}
 });
 // DELETE CONTACT/XXX
 
@@ -109,11 +120,11 @@ app.delete(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
 	
 app.delete(BASE_API_URL+"/crimeratestats", (req,res)=>{
 	
-	var stat = crimeratestats;
 	var empt = [];
 	
 	if(crimeratestats.length > 0){
-		res.send(JSON.stringify(empt,null,2));
+		crimeratestats = empt;
+		res.sendStatus(200,"OK");
 	}else{
 		res.sendStatus(400,"BAD REQUEST");
 	}
