@@ -5,7 +5,7 @@ var router = express.Router();
 module.exports=router;
 const bodyParser = require("body-parser");
 app.use(bodyParser.json()); 
-
+const parametros= 3;
 const BASE_API_URL = "/api/v1";
 
 
@@ -13,7 +13,14 @@ const BASE_API_URL = "/api/v1";
 var efis=[
 	
 	{
-		'country':'New Zeland'
+		'country':'New Zeland',
+		'year':2019,
+		'efiindex':84.4
+	},
+	{
+		'country':'Chile',
+		'year': 2019,
+		'efiindex':75.4
 	}
 ]
 //route handler
@@ -88,7 +95,25 @@ router.put('/:country', (req,res)=>{
 	
 	if (efisfiltro.length==0){
 		res.sendStatus(404,"COUNTRY NOT FOUND");	
-	}else if(req.body){
-			 
+	}else{
+		
+		var body= req.body;
+		var len = 0
+		for (x in body) {
+			len+=1;
+  		} 
+		if (len!=parametros){
+			res.sendStatus(400,"BAD REQUEST");
+		}else{
+		
+			var nuevoefi=efis.map((c)=>{
+				if(c.country==country){
+					c.country=body["country"];
+					c.year=body["year"];
+					c.efiindex=body["efiindex"];
+				}
+			});
+			res.sendStatus(200,"OK");
+		}
 	}
 });
