@@ -79,7 +79,7 @@ app.get(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
 app.put(BASE_API_URL+"/crimeratestats", (req,res)=>{
 	
 	var name = req.params.country;
-	
+	np
 	if(x == 0){
 	   
 	} else {
