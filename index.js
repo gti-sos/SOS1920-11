@@ -117,9 +117,11 @@ rutaEFI = BASE_API_URL + '/economic-freedom-indexes';
 var efis=  require('./efi/efi');
 app.use(rutaEFI,efis);
 
+//Acceso a crime-rate-stats
 
-
-
+rutaCrime = BASE_API_URL + '/crime-rate-stats';
+var rcrime=  require('./crime/API_jose');
+app.use(rutaCrime,rcrime);
 
 app.listen(port, () => {
 	console.log("Server ready");
