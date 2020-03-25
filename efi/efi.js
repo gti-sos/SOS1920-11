@@ -3,8 +3,9 @@ const express = require("express");
 var app = express();
 var router = express.Router();
 module.exports=router;
-//const bodyParser = require("body-parser");
-
+const bodyParser = require("body-parser");
+app.use(bodyParser.json()); 
+const parametros= 3;
 const BASE_API_URL = "/api/v1";
 
 
@@ -12,7 +13,14 @@ const BASE_API_URL = "/api/v1";
 var efis=[
 	
 	{
-		'country':'New Zeland'
+		'country':'New Zeland',
+		'year':2019,
+		'efiindex':84.4
+	},
+	{
+		'country':'Chile',
+		'year': 2019,
+		'efiindex':75.4
 	}
 ]
 //route handler
@@ -35,13 +43,13 @@ router.post('/',(req,res) =>{
 	if((newefi == "") || (newefi.country == null)){
 		res.sendStatus(400,"BAD REQUEST");
 	} else {
-		efis.push(newContact); 	
+		efis.push(newefi); 	
 		res.sendStatus(201,"CREATED");
 	}
 });
 
 //get efi
-app.get("/:country", (req,res)=>{
+router.get("/:country", (req,res)=>{
 	
 	var country = req.params.country;
 	
@@ -59,7 +67,7 @@ app.get("/:country", (req,res)=>{
 
 //delete specific efi
 
-app.delete("/:country", (req,res)=>{
+router.delete("/:country", (req,res)=>{
 	
 	var country = req.params.country;
 	
@@ -74,6 +82,60 @@ app.delete("/:country", (req,res)=>{
 	}else{
 		res.sendStatus(404,"COUNTRY NOT FOUND");
 	}
-	
-	
 });
+
+//PUT specific efi
+
+router.put('/:country', (req,res)=>{
+	
+	var country= req.params.country;
+	var efisfiltro = efis.filter((c) => {
+		return (c.country == country);
+	});
+	
+	if (efisfiltro.length==0){
+		res.sendStatus(404,"COUNTRY NOT FOUND");	
+	}else{
+		
+		var body= req.body;
+		var len = 0
+		for (x in body) {
+			len+=1;
+  		} 
+		if (len!=parametros){
+			res.sendStatus(400,"BAD REQUEST");
+		}else{
+		
+			var nuevoefi=efis.map((c)=>{
+				if(c.country==country){
+					c.country=body["country"];
+					c.year=body["year"];
+					c.efiindex=body["efiindex"];
+				}
+			});
+			res.sendStatus(200,"OK");
+		}
+	}
+});
+
+//post specific efi --> wrong method
+
+router.post('/:country', (req,res)=>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+
+
+//put to base route --> wrong method
+
+router.put('/', (req,res)=>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+
+// DELETE base route deletes efis resource
+
+router.delete('/', (req,res)=>{
+	
+	efis=[];
+	res.sendStatus(200, "OK, resource destroyed");
+});
+
