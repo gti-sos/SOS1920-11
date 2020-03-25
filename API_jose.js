@@ -58,7 +58,7 @@ app.post(BASE_API_URL+"/crimeratestats",(req,res) =>{
 
 // GET CONTACT/XXX
 
-app.get(BASE_API_URL+"/crimeratestats/:name", (req,res)=>{
+app.get(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
 	
 	var name = req.params.name;
 	
@@ -70,17 +70,27 @@ app.get(BASE_API_URL+"/crimeratestats/:name", (req,res)=>{
 	if(filteredCrimes.length >= 1){
 		res.send(filteredContacts[0]);
 	}else{
-		res.sendStatus(404,"CONTACT NOT FOUND");
+		res.sendStatus(404,"COUNTRY NOT FOUND");
 	}
 });
 
 // PUT CONTACT/XXX
 
+app.put(BASE_API_URL+"/crimeratestats", (req,res)=>{
+	
+	var name = req.params.country;
+	
+	if(x == 0){
+	   
+	} else {
+	   
+	   }
+});
 // DELETE CONTACT/XXX
 
-app.delete(BASE_API_URL+"/ccrimeratestats/:country", (req,res)=>{
+app.delete(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
 	
-	var name = req.params.name;
+	var name = req.params.country;
 	
 	var filteredContacts = crimeratestats.filter((c) => {
 		return (c.country != name);
@@ -91,9 +101,22 @@ app.delete(BASE_API_URL+"/ccrimeratestats/:country", (req,res)=>{
 		contacts = filteredContacts;
 		res.sendStatus(200);
 	}else{
-		res.sendStatus(404,"CONTACT NOT FOUND");
+		res.sendStatus(404,"COUNTRY NOT FOUND");
 	}
 	
+	
+});
+	
+app.delete(BASE_API_URL+"/crimeratestats", (req,res)=>{
+	
+	var stat = crimeratestats;
+	var empt = [];
+	
+	if(crimeratestats.length > 0){
+		res.send(JSON.stringify(empt,null,2));
+	}else{
+		res.sendStatus(400,"BAD REQUEST");
+	}
 	
 });
 
