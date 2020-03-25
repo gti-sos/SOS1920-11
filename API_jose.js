@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 80;
 
-var crimes = [
+var crimeratestats = [
 	{ 
 		country: "Venezuela",
 		year: 2016,
@@ -34,22 +34,22 @@ const BASE_API_URL = "/api/v1";
 
 // GET CONTACTS
 
-app.get(BASE_API_URL+"/crimes", (req,res) =>{
-	res.send(JSON.stringify(contacts,null,2));
-	console.log("Data sent:"+JSON.stringify(crimes,null,2));
+app.get(BASE_API_URL+"/crimeratestats", (req,res) =>{
+	res.send(JSON.stringify(crimeratestats,null,2));
+	console.log("Data sent:"+JSON.stringify(crimeratestats,null,2));
 });
 
 
 // POST CONTACTS
 
-app.post(BASE_API_URL+"/crimes",(req,res) =>{
+app.post(BASE_API_URL+"/crimeratestats",(req,res) =>{
 	
 	var newCrime = req.body;
 	
 	if((newCrime == "") || (newCrime.name == null)){
 		res.sendStatus(400,"BAD REQUEST");
 	} else {
-		crimes.push(newContact); 	
+		crimeratestats.push(newContact); 	
 		res.sendStatus(201,"CREATED");
 	}
 });
@@ -58,11 +58,11 @@ app.post(BASE_API_URL+"/crimes",(req,res) =>{
 
 // GET CONTACT/XXX
 
-app.get(BASE_API_URL+"/crimes/:name", (req,res)=>{
+app.get(BASE_API_URL+"/crimeratestats/:name", (req,res)=>{
 	
 	var name = req.params.name;
 	
-	var filteredCrimes = crimes.filter((c) => {
+	var filteredCrimes = crimeratestats.filter((c) => {
 		return (c.name == name);
 	});
 	
@@ -78,11 +78,11 @@ app.get(BASE_API_URL+"/crimes/:name", (req,res)=>{
 
 // DELETE CONTACT/XXX
 
-app.delete(BASE_API_URL+"/contacts/:country", (req,res)=>{
+app.delete(BASE_API_URL+"/ccrimeratestats/:country", (req,res)=>{
 	
 	var name = req.params.name;
 	
-	var filteredContacts = crimes.filter((c) => {
+	var filteredContacts = crimeratestats.filter((c) => {
 		return (c.country != name);
 	});
 	
