@@ -117,3 +117,25 @@ router.put('/:country', (req,res)=>{
 		}
 	}
 });
+
+//post specific efi --> wrong method
+
+router.post('/:country', (req,res)=>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+
+
+//put to base route --> wrong method
+
+router.put('/', (req,res)=>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+
+// DELETE base route deletes efis resource
+
+router.delete('/', (req,res)=>{
+	
+	efis=[];
+	res.sendStatus(200, "OK, resource destroyed");
+});
+
