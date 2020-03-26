@@ -10,23 +10,29 @@ const BASE_API_URL = "/api/v1";
 
 
 //app.use(bodyParser.json());
-var efis=[
-	
-	{
-		'country':'New Zeland',
-		'year':2019,
-		'efiindex':84.4
-	},
-	{
-		'country':'Chile',
-		'year': 2019,
-		'efiindex':75.4
-	}
-]
+var efis=[];
 //route handler
 router.use(function procesador(req,res,next){
 	console.log('Tratamiento de los efi');
 	next();
+});
+
+//loadInitialData
+
+router.get('/loadInitialData',(req,res)=>{
+	//var init = require("./initaldata.json");
+	var init=[{
+		'country':'New Zeland',
+		'year':2019,
+		'efiindex':84.4
+},
+{
+		'country':'Chile',
+		'year': 2019,
+		'efiindex':75.4
+}];
+	efis=init;
+	res.sendStatus(201,"DATA CREATED");
 });
 
 //get efis
