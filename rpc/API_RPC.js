@@ -4,15 +4,29 @@ var router = express.Router();
 module.exports=router;
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
-const parametros = 2;
+const parametros = 9;
 
 var rpcs = [
 	{ 
 		country: "Spain",
+		year: 2019,
+		rpc:26420,
+		piba:1244757,
+		pib1t:306678,
+		pib2t:310381,
+		pib3t:311917,
+		pib4t:315781,
 		vpy: 2.0	
 	},
 	{ 
 		country: "Slovenia",
+		year: 2019,
+		rpc:22980,
+		piba:48007,
+		pib1t:11900,
+		pib2t:11961,
+		pib3t:12104,
+		pib4t:12200,
 		vpy: 2.4
 	}
 ];
