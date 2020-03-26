@@ -6,7 +6,7 @@ var app = express();
 
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 80;
+//var port = process.env.PORT || 80;
 
 var crimeratestats = [
 	{ 
@@ -31,11 +31,11 @@ var crimeratestats = [
 	}
 ];
 
-const BASE_API_URL = "/api/v1";
+//const BASE_API_URL = "/api/v1";
 
 // GET CONTACTS
 
-app.get(BASE_API_URL+"/crimeratestats", (req,res) =>{
+router.get("/", (req,res) =>{
 	res.send(JSON.stringify(crimeratestats,null,2));
 	console.log("Data sent:"+JSON.stringify(crimeratestats,null,2));
 });
@@ -43,7 +43,7 @@ app.get(BASE_API_URL+"/crimeratestats", (req,res) =>{
 
 // POST CONTACTS
 
-app.post(BASE_API_URL+"/crimeratestats",(req,res) =>{
+router.post("/",(req,res) =>{
 	
 	var newCrime = req.body;
 	
@@ -59,9 +59,9 @@ app.post(BASE_API_URL+"/crimeratestats",(req,res) =>{
 
 // GET CONTACT/XXX
 
-app.get(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
+router.get("/:country", (req,res)=>{
 	
-	var name = req.params.name;
+	var name = req.params.country;
 	
 	var filteredCrimes = crimeratestats.filter((c) => {
 		return (c.name == name);
@@ -100,7 +100,7 @@ router.put('/:country', (req,res)=>{
 });
 // DELETE CONTACT/XXX
 
-app.delete(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
+router.delete("/:country", (req,res)=>{
 	
 	var name = req.params.country;
 	
@@ -119,7 +119,7 @@ app.delete(BASE_API_URL+"/crimeratestats/:country", (req,res)=>{
 	
 });
 	
-app.delete(BASE_API_URL+"/crimeratestats", (req,res)=>{
+router.delete("/", (req,res)=>{
 	
 	var empt = [];
 	
@@ -132,9 +132,3 @@ app.delete(BASE_API_URL+"/crimeratestats", (req,res)=>{
 	
 });
 
-
-app.listen(port, () => {
-	console.log("Server ready");
-});
-
-console.log("Starting server...");

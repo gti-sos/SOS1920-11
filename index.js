@@ -21,11 +21,6 @@ const rutaEFI = BASE_API_URL + '/economic-freedom-indexes';
 var efis=  require('./efi/efi');
 app.use(rutaEFI,efis);
 
-//Acceso a crime-rate-stats
-
-const rutaCrime = BASE_API_URL + '/crime-rate-stats';
-var rcrime=  require('./crime/API_jose');
-app.use(rutaCrime,rcrime);
 
 //Acceso a rents-per-capita
 
@@ -34,6 +29,14 @@ var rpcs=  require('./rpc/API_RPC');
 app.use(rutaRPC,rpcs);
 
 
+//Acceso a crime-rate-stats
+
+
+const rutaCrime = BASE_API_URL + '/crimeratestats';
+var rcrime=  require('./crime/API_jose');
+app.use(rutaCrime,rcrime);
+
+//Server start up
 app.listen(port, () => {
 	console.log("Server ready");
 });
