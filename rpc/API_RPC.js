@@ -4,6 +4,7 @@ var router = express.Router();
 module.exports=router;
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
+const parametros = 2;
 
 var rpcs = [
 	{ 
@@ -23,7 +24,7 @@ router.use(function procesador(req,res,next){
 });
 
 // GET RPC
-router.get("/r", (req,res) =>{
+router.get("/", (req,res) =>{
 	res.send(JSON.stringify(rpcs,null,2));
 	console.log("Data sent:"+JSON.stringify(rpcs,null,2));
 });
@@ -84,19 +85,32 @@ router.get("/:country", (req,res)=>{
 
 router.put('/:country', (req,res)=>{
 	
-	var country = req.params.country;
-	
-	var filteredRpcs = rpcs.filter((c) => {
+	var country= req.params.country;
+	var rpcsfiltro = rpcs.filter((c) => {
 		return (c.country == country);
 	});
 	
-	
-	if(filteredRpcs.length >= 1){
-		c.country = req.body;
-		res.send(c.country);
-		sendStatus(200,"OK")
+	if (rpcsfiltro.length==0){
+		res.sendStatus(404,"COUNTRY NOT FOUND");	
 	}else{
-		res.sendStatus(404,"COUNTRY NOT FOUND");
+		
+		var body= req.body;
+		var len = 0
+		for (x in body) {
+			len+=1;
+  		} 
+		if (len!=parametros){
+			res.sendStatus(400,"BAD REQUEST");
+		}else{
+		
+			var nuevorpc=rpcs.map((c)=>{
+				if(c.country==country){
+					c.country=body["country"];
+					c.vpy=body["vpy"];
+				}
+			});
+			res.sendStatus(200,"OK");
+		}
 	}
 });
 
