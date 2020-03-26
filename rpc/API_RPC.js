@@ -6,35 +6,40 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const parametros = 9;
 
-var rpcs = [
-	{ 
-		country: "Spain",
-		year: 2019,
-		rpc:26420,
-		piba:1244757,
-		pib1t:306678,
-		pib2t:310381,
-		pib3t:311917,
-		pib4t:315781,
-		vpy: 2.0	
-	},
-	{ 
-		country: "Slovenia",
-		year: 2019,
-		rpc:22980,
-		piba:48007,
-		pib1t:11900,
-		pib2t:11961,
-		pib3t:12104,
-		pib4t:12200,
-		vpy: 2.4
-	}
-];
+var rpcs = [];
 
 //route handler
 router.use(function procesador(req,res,next){
 	console.log('Tratamiento de las rpc');
 	next();
+});
+
+router.get('/loadInitialData',(req,res)=>{
+	//var init = require("./initaldata.json");
+	var init=[{ 
+		'country': "Spain",
+		'year': 2019,
+		'rpc':26420,
+		'piba':1244757,
+		'pib1t':306678,
+		'pib2t':310381,
+		'pib3t':311917,
+		'pib4t':315781,
+		'vpy': 2.0	
+	},
+	{ 
+		'country': "Slovenia",
+		'year': 2019,
+		'rpc':22980,
+		'piba':48007,
+		'pib1t':11900,
+		'pib2t':11961,
+		'pib3t':12104,
+		'pib4t':12200,
+		'vpy': 2.4
+	}];
+	rpcs=init;
+	res.sendStatus(201,"DATA CREATED");
 });
 
 // GET RPC
@@ -61,13 +66,10 @@ router.delete("/", (req,res)=>{
 	
 	
 	
-	var filteredRpcs = rpcs.filter((c) => {
-		return (c.name != null);
-	});
+	rpcs = [];
 	
 	
-	if(filteredRpcs.length == 0){
-		rpcs = filteredRpcs;
+	if(rpcs.length == 0){
 		res.sendStatus(200,"OK, RESOURCE EMPTY");
 	}else{
 		res.sendStatus(400,"SOMETHNG WAS WRONG");
@@ -126,6 +128,39 @@ router.put('/:country', (req,res)=>{
 			res.sendStatus(200,"OK");
 		}
 	}
+});
+
+
+//DELETE RPCS/COUNTRY
+
+router.delete("/:country", (req,res)=>{
+	
+	var country = req.params.country;
+	
+	var rpcsfiltro = rpcs.filter((c) => {
+		return (c.country != country);
+	});
+	
+	
+	if(rpcsfiltro.length < rpcs.length){
+		rpcs = rpcsfiltro;
+		res.sendStatus(200),"OK, OBJECT DELETED";
+	}else{
+		res.sendStatus(404,"COUNTRY NOT FOUND");
+	}
+});
+
+//post specific rpc --> wrong method
+
+router.post('/:country', (req,res)=>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
+});
+
+
+//put to base route --> wrong method
+
+router.put('/', (req,res)=>{
+	res.sendStatus(405,"METHOD NOT ALLOWED");
 });
 
 
