@@ -37,6 +37,7 @@ router.put(":/loadInitialData", (req, res) =>{
 ]
 	crimeratestats = init;
 	res.sendStatus(201,"DATA CREATED");
+	
 });
 //const BASE_API_URL = "/api/v1";
 
