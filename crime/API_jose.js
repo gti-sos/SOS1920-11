@@ -132,9 +132,3 @@ app.delete(BASE_API_URL+"/crimeratestats", (req,res)=>{
 	
 });
 
-
-app.listen(port, () => {
-	console.log("Server ready");
-});
-
-console.log("Starting server...");
