@@ -127,6 +127,13 @@ router.put('/:country', (req,res)=>{
 			var nuevorpc=rpcs.map((c)=>{
 				if(c.country==country){
 					c.country=body["country"];
+					c.year=body["year"];
+					c.rpc=body["rpc"];
+					c.piba=body["piba"];
+					c.pib1t=body["pib1t"];
+					c.pib2t=body["pib2t"];
+					c.pib3t=body["pib3t"];
+					c.pib4t=body["pib4t"];
 					c.vpy=body["vpy"];
 				}
 			});
