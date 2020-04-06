@@ -85,12 +85,13 @@ router.delete("/", (req,res)=>{
 
 // GET RPC/COUNTRY
 
-router.get("/:country", (req,res)=>{
+router.get("/:country/:year", (req,res)=>{
 	
 	var country = req.params.country;
+	var year = req.params.year;
 	
 	var filteredRpcs = rpcs.filter((c) => {
-		return (c.country == country);
+		return (c.country == country && c.year == year) ;
 	});
 	
 	
@@ -104,11 +105,13 @@ router.get("/:country", (req,res)=>{
 
 // PUT RPC/COUNTRY
 
-router.put('/:country', (req,res)=>{
+router.put('/:country/:year', (req,res)=>{
 	
 	var country= req.params.country;
+	var year= req.params.year;
+
 	var rpcsfiltro = rpcs.filter((c) => {
-		return (c.country == country);
+		return (c.country == country && c.year == year);
 	});
 	
 	if (rpcsfiltro.length==0){
@@ -138,12 +141,13 @@ router.put('/:country', (req,res)=>{
 
 //DELETE RPCS/COUNTRY
 
-router.delete("/:country", (req,res)=>{
+router.delete("/:country/:year", (req,res)=>{
 	
 	var country = req.params.country;
+	var year= req.params.year;
 	
 	var rpcsfiltro = rpcs.filter((c) => {
-		return (c.country != country);
+		return !(c.country == country && c.year == year);
 	});
 	
 	
