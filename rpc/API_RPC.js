@@ -54,11 +54,11 @@ router.post("/",(req,res) =>{
 	var newRpc = req.body;
 	
 	var filteredRpcs = rpcs.filter((c) => {
-		return (c.country == newRpc.country);
+		return (c.country == newRpc.country && c.year==newRpc.year);
 	});
 	
 	
-	if(filteredRpcs.length>0 || (newRpc == "") || (newRpc.country == null)){
+	if(filteredRpcs.length>0 || (newRpc == null) || (newRpc.country == "")){
 		res.sendStatus(400,"BAD REQUESTT");
 	} else {
 		rpcs.push(newRpc); 	
