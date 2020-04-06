@@ -8,7 +8,12 @@ app.use(bodyParser.json());
 
 //var port = process.env.PORT || 80;
 
-var crimeratestats = [
+
+
+var crimeratestats =  [];
+
+router.put(":/loadInitialData", (req, res) =>{
+	var init = [
 	{ 
 		country: "Venezuela",
 		year: 2016,
@@ -28,9 +33,12 @@ var crimeratestats = [
 		cr_homicount: 276,
 		cr_theftrate: 422.21,
 		cr_theftcount:195910 
-	}
-];
-
+	}		
+]
+	crimeratestats = init;
+	res.sendStatus(201,"DATA CREATED");
+	
+});
 //const BASE_API_URL = "/api/v1";
 
 // GET CONTACTS
