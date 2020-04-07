@@ -58,7 +58,7 @@ router.post("/",(req,res) =>{
 	});
 	
 	
-	if(filteredRpcs.length>0 || (newRpc == null) || (newRpc.country == "")){
+	if(filteredRpcs.length>0 || (newRpc == "") || (newRpc.country == null)){
 		res.sendStatus(400,"BAD REQUESTT");
 	} else {
 		rpcs.push(newRpc); 	
