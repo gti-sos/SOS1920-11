@@ -54,7 +54,7 @@ router.post("/",(req,res) =>{
 	var newRpc = req.body;
 	
 	var filteredRpcs = rpcs.filter((c) => {
-		return (c.country == newRpc.country && c.year==newRpc.year);
+		return (c.country == newRpc.country);
 	});
 	
 	if(filteredRpcs.length>0){
