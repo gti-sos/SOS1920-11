@@ -52,14 +52,7 @@ router.get("/", (req,res) =>{
 router.post("/",(req,res) =>{
 	
 	var newRpc = req.body;
-	
-	var filteredRpcs = rpcs.filter((c) => {
-		return (c.country == newRpc.country);
-	});
-	
-	if(filteredRpcs.length>0){
-		res.sendStatus(400,"BAD REQUEST, INVALID PARAMS")
-	}
+
 	if((newRpc == "") || (newRpc.country == null)){
 		res.sendStatus(400,"BAD REQUESTT");
 	} else {
