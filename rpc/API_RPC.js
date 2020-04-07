@@ -57,8 +57,10 @@ router.post("/",(req,res) =>{
 		return (c.country == newRpc.country && c.year==newRpc.year);
 	});
 	
-	
-	if(filteredRpcs.length>0 || (newRpc == "") || (newRpc.country == null)){
+	if(filteredRpcs.length>0){
+		res.sendStatus(400,"BAD REQUEST, INVALID PARAMS")
+	}
+	if((newRpc == "") || (newRpc.country == null)){
 		res.sendStatus(400,"BAD REQUESTT");
 	} else {
 		rpcs.push(newRpc); 	
