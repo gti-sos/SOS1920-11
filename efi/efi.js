@@ -1,4 +1,4 @@
-
+const path = require("path");
 const express = require("express");
 var app = express();
 var router = express.Router();
@@ -7,7 +7,12 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json()); 
 const parametros= 15;
 const BASE_API_URL = "/api/v1";
+const dataStore = require("nedb");
+const dbfile = path.join(__dirname,"efis.db") ;
 
+// inicialización de base de datos 
+
+var db = new dataStore ({filename: dbfile, autoload: true});
 
 //app.use(bodyParser.json());
 var efis=[];
@@ -18,10 +23,7 @@ router.use(function procesador(req,res,next){
 });
 
 //loadInitialData
-
-router.get('/loadInitialData',(req,res)=>{
-	//var init = require("./initaldata.json");
-	var init=[{
+var init=[{
 		'country':'New Zeland',
 		'year':2019,
 		'efiindex':84.4,
@@ -55,6 +57,9 @@ router.get('/loadInitialData',(req,res)=>{
 		'efiinvfreed':85,	
 		'efifinfred':70
 		}];
+router.get('/loadInitialData',(req,res)=>{
+	//var init = require("./initaldata.json");
+	
 	efis=init;
 	res.sendStatus(201,"DATA CREATED");
 });
