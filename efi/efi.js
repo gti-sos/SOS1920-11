@@ -79,12 +79,12 @@ router.post('/',(req,res) =>{
 });
 
 //get efi
-router.get("/:country", (req,res)=>{
+router.get("/:country/:year", (req,res)=>{
 	
 	var country = req.params.country;
-	
+	var year= req.params.year;
 	var efisfiltro = efis.filter((c) => {
-		return (c.country == country);
+		return (c.country == country && c.year==year);
 	});
 	
 	
@@ -97,12 +97,13 @@ router.get("/:country", (req,res)=>{
 
 //delete specific efi
 
-router.delete("/:country", (req,res)=>{
+router.delete("/:country/:year", (req,res)=>{
 	
 	var country = req.params.country;
-	
+	var year= req.params.year;
+
 	var efisfiltro = efis.filter((c) => {
-		return (c.country != country);
+		return ((c.country != country)||(c.year!=year));
 	});
 	
 	
@@ -116,11 +117,12 @@ router.delete("/:country", (req,res)=>{
 
 //PUT specific efi
 
-router.put('/:country', (req,res)=>{
+router.put('/:country/:year', (req,res)=>{
 	
 	var country= req.params.country;
+	var year= req.params.year;
 	var efisfiltro = efis.filter((c) => {
-		return (c.country == country);
+		return (c.country == country && c.year==year);
 	});
 	
 	if (efisfiltro.length==0){
@@ -162,7 +164,7 @@ router.put('/:country', (req,res)=>{
 
 //post specific efi --> wrong method
 
-router.post('/:country', (req,res)=>{
+router.post('/:country/:year', (req,res)=>{
 	res.sendStatus(405,"METHOD NOT ALLOWED");
 });
 
