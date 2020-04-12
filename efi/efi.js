@@ -1,21 +1,19 @@
 const path = require("path");
 const express = require("express");
-var app = express();
+
 var router = express.Router();
 module.exports=router;
 const bodyParser = require("body-parser");
-app.use(bodyParser.json()); 
+router.use(bodyParser.json());
 const parametros= 15;
 const BASE_API_URL = "/api/v1";
 const dataStore = require("nedb");
 const dbfile = path.join(__dirname,"efis.db") ;
 
-// inicialización de base de datos 
+// inicializaciรณn de base de datos 
 
 var db = new dataStore ({filename: dbfile, autoload: true});
 
-//app.use(bodyParser.json());
-var efis=[];
 //route handler
 router.use(function procesador(req,res,next){
 	console.log('Tratamiento de los efi');
@@ -59,17 +57,20 @@ var init=[{
 		}];
 router.get('/loadInitialData',(req,res)=>{
 	//var init = require("./initaldata.json");
-	
-	efis=init;
+	db.insert(init);
+	//efis=init;
 	res.sendStatus(201,"DATA CREATED");
 });
 
 //get efis
 router.get('/', function(req,res,next){
+	console.log("//get efis");
+	db.find({},(err,indexes)=>{
+		res.send(indexes);
+		console.log("Data sent: "+JSON.stringify(indexes,null,2));
+	});
 	
-	res.send(efis);
-	res.sendStatus(200,'OK')
-})
+});
 //post efis
 router.post('/',(req,res) =>{
 	
@@ -85,14 +86,17 @@ router.post('/',(req,res) =>{
 
 //get efi
 router.get("/:country/:year", (req,res)=>{
-	
+	console.log("GET specific efi with params");
 	var country = req.params.country;
 	var year= req.params.year;
 	var efisfiltro = efis.filter((c) => {
 		return (c.country == country && c.year==year);
 	});
 	
-	
+	db.find({},(err,indexes)=>{
+		res.send(indexes);
+		console.log("Data sent: "+JSON.stringify(indexes,null,2));
+	});
 	if(efisfiltro.length >= 1){
 		res.send(efisfiltro[0]);
 	}else{
