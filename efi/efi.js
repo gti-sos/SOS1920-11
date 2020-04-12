@@ -65,7 +65,15 @@ router.get('/loadInitialData',(req,res)=>{
 //get efis
 router.get('/', function(req,res,next){
 	console.log("//get efis");
-	db.find({},(err,indexes)=>{
+	
+	var parametros = {}
+	for (var i in req.query){
+		if(i!="limit" && i!="offset"){
+			parametros.i=req.query[i];
+		}
+	}
+	
+	db.find(parametros,(err,indexes)=>{
 		res.send(indexes);
 		console.log("Data sent: "+JSON.stringify(indexes,null,2));
 	});
@@ -85,7 +93,7 @@ router.post('/',(req,res) =>{
 });
 
 //get efi
-router.get("/:country/:year", (req,res)=>{
+router.get("/*?", (req,res)=>{
 	console.log("GET specific efi with params");
 	var country = req.params.country;
 	var year= req.params.year;
