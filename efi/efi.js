@@ -55,6 +55,15 @@ var init=[{
 		'efiinvfreed':85,	
 		'efifinfred':70
 		}];
+
+function isEmpty(obj) {
+    for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
 router.get('/loadInitialData',(req,res)=>{
 	//var init = require("./initaldata.json");
 	db.insert(init);
@@ -62,23 +71,6 @@ router.get('/loadInitialData',(req,res)=>{
 	res.sendStatus(201,"DATA CREATED");
 });
 
-//get efis
-router.get('/', function(req,res,next){
-	console.log("//get efis");
-	
-	var parametros = {}
-	for (var i in req.query){
-		if(i!="limit" && i!="offset"){
-			parametros.i=req.query[i];
-		}
-	}
-	
-	db.find(parametros,(err,indexes)=>{
-		res.send(indexes);
-		console.log("Data sent: "+JSON.stringify(indexes,null,2));
-	});
-	
-});
 //post efis
 router.post('/',(req,res) =>{
 	
@@ -92,24 +84,52 @@ router.post('/',(req,res) =>{
 	}
 });
 
-//get efi
-router.get("/*?", (req,res)=>{
-	console.log("GET specific efi with params");
-	var country = req.params.country;
-	var year= req.params.year;
-	var efisfiltro = efis.filter((c) => {
-		return (c.country == country && c.year==year);
-	});
+//get efi or efis
+router.get('/', (req,res)=>{
 	
-	db.find({},(err,indexes)=>{
-		res.send(indexes);
-		console.log("Data sent: "+JSON.stringify(indexes,null,2));
-	});
-	if(efisfiltro.length >= 1){
-		res.send(efisfiltro[0]);
-	}else{
-		res.sendStatus(404,"COUNTRY NOT FOUND");
+	var query = req.query;
+	var parametros = [];
+	// parseo manual de cada parametro posible dentro de una búsqueda
+	for (x in query){
+		var objeto={};
+		if (x=="country"){
+			objeto[x]=query[x];
+		}else if (x=="year"){
+			objeto[x]=parseInt(query[x]);
+		}else{
+			objeto[x]=parseFloat(query[x]);
+		}
+		parametros.push(objeto);
 	}
+	
+	//limit y offset van a parte 
+	var limit= parseInt(query.limit);
+	var offset = parseInt(query.offset);
+	
+	
+	
+	if (isEmpty(query)){ //no hay parametros de búsqueda y se hace una búsqueda normal
+	db.find({},(err,indexes)=>{
+		//res.send(indexes);
+		console.log("get efis");
+		if (indexes!=null){
+			res.send(indexes);
+			console.log("Data sent: "+JSON.stringify(indexes,null,2));
+		}
+		else{
+			res.sendStatus(404,"NOT FOUND");
+		}
+	});}
+	else{
+		
+		db.find({$and : parametros}, (err,indices)=>{
+			res.send(JSON.stringify(indices,null,2));
+			console.log("Data sent: "+JSON.stringify(indices,null,2));
+		});
+		console.log("get specific efi");
+		
+	}
+	
 })
 
 //delete specific efi
