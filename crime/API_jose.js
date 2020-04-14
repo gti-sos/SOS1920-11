@@ -76,10 +76,12 @@ router.post("/",(req,res) =>{
 	if((newCrime == "") || (newCrime.name == null)){
 		res.sendStatus(400,"BAD REQUEST");
 	} else {
+		db.insert(newCrime);
 		crimeratestats.push(newContact); 	
 		res.sendStatus(201,"CREATED");
 	}
 });
+
 
 // DELETE CONTACTS
 
