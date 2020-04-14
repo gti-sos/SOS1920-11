@@ -3,11 +3,19 @@ const bodyParser = require("body-parser");
 var router = express.Router();
 module.exports=router;
 var app = express();
+const dataStore = require("nedb")
+const path = require("path")
+
+const dbFileName = path.join(__dirname,"crimes.db")
+
+const db = new dataStore({
+	filename: dbFileName,
+	autoload: true	
+});
 
 app.use(bodyParser.json());
 
 //var port = process.env.PORT || 80;
-
 
 
 var crimeratestats =  [];
@@ -35,7 +43,7 @@ router.put(":/loadInitialData", (req, res) =>{
 		cr_theftcount:195910 
 	}		
 ]
-	crimeratestats = init;
+	db.insert(initialData)
 	res.sendStatus(201,"DATA CREATED");
 	
 });
@@ -44,8 +52,18 @@ router.put(":/loadInitialData", (req, res) =>{
 // GET CONTACTS
 
 router.get("/", (req,res) =>{
-	res.send(JSON.stringify(crimeratestats,null,2));
-	console.log("Data sent:"+JSON.stringify(crimeratestats,null,2));
+	
+	db.find({}, (err, crimes) =>{
+		
+		crimes.forEach( (c) => {
+			delete c._id;
+		});
+		
+		res.send(JSON.stringify(contacts, null, 2));
+		console.log("Datos enviados:"+JSON.stringify(contacts, null, 2));
+	});
+		
+	
 });
 
 
