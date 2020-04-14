@@ -80,8 +80,16 @@ router.get("/:country", (req,res)=>{
 		res.send(filteredContacts[0]);
 	}else{
 		res.sendStatus(404,"COUNTRY NOT FOUND");
-	}
-});
+	} 
+	
+/*	db.find({n: {$lt:3}}, function(err, records) {
+    if (err) {
+        console.error(err);
+        process.exit(0);
+    }
+    console.log(records);
+}); */
+}); 
 
 // PUT CONTACT/XXX
 
