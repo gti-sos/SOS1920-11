@@ -52,6 +52,8 @@ router.put(":/loadInitialData", (req, res) =>{
 
 router.get("/", (req,res) =>{
 	
+	var limit = req.params.limit;
+	var offset = req.params.offset;
 	db.find ({}, (err, crimes) => {
 		
 		crimes.forEach ( (c) => {
@@ -60,7 +62,7 @@ router.get("/", (req,res) =>{
 		
 	res.send(JSON.stringify(crimes,null,2));
 	console.log("Data sent:"+JSON.stringify(crimes,null,2));
-	});
+	}).skip(parseInt(limit)).limit(parseInt(offset));
 	
 });
 
@@ -90,6 +92,9 @@ router.get("/:country/:year", (req,res)=>{
 	var year = new Object();
 	name.name = req.params.country;
 	year.year = parseInt(req.params.year);
+	
+	var limit = req.params.limit;
+	var offset = req.params.offset;
 /*	var filteredCrimes = crimeratestats.filter((c) => {
 		return (c.name == name);
 	});
@@ -107,7 +112,7 @@ router.get("/:country/:year", (req,res)=>{
     }
     res.send(JSON.stringify(crimes,null,2));
 	console.log("Data sent:"+JSON.stringify(crimes,null,2));
-	}); 
+	}).skip(parseInt(limit)).limit(parseInt(offset)); 
 }); 
 
 // PUT CONTACT/XXX
