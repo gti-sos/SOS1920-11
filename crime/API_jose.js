@@ -137,7 +137,7 @@ router.delete("/:country", (req,res)=>{
 	
 	var name = req.params.country;
 	
-	var filteredContacts = crimeratestats.filter((c) => {
+/*	var filteredContacts = crimeratestats.filter((c) => {
 		return (c.country != name);
 	});
 	
@@ -147,9 +147,15 @@ router.delete("/:country", (req,res)=>{
 		res.sendStatus(200);
 	}else{
 		res.sendStatus(404,"COUNTRY NOT FOUND");
-	}
+	} */
 	
+	db.remove({n: name}, {multi:true}, function  (err, crimes) {
+		if (err) {
+			res.sendStatus(400,"BAD REQUEST");
+		} else {
+			res.sendStatus(200,"OK");}
 	
+	});
 });
 	
 router.delete("/", (req,res)=>{
