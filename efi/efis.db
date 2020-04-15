@@ -1,4 +1,7 @@
-{"country":"New Zeland","year":2019,"efiindex":84.4,"efigovint":95,"efipropright":96.7,"efijudefct":83.5,"efitaxburden":71,"efigovspend":50.4,"efisicalhealth":98.6,"efibusfreed":91,"efilabfreed":86.7,"efimonfreed":87.5,"efitradefreed":92.4,"efiinvfreed":80,"efifinfred":80,"_id":"50Q7d3gen3jiuF6Q"}
-{"country":"Chile","year":2019,"efiindex":75.4,"efigovint":62.3,"efipropright":68.7,"efijudefct":56.3,"efitaxburden":77.3,"efigovspend":81,"efisicalhealth":89,"efibusfreed":76.6,"efilabfreed":65,"efimonfreed":84.5,"efitradefreed":88.8,"efiinvfreed":85,"efifinfred":70,"_id":"2HiKOYZ2c0x6Yhtj"}
-{"$$deleted":true,"_id":"2HiKOYZ2c0x6Yhtj"}
-{"$$deleted":true,"_id":"50Q7d3gen3jiuF6Q"}
+{"country":"New Zeland","year":2019,"efiindex":84.4,"efigovint":95,"efipropright":96.7,"efijudefct":83.5,"efitaxburden":71,"efigovspend":50.4,"efisicalhealth":98.6,"efibusfreed":91,"efilabfreed":86.7,"efimonfreed":87.5,"efitradefreed":92.4,"efiinvfreed":80,"efifinfred":80,"_id":"pK3vNQsbrGkPaBBp"}
+{"country":"Chile","year":2019,"efiindex":75.4,"efigovint":62.3,"efipropright":68.7,"efijudefct":56.3,"efitaxburden":77.3,"efigovspend":81,"efisicalhealth":89,"efibusfreed":76.6,"efilabfreed":65,"efimonfreed":84.5,"efitradefreed":88.8,"efiinvfreed":85,"efifinfred":70,"_id":"vYxMYXXfjOvP2AZG"}
+{"country":"Spain","year":2019,"efiindex":65.7,"efigovint":51.9,"efipropright":72.9,"efijudefct":51.4,"efitaxburden":62.3,"efigovspend":46.2,"efisicalhealth":51.1,"efibusfreed":66.8,"efilabfreed":57.8,"efimonfreed":87.5,"efitradefreed":86,"efiinvfreed":85,"efifinfred":70,"_id":"MXM1f6zBSyHxtE1w"}
+{"country":"Spain","year":2019,"efiindex":62.4,"efigovint":49.9,"efipropright":72.9,"efijudefct":51.4,"efitaxburden":62.3,"efigovspend":46.2,"efisicalhealth":51.1,"efibusfreed":66.8,"efilabfreed":57.8,"efimonfreed":87.5,"efitradefreed":86,"efiinvfreed":85,"efifinfred":70,"_id":"MXM1f6zBSyHxtE1w"}
+{"$$deleted":true,"_id":"MXM1f6zBSyHxtE1w"}
+{"$$deleted":true,"_id":"pK3vNQsbrGkPaBBp"}
+{"$$deleted":true,"_id":"vYxMYXXfjOvP2AZG"}

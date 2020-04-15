@@ -144,10 +144,10 @@ router.get('/', (req, res) => {
 				.skip(offset)
 				.limit(limit)
 				.exec((err, indices) => {
-					if (indices.length!=0) {
-						var index_res = indices[0];
+					if (indices.length != 0) {
+						var index_res = indices;
 						res.send(JSON.stringify(index_res, null, 2));
-						console.log('Data sent: ' + JSON.stringify(indices[0], null, 2));
+						console.log('Data sent: ' + JSON.stringify(indices, null, 2));
 					} else {
 						res.sendStatus(404, 'NOT FOUND');
 					}
@@ -161,7 +161,7 @@ router.get('/', (req, res) => {
 			db.find({}, { _id: 0 }, (err, indexes) => {
 				//res.send(indexes);
 				console.log('get efis');
-				if (indexes.length != 0 ) {
+				if (indexes.length != 0) {
 					res.send(indexes);
 					console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
 				} else {
@@ -173,7 +173,7 @@ router.get('/', (req, res) => {
 
 			db.find({ $and: parametros }, { _id: 0 }, (err, indices) => {
 				if (indices.length > 0) {
-					res.send(JSON.stringify(indices[0], null, 2));
+					res.send(JSON.stringify(indices, null, 2));
 					console.log('Data sent: ' + JSON.stringify(indices, null, 2));
 				} else {
 					res.sendStatus(404, 'NOT FOUND');
@@ -183,18 +183,33 @@ router.get('/', (req, res) => {
 		}
 	}
 });
-
+//acceso a recurso especifico
+router.get('/:country/:year', (req, res) => {
+	var p1 = {};
+	var p2 = {};
+	p1['country'] = req.params.country;
+	p2['year'] = parseInt(req.params.year);
+	var parametros = [];
+	parametros.push(p1, p2);
+	db.find({ $and: parametros }, { _id: 0 }, (err, indices) => {
+		if (indices.length > 0) {
+			res.send(JSON.stringify(indices[0], null, 2));
+			console.log('Data sent: ' + JSON.stringify(indices[0], null, 2));
+		} else {
+			res.sendStatus(404, 'NOT FOUND');
+		}
+	});
+});
 //delete specific efi
 
 router.delete('/:country/:year', (req, res) => {
 	var p1 = {};
 	var p2 = {};
-	p1["country"]=req.params.country;
-	p2["year"]=parseInt(req.params.year);
-	var parametros=[];
-	parametros.push(p1,p2)
+	p1['country'] = req.params.country;
+	p2['year'] = parseInt(req.params.year);
+	var parametros = [];
+	parametros.push(p1, p2);
 	db.remove({ $and: parametros }, {}, (error, numDel) => {
-		
 		if (numDel > 0) {
 			//se ha borrado un elemento
 			res.sendStatus(200, 'OK');
@@ -210,27 +225,22 @@ router.delete('/:country/:year', (req, res) => {
 router.put('/:country/:year', (req, res) => {
 	var p1 = {};
 	var p2 = {};
-	p1["country"]=req.params.country;
-	p2["year"]=parseInt(req.params.year);
-	var parametros=[];
-	parametros.push(p1,p2)
+	p1['country'] = req.params.country;
+	p2['year'] = parseInt(req.params.year);
+	var parametros = [];
+	parametros.push(p1, p2);
 	var body = req.body;
 	var len = sizeOfObject(body);
 	if (len != lenparametros) {
 		res.sendStatus(400, 'BAD REQUEST');
 	} else {
-		db.update(
-			{ $and: parametros },
-			{ $set: body },
-			{},
-			(error, numUpdate) => {
-				if (numUpdate > 0) {
-					res.sendStatus(200, 'OK');
-				} else {
-					res.sendStatus(404, 'NOT FOUND');
-				}
+		db.update({ $and: parametros }, { $set: body }, {}, (error, numUpdate) => {
+			if (numUpdate > 0) {
+				res.sendStatus(200, 'OK');
+			} else {
+				res.sendStatus(404, 'NOT FOUND');
 			}
-		);
+		});
 	}
 });
 
@@ -248,7 +258,7 @@ router.put('/', (req, res) => {
 
 // DELETE base route deletes efis resource
 
-router.delete('/', (req, res) => {
+router.delete('/', function(req, res) {
 	db.remove({}, { multi: true }, function(err, numRemoved) {
 		res.sendStatus(200, 'OK, resource destroyed');
 	});
