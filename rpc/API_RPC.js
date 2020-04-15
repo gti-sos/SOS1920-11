@@ -1,12 +1,19 @@
-const express = require("express");
-var app = express();
-var router = express.Router();
-module.exports=router;
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-const parametros = 9;
+const path = require('path');
+const express = require('express');
 
-var rpcs = [];
+var router = express.Router();
+module.exports = router;
+const bodyParser = require('body-parser');
+router.use(bodyParser.json());
+const lenparametros = 9;
+const BASE_API_URL = '/api/v1';
+const dataStore = require('nedb');
+const dbfile = path.join(__dirname, 'rpc.db');
+
+// inicializaciรณn de base de datos
+
+var db = new dataStore({ filename: dbfile, autoload: true });
+
 
 //route handler
 router.use(function procesador(req,res,next){
@@ -14,8 +21,8 @@ router.use(function procesador(req,res,next){
 	next();
 });
 
+//load initial data
 router.get('/loadInitialData',(req,res)=>{
-	//var init = require("./initaldata.json");
 	var init=[{ 
 		'country': "Spain",
 		'year': 2019,
@@ -38,128 +45,178 @@ router.get('/loadInitialData',(req,res)=>{
 		'pib4t':12200,
 		'vpy': 2.4
 	}];
-	rpcs=init;
+	db.insert(init);
 	res.sendStatus(201,"DATA CREATED");
 });
 
 // GET RPC
-router.get("/", (req,res) =>{
-	res.send(JSON.stringify(rpcs,null,2));
-	console.log("Data sent:"+JSON.stringify(rpcs,null,2));
-});
+router.get('/', (req, res) => {
+	var query = req.query;
+	var parametros = [];
+	// parseo manual de cada parametro posible dentro de una búsqueda
+	for (x in query) {
+		var objeto = {};
+		if (x == 'country') {
+			objeto[x] = query[x];
+		} else if (x == 'vpy') {
+			objeto[x] = parseFloat(query[x]);
+		} else if (x != 'limit' && x != 'offset') {
+			objeto[x] = parseInt(query[x]);
+		}
+		parametros.push(objeto);
+	}
 
-// POST RPC
-router.post("/",(req,res) =>{
-	
-	var newRpc = req.body;
+	//limit y offset van a parte
+	var limit = parseInt(query.limit);
+	var offset = parseInt(query.offset);
 
-	if((newRpc == "") || (newRpc.country == null)){
-		res.sendStatus(400,"BAD REQUESTT");
+	//si los parametros de paginación y offset están activos, se harán las consultas
+	//integrando la paginación. en caso contrario se hará una query general
+	if (!isNaN(limit) && !isNaN(offset)) {
+		if (isEmpty(query)) {
+			//no hay parametros de búsqueda y se hace una búsqueda normal
+			db
+				.find({}, { _id: 0 })
+				.skip(offset)
+				.limit(limit)
+				.exec((err, indexes) => {
+					//res.send(indexes);
+					console.log('get rpcs');
+					if (!isEmpty(indexes)) {
+						res.send(indexes);
+						console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
+					} else {
+						res.sendStatus(404, 'NOT FOUND');
+					}
+				});
+		} else {
+			//hay parametros para buscar, se pasa por un filtro $and
+
+			db
+				.find({ $and: parametros }, { _id: 0 })
+				.skip(offset)
+				.limit(limit)
+				.exec((err, indices) => {
+					if (indices.length!=0) {
+						var index_res = indices[0];
+						res.send(JSON.stringify(index_res, null, 2));
+						console.log('Data sent: ' + JSON.stringify(indices[0], null, 2));
+					} else {
+						res.sendStatus(404, 'NOT FOUND');
+					}
+				});
+			console.log('get specific rpc');
+		}
 	} else {
-		rpcs.push(newRpc); 	
-		res.sendStatus(201,"CREATED");
-	}
-});
-
-// DELETE RPC
-router.delete("/", (req,res)=>{
-	
-	
-	
-	rpcs = [];
-	
-	
-	if(rpcs.length == 0){
-		res.sendStatus(200,"OK, RESOURCE EMPTY");
-	}else{
-		res.sendStatus(400,"SOMETHNG WAS WRONG");
-	}
-	
-	
-});
-
-// GET RPC/COUNTRY
-
-router.get("/:country/:year", (req,res)=>{
-	
-	var country = req.params.country;
-	var year = req.params.year;
-	
-	var filteredRpcs = rpcs.filter((c) => {
-		return (c.country == country && c.year == year) ;
-	});
-	
-	
-	if(filteredRpcs.length >= 1){
-		res.send(filteredRpcs[0]);
-		sendStatus(200,"OK")
-	}else{
-		res.sendStatus(404,"COUNTRY NOT FOUND");
-	}
-});
-
-// PUT RPC/COUNTRY
-
-router.put('/:country/:year', (req,res)=>{
-	
-	var country= req.params.country;
-	var year= req.params.year;
-
-	var rpcsfiltro = rpcs.filter((c) => {
-		return (c.country == country && c.year == year);
-	});
-	
-	if (rpcsfiltro.length==0){
-		res.sendStatus(404,"COUNTRY NOT FOUND");	
-	}else{
-		
-		var body= req.body;
-		var len = 0
-		for (x in body) {
-			len+=1;
-  		} 
-		if (len!=parametros){
-			res.sendStatus(400,"BAD REQUEST");
-		}else{
-		
-			var nuevorpc=rpcs.map((c)=>{
-				if(c.country==country){
-					c.country=body["country"];
-					c.year=body["year"];
-					c.rpc=body["rpc"];
-					c.piba=body["piba"];
-					c.pib1t=body["pib1t"];
-					c.pib2t=body["pib2t"];
-					c.pib3t=body["pib3t"];
-					c.pib4t=body["pib4t"];
-					c.vpy=body["vpy"];
+		if (isEmpty(query)) {
+			//no hay parametros de búsqueda y se hace una búsqueda normal
+			console.log('Buscando todos los rpcs');
+			db.find({}, { _id: 0 }, (err, indexes) => {
+				//res.send(indexes);
+				console.log('get efis');
+				if (indexes.length != 0 ) {
+					res.send(indexes);
+					console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
+				} else {
+					res.sendStatus(404, 'NOT FOUND');
 				}
 			});
-			res.sendStatus(200,"OK");
+		} else {
+			//hay parametros para buscar, se pasa por un filtro $and
+
+			db.find({ $and: parametros }, { _id: 0 }, (err, indices) => {
+				if (indices.length > 0) {
+					res.send(JSON.stringify(indices[0], null, 2));
+					console.log('Data sent: ' + JSON.stringify(indices, null, 2));
+				} else {
+					res.sendStatus(404, 'NOT FOUND');
+				}
+			});
+			console.log('get specific rpc');
 		}
 	}
 });
 
+// POST RPC
+router.post('/', (req, res) => {
+	var newRpc = req.body;
 
-//DELETE RPCS/COUNTRY
-
-router.delete("/:country/:year", (req,res)=>{
-	
-	var country = req.params.country;
-	var year= req.params.year;
-	
-	var rpcsfiltro = rpcs.filter((c) => {
-		return !(c.country == country && c.year == year);
-	});
-	
-	
-	if(rpcsfiltro.length < rpcs.length){
-		rpcs = rpcsfiltro;
-		res.sendStatus(200),"OK, OBJECT DELETED";
-	}else{
-		res.sendStatus(404,"COUNTRY NOT FOUND");
+	if (newRpc == '' || newRpc.country == null) {
+		//no es ni remotamente indexable.
+		res.sendStatus(400, 'BAD REQUEST');
+	} else if ('_id' in newRpc) {
+		//el cuerpo no puede tener el campo _id
+		res.sendStatus(400, 'BAD REQUEST');
+	} else if (sizeOfObject(newRpc) != lenparametros) {
+		//falan o sobran parametros
+		res.sendStatus(400, 'BAD REQUEST');
+	} else {
+		//todo en orden
+		db.insert(newRpc);
+		res.sendStatus(201, 'CREATED');
 	}
 });
+
+// DELETE RPC
+router.delete('/', (req, res) => {
+	db.remove({}, { multi: true }, function(err, numRemoved) {
+		res.sendStatus(200, 'OK, resource destroyed');
+	});
+});
+
+
+
+// PUT RPC/COUNTRY/YEAR
+
+router.put('/:country/:year', (req, res) => {
+	var p1 = {};
+	var p2 = {};
+	p1["country"]=req.params.country;
+	p2["year"]=parseInt(req.params.year);
+	var parametros=[];
+	parametros.push(p1,p2)
+	var body = req.body;
+	var len = sizeOfObject(body);
+	if (len != lenparametros) {
+		res.sendStatus(400, 'BAD REQUEST');
+	} else {
+		db.update(
+			{ $and: parametros },
+			{ $set: body },
+			{},
+			(error, numUpdate) => {
+				if (numUpdate > 0) {
+					res.sendStatus(200, 'OK');
+				} else {
+					res.sendStatus(404, 'NOT FOUND');
+				}
+			}
+		);
+	}
+});
+
+
+//DELETE RPC/COUNTRY/YEAR
+
+router.delete('/:country/:year', (req, res) => {
+	var p1 = {};
+	var p2 = {};
+	p1["country"]=req.params.country;
+	p2["year"]=parseInt(req.params.year);
+	var parametros=[];
+	parametros.push(p1,p2)
+	db.remove({ $and: parametros }, {}, (error, numDel) => {
+		
+		if (numDel > 0) {
+			//se ha borrado un elemento
+			res.sendStatus(200, 'OK');
+		} else {
+			// no se ha borrado nada. se ha accedido mal al elemento
+			res.sendStatus(404, 'NOT FOUND');
+		}
+	});
+});
+
 
 //post specific rpc --> wrong method
 
@@ -174,4 +231,16 @@ router.put('/', (req,res)=>{
 	res.sendStatus(405,"METHOD NOT ALLOWED");
 });
 
+//funciones auxiliares
+
+function isEmpty(obj) {
+	for (var key in obj) {
+		if (obj.hasOwnProperty(key)) return false;
+	}
+	return true;
+}
+
+function sizeOfObject(obj) {
+	return Object.keys(obj).length;
+}
 
