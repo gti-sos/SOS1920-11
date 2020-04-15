@@ -101,7 +101,7 @@ router.get("/:country/:year", (req,res)=>{
 		res.sendStatus(404,"COUNTRY NOT FOUND");
 	} */
 	
-	db.find({n: {$and:[name, year]}}, function(err, crimes) {
+	db.find({country:name, year:year}, function(err, crimes) {
     if (err) {
        	res.sendStatus(404,"COUNTRY NOT FOUND");
     }
