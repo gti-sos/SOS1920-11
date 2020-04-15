@@ -65,7 +65,7 @@ function isEmpty(obj) {
 	return true;
 }
 
-function sizeOfObject(obj){
+function sizeOfObject(obj) {
 	return Object.keys(obj).length;
 }
 
@@ -79,14 +79,18 @@ router.get('/loadInitialData', (req, res) => {
 //post un efi en efis
 router.post('/', (req, res) => {
 	var newefi = req.body;
-	
-	if (newefi == '' || newefi.country == null) { //no es ni remotamente indexable. 
+
+	if (newefi == '' || newefi.country == null) {
+		//no es ni remotamente indexable.
 		res.sendStatus(400, 'BAD REQUEST');
-	} else if (_id in newefi) { //el cuerpo no puede tener el campo _id
-		res.sendStatus(400, 'BAD REQUEST');	   
-	}else if (sizeOfObject(newefi)!=lenparametros){ //falan o sobran parametros
+	} else if ('_id' in newefi) {
+		//el cuerpo no puede tener el campo _id
 		res.sendStatus(400, 'BAD REQUEST');
-	} else { //todo en orden
+	} else if (sizeOfObject(newefi) != lenparametros) {
+		//falan o sobran parametros
+		res.sendStatus(400, 'BAD REQUEST');
+	} else {
+		//todo en orden
 		db.insert(newefi);
 		res.sendStatus(201, 'CREATED');
 	}
@@ -119,7 +123,7 @@ router.get('/', (req, res) => {
 		if (isEmpty(query)) {
 			//no hay parametros de búsqueda y se hace una búsqueda normal
 			db
-				.find({},{ _id: 0 })
+				.find({}, { _id: 0 })
 				.skip(offset)
 				.limit(limit)
 				.exec((err, indexes) => {
@@ -136,13 +140,14 @@ router.get('/', (req, res) => {
 			//hay parametros para buscar, se pasa por un filtro $and
 
 			db
-				.find({ $and: parametros },  { _id: 0 } )
+				.find({ $and: parametros }, { _id: 0 })
 				.skip(offset)
 				.limit(limit)
 				.exec((err, indices) => {
 					if (indices.length > 0) {
-						res.send(JSON.stringify(indices, null, 2));
-						console.log('Data sent: ' + JSON.stringify(indices, null, 2));
+						var index_res = indices[0];
+						res.send(JSON.stringify(index_res, null, 2));
+						console.log('Data sent: ' + JSON.stringify(indices[0], null, 2));
 					} else {
 						res.sendStatus(404, 'NOT FOUND');
 					}
@@ -152,7 +157,7 @@ router.get('/', (req, res) => {
 	} else {
 		if (isEmpty(query)) {
 			//no hay parametros de búsqueda y se hace una búsqueda normal
-			console.log("Buscando todos los efi");
+			console.log('Buscando todos los efi');
 			db.find({}, { _id: 0 }, (err, indexes) => {
 				//res.send(indexes);
 				console.log('get efis');
@@ -168,7 +173,7 @@ router.get('/', (req, res) => {
 
 			db.find({ $and: parametros }, { _id: 0 }, (err, indices) => {
 				if (indices.length > 0) {
-					res.send(JSON.stringify(indices, null, 2));
+					res.send(JSON.stringify(indices[0], null, 2));
 					console.log('Data sent: ' + JSON.stringify(indices, null, 2));
 				} else {
 					res.sendStatus(404, 'NOT FOUND');
@@ -182,15 +187,20 @@ router.get('/', (req, res) => {
 //delete specific efi
 
 router.delete('/:country/:year', (req, res) => {
-	var country = req.params.country;
-	var year = req.params.year;
-
-	db.delete({$and: [{country: country},{year: year}]}, {}, (error,numDel)=>{
-		if (numDel>0){ //se ha borrado un elemento
-			res.sendStatus(200,"OK");
-		}
-		else{ // no se ha borrado nada. se ha accedido mal al elemento
-			res.sendStatus(404,"NOT FOUND");
+	var p1 = {};
+	var p2 = {};
+	p1["country"]=req.params.country;
+	p2["year"]=parseInt(req.params.year);
+	var parametros=[];
+	parametros.push(p1,p2)
+	db.remove({ $and: parametros }, {}, (error, numDel) => {
+		
+		if (numDel > 0) {
+			//se ha borrado un elemento
+			res.sendStatus(200, 'OK');
+		} else {
+			// no se ha borrado nada. se ha accedido mal al elemento
+			res.sendStatus(404, 'NOT FOUND');
 		}
 	});
 });
@@ -198,25 +208,30 @@ router.delete('/:country/:year', (req, res) => {
 //PUT specific efi
 
 router.put('/:country/:year', (req, res) => {
-	var country = req.params.country;
-	var year = req.params.year;
-	
-	
+	var p1 = {};
+	var p2 = {};
+	p1["country"]=req.params.country;
+	p2["year"]=parseInt(req.params.year);
+	var parametros=[];
+	parametros.push(p1,p2)
 	var body = req.body;
 	var len = sizeOfObject(body);
 	if (len != lenparametros) {
 		res.sendStatus(400, 'BAD REQUEST');
-	}else {
-		db.update({$and: [{country: country}, {year:year}]}, {$set: body}, {}, (error,numUpdate)=>{
-			if (numUpdate>0){
-				res.sendStatus(200,"OK");
-			}else{
-				res.sendStatus(404,"NOT FOUND");
+	} else {
+		db.update(
+			{ $and: parametros },
+			{ $set: body },
+			{},
+			(error, numUpdate) => {
+				if (numUpdate > 0) {
+					res.sendStatus(200, 'OK');
+				} else {
+					res.sendStatus(404, 'NOT FOUND');
+				}
 			}
-			
-		});
+		);
 	}
-	
 });
 
 //post specific efi --> wrong method
@@ -234,6 +249,7 @@ router.put('/', (req, res) => {
 // DELETE base route deletes efis resource
 
 router.delete('/', (req, res) => {
-	efis = [];
-	res.sendStatus(200, 'OK, resource destroyed');
+	db.remove({}, { multi: true }, function(err, numRemoved) {
+		res.sendStatus(200, 'OK, resource destroyed');
+	});
 });
