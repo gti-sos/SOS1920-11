@@ -217,6 +217,29 @@ router.delete('/:country/:year', (req, res) => {
 	});
 });
 
+//GET RPC/COUNTRY/YEAR
+
+router.get('/:country/:year', (req, res) => {
+	var p1 = {};
+	var p2 = {};
+	p1["country"]=req.params.country;
+	p2["year"]=parseInt(req.params.year);
+	var parametros=[];
+	parametros.push(p1,p2)
+			db
+				.find({ $and : parametros}, { _id: 0 })
+				.exec((err, indexes) => {
+					//res.send(indexes);
+					console.log('get rpc');
+					if (!isEmpty(indexes)) {
+						res.send(indexes);
+						console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
+					} else {
+						res.sendStatus(404, 'NOT FOUND');
+					}
+				});
+	
+});
 
 //post specific rpc --> wrong method
 
