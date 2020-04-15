@@ -72,7 +72,7 @@ router.get('/loadInitialData', (req, res) => {
 	res.sendStatus(201, 'DATA CREATED');
 });
 
-//post efis
+//post un efi en efis
 router.post('/', (req, res) => {
 	var newefi = req.body;
 
@@ -111,10 +111,10 @@ router.get('/', (req, res) => {
 		if (isEmpty(query)) {
 			//no hay parametros de búsqueda y se hace una búsqueda normal
 			db
-				.find({}, { projection: { _id: 0 } })
+				.find({},{ _id: 0 })
 				.skip(offset)
 				.limit(limit)
-				.toArray((err, indexes) => {
+				.exec((err, indexes) => {
 					//res.send(indexes);
 					console.log('get efis');
 					if (indexes != null) {
@@ -128,10 +128,10 @@ router.get('/', (req, res) => {
 			//hay parametros para buscar, se pasa por un filtro $and
 
 			db
-				.find({ $and: parametros }, { projection: { _id: 0 } })
+				.find({ $and: parametros },  { _id: 0 } )
 				.skip(offset)
 				.limit(limit)
-				.toArray((err, indices) => {
+				.exec((err, indices) => {
 					if (indices.length > 0) {
 						res.send(JSON.stringify(indices, null, 2));
 						console.log('Data sent: ' + JSON.stringify(indices, null, 2));
@@ -144,7 +144,8 @@ router.get('/', (req, res) => {
 	} else {
 		if (isEmpty(query)) {
 			//no hay parametros de búsqueda y se hace una búsqueda normal
-			db.find({},{_id:0}, (err, indexes) => {
+			console.log("Buscando todos los efi");
+			db.find({}, { _id: 0 }, (err, indexes) => {
 				//res.send(indexes);
 				console.log('get efis');
 				if (indexes != null) {
@@ -157,7 +158,7 @@ router.get('/', (req, res) => {
 		} else {
 			//hay parametros para buscar, se pasa por un filtro $and
 
-			db.find({ $and: parametros },{_id:0}, (err, indices) => {
+			db.find({ $and: parametros }, { _id: 0 }, (err, indices) => {
 				if (indices.length > 0) {
 					res.send(JSON.stringify(indices, null, 2));
 					console.log('Data sent: ' + JSON.stringify(indices, null, 2));
