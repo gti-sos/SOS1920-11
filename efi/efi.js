@@ -5,7 +5,7 @@ var router = express.Router();
 module.exports = router;
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
-const parametros = 15;
+const lenparametros = 15;
 const BASE_API_URL = '/api/v1';
 const dataStore = require('nedb');
 const dbfile = path.join(__dirname, 'efis.db');
@@ -65,6 +65,10 @@ function isEmpty(obj) {
 	return true;
 }
 
+function sizeOfObject(obj){
+	return Object.keys(obj).length;
+}
+
 router.get('/loadInitialData', (req, res) => {
 	//var init = require("./initaldata.json");
 	db.insert(init);
@@ -75,11 +79,15 @@ router.get('/loadInitialData', (req, res) => {
 //post un efi en efis
 router.post('/', (req, res) => {
 	var newefi = req.body;
-
-	if (newefi == '' || newefi.country == null) {
+	
+	if (newefi == '' || newefi.country == null) { //no es ni remotamente indexable. 
 		res.sendStatus(400, 'BAD REQUEST');
-	} else {
-		efis.push(newefi);
+	} else if (_id in newefi) { //el cuerpo no puede tener el campo _id
+		res.sendStatus(400, 'BAD REQUEST');	   
+	}else if (sizeOfObject(newefi)!=lenparametros){ //falan o sobran parametros
+		res.sendStatus(400, 'BAD REQUEST');
+	} else { //todo en orden
+		db.insert(newefi);
 		res.sendStatus(201, 'CREATED');
 	}
 });
@@ -177,16 +185,14 @@ router.delete('/:country/:year', (req, res) => {
 	var country = req.params.country;
 	var year = req.params.year;
 
-	var efisfiltro = efis.filter(c => {
-		return c.country != country || c.year != year;
+	db.delete({$and: [{country: country},{year: year}]}, {}, (error,numDel)=>{
+		if (numDel>0){ //se ha borrado un elemento
+			res.sendStatus(200,"OK");
+		}
+		else{ // no se ha borrado nada. se ha accedido mal al elemento
+			res.sendStatus(404,"NOT FOUND");
+		}
 	});
-
-	if (efisfiltro.length < efis.length) {
-		efis = efisfiltro;
-		res.sendStatus(200);
-	} else {
-		res.sendStatus(404, 'COUNTRY NOT FOUND');
-	}
 });
 
 //PUT specific efi
@@ -206,7 +212,7 @@ router.put('/:country/:year', (req, res) => {
 		for (x in body) {
 			len += 1;
 		}
-		if (len != parametros) {
+		if (len != lenparametros) {
 			res.sendStatus(400, 'BAD REQUEST');
 		} else {
 			var nuevoefi = efis.map(c => {
