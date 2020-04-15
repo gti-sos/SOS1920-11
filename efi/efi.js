@@ -200,43 +200,23 @@ router.delete('/:country/:year', (req, res) => {
 router.put('/:country/:year', (req, res) => {
 	var country = req.params.country;
 	var year = req.params.year;
-	var efisfiltro = efis.filter(c => {
-		return c.country == country && c.year == year;
-	});
-
-	if (efisfiltro.length == 0) {
-		res.sendStatus(404, 'COUNTRY NOT FOUND');
-	} else {
-		var body = req.body;
-		var len = 0;
-		for (x in body) {
-			len += 1;
-		}
-		if (len != lenparametros) {
-			res.sendStatus(400, 'BAD REQUEST');
-		} else {
-			var nuevoefi = efis.map(c => {
-				if (c.country == country) {
-					c.country = body['country'];
-					c.year = body['year'];
-					c.efiindex = body['efiindex'];
-					c.efigovint = body['efigovint'];
-					c.efipropright = body['efipropright'];
-					c.efijudefct = body['efijudefct'];
-					c.efitaxburden = body['efitaxburden'];
-					c.efigovspend = body['efigovspend'];
-					c.efisicalhealth = body['efisicalhealth'];
-					c.efibusfreed = body['efibusfreed'];
-					c.efilabfreed = body['efilabfreed'];
-					c.efimonfreed = body['efimonfreed'];
-					c.efitradefreed = body['efitradefreed'];
-					c.efiinvfreed = body['efiinvfreed'];
-					c.efifinfred = body['efifinfred'];
-				}
-			});
-			res.sendStatus(200, 'OK');
-		}
+	
+	
+	var body = req.body;
+	var len = sizeOfObject(body);
+	if (len != lenparametros) {
+		res.sendStatus(400, 'BAD REQUEST');
+	}else {
+		db.update({$and: [{country: country}, {year:year}]}, {$set: body}, {}, (error,numUpdate)=>{
+			if (numUpdate>0){
+				res.sendStatus(200,"OK");
+			}else{
+				res.sendStatus(404,"NOT FOUND");
+			}
+			
+		});
 	}
+	
 });
 
 //post specific efi --> wrong method
