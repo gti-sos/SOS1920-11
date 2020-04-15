@@ -72,7 +72,7 @@ router.post("/",(req,res) =>{
 	var newCrime = req.body;
 	
 	if((newCrime == "") || (newCrime.name == null)){
-		res.sendStatus(400,"BAD REQUEST");
+		res.sendStatus(400,"BADd01jose REQUEST");
 	} else {
 		
 		db.insert(newCrime);	
