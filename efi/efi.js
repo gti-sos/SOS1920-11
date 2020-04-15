@@ -129,7 +129,7 @@ router.get('/', (req, res) => {
 				.exec((err, indexes) => {
 					//res.send(indexes);
 					console.log('get efis');
-					if (indexes != null) {
+					if (!isEmpty(indexes)) {
 						res.send(indexes);
 						console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
 					} else {
@@ -144,7 +144,7 @@ router.get('/', (req, res) => {
 				.skip(offset)
 				.limit(limit)
 				.exec((err, indices) => {
-					if (indices.length > 0) {
+					if (indices.length!=0) {
 						var index_res = indices[0];
 						res.send(JSON.stringify(index_res, null, 2));
 						console.log('Data sent: ' + JSON.stringify(indices[0], null, 2));
@@ -161,7 +161,7 @@ router.get('/', (req, res) => {
 			db.find({}, { _id: 0 }, (err, indexes) => {
 				//res.send(indexes);
 				console.log('get efis');
-				if (indexes != null) {
+				if (indexes.length != 0 ) {
 					res.send(indexes);
 					console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
 				} else {
