@@ -3,17 +3,20 @@ const bodyParser = require("body-parser");
 var router = express.Router();
 module.exports=router;
 var app = express();
-
 app.use(bodyParser.json());
 
+const dataStore = require("nedb")
+const path = require("path")
+
+const dbFileName = path.join(__dirname,"crimes.db")
+
+const db = new dataStore({
+	filename: dbFileName,
+	autoload: true	
+});
 //var port = process.env.PORT || 80;
 
-
-
-var crimeratestats =  [];
-
-router.put(":/loadInitialData", (req, res) =>{
-	var init = [
+var crimeratestats =  [
 	{ 
 		country: "Venezuela",
 		year: 2016,
@@ -34,9 +37,13 @@ router.put(":/loadInitialData", (req, res) =>{
 		cr_theftrate: 422.21,
 		cr_theftcount:195910 
 	}		
-]
-	crimeratestats = init;
+];
+
+router.put(":/loadInitialData", (req, res) =>{
+	
+	db.insert(crimeratestats);
 	res.sendStatus(201,"DATA CREATED");
+	console.log("Datos enviados:"+JSON.stringify(crimeratestats, null, 2));
 	
 });
 //const BASE_API_URL = "/api/v1";
@@ -44,8 +51,17 @@ router.put(":/loadInitialData", (req, res) =>{
 // GET CONTACTS
 
 router.get("/", (req,res) =>{
-	res.send(JSON.stringify(crimeratestats,null,2));
-	console.log("Data sent:"+JSON.stringify(crimeratestats,null,2));
+	
+	db.find ({}, (err, crimes) => {
+		
+		crimes.forEach ( (c) => {
+			delete c._id;
+		});
+		
+	res.send(JSON.stringify(crimes,null,2));
+	console.log("Data sent:"+JSON.stringify(crimes,null,2));
+	});
+	
 });
 
 
@@ -58,7 +74,8 @@ router.post("/",(req,res) =>{
 	if((newCrime == "") || (newCrime.name == null)){
 		res.sendStatus(400,"BAD REQUEST");
 	} else {
-		crimeratestats.push(newContact); 	
+		
+		db.insert(newCrime);	
 		res.sendStatus(201,"CREATED");
 	}
 });
