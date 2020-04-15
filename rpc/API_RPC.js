@@ -231,7 +231,7 @@ router.get('/:country/:year', (req, res) => {
 					//res.send(indexes);
 					console.log('get rpc');
 					if (!isEmpty(indexes)) {
-						res.send(indexes);
+						res.send(indexes[0]);
 						console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
 					} else {
 						res.sendStatus(404, 'NOT FOUND');
