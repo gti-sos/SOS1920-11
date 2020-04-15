@@ -98,8 +98,7 @@ router.get('/', (req, res) => {
 				.limit(limit)
 				.exec((err, indices) => {
 					if (indices.length!=0) {
-						var index_res = indices[0];
-						res.send(JSON.stringify(index_res, null, 2));
+						res.send(JSON.stringify(indices, null, 2));
 						console.log('Data sent: ' + JSON.stringify(indices[0], null, 2));
 					} else {
 						res.sendStatus(404, 'NOT FOUND');
@@ -126,7 +125,7 @@ router.get('/', (req, res) => {
 
 			db.find({ $and: parametros }, { _id: 0 }, (err, indices) => {
 				if (indices.length > 0) {
-					res.send(JSON.stringify(indices[0], null, 2));
+					res.send(JSON.stringify(indices, null, 2));
 					console.log('Data sent: ' + JSON.stringify(indices, null, 2));
 				} else {
 					res.sendStatus(404, 'NOT FOUND');
