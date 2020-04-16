@@ -16,8 +16,7 @@ const db = new dataStore({
 
 app.use(bodyParser.json());
 
-const dataStore = require("nedb")
-const path = require("path")
+
 
 //var port = process.env.PORT || 80;
 
