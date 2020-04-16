@@ -146,7 +146,7 @@ router.put('/:country', (req,res)=>{
 		}
 		res.sendStatus(200,"OK");
 	});
-
+});
 router.delete("/:country", (req,res)=>{
 	
 	var name = req.params.country;
@@ -190,6 +190,5 @@ router.delete("/", (req,res)=>{
 			res.sendStatus(200,"OK");}
 	
 	});
-
 });
 
