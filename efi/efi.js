@@ -109,6 +109,8 @@ router.get('/', (req, res) => {
 			objeto[x] = parseInt(query[x]);
 		} else if (x != 'limit' && x != 'offset') {
 			objeto[x] = parseFloat(query[x]);
+			
+			
 		}
 		parametros.push(objeto);
 	}
