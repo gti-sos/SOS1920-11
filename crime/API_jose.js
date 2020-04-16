@@ -43,10 +43,10 @@ var crimeratestats =  [
 		cr_theftcount:195910 
 	}		];
 
-router.put(":/loadInitialData", (req, res) =>{
+router.get("/loadInitialData", (req, res) =>{
 	
 	db.insert(crimeratestats);
-	res.sendStatus(201,"DATA CREATED");
+	//res.sendStatus(201,"DATA CREATED");
 	console.log("Datos enviados:"+JSON.stringify(crimeratestats, null, 2));
 	
 });
@@ -57,17 +57,11 @@ router.put(":/loadInitialData", (req, res) =>{
 router.get("/", (req,res) =>{
 	
 
-	var limit = req.params.limit;
-	var offset = req.params.offset;
-	db.find ({}, (err, crimes) => {
-		
-		crimes.forEach ( (c) => {
-			delete c._id;
-		});
+	db.find ({}, { _id: 0 },(err, crimes) => {
 		
 	res.send(JSON.stringify(crimes,null,2));
 	console.log("Data sent:"+JSON.stringify(crimes,null,2));
-	}).skip(parseInt(limit)).limit(parseInt(offset));
+	});
 	
 });
 
@@ -83,7 +77,6 @@ router.post("/",(req,res) =>{
 	} else {
 
 		db.insert(newCrime);	
-		res.sendStatus(201,"CREATED");
 	}
 });
 
@@ -118,7 +111,7 @@ router.get("/:country/:year", (req,res)=>{
     }
     res.send(JSON.stringify(crimes,null,2));
 	console.log("Data sent:"+JSON.stringify(crimes,null,2));
-	}).skip(parseInt(limit)).limit(parseInt(offset)); 
+	}); 
 }); 
 
 // PUT CONTACT/XXX
