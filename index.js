@@ -32,7 +32,7 @@ app.use(rutaRPC,rpcs);
 //Acceso a crime-rate-stats
 
 
-const rutaCrime = BASE_API_URL + '/crimeratestats';
+const rutaCrime = BASE_API_URL + '/crime-rate-stats';
 var rcrime=  require('./crime/API_jose');
 app.use(rutaCrime,rcrime);
 

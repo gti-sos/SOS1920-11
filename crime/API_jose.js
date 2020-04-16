@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 var router = express.Router();
 module.exports=router;
 var app = express();
+
 const dataStore = require("nedb")
 const path = require("path")
 
@@ -15,13 +16,13 @@ const db = new dataStore({
 
 app.use(bodyParser.json());
 
+const dataStore = require("nedb")
+const path = require("path")
+
 //var port = process.env.PORT || 80;
 
 
-var crimeratestats =  [];
-
-router.put(":/loadInitialData", (req, res) =>{
-	var init = [
+var crimeratestats =  [
 	{ 
 		country: "Venezuela",
 		year: 2016,
@@ -41,10 +42,13 @@ router.put(":/loadInitialData", (req, res) =>{
 		cr_homicount: 276,
 		cr_theftrate: 422.21,
 		cr_theftcount:195910 
-	}		
-]
-	db.insert(initialData)
+	}		];
+
+router.put(":/loadInitialData", (req, res) =>{
+	
+	db.insert(crimeratestats);
 	res.sendStatus(201,"DATA CREATED");
+	console.log("Datos enviados:"+JSON.stringify(crimeratestats, null, 2));
 	
 });
 //const BASE_API_URL = "/api/v1";
@@ -53,16 +57,18 @@ router.put(":/loadInitialData", (req, res) =>{
 
 router.get("/", (req,res) =>{
 	
-	db.find({}, (err, crimes) =>{
+
+	var limit = req.params.limit;
+	var offset = req.params.offset;
+	db.find ({}, (err, crimes) => {
 		
-		crimes.forEach( (c) => {
+		crimes.forEach ( (c) => {
 			delete c._id;
 		});
 		
-		res.send(JSON.stringify(contacts, null, 2));
-		console.log("Datos enviados:"+JSON.stringify(contacts, null, 2));
-	});
-		
+	res.send(JSON.stringify(crimes,null,2));
+	console.log("Data sent:"+JSON.stringify(crimes,null,2));
+	}).skip(parseInt(limit)).limit(parseInt(offset));
 	
 });
 
@@ -76,8 +82,8 @@ router.post("/",(req,res) =>{
 	if((newCrime == "") || (newCrime.name == null)){
 		res.sendStatus(400,"BAD REQUEST");
 	} else {
-		db.insert(newCrime);
-		crimeratestats.push(newContact); 	
+
+		db.insert(newCrime);	
 		res.sendStatus(201,"CREATED");
 	}
 });
@@ -87,11 +93,16 @@ router.post("/",(req,res) =>{
 
 // GET CONTACT/XXX
 
-router.get("/:country", (req,res)=>{
+router.get("/:country/:year", (req,res)=>{
 	
-	var name = req.params.country;
+	var name = new Object();
+	var year = new Object();
+	name.name = req.params.country;
+	year.year = parseInt(req.params.year);
 	
-	var filteredCrimes = crimeratestats.filter((c) => {
+	var limit = req.params.limit;
+	var offset = req.params.offset;
+/*	var filteredCrimes = crimeratestats.filter((c) => {
 		return (c.name == name);
 	});
 	
@@ -100,15 +111,24 @@ router.get("/:country", (req,res)=>{
 		res.send(filteredContacts[0]);
 	}else{
 		res.sendStatus(404,"COUNTRY NOT FOUND");
-	}
-});
+	} */
+	
+	db.find({country:name, year:year}, function(err, crimes) {
+    if (err) {
+       	res.sendStatus(404,"COUNTRY NOT FOUND");
+    }
+    res.send(JSON.stringify(crimes,null,2));
+	console.log("Data sent:"+JSON.stringify(crimes,null,2));
+	}).skip(parseInt(limit)).limit(parseInt(offset)); 
+}); 
 
 // PUT CONTACT/XXX
 
 router.put('/:country', (req,res)=>{
 	
 	var country= req.params.country;
-	var filtro = crimeratestats.filter((c) => {
+	var body = req.body;
+/*	var filtro = crimeratestats.filter((c) => {
 		return (c.country == country);
 	});
 	
@@ -125,14 +145,20 @@ router.put('/:country', (req,res)=>{
 		});
 		res.sendStatus(200,"OK");
 	}
+}); */
+	
+	db.update({country: country}, {$set: {country: body["country"], year: parseInt(body["year"]), 		cr_rate:parseFloat(body["cr_rate"])}}, {}, function(err, crimes) {
+		if (err){
+			res.sendStatus(404,"COUNTRY NOT FOUND");
+		}
+		res.sendStatus(200,"OK");
+	});
 });
-// DELETE CONTACT/XXX
-
 router.delete("/:country", (req,res)=>{
 	
 	var name = req.params.country;
 	
-	var filteredContacts = crimeratestats.filter((c) => {
+/*	var filteredContacts = crimeratestats.filter((c) => {
 		return (c.country != name);
 	});
 	
@@ -142,21 +168,34 @@ router.delete("/:country", (req,res)=>{
 		res.sendStatus(200);
 	}else{
 		res.sendStatus(404,"COUNTRY NOT FOUND");
-	}
+	} */
 	
+	db.remove({country: name}, {multi:true}, function  (err, crimes) {
+		if (err) {
+			res.sendStatus(400,"BAD REQUEST");
+		} else {
+			res.sendStatus(200,"OK");}
 	
+	});
 });
 	
 router.delete("/", (req,res)=>{
 	
-	var empt = [];
+/*ar empt = [];
 	
 	if(crimeratestats.length > 0){
 		crimeratestats = empt;
 		res.sendStatus(200,"OK");
 	}else{
 		res.sendStatus(400,"BAD REQUEST");
-	}
+	} */
 	
+	db.remove({}, {multi:true}, function  (err, crimes) {
+		if (err) {
+			res.sendStatus(400,"BAD REQUEST");
+		} else {
+			res.sendStatus(200,"OK");}
+	
+	});
 });
 

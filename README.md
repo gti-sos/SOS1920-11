@@ -28,6 +28,6 @@ Our project is focused on the economic freedom of different countries and the im
 ## APIs
 
 *   [https://sos1920-11.herokuapp.com/api/v1/economic-freedom-indexes/docs](https://documenter.getpostman.com/view/10701438/SzYUZgNc) (developed by Ignacio Calcedo Vázquez)
-*   [https://sos1920-11.herokuapp.com/api/v1/crime-rates-stats/docs]( https://documenter.getpostman.com/view/10701451/SzYUZMCN) (developed by José Calcedo Vázquez)
+*   [https://sos1920-11.herokuapp.com/api/v1/crime-rates-stats/docs]( https://documenter.getpostman.com/view/10701451/Szf3aVio) (developed by José Calcedo Vázquez)
 *   [https://sos1920-11.herokuapp.com/api/v1/rents-per-capita/docs](https://documenter.getpostman.com/view/9107347/SzYUa25s) (developed by Alberto Rubio Hurtado)
 
