@@ -50,20 +50,6 @@ router.get('/loadInitialData', (req, res) => {
 
 // GET CONTACTS
 
-<<<<<<< HEAD
-router.get('/', (req, res) => {
-    var query = req.query;
-    var limit = parseInt(query.limit);
-    var offset = parseInt(query.offset);
-    db
-        .find({}, { _id: 0 })
-        .skip(offset)
-        .limit(limit)
-        .function((err, crimes) => {
-            res.send(JSON.stringify(crimes, null, 2));
-            console.log('Data sent:' + JSON.stringify(crimes, null, 2));
-        });
-=======
 router.get("/", (req,res) =>{
 	
 	var query = req.query;
@@ -75,7 +61,7 @@ router.get("/", (req,res) =>{
 	console.log("Data sent:"+JSON.stringify(crimes,null,2));
 	});
 	
->>>>>>> pruebas
+
 });
 
 // POST CONTACTS
