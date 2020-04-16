@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 var router = express.Router();
 module.exports=router;
 var app = express();
-app.use(bodyParser.json());
 
 const dataStore = require("nedb")
 const path = require("path")
@@ -14,7 +13,14 @@ const db = new dataStore({
 	filename: dbFileName,
 	autoload: true	
 });
+
+app.use(bodyParser.json());
+
+const dataStore = require("nedb")
+const path = require("path")
+
 //var port = process.env.PORT || 80;
+
 
 var crimeratestats =  [
 	{ 
@@ -36,8 +42,7 @@ var crimeratestats =  [
 		cr_homicount: 276,
 		cr_theftrate: 422.21,
 		cr_theftcount:195910 
-	}		
-];
+	}		];
 
 router.put(":/loadInitialData", (req, res) =>{
 	
@@ -52,6 +57,7 @@ router.put(":/loadInitialData", (req, res) =>{
 
 router.get("/", (req,res) =>{
 	
+
 	var limit = req.params.limit;
 	var offset = req.params.offset;
 	db.find ({}, (err, crimes) => {
@@ -76,11 +82,12 @@ router.post("/",(req,res) =>{
 	if((newCrime == "") || (newCrime.name == null)){
 		res.sendStatus(400,"BAD REQUEST");
 	} else {
-		
+
 		db.insert(newCrime);	
 		res.sendStatus(201,"CREATED");
 	}
 });
+
 
 // DELETE CONTACTS
 
