@@ -56,8 +56,10 @@ router.get("/loadInitialData", (req, res) =>{
 
 router.get("/", (req,res) =>{
 	
-
-	db.find ({}, { _id: 0 },(err, crimes) => {
+	var query = req.query;
+	var limit = parseInt(query.limit);
+	var offset = parseInt(query.offset);
+	db.find ({}, { _id: 0 }).skip(offset).limit(limit).function((err, crimes) => {
 		
 	res.send(JSON.stringify(crimes,null,2));
 	console.log("Data sent:"+JSON.stringify(crimes,null,2));
