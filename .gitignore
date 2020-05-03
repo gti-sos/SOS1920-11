@@ -1,4 +1,4 @@
 node_modules
-efi/efis.db
-rpc/rpc.db
-crime/crimes.db
+/efi/efis.db
+/rpc/rpc.db
+/crime/crimes.db
