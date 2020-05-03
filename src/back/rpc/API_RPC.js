@@ -23,6 +23,8 @@ router.use(function procesador(req,res,next){
 
 //load initial data
 router.get('/loadInitialData',(req,res)=>{
+	db.remove({}, { multi: true }, function(err, numRemoved) {
+	});
 	var init=[{ 
 		'country': "Spain",
 		'year': 2019,
@@ -45,6 +47,7 @@ router.get('/loadInitialData',(req,res)=>{
 		'pib4t':12200,
 		'vpy': 2.4
 	}];
+
 	db.insert(init);
 	res.sendStatus(201,"DATA CREATED");
 });
@@ -112,7 +115,7 @@ router.get('/', (req, res) => {
 			console.log('Buscando todos los rpcs');
 			db.find({}, { _id: 0 }, (err, indexes) => {
 				//res.send(indexes);
-				console.log('get efis');
+				console.log('get rpcs');
 				if (indexes.length != 0 ) {
 					res.send(indexes);
 					console.log('Data sent: ' + JSON.stringify(indexes, null, 2));
@@ -265,4 +268,5 @@ function isEmpty(obj) {
 function sizeOfObject(obj) {
 	return Object.keys(obj).length;
 }
+
 
