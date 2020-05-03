@@ -4,7 +4,7 @@
   "description": "paquete del servidor express",
   "main": "index.js",
   "scripts": {
-	"build": "rollup -c",
+    "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"

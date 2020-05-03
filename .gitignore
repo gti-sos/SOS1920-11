@@ -2,3 +2,4 @@ node_modules
 /efi/efis.db
 /rpc/rpc.db
 /crime/crimes.db
+/public/build
