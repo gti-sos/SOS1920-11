@@ -18,14 +18,14 @@ app.use("/",express.static("./public"));
 //Acceso al recurso economic-freedom-indexes
 
 const rutaEFI = BASE_API_URL + '/economic-freedom-indexes'; 
-var efis=  require('./efi/efi');
+var efis=  require('./src/back/efi/efi');
 app.use(rutaEFI,efis);
 
 
 //Acceso a rents-per-capita
 
 const rutaRPC = BASE_API_URL + '/rents-per-capita';
-var rpcs=  require('./rpc/API_RPC');
+var rpcs=  require('./src/back/rpc/API_RPC');
 app.use(rutaRPC,rpcs);
 
 
@@ -33,7 +33,7 @@ app.use(rutaRPC,rpcs);
 
 
 const rutaCrime = BASE_API_URL + '/crime-rate-stats';
-var rcrime=  require('./crime/API_jose');
+var rcrime=  require('./src/back/crime/API_jose');
 app.use(rutaCrime,rcrime);
 
 //Server start up
