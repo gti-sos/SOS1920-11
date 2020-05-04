@@ -1,76 +1,185 @@
 <script>
-    import {onMount} from "svelte";
+	import {onMount} from "svelte";
 	import Table from "sveltestrap/src/Table.svelte";
-    import Button from "sveltestrap/src/Button.svelte";
-    import {pop} from "svelte-spa-router";
-    export let params = {};
+	import Button from "sveltestrap/src/Button.svelte";
+	let rpcs = [];
+	let newRpc = {
+		country: "",
+		year: "",
+		rpc: "",
+		piba: "",
+		pib1t: "",
+		pib2t: "",
+		pib3t: "",
+		pib4t: "",
+		vpy: ""
+	};
+	let queryRpc = {
+		country: "",
+		year: "",
+		rpc: "",
+		piba: "",
+		pib1t: "",
+		pib2t: "",
+		pib3t: "",
+		pib4t: "",
+		vpy: ""
+	};
 
-    let rpc = {};
-    let country;
-    let year;
-    let updatedRPC;
-    let updatedPiba;
-    let updatedPib1t;
-    let updatedPib2t;
-    let updatedPib3t;
-    let updatedPib4t;
-    let updatedVpy;
+	let offset = 0;
+	let limit = 2;
+	let numTotal;
 
-    onMount(getRPC);
+	onMount(getRPCS);
 
-    async function getRPC(){
-        console.log('Fetching rpc..');
-        const res = await fetch("/api/v1/rents-per-capita/"+params.country+"/"+params.year);
+	async function getRPCS(){
+		console.log('Fetching rpcs..');
+		const res = await fetch("/api/v1/rents-per-capita");
 
-        if (res.ok){
-            console.log("OK!");
-            const json= await res.json();
-            rpc = json ;
-            country = rpc.country;
-            year = rpc.year;
-            updatedRPC = rpc.rpc;
-            updatedPiba = rpc.piba;
-            updatedPib1t = rpc.pib1t;
-            updatedPib2t = rpc.pib2t;
-            updatedPib3t = rpc.pib3t;
-            updatedPib4t = rpc.pib4t;
-            updatedVpy = rpc.vpy;
-            console.log("Received rpc.");
+		if (res.ok){
+			console.log("OK!");
+			const json= await res.json();
+			rpcs = json ;
+			console.log("Received "+rpcs.length+" rpcs.");
+			numTotal = rpcs.length;
+		}else{
+			rpcs = [] ;
+			console.log("Datasabe empty");
+		}
+	}
 
-        }else{
-            console.log("ERROR!!!");
-        }
-    }
-
-    async function updateRPC(){
-        console.log('Updating rpc from '+ JSON.stringify(params.country)+" "+JSON.stringify(params.year));
-		const res = await fetch("/api/v1/rents-per-capita/"+params.country+"/"+params.year,{
-			method: "PUT",
-			body: JSON.stringify({
-                country: country,
-                year: year,
-                rpc: updatedRPC,
-                piba: updatedPiba,
-                pib1t: updatedPib1t,
-                pib2t: updatedPib2t,
-                pib3t: updatedPib3t,
-                pib4t: updatedPib4t,
-                vpy: updatedVpy 
-            }),
+	async function insertRPC(){
+		console.log('Inserting rpc... '+ JSON.stringify(newRpc));
+		const res = await fetch("/api/v1/rents-per-capita",{
+			method: "POST",
+			body: JSON.stringify(newRpc),
 			headers: {
 				"Content-Type": "application/json"
 			}
 		}).then(function(res){
-			getRPC();
+			getRPCS();
 		});	
-    }
-</script>
-<main>
-    <h2>Editing RPC from {params.country} {params.year}</h2>
+	}
 
-	{#await rpc} 
-	{:then rpc}
-	<Table bordered>
+	async function deleteRPC(country,year){
+		console.log('Deleting rpc... ');
+		const res = await fetch("/api/v1/rents-per-capita/"+country +"/"+year,{
+			method: "DELETE"
+		}).then(function(res){
+			getRPCS();
+		});	
+	}
+
+	async function deleteteRPCS(){
+		console.log('Deleting rpcs..');
+		const res = await fetch("/api/v1/rents-per-capita",{
+			method: "DELETE"
+		}).then(function(res){
+			getRPCS();
+		});
+	}
+
+	async function searchRPCS(){
+		console.log('Searching..');
+		var query = "?";
+		if(queryRpc.country!=""){
+			if (query =="?") {
+				query = query + "country="+queryRpc.country;
+			}else{
+				query = query + "&country="+queryRpc.country;
+			}
+		}
+		if(queryRpc.year!=""){
+			if (query =="?") {
+				query = query + "year="+queryRpc.year;
+			}else{
+				query = query + "&year="+queryRpc.year;
+			}
+		}
+		if(queryRpc.rpc!=""){
+			if (query =="?") {
+				query = query + "rpc="+queryRpc.rpc;
+			}else{
+				query = query + "&rpc="+queryRpc.rpc;
+			}
+		}
+		if(queryRpc.piba!=""){
+			if (query =="?") {
+				query = query + "piba="+queryRpc.piba;
+			}else{
+				query = query + "&piba="+queryRpc.piba;
+			}
+		}
+		if(queryRpc.pib1t!=""){
+			if (query =="?") {
+				query = query + "pib1y="+queryRpc.pib1t;
+			}else{
+				query = query + "&pib1t="+queryRpc.pib1t;
+			}
+		}
+		if(queryRpc.pib2t!=""){
+			if (query =="?") {
+				query = query + "pib2t="+queryRpc.pib2t;
+			}else{
+				query = query + "&pib2t="+queryRpc.pib2t;
+			}
+		}
+		if(queryRpc.pib3t!=""){
+			if (query =="?") {
+				query = query + "pib3t="+queryRpc.pib3t;
+			}else{
+				query = query + "&pib3t="+queryRpc.pib3t;
+			}
+		}
+		if(queryRpc.pib4t!=""){
+			if (query =="?") {
+				query = query + "pib4t="+queryRpc.pib4t;
+			}else{
+				query = query + "&pib4t="+queryRpc.pib4t;
+			}
+		}
+		if(queryRpc.vpy!=""){
+			if (query =="?") {
+				query = query + "vpy="+queryRpc.vpy;
+			}else{
+				query = query + "&vpy="+queryRpc.vpy;
+			}
+		}
+		query = query + "&limit="+limit+"&offset="+ offset;
+
+		const res = await fetch("/api/v1/rents-per-capita"+query);
+		console.log("Sending this.." + JSON.stringify(queryRpc));
+		if (res.ok){
+			console.log("OK!");
+			const json= await res.json();
+			rpcs = json ;
+			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
+
+		}else{
+			rpcs = [] ;
+			console.log("Not found");
+		}
+	}
+	
+	async function beforeOffset(){
+		if (offset >=2) offset = offset - limit;
+		searchRPCS();
+	
+	}
+
+	async function nextOffset(){
+		if(offset + limit<numTotal)offset = offset + limit;
+		searchRPCS();
+	
+	}
+
+</script>
+
+<main>
+	<h2>RPCS TABLE</h2>
+	{#await rpcs}
+	{:then rpcs}
+	<Table bordered style="width:auto;">
 		<thead>
 			<tr>
 				<td>Country</td>
@@ -87,20 +196,65 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>{rpc.country}</td>
+				<td><input bind:value="{newRpc.country}" /></td>
+				<td><input bind:value="{newRpc.year}" /></td>
+				<td><input bind:value={newRpc.rpc} /></td>
+				<td><input bind:value={newRpc.piba} /></td>
+				<td><input bind:value={newRpc.pib1t} /></td>
+				<td><input bind:value={newRpc.pib2t} /></td>
+				<td><input bind:value={newRpc.pib3t} /></td>
+				<td><input bind:value={newRpc.pib4t} /></td>
+				<td><input bind:value={newRpc.vpy} /></td>
+				<td><Button on:click={insertRPC} outline color="primary">INSERT</Button></td>
+			</tr>
+			{#each rpcs as rpc}
+			<tr>
+				<td><a href="/#/rpcs/{rpc.country}/{rpc.year}">{rpc.country}</a></td>
 				<td>{rpc.year}</td>
-				<td><input bind:value={updatedRPC} /></td>
-				<td><input bind:value={updatedPiba} /></td>
-				<td><input bind:value={updatedPib1t} /></td>
-				<td><input bind:value={updatedPib2t} /></td>
-				<td><input bind:value={updatedPib3t} /></td>
-				<td><input bind:value={updatedPib4t} /></td>
-				<td><input bind:value={updatedVpy} /></td>
-				<td><Button on:click={updateRPC} outline color="primary">UPDATE</Button></td>
+				<td>{rpc.rpc}</td>
+				<td>{rpc.piba}</td>
+				<td>{rpc.pib1t}</td>
+				<td>{rpc.pib2t}</td>
+				<td>{rpc.pib3t}</td>
+				<td>{rpc.pib4t}</td>
+				<td>{rpc.vpy}</td>
+				<td><Button on:click={deleteRPC(rpc.country,rpc.year)} outline color="danger">DELETE</Button></td>
+			</tr>
+			{/each}
+		</tbody>
+		<Button outline color="danger" on:click={deleteteRPCS}>BORRAR TODO</Button>
+	</Table>
+	{/await}
+
+	<Table bordered style="width:auto;">
+		<thead>
+			<tr>
+				<td>Country</td>
+				<td>Year</td>
+				<td>RPC</td>
+				<td>PIB A</td>
+				<td>PIB 1T</td>
+				<td>PIB 2T</td>
+				<td>PIB 3T</td>
+				<td>PIB 4T</td>
+				<td>VPY</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input bind:value="{queryRpc.country}" /></td>
+				<td><input bind:value="{queryRpc.year}" /></td>
+				<td><input bind:value={queryRpc.rpc} /></td>
+				<td><input bind:value={queryRpc.piba} /></td>
+				<td><input bind:value={queryRpc.pib1t} /></td>
+				<td><input bind:value={queryRpc.pib2t} /></td>
+				<td><input bind:value={queryRpc.pib3t} /></td>
+				<td><input bind:value={queryRpc.pib4t} /></td>
+				<td><input bind:value={queryRpc.vpy} /></td>
 			</tr>
 		</tbody>
-		
+		<Button outline color="secondary" on:click={searchRPCS}>BUSCAR</Button>
+		<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
+		<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
 	</Table>
-    {/await}
-    <Button outline color="secondary" on:click="{pop}">Back</Button>
 </main>
