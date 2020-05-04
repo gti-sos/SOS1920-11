@@ -46,6 +46,39 @@ router.get('/loadInitialData',(req,res)=>{
 		'pib3t':12104,
 		'pib4t':12200,
 		'vpy': 2.4
+	},
+	{ 
+		'country': "Slovakia",
+		'year': 2019,
+		'rpc':17270,
+		'piba':94177,
+		'pib1t':23205,
+		'pib2t':23402,
+		'pib3t':23614,
+		'pib4t':23955,
+		'vpy': 2.3
+	},
+	{ 
+		'country': "Portugal",
+		'year': 2019,
+		'rpc':20650,
+		'piba':212254,
+		'pib1t':52641,
+		'pib2t':52666,
+		'pib3t':53256,
+		'pib4t':53691,
+		'vpy': 2.2
+	},
+	{ 
+		'country': "France",
+		'year': 2019,
+		'rpc':36060,
+		'piba':2418997,
+		'pib1t':599741,
+		'pib2t':603961,
+		'pib3t':607191,
+		'pib4t':608993,
+		'vpy': 1.3
 	}];
 
 	db.insert(init);
@@ -102,7 +135,7 @@ router.get('/', (req, res) => {
 				.exec((err, indices) => {
 					if (indices.length!=0) {
 						res.send(JSON.stringify(indices, null, 2));
-						console.log('Data sent: ' + JSON.stringify(indices[0], null, 2));
+						console.log('Data sent: ' + JSON.stringify(indices, null, 2));
 					} else {
 						res.sendStatus(404, 'NOT FOUND');
 					}

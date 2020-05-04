@@ -26,6 +26,10 @@
 		vpy: ""
 	};
 
+	let offset = 0;
+	let limit = 2;
+	let numTotal;
+
 	onMount(getRPCS);
 
 	async function getRPCS(){
@@ -37,7 +41,7 @@
 			const json= await res.json();
 			rpcs = json ;
 			console.log("Received "+rpcs.length+" rpcs.");
-
+			numTotal = rpcs.length;
 		}else{
 			rpcs = [] ;
 			console.log("Datasabe empty");
@@ -78,31 +82,102 @@
 	async function searchRPCS(){
 		console.log('Searching..');
 		var query = "?";
-		if(queryRpc.country!=null){
+		if(queryRpc.country!=""){
 			if (query =="?") {
 				query = query + "country="+queryRpc.country;
 			}else{
 				query = query + "&country="+queryRpc.country;
 			}
 		}
+		if(queryRpc.year!=""){
+			if (query =="?") {
+				query = query + "year="+queryRpc.year;
+			}else{
+				query = query + "&year="+queryRpc.year;
+			}
+		}
+		if(queryRpc.rpc!=""){
+			if (query =="?") {
+				query = query + "rpc="+queryRpc.rpc;
+			}else{
+				query = query + "&rpc="+queryRpc.rpc;
+			}
+		}
+		if(queryRpc.piba!=""){
+			if (query =="?") {
+				query = query + "piba="+queryRpc.piba;
+			}else{
+				query = query + "&piba="+queryRpc.piba;
+			}
+		}
+		if(queryRpc.pib1t!=""){
+			if (query =="?") {
+				query = query + "pib1y="+queryRpc.pib1t;
+			}else{
+				query = query + "&pib1t="+queryRpc.pib1t;
+			}
+		}
+		if(queryRpc.pib2t!=""){
+			if (query =="?") {
+				query = query + "pib2t="+queryRpc.pib2t;
+			}else{
+				query = query + "&pib2t="+queryRpc.pib2t;
+			}
+		}
+		if(queryRpc.pib3t!=""){
+			if (query =="?") {
+				query = query + "pib3t="+queryRpc.pib3t;
+			}else{
+				query = query + "&pib3t="+queryRpc.pib3t;
+			}
+		}
+		if(queryRpc.pib4t!=""){
+			if (query =="?") {
+				query = query + "pib4t="+queryRpc.pib4t;
+			}else{
+				query = query + "&pib4t="+queryRpc.pib4t;
+			}
+		}
+		if(queryRpc.vpy!=""){
+			if (query =="?") {
+				query = query + "vpy="+queryRpc.vpy;
+			}else{
+				query = query + "&vpy="+queryRpc.vpy;
+			}
+		}
+		query = query + "&limit="+limit+"&offset="+ offset;
+
 		const res = await fetch("/api/v1/rents-per-capita"+query);
+		console.log("Sending this.." + JSON.stringify(queryRpc));
 		if (res.ok){
 			console.log("OK!");
 			const json= await res.json();
 			rpcs = json ;
-			console.log("Received "+rpcs.length+" rpcs.");
+			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
 
 		}else{
 			rpcs = [] ;
 			console.log("Not found");
 		}
 	}
+	
+	async function beforeOffset(){
+		if (offset >=2) offset = offset - limit;
+		searchRPCS();
+	
+	}
+
+	async function nextOffset(){
+		if(offset + limit<numTotal)offset = offset + limit;
+		searchRPCS();
+	
+	}
 
 </script>
 
 <main>
 	<h2>RPCS TABLE</h2>
-	{#await rpcs} ;
+	{#await rpcs}
 	{:then rpcs}
 	<Table bordered style="width:auto;">
 		<thead>
@@ -179,5 +254,7 @@
 			</tr>
 		</tbody>
 		<Button outline color="secondary" on:click={searchRPCS}>BUSCAR</Button>
+		<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
+		<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
 	</Table>
 </main>
