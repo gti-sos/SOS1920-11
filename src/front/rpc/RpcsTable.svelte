@@ -14,6 +14,17 @@
 		pib4t: "",
 		vpy: ""
 	};
+	let queryRpc = {
+		country: "",
+		year: "",
+		rpc: "",
+		piba: "",
+		pib1t: "",
+		pib2t: "",
+		pib3t: "",
+		pib4t: "",
+		vpy: ""
+	};
 
 	onMount(getRPCS);
 
@@ -28,7 +39,8 @@
 			console.log("Received "+rpcs.length+" rpcs.");
 
 		}else{
-			console.log("ERROR!!!");
+			rpcs = [] ;
+			console.log("Datasabe empty");
 		}
 	}
 
@@ -48,19 +60,51 @@
 	async function deleteRPC(country,year){
 		console.log('Deleting rpc... ');
 		const res = await fetch("/api/v1/rents-per-capita/"+country +"/"+year,{
-			method: "DELETE",
+			method: "DELETE"
 		}).then(function(res){
 			getRPCS();
 		});	
 	}
 
+	async function deleteteRPCS(){
+		console.log('Deleting rpcs..');
+		const res = await fetch("/api/v1/rents-per-capita",{
+			method: "DELETE"
+		}).then(function(res){
+			getRPCS();
+		});
+	}
+
+	async function searchRPCS(){
+		console.log('Searching..');
+		var query = "?";
+		if(queryRpc.country!=null){
+			if (query =="?") {
+				query = query + "country="+queryRpc.country;
+			}else{
+				query = query + "&country="+queryRpc.country;
+			}
+		}
+		const res = await fetch("/api/v1/rents-per-capita"+query);
+		if (res.ok){
+			console.log("OK!");
+			const json= await res.json();
+			rpcs = json ;
+			console.log("Received "+rpcs.length+" rpcs.");
+
+		}else{
+			rpcs = [] ;
+			console.log("Not found");
+		}
+	}
+
 </script>
 
 <main>
-	<h1>RPCS TABLE</h1>
-	{#await rpcs} 
+	<h2>RPCS TABLE</h2>
+	{#await rpcs} ;
 	{:then rpcs}
-	<Table bordered>
+	<Table bordered style="width:auto;">
 		<thead>
 			<tr>
 				<td>Country</td>
@@ -103,7 +147,37 @@
 			</tr>
 			{/each}
 		</tbody>
-		
+		<Button outline color="danger" on:click={deleteteRPCS}>BORRAR TODO</Button>
 	</Table>
 	{/await}
+
+	<Table bordered style="width:auto;">
+		<thead>
+			<tr>
+				<td>Country</td>
+				<td>Year</td>
+				<td>RPC</td>
+				<td>PIB A</td>
+				<td>PIB 1T</td>
+				<td>PIB 2T</td>
+				<td>PIB 3T</td>
+				<td>PIB 4T</td>
+				<td>VPY</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input bind:value="{queryRpc.country}" /></td>
+				<td><input bind:value="{queryRpc.year}" /></td>
+				<td><input bind:value={queryRpc.rpc} /></td>
+				<td><input bind:value={queryRpc.piba} /></td>
+				<td><input bind:value={queryRpc.pib1t} /></td>
+				<td><input bind:value={queryRpc.pib2t} /></td>
+				<td><input bind:value={queryRpc.pib3t} /></td>
+				<td><input bind:value={queryRpc.pib4t} /></td>
+				<td><input bind:value={queryRpc.vpy} /></td>
+			</tr>
+		</tbody>
+		<Button outline color="secondary" on:click={searchRPCS}>BUSCAR</Button>
+	</Table>
 </main>
