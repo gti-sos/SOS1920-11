@@ -154,7 +154,7 @@
 			const json= await res.json();
 			rpcs = json ;
 			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
-
+			numTotal = rpcs.length;
 		}else{
 			rpcs = [] ;
 			console.log("Not found");
