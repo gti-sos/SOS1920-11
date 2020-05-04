@@ -102,6 +102,5 @@
 		
 	</Table>
     {/await}
-    <Button outline color="danger" on:click={deleteteRPCS}>BORRAR TODO</Button>
     <Button outline color="secondary" on:click="{pop}">Back</Button>
 </main>

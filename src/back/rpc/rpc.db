@@ -3,3 +3,5 @@
 {"country":"Slovakia","year":2019,"rpc":17270,"piba":94177,"pib1t":23205,"pib2t":23402,"pib3t":23614,"pib4t":23955,"vpy":2.3,"_id":"J9ihEBQKtDJASIjE"}
 {"country":"Slovenia","year":2019,"rpc":22980,"piba":48007,"pib1t":11900,"pib2t":11961,"pib3t":12104,"pib4t":12200,"vpy":2.4,"_id":"lrYnrwINbbIBvcii"}
 {"country":"Portugal","year":2019,"rpc":20650,"piba":212254,"pib1t":52641,"pib2t":52666,"pib3t":53256,"pib4t":53691,"vpy":2.2,"_id":"x9lk0VJO4LCgnnJL"}
+{"country":"Spain","year":2019,"rpc":26420,"piba":1244757,"pib1t":306678,"pib2t":310381,"pib3t":311917,"pib4t":315781,"vpy":2,"_id":"CoilhVFPylookgmE"}
+{"country":"Spain","year":2019,"rpc":26420,"piba":1244757,"pib1t":306678,"pib2t":310381,"pib3t":311917,"pib4t":315781,"vpy":"2.8","_id":"CoilhVFPylookgmE"}
