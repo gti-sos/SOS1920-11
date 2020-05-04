@@ -66,7 +66,7 @@
     }
 </script>
 <main>
-    Editing RPC from {params.country} {params.year}
+    <h2>Editing RPC from {params.country} {params.year}</h2>
 
 	{#await rpc} 
 	{:then rpc}
@@ -101,6 +101,6 @@
 		</tbody>
 		
 	</Table>
-	{/await}
+    {/await}
     <Button outline color="secondary" on:click="{pop}">Back</Button>
 </main>
