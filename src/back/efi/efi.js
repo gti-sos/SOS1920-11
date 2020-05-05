@@ -21,6 +21,7 @@ router.use(function procesador(req, res, next) {
 });
 
 //loadInitialData
+//import initialdata from 'initialdata.js';
 var init = [
 	{
 		country: 'New Zeland',
@@ -56,7 +57,8 @@ var init = [
 		efiinvfreed: 85,
 		efifinfred: 70
 	}
-];
+]
+;
 
 function isEmpty(obj) {
 	for (var key in obj) {
@@ -121,7 +123,7 @@ router.get('/', (req, res) => {
 
 	//si los parametros de paginación y offset están activos, se harán las consultas
 	//integrando la paginación. en caso contrario se hará una query general
-	if (!isNaN(limit) && !isNaN(offset)) {
+	if (!isNaN(limit) || !isNaN(offset)) {
 		if (isEmpty(query)) {
 			//no hay parametros de búsqueda y se hace una búsqueda normal
 			db

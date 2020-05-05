@@ -8,7 +8,8 @@
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,
-		"/rpcs/:country/:year" : EditRpc
+		"/rpcs/:country/:year" : EditRpc,
+		
 	}
 </script>
 

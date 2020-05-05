@@ -1,5 +1,5 @@
 node_modules
-/efi/efis.db
-/rpc/rpc.db
-/crime/crimes.db
-/public/build
+src/back/efi/efis.db
+src/back/rpc/rpc.db
+src/back/crime/crimes.db
+public/build
