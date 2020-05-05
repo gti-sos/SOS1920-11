@@ -36,7 +36,7 @@
 
 	async function getEfis() {
 
-		console.log("Fetching contacts...");
+		console.log("Buscando contactos");
 		const res = await fetch("/api/v1/economic-freedom-indexes/");
 
 		if (res.ok) {
@@ -50,11 +50,24 @@
 			console.log("ERROR!");
 		}
 	}
-
+    let entradas=Object.entries(newEfi).map((c)=>{return c[0]});
 	async function insertaEfi() {
 
-		console.log("Insertando Efi" + newEfi);
-
+        newEfi.year=parseInt(newEfi.year),
+        newEfi.efiindex=parseFloat(newEfi.efiindex),
+        newEfi.efigovint=parseFloat(newEfi.efigovint),
+        newEfi.efipropright=parseFloat(newEfi.efipropright),
+        newEfi.efijudefct=parseFloat(newEfi.efijudefct),
+        newEfi.efitaxburden=parseFloat(newEfi.efitaxburden),
+        newEfi.efigovspend=parseFloat(newEfi.efigovspend),
+        newEfi.efisicalhealth=parseFloat(newEfi.efisicalhealth),
+        newEfi.efibusfreed=parseFloat(newEfi.efibusfreed),
+        newEfi.efilabfreed=parseFloat(newEfi.efilabfreed),
+        newEfi.efimonfreed=parseFloat(newEfi.efimonfreed),
+        newEfi.efitradefreed=parseFloat(newEfi.efitradefreed),
+        newEfi.efiinvfreed=parseFloat(newEfi.efiinvfreed),
+        newEfi.efifinfred=parseFloat(newEfi.efifinfred)
+        
 		const res = await fetch("/api/v1/economic-freedom-indexes/", {
 			method: "POST",
 			body: JSON.stringify(newEfi),
@@ -64,7 +77,7 @@
 		}).then(function (res) {
             
                 getEfis();
-                
+                console.log(entradas);
 		});
 
 	}
@@ -160,5 +173,5 @@
         <h3>{userMsg}</h3>
 	{/await}
 
-
+    {entradas},{newEfi.year}
 </main>

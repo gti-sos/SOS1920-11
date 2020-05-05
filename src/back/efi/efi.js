@@ -94,19 +94,7 @@ router.post('/', (req, res) => {
 		res.sendStatus(400, 'BAD REQUEST');
 	} else {
 		//todo en orden
-		for (x in newefi) {
-			var objeto = {};
-			if (x == 'country') {
-				objeto[x] = query[x];
-			} else if (x == 'year') {
-				objeto[x] = parseInt(query[x]);
-			} else if (x != 'limit' && x != 'offset') {
-				objeto[x] = parseFloat(query[x]);
-					
-			}
-		}
-		console.log(objeto)
-		db.insert(objeto);
+		db.insert(newefi);
 		res.sendStatus(201, 'CREATED');
 	}
 });
