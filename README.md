@@ -19,7 +19,7 @@ Our project is focused on the economic freedom of different countries and the im
 
 *   Economic freedom index
 *   Crime rates
-*   Rents per Capita (http://sos1920-11.herokuapp.com/#/rpcs)
+*   Rents per Capita
 
 ## URL
 
@@ -29,7 +29,7 @@ Our project is focused on the economic freedom of different countries and the im
 
 *   Economic freedom index
 *   Crime rates
-*   [Rents per Capita] (http://sos1920-11.herokuapp.com/#/rpcs)
+*   [Rents per Capita](http://sos1920-11.herokuapp.com/#/rpcs)
 
 [http://sos1920-11.herokuapp.com](http://sos1920-11.herokuapp.com)
 
