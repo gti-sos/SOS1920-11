@@ -12,8 +12,7 @@
 		"/" : Index,
 		"/rpcs" : RpcsTable,
 		"/rpcs/:country/:year" : EditRpc,
-		"/efis": efistable,
-		"/efis/:country/:year": editEfi
+	
 	}
 </script>
 

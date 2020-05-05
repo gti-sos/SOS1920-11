@@ -22,7 +22,7 @@
 		</h2> 
 			Our project is focused on the economic freedom of different countries and the impact this has in their societies with this 3 parameters:
 		<ul>
-			<li><a href="http://sos1920-11.herokuapp.com/#/efis">Freedom Indexes</a> 
+			<li>Freedom Indexes
 			<li>Crime rates
 			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs">Rents per Capita</a>
 		</ul>
