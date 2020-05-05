@@ -35,4 +35,4 @@ const initialdata= [
 	}
 ]
 
-export const initialdata;
+export default initialdata;
