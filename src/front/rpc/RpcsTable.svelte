@@ -5,14 +5,14 @@
 	let rpcs = [];
 	let newRpc = {
 		country: "",
-		year: "",
-		rpc: "",
-		piba: "",
-		pib1t: "",
-		pib2t: "",
-		pib3t: "",
-		pib4t: "",
-		vpy: ""
+		year: 0,
+		rpc: 0,
+		piba: 0,
+		pib1t: 0,
+		pib2t: 0,
+		pib3t: 0,
+		pib4t: 0,
+		vpy: 0
 	};
 	let queryRpc = {
 		country: "",
@@ -29,6 +29,8 @@
 	let offset = 0;
 	let limit = 2;
 	let numTotal;
+	let numFiltered;
+	let userMsg = "";
 
 	onMount(getRPCS);
 
@@ -44,21 +46,32 @@
 			numTotal = rpcs.length;
 		}else{
 			rpcs = [] ;
+			if(userMsg!="Todos los datos han sido borrados."){
+				userMsg = "No se han encontrado datos."
+			}
 			console.log("Datasabe empty");
 		}
 	}
 
 	async function insertRPC(){
-		console.log('Inserting rpc... '+ JSON.stringify(newRpc));
-		const res = await fetch("/api/v1/rents-per-capita",{
-			method: "POST",
-			body: JSON.stringify(newRpc),
-			headers: {
-				"Content-Type": "application/json"
-			}
-		}).then(function(res){
-			getRPCS();
-		});	
+		
+		if(newRpc.country!="" && !isNaN(parseInt(newRpc.year))){
+			console.log('Inserting rpc... '+ JSON.stringify(newRpc));
+			const res = await fetch("/api/v1/rents-per-capita",{
+				method: "POST",
+				body: JSON.stringify(newRpc),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			}).then(function(res){
+				getRPCS();
+				userMsg = "El dato fue insertado correctamente.";
+
+			});
+		}else{
+			userMsg = "El dato insertado no tiene nombre/año válido/s .";
+			console.log('Inserted rpc has no valid name or valid year.');
+		}
 	}
 
 	async function deleteRPC(country,year){
@@ -67,6 +80,7 @@
 			method: "DELETE"
 		}).then(function(res){
 			getRPCS();
+			userMsg = "El dato ha sido borrado.";
 		});	
 	}
 
@@ -75,6 +89,7 @@
 		const res = await fetch("/api/v1/rents-per-capita",{
 			method: "DELETE"
 		}).then(function(res){
+			userMsg = "Todos los datos han sido borrados.";
 			getRPCS();
 		});
 	}
@@ -154,9 +169,12 @@
 			const json= await res.json();
 			rpcs = json ;
 			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
-			numTotal = rpcs.length;
+			numFiltered = rpcs.length;
+			userMsg = "Mostrando "+numFiltered+" de "+numTotal+" datos."
+			
 		}else{
 			rpcs = [] ;
+			userMsg = "No se han encontrado datos."
 			console.log("Not found");
 		}
 	}
@@ -168,7 +186,7 @@
 	}
 
 	async function nextOffset(){
-		if(offset + limit<numTotal)offset = offset + limit;
+		if((offset + limit)<numTotal) offset = offset + limit;
 		searchRPCS();
 	
 	}
@@ -177,6 +195,9 @@
 
 <main>
 	<h2>RPCS TABLE</h2>
+	{#if userMsg}
+	<h3><p style= "color:orange">{userMsg}</p></h3>
+	{/if}
 	{#await rpcs}
 	{:then rpcs}
 	<Table bordered style="width:auto;">

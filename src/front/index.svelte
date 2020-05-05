@@ -24,7 +24,7 @@
 		<ul>
 			<li>Economic freedom index
 			<li>Crime rates
-			<li>Rents per Capita
+			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs">Rents per Capita</a>
 		</ul>
 		<h2>
 			URL
