@@ -217,15 +217,15 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input bind:value="{newRpc.country}" /></td>
-				<td><input bind:value="{newRpc.year}" /></td>
-				<td><input bind:value={newRpc.rpc} /></td>
-				<td><input bind:value={newRpc.piba} /></td>
-				<td><input bind:value={newRpc.pib1t} /></td>
-				<td><input bind:value={newRpc.pib2t} /></td>
-				<td><input bind:value={newRpc.pib3t} /></td>
-				<td><input bind:value={newRpc.pib4t} /></td>
-				<td><input bind:value={newRpc.vpy} /></td>
+				<td><input style="width: 100px;" bind:value="{newRpc.country}" /></td>
+				<td><input style="width: 50px;" bind:value="{newRpc.year}" /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.rpc} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.piba} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib1t} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib2t} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib3t} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib4t} /></td>
+				<td><input style="width: 50px;" bind:value={newRpc.vpy} /></td>
 				<td><Button on:click={insertRPC} outline color="primary">INSERT</Button></td>
 			</tr>
 			{#each rpcs as rpc}
@@ -247,7 +247,7 @@
 	</Table>
 	{/await}
 
-	<Table bordered style="width:auto;">
+	<Table bordered style="width: auto;">
 		<thead>
 			<tr>
 				<td>Country</td>
@@ -263,19 +263,20 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input bind:value="{queryRpc.country}" /></td>
-				<td><input bind:value="{queryRpc.year}" /></td>
-				<td><input bind:value={queryRpc.rpc} /></td>
-				<td><input bind:value={queryRpc.piba} /></td>
-				<td><input bind:value={queryRpc.pib1t} /></td>
-				<td><input bind:value={queryRpc.pib2t} /></td>
-				<td><input bind:value={queryRpc.pib3t} /></td>
-				<td><input bind:value={queryRpc.pib4t} /></td>
-				<td><input bind:value={queryRpc.vpy} /></td>
+				<td><input style="width: 100px;" bind:value="{queryRpc.country}" /></td>
+				<td><input style="width: 50px;" bind:value="{queryRpc.year}" /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.rpc} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.piba} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib1t} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib2t} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib3t} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib4t} /></td>
+				<td><input style="width: 50px;" bind:value={queryRpc.vpy} /></td>
 			</tr>
 		</tbody>
 		<Button outline color="secondary" on:click={searchRPCS}>BUSCAR</Button>
-		<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
-		<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
 	</Table>
+	<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
+	<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
 </main>
+
