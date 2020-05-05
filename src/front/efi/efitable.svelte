@@ -27,7 +27,7 @@
 
 
     let offset = 0;
-	let limit = 5;
+	let limit = 10;
 	let numTotal;
 	let numFiltered;
     let userMsg = "";
@@ -53,24 +53,34 @@
 
 	async function insertaEfi() {
 
-		console.log("Insertando Efi" + JSON.stringify(newContact));
+		console.log("Insertando Efi" + newEfi);
 
 		const res = await fetch("/api/v1/economic-freedom-indexes/", {
 			method: "POST",
-			body: JSON.stringify(newContact),
+			body: JSON.stringify(newEfi),
 			headers: {
 				"Content-Type": "application/json"
 			}
 		}).then(function (res) {
-			getEfis();
+            
+                getEfis();
+                
 		});
 
 	}
 	async function deleteEfi(country,year) {
+        console.log(country);
+        console.log(year);
 		const res = await fetch("/api/v1/economic-freedom-indexes/" + country + "/" + year, {
 			method: "DELETE"
 		}).then(function (res) {
-			getEfis();
+            if (res.status!=404){
+            getEfis();
+            userMsg="se ha borrado correctamente";
+            }
+            else{
+                userMsg="no se ha borrado correctamente";
+            }
 		});
 	}
 </script>
@@ -142,11 +152,12 @@
                         <td>{efi.efitradefreed}</td>
                         <td>{efi.efiinvfreed}</td>
                         <td>{efi.efifinfred}</td>
-						<td><Button outline color="danger" on:click="{deleteEfi(efi.country,efi.year)}">Borrar</Button></td>
+						<td><Button outline color="danger" on:click={deleteEfi(efi.country,efi.year)}>Borrar</Button></td>
 					</tr>
 				{/each}
 			</tbody>
 		</Table>
+        <h3>{userMsg}</h3>
 	{/await}
 
 

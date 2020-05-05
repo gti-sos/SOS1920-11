@@ -73,6 +73,7 @@ function sizeOfObject(obj) {
 
 router.get('/loadInitialData', (req, res) => {
 	//var init = require("./initaldata.json");
+	console.log("cargando datos ")
 	db.insert(init);
 	//efis=init;
 	res.sendStatus(201, 'DATA CREATED');
@@ -93,7 +94,19 @@ router.post('/', (req, res) => {
 		res.sendStatus(400, 'BAD REQUEST');
 	} else {
 		//todo en orden
-		db.insert(newefi);
+		for (x in newefi) {
+			var objeto = {};
+			if (x == 'country') {
+				objeto[x] = query[x];
+			} else if (x == 'year') {
+				objeto[x] = parseInt(query[x]);
+			} else if (x != 'limit' && x != 'offset') {
+				objeto[x] = parseFloat(query[x]);
+					
+			}
+		}
+		console.log(objeto)
+		db.insert(objeto);
 		res.sendStatus(201, 'CREATED');
 	}
 });
@@ -207,6 +220,7 @@ router.get('/:country/:year', (req, res) => {
 //delete specific efi
 
 router.delete('/:country/:year', (req, res) => {
+	console.log("borrando efi....")
 	var p1 = {};
 	var p2 = {};
 	p1['country'] = req.params.country;
