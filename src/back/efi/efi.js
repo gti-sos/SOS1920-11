@@ -92,6 +92,9 @@ router.post('/', (req, res) => {
 	} else if (sizeOfObject(newefi) != lenparametros) {
 		//falan o sobran parametros
 		res.sendStatus(400, 'BAD REQUEST');
+	} else if (newefi.country == "" || newefi.year== "") {
+		//falan nombre o año de pais
+		res.sendStatus(400, 'BAD REQUEST');
 	} else {
 		//todo en orden
 		db.insert(newefi);

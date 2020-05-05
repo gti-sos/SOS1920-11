@@ -75,9 +75,15 @@
 				"Content-Type": "application/json"
 			}
 		}).then(function (res) {
-            
                 getEfis();
-                console.log(entradas);
+                if (res.status==201){
+                    
+                    console.log(entradas);
+                    userMsg="EFI creado correctamente"
+                }else{
+                    userMsg="el EFI no se creado correctamente..."
+                }
+                
 		});
 
 	}
@@ -95,7 +101,37 @@
                 userMsg="no se ha borrado correctamente";
             }
 		});
-	}
+    }
+    
+    async function loadData(){
+        const res = await fetch("/api/v1/economic-freedom-indexes/loadInitialData");
+
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			efis = json;
+            console.log("Recibidos " + efis.length + " efis.");
+            numTotal= efis.length;
+            userMsg = "Datos cargados correctamente"
+		} else {
+            userMsg = "No se han encontrado datos."
+			console.log("ERROR!");
+		}
+    }
+    async function delData(){
+        const res = await fetch("/api/v1/economic-freedom-indexes/", {
+			method: "DELETE"
+		}).then(function (res) {
+            if (res.status!=404){
+                userMsg="se ha borrado todo correctamente";
+                getEfis();
+                
+            }
+            else{
+                userMsg="no se ha todo borrado correctamente";
+            }
+		});
+    }
 </script>
 
 <main>
@@ -170,8 +206,17 @@
 				{/each}
 			</tbody>
 		</Table>
-        <h3>{userMsg}</h3>
+        <div> <h3>{userMsg}</h3></div>
+        <div>
+        <table>
+            <tbody>
+                <tr><Button outline color="secondary" on:click={loadData}>Cargar Datos iniciales</Button></tr>
+                <tr><Button outline color="danger" on:click={delData}>Borrar todo</Button></tr>
+                
+            </tbody>
+        </table>
+        </div>
 	{/await}
 
-    {entradas},{newEfi.year}
+    
 </main>
