@@ -5,7 +5,7 @@
 //	export let name;
 	import Router from 'svelte-spa-router';
 
-	import efistable from './efi/efistable.svelte';
+	import efistable from './efi/efitable.svelte';
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,

@@ -107,7 +107,7 @@
 					<td><input bind:value="{newEfi.year}"></td>
                     <td><input bind:value="{newEfi.efiindex}"></td>
 					<td><input bind:value="{newEfi.efigovint}"></td>
-                    <td><input bind:value="{newEfi.propright}"></td>
+                    <td><input bind:value="{newEfi.efipropright}"></td>
 					<td><input bind:value="{newEfi.efijudefct}"></td>
 					<td><input bind:value="{newEfi.efitaxburden}"></td>
                     <td><input bind:value="{newEfi.efigovspend}"></td>
@@ -127,21 +127,21 @@
 						<td>
 							<a href="#/efis/{efi.country}/{efi.year}">{efi.country}</a>
 						</td>
-						<td><input bind:value="{newEfi.country}"></td>
-                        <td>{newEfi.year}</td>
-                        <td>{newEfi.efiindex}</td>
-                        <td>{newEfi.efigovint}</td>
-                        <td>{newEfi.propright}</td>
-                        <td>{newEfi.efijudefct}</td>
-                        <td>{newEfi.efitaxburden}</td>
-                        <td>{newEfi.efigovspend}</td>
-                        <td>{newEfi.efisicalhealth}</td>
-                        <td>{newEfi.efibusfreed}</td>
-                        <td>{newEfi.efilabfreed}</td>
-                        <td>{newEfi.efimonfreed}</td>
-                        <td>{newEfi.efitradefreed}</td>
-                        <td>{newEfi.efiinvfreed}</td>
-                        <td>{newEfi.efifinfred}</td>
+						
+                        <td>{efi.year}</td>
+                        <td>{efi.efiindex}</td>
+                        <td>{efi.efigovint}</td>
+                        <td>{efi.efipropright}</td>
+                        <td>{efi.efijudefct}</td>
+                        <td>{efi.efitaxburden}</td>
+                        <td>{efi.efigovspend}</td>
+                        <td>{efi.efisicalhealth}</td>
+                        <td>{efi.efibusfreed}</td>
+                        <td>{efi.efilabfreed}</td>
+                        <td>{efi.efimonfreed}</td>
+                        <td>{efi.efitradefreed}</td>
+                        <td>{efi.efiinvfreed}</td>
+                        <td>{efi.efifinfred}</td>
 						<td><Button outline color="danger" on:click="{deleteEfi(efi.country,efi.year)}">Borrar</Button></td>
 					</tr>
 				{/each}
