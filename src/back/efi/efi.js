@@ -21,7 +21,7 @@ router.use(function procesador(req, res, next) {
 });
 
 //loadInitialData
-import initialdata from './initialdata.js';
+import initialdata from 'initialdata.js';
 var init = initialdata;
 
 function isEmpty(obj) {
