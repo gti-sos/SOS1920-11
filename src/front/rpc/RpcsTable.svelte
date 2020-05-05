@@ -194,7 +194,7 @@
 </script>
 
 <main>
-	<h2>RPCS TABLE</h2>
+	<h2>RPCS GUI</h2>
 	{#if userMsg}
 	<h3><p style= "color:orange">{userMsg}</p></h3>
 	{/if}

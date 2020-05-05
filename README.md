@@ -25,6 +25,14 @@ Our project is focused on the economic freedom of different countries and the im
 
 [http://sos1920-11.herokuapp.com](http://sos1920-11.herokuapp.com)
 
+## GUIs
+
+*   Economic freedom index
+*   Crime rates
+*   [Rents per Capita] (http://sos1920-11.herokuapp.com/#/rpcs)
+
+[http://sos1920-11.herokuapp.com](http://sos1920-11.herokuapp.com)
+
 ## APIs
 
 *   [https://sos1920-11.herokuapp.com/api/v1/economic-freedom-indexes/docs](https://documenter.getpostman.com/view/10701438/SzYUZgNc) (developed by Ignacio Calcedo Vázquez)
