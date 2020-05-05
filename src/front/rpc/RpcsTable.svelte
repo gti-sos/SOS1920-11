@@ -2,6 +2,8 @@
 	import {onMount} from "svelte";
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
+	let msg;
+
 	let rpcs = [];
 	let newRpc = {
 		country: "",
@@ -32,7 +34,26 @@
 	let numFiltered;
 	let userMsg = "";
 
+	if(msg) userMsg = msg;
+
 	onMount(getRPCS);
+
+	async function loadInitialData(){
+		console.log('Loading initial rpcs..');
+		const res = await fetch("/api/v1/rents-per-capita/loadInitialData");
+
+		userMsg = "DATOS INICIALES CARGADOS.";
+		if (res.ok){
+			console.log("DATOS INICIALES CARGADOS!");
+			getRPCS();
+		}else{
+			rpcs = [] ;
+			if(userMsg!="Todos los datos han sido borrados."){
+				userMsg = "No se han encontrado datos."
+			}
+			console.log("Datasabe empty");
+		}
+	}
 
 	async function getRPCS(){
 		console.log('Fetching rpcs..');
@@ -47,7 +68,7 @@
 		}else{
 			rpcs = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
-				userMsg = "No se han encontrado datos."
+				userMsg = "No se han encontrado datos.";
 			}
 			console.log("Datasabe empty");
 		}
@@ -194,7 +215,7 @@
 </script>
 
 <main>
-	<h2>RPCS GUI</h2>
+	<h2>RPCS GUI</h2> <Button outline color="danger" on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
 	{#if userMsg}
 	<h3><p style= "color:orange">{userMsg}</p></h3>
 	{/if}

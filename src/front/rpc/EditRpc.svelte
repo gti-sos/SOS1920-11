@@ -15,6 +15,7 @@
     let updatedPib3t;
     let updatedPib4t;
     let updatedVpy;
+    let msg;
 
     onMount(getRPC);
 
@@ -61,7 +62,9 @@
 				"Content-Type": "application/json"
 			}
 		}).then(function(res){
-			getRPC();
+            
+            msg = "EL DATO FUE ACTUALIZADO";
+            location.href="/#/rpcs/";
 		});	
     }
 </script>
@@ -89,13 +92,13 @@
 			<tr>
 				<td>{rpc.country}</td>
 				<td>{rpc.year}</td>
-				<td><input bind:value={updatedRPC} /></td>
-				<td><input bind:value={updatedPiba} /></td>
-				<td><input bind:value={updatedPib1t} /></td>
-				<td><input bind:value={updatedPib2t} /></td>
-				<td><input bind:value={updatedPib3t} /></td>
-				<td><input bind:value={updatedPib4t} /></td>
-				<td><input bind:value={updatedVpy} /></td>
+				<td><input style="width: 100px;" bind:value={updatedRPC} /></td>
+				<td><input style="width: 100px;" bind:value={updatedPiba} /></td>
+				<td><input style="width: 100px;" bind:value={updatedPib1t} /></td>
+				<td><input style="width: 100px;" bind:value={updatedPib2t} /></td>
+				<td><input style="width: 100px;" bind:value={updatedPib3t} /></td>
+				<td><input style="width: 100px;" bind:value={updatedPib4t} /></td>
+				<td><input style="width: 50px;" bind:value={updatedVpy} /></td>
 				<td><Button on:click={updateRPC} outline color="primary">UPDATE</Button></td>
 			</tr>
 		</tbody>
