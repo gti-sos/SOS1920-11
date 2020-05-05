@@ -108,7 +108,7 @@ router.get('/', (req, res) => {
 
 	//si los parametros de paginación y offset están activos, se harán las consultas
 	//integrando la paginación. en caso contrario se hará una query general
-	if (!isNaN(limit) && !isNaN(offset)) {
+	if (!isNaN(limit) || !isNaN(offset)) {
 		if (isEmpty(query)) {
 			//no hay parametros de búsqueda y se hace una búsqueda normal
 			db
