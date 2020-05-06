@@ -18,7 +18,7 @@
         cr_homicount: 0,
         cr_theftrate: 0,
         cr_theftcount: 0
-	}
+	};
 	let queryCrime = {
 		country: "",
 		year: "",
@@ -28,7 +28,7 @@
         cr_homicount: "",
         cr_theftrate: "",
         cr_theftcount: ""
-	}
+	};
 
 	onMount(getCrimes);
 
@@ -111,7 +111,86 @@
 	async function searchCrimes(){
 		console.log("Buscando...");
 		var query = "?";
+		if(queryCrime.country!=""){
+			if (query =="?") {
+				query = query + "country="+queryCrime.country;
+			}else{
+				query = query + "&country="+queryCrime.country;
+			}
+		}
+		if(queryCrime.year!=""){
+			if (query =="?") {
+				query = query + "year="+queryCrime.year;
+			}else{
+				query = query + "&year="+queryCrime.year;
+			}
+		}
+		if(queryCrime.cr_rate!=""){
+			if (query =="?") {
+				query = query + "rpc="+queryCrime.cr_rate;
+			}else{
+				query = query + "&rpc="+queryCrime.cr_rate;
+			}
+		}
+		if(queryCrime.cr_saferate!=""){
+			if (query =="?") {
+				query = query + "piba="+queryCrime.cr_saferate;
+			}else{
+				query = query + "&piba="+queryCrime.cr_saferate;
+			}
+		}
+		if(queryCrime.pib1t!=""){
+			if (query =="?") {
+				query = query + "pib1y="+queryCrime.pib1t;
+			}else{
+				query = query + "&pib1t="+queryCrime.pib1t;
+			}
+		}
+		if(queryCrime.pib2t!=""){
+			if (query =="?") {
+				query = query + "pib2t="+queryCrime.pib2t;
+			}else{
+				query = query + "&pib2t="+queryCrime.pib2t;
+			}
+		}
+		if(queryCrime.pib3t!=""){
+			if (query =="?") {
+				query = query + "pib3t="+queryCrime.pib3t;
+			}else{
+				query = query + "&pib3t="+queryCrime.pib3t;
+			}
+		}
+		if(queryCrime.pib4t!=""){
+			if (query =="?") {
+				query = query + "pib4t="+queryCrime.pib4t;
+			}else{
+				query = query + "&pib4t="+queryCrime.pib4t;
+			}
+		}
+		if(queryCrime.vpy!=""){
+			if (query =="?") {
+				query = query + "vpy="+queryCrime.vpy;
+			}else{
+				query = query + "&vpy="+queryCrime.vpy;
+			}
+		}
+		query = query + "&limit="+limit+"&offset="+ offset;
 
+		const res = await fetch("/api/v1/rents-per-capita"+query);
+		console.log("Sending this.." + JSON.stringify(queryCrime));
+		if (res.ok){
+			console.log("OK!");
+			const json= await res.json();
+			rpcs = json ;
+			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
+			numFiltered = rpcs.length;
+			userMsg = "Mostrando "+numFiltered+" de "+numTotal+" datos."
+			
+		}else{
+			rpcs = [] ;
+			userMsg = "No se han encontrado datos."
+			console.log("Not found");
+		}
 
 	}
 
@@ -128,14 +207,14 @@
 	}
 </script>
 <main>
-	<h2>GUI de Crimes</h2> 
+	<h2>GUI Crimes</h2> 
 	<Button outline color="danger" on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
 	{#if userMsg}
 	<h3><p>{userMsg}</p></h3>
 	{/if}
 	{#await crimes}
 	{:then crimes}
-    <table>
+    <Table bordered style="width: auto;">
         <thead>
             <td>Country</td>
             <td>Year</td>
@@ -161,20 +240,51 @@
 			{#each crimes as crime}
 			<tr>
 				<td><a href="/#/Crimes/{crime.country}/{crime.year}">{crime.country}</a></td>
-				<td>{Crime.year}</td>
-				<td>{Crime.Crime}</td>
-				<td>{Crime.piba}</td>
-				<td>{Crime.pib1t}</td>
-				<td>{Crime.pib2t}</td>
-				<td>{Crime.pib3t}</td>
-				<td>{Crime.pib4t}</td>
-				<td>{Crime.vpy}</td>
-				<td><Button on:click={deleteCrime(Crime.country,Crime.year)} outline color="danger">DELETE</Button></td>
+				<td>{crime.year}</td>
+				<td>{crime.cr_rate}</td>
+				<td>{crime.cr_saferate}</td>
+				<td>{crime.cr_homicrate}</td>
+				<td>{crime.cr_homicount}</td>
+				<td>{crime.cr_theftrate}</td>
+				<td>{crime.cr_theftcount}</td>
+				<td><Button on:click={deleteCrime(crime.country,crime.year)} outline color="danger">BORRAR</Button></td>
 			</tr>
 			{/each}
 		</tbody>
-		<Button outline color="danger" on:click={deleteteCrimeS}>BORRAR TODO</Button>
-        </tbody>    
-    </table>
+		<Button outline color="danger" on:click={deleteteCrimes}>BORRAR TODO</Button>   
+    </Table>
+	{/await}
+
+	<Table bordered style="width: auto;">
+		<thead>
+			<tr>
+				<td>Country</td>
+				<td>Year</td>
+				<td>RPC</td>
+				<td>PIB A</td>
+				<td>PIB 1T</td>
+				<td>PIB 2T</td>
+				<td>PIB 3T</td>
+				<td>PIB 4T</td>
+				<td>VPY</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input style="width: 100px;" bind:value="{queryCrime.country}" /></td>
+				<td><input style="width: 50px;" bind:value="{queryCrime.year}" /></td>
+				<td><input style="width: 100px;" bind:value={queryCrime.cr_rate} /></td>
+				<td><input style="width: 100px;" bind:value={queryCrime.cr_saferate} /></td>
+				<td><input style="width: 100px;" bind:value={queryCrime.cr_homicrate} /></td>
+				<td><input style="width: 100px;" bind:value={queryCrime.cr_homicount} /></td>
+				<td><input style="width: 100px;" bind:value={queryCrime.cr_theftrate} /></td>
+				<td><input style="width: 100px;" bind:value={queryCrime.cr_theftcount} /></td>
+
+			</tr>
+		</tbody>
+		<Button outline color="secondary" on:click={searchCrimes}>BUSCAR</Button>
+	</Table>
+	<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
+	<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
 </main>
 
