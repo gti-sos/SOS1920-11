@@ -42,10 +42,10 @@
         efiinvfreed:"",
         efifinfred:""
     };
-    
+    let busquedaEsp=false;
     let queryEntera=""
     async function searchefi(){
-
+        
         var campos = new Map(Object.entries(queryEfi).filter((o)=>{
             return (o[1]!="")
             }));
@@ -66,6 +66,7 @@
                 console.log("Recibidos " + efis.length + " efis.");
                 numTotal= efis.length;
                 userMsg = "Busqueda realizada correctamente" ;
+                busquedaEsp=true;
             } else {
                 efis=[];
                 if(userMsg!="se ha borrado correctamente"){
@@ -87,9 +88,9 @@
     let userMsg = "";
     
 	onMount(getEfis);
-
+    
 	async function getEfis() {
-
+        busquedaEsp=false;
 		console.log("Buscando contactos");
 		const res = await fetch("/api/v2/economic-freedom-indexes?limit="+limit+"&offset="+offset);
 
@@ -109,6 +110,7 @@
 	}
     let entradas=Object.entries(newEfi).map((c)=>{return c[0]});
 	async function insertaEfi() {
+        busquedaEsp=false;
 
         newEfi.year=parseInt(newEfi.year),
         newEfi.efiindex=parseFloat(newEfi.efiindex),
@@ -145,6 +147,8 @@
 
 	}
 	async function deleteEfi(country,year) {
+                busquedaEsp=false;
+
         console.log(country);
         console.log(year);
 		const res = await fetch("/api/v2/economic-freedom-indexes/" + country + "/" + year, {
@@ -162,6 +166,7 @@
     }
     
     async function loadData(){
+        busquedaEsp=false;
         const res = await fetch("/api/v2/economic-freedom-indexes/loadInitialData");
         userMsg="Datos iniciales cargados"
 		if (res.ok) {
@@ -173,6 +178,7 @@
 		}
     }
     async function delData(){
+        busquedaEsp=false;
         const res = await fetch("/api/v2/economic-freedom-indexes/", {
 			method: "DELETE"
 		}).then(function (res) {
@@ -186,7 +192,11 @@
             }
 		});
     }
-
+    async function reset(){
+        limit=10;
+        offset=0;
+        getEfis();
+    };
     async function beforeOffset(){
 		if (offset >=10) offset = offset - limit;
 		getEfis();
@@ -284,9 +294,15 @@
 			</tbody>
 		</Table>
         </div>
+        
         <div>
+        {#if busquedaEsp}
+            
+            <Button outline color="secondary" on:click={reset}>Restaurar</Button>
+        {:else}
         <Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
 	    <Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button> 
+        {/if}
         <br>
         <h3>{userMsg}</h3>
         <br>
