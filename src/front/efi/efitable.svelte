@@ -46,7 +46,10 @@
             console.log("Recibidos " + efis.length + " efis.");
             numTotal= efis.length;
 		} else {
-            userMsg = "No se han encontrado datos."
+            efis=[];
+            if(userMsg!="se ha borrado correctamente"){
+				userMsg = "No se han encontrado datos.";
+			}
 			console.log("ERROR!");
 		}
 	}
@@ -94,8 +97,9 @@
 			method: "DELETE"
 		}).then(function (res) {
             if (res.status!=404){
-            getEfis();
-            userMsg="se ha borrado correctamente";
+            
+                userMsg="se ha borrado correctamente";
+                getEfis();
             }
             else{
                 userMsg="no se ha borrado correctamente";
@@ -105,15 +109,11 @@
     
     async function loadData(){
         const res = await fetch("/api/v1/economic-freedom-indexes/loadInitialData");
-
+        userMsg="Datos iniciales cargados"
 		if (res.ok) {
-			console.log("Ok:");
-			const json = await res.json();
-			efis = json;
-            console.log("Recibidos " + efis.length + " efis.");
-            numTotal= efis.length;
-            userMsg = "Datos cargados correctamente"
+           getEfis();
 		} else {
+            efis=[]
             userMsg = "No se han encontrado datos."
 			console.log("ERROR!");
 		}
@@ -123,7 +123,7 @@
 			method: "DELETE"
 		}).then(function (res) {
             if (res.status!=404){
-                userMsg="se ha borrado todo correctamente";
+                userMsg="se ha borrado correctamente";
                 getEfis();
                 
             }
@@ -135,10 +135,21 @@
 </script>
 
 <main>
-
+     <div>
+        <table>
+            <tbody>
+                <tr><Button outline color="secondary" on:click={loadData}>Cargar Datos iniciales</Button></tr>
+                <tr><Button outline color="danger" on:click={delData}>Borrar todo</Button></tr>
+                
+            </tbody>
+        </table>
+    </div>
 	{#await efis}
-		Cargando Efis...
 	{:then efis}
+    <div style="width:auto;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;">
 		<Table bordered>
 			<thead>
 				<tr>
@@ -206,16 +217,9 @@
 				{/each}
 			</tbody>
 		</Table>
-        <div> <h3>{userMsg}</h3></div>
-        <div>
-        <table>
-            <tbody>
-                <tr><Button outline color="secondary" on:click={loadData}>Cargar Datos iniciales</Button></tr>
-                <tr><Button outline color="danger" on:click={delData}>Borrar todo</Button></tr>
-                
-            </tbody>
-        </table>
         </div>
+        <div> <h3>{userMsg}</h3></div>
+       
 	{/await}
 
     
