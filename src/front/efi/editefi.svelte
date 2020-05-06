@@ -23,7 +23,8 @@
     let updateefiinvfreed;
     let updateefifinfred;
     let msg;
-    onMount(getEfi),
+    
+    onMount(getEfi);
 
     async function getEfi(){
         console.log('Fetching efi ...');
@@ -51,6 +52,7 @@
             console.log("Received efi");
 
         }else{
+            msg="Fallo en la carga del dato";
             console.log("ERROR!!!");
         }
     }
@@ -61,33 +63,41 @@
 			method: "PUT",
 			body: JSON.stringify({
                 country:params.country,
-                year:params.year,
-                efiindex:updateefiindex,
-                efigovint:updateefigovint,
-                efipropright:updateefipropright,
-                efijudefct:updateefijudefct,
-                efitaxburden:updateefitaxburden,
-                efigovspend:updateefigovspend,
-                efisicalhealth:updateefisicalhealth,
-                efibusfreed:updateefibusfreed,
-                efilabfreed:updateefilabfreed,
-                efimonfreed:updateefimonfreed,
-                efitradefreed:updateefitradefreed,
-                efiinvfreed:updateefiinvfreed,
-                efifinfred:updateefifinfred
+                year:parseInt(params.year),
+                efiindex:parseFloat(updateefiindex),
+                efigovint:parseFloat(updateefigovint),
+                efipropright:parseFloat(updateefipropright),
+                efijudefct:parseFloat(updateefijudefct),
+                efitaxburden:parseFloat(updateefitaxburden),
+                efigovspend:parseFloat(updateefigovspend),
+                efisicalhealth:parseFloat(updateefisicalhealth),
+                efibusfreed:parseFloat(updateefibusfreed),
+                efilabfreed:parseFloat(updateefilabfreed),
+                efimonfreed:parseFloat(updateefimonfreed),
+                efitradefreed:parseFloat(updateefitradefreed),
+                efiinvfreed:parseFloat(updateefiinvfreed),
+                efifinfred:parseFloat(updateefifinfred)
             }),
 			headers: {
 				"Content-Type": "application/json"
 			}
-		}).then(function(res){                
-                msg = "EL DATO FUE ACTUALIZADO";
-                location.href="/#/rpcs/";
+		}).then(function(res){
+                if(res.ok){
+                    msg = "EL DATO FUE ACTUALIZADO";
+                    //location.href="/#/efis/";
+                    getEfi();
+                }else{
+                    res.status + ": " + res.statusText;
+                    
+                }             
+                
 		    });	
     }
 </script>
 <main>
+<h2>Editando EFI del pais {params.country} y año {params.year}</h2>
 {#await efi}
-    Cargando...
+
 {:then efi}
 <div style="width:auto;
     width: 100%;
@@ -117,8 +127,8 @@
         </thead>
         <tbody>
             <tr>
-                <td><input bind:value="{updatecountry}"></td>
-                <td><input bind:value="{updateyear}"></td>
+                <td>{updatecountry}</td>
+                <td>{updateyear}</td>
                 <td><input bind:value="{updateefiindex}"></td>
                 <td><input bind:value="{updateefigovint}"></td>
                 <td><input bind:value="{updateefipropright}"></td>
@@ -140,7 +150,7 @@
 </div>
 {/await}
     {#if msg}
-        <p style="color: red">ERROR: {msg}</p>
+        <p style="color: red"> {msg}</p>
     {/if}
     <Button outline color="secondary" on:click="{pop}">Atrás</Button>
 </main>

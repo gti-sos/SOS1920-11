@@ -210,8 +210,7 @@
             </tbody>
         </table>
     </div>
-	{#await efis}
-        Cargando...
+	{#await efis}    
 	{:then efis}
     <div style="width:auto;
     width: 100%;
