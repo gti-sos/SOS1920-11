@@ -25,6 +25,60 @@
         efifinfred:0.0
 	};
 
+    let queryEfi= {
+		country:"",
+        year:"",
+        efiindex:"",
+        efigovint:"",
+        efipropright:"",
+        efijudefct:"",
+        efitaxburden:"",
+        efigovspend:"",
+        efisicalhealth:"",
+        efibusfreed:"",
+        efilabfreed:"",
+        efimonfreed:"",
+        efitradefreed:"",
+        efiinvfreed:"",
+        efifinfred:""
+    };
+    
+    let queryEntera=""
+    async function searchefi(){
+
+        var campos = new Map(Object.entries(queryEfi).filter((o)=>{
+            return (o[1]!="")
+            }));
+        let queryaux="?";
+        for (var [clave, valor] of campos.entries()){
+            queryaux += clave+"="+valor+"&";
+        }
+        queryEntera=queryaux.slice(0,-1);
+
+        if (queryEntera!=""){
+            console.log("Buscando contactos");
+            const res = await fetch("/api/v1/economic-freedom-indexes"+queryEntera);
+
+            if (res.ok) {
+                console.log("Ok:");
+                const json = await res.json();
+                efis = json;
+                console.log("Recibidos " + efis.length + " efis.");
+                numTotal= efis.length;
+                userMsg = "Busqueda realizada correctamente" ;
+            } else {
+                efis=[];
+                if(userMsg!="se ha borrado correctamente"){
+                    userMsg = "No se han encontrado datos.";
+                }
+                console.log("ERROR!");
+            }
+        }else{
+            getEfis();
+        }
+        
+    }
+
 
     let offset = 0;
 	let limit = 10;
@@ -37,7 +91,7 @@
 	async function getEfis() {
 
 		console.log("Buscando contactos");
-		const res = await fetch("/api/v1/economic-freedom-indexes/");
+		const res = await fetch("/api/v1/economic-freedom-indexes?=limit"+limit+"&offset="+offset);
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -132,6 +186,18 @@
             }
 		});
     }
+
+    async function beforeOffset(){
+		if (offset >=10) offset = offset - limit;
+		searchRPCS();
+	
+	}
+
+	async function nextOffset(){
+		if((offset + limit)<numTotal) offset = offset + limit;
+		searchRPCS();
+	
+	}
 </script>
 
 <main>
@@ -218,9 +284,62 @@
 			</tbody>
 		</Table>
         </div>
-        <div> <h3>{userMsg}</h3></div>
+        <div>
+        <Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
+	    <Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button> 
+        <br>
+        <h3>{userMsg}</h3>
+        <br>
+        </div>
        
 	{/await}
+    <div style="width:auto;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;">
 
+    <Table bordered style="width: auto;">
+		<thead>
+			<tr>
+				<th>country</th>
+                <th>year</th>
+                <th>efiindex</th>
+                <th>efigovint</th>
+                <th>efipropright</th>
+                <th>efijudefct</th>
+                <th>efitaxburden</th>
+                <th>efigovspend</th>
+                <th>efifiscalhealth</th>
+                <th>efibusfreed</th>
+                <th>efilabfreed</th>
+                <th>efimonfreed</th>
+                <th>efitradefreed</th>
+                <th>efiinvfreed</th>
+                <th>efifinfreed</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+                <td><input bind:value="{queryEfi.country}"></td>
+                <td><input bind:value="{queryEfi.year}"></td>
+                <td><input bind:value="{queryEfi.efiindex}"></td>
+                <td><input bind:value="{queryEfi.efigovint}"></td>
+                <td><input bind:value="{queryEfi.efipropright}"></td>
+                <td><input bind:value="{queryEfi.efijudefct}"></td>
+                <td><input bind:value="{queryEfi.efitaxburden}"></td>
+                <td><input bind:value="{queryEfi.efigovspend}"></td>
+                <td><input bind:value="{queryEfi.efisicalhealth}"></td>
+                <td><input bind:value="{queryEfi.efibusfreed}"></td>
+                <td><input bind:value="{queryEfi.efilabfreed}"></td>
+                <td><input bind:value="{queryEfi.efimonfreed}"></td>
+                <td><input bind:value="{queryEfi.efitradefreed}"></td>
+                <td><input bind:value="{queryEfi.efiinvfreed}"></td>
+                <td><input bind:value="{queryEfi.efifinfred}"></td>
+			</tr>
+		</tbody>
+		
+	</Table>
+    </div>
+    <Button outline color="secondary" on:click={searchefi}>BUSCAR</Button> 
     
 </main>
