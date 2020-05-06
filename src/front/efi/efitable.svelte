@@ -211,6 +211,7 @@
         </table>
     </div>
 	{#await efis}
+        Cargando...
 	{:then efis}
     <div style="width:auto;
     width: 100%;
@@ -234,7 +235,7 @@
                     <th>efitradefreed</th>
                     <th>efiinvfreed</th>
                     <th>efifinfreed</th>
-					<th>Actions</th>
+					<th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
