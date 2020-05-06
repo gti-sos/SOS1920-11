@@ -15,7 +15,7 @@
     let updatedPib3t;
     let updatedPib4t;
     let updatedVpy;
-    let msg;
+    let userMsg;
 
     onMount(getRPC);
 
@@ -63,13 +63,12 @@
 			}
 		}).then(function(res){
             
-            msg = "EL DATO FUE ACTUALIZADO";
-            location.href="/#/rpcs/";
+            userMsg = "DATO ACTUALIZADO";
 		});	
     }
 </script>
 <main>
-    <h2>Editing RPC from {params.country} {params.year}</h2>
+    <h2>Editing RPC from {params.country} {params.year} {#if userMsg}<p style= "color:orange">{userMsg}</p>{/if}</h2>
 
 	{#await rpc} 
 	{:then rpc}

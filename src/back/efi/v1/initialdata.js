@@ -33,6 +33,5 @@ const initialdata= [
 		efiinvfreed: 85,
 		efifinfred: 70
 	}
-]
-
-export default initialdata;
+];
+module.exports = {initialdata};
