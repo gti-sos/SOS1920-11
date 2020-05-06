@@ -32,7 +32,7 @@
 	let numTotal;
 	let numFiltered;
 	let userMsg = "";
-
+	
 	onMount(getRPCS);
 
 	async function loadInitialData(){
@@ -74,11 +74,18 @@
 	async function insertRPC(){
 		
 		if(newRpc.country!="" && !isNaN(parseInt(newRpc.year))){
-			console.log('Inserting rpc... '+ JSON.stringify(newRpc));
+			rpcs.forEach(x => {
+			if(x.country ==newRpc.country && x.year == newRpc.year){
+				userMsg="El dato de ese año y país ya existe.";
+			}
+			});
+		
+			if(userMsg!="El dato de ese año y país ya existe."){
+				console.log('Inserting rpc... '+ JSON.stringify(newRpc));
 			const res = await fetch("/api/v1/rents-per-capita",{
 				method: "POST",
 				body: JSON.stringify(newRpc),
-				headers: {
+				headers: { 
 					"Content-Type": "application/json"
 				}
 			}).then(function(res){
@@ -86,6 +93,9 @@
 				userMsg = "El dato fue insertado correctamente.";
 
 			});
+			}
+		
+		
 		}else{
 			userMsg = "El dato insertado no tiene nombre/año válido/s .";
 			console.log('Inserted rpc has no valid name or valid year.');
