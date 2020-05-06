@@ -99,11 +99,11 @@
 				<td><input style="width: 100px;" bind:value={updatedPib3t} /></td>
 				<td><input style="width: 100px;" bind:value={updatedPib4t} /></td>
 				<td><input style="width: 50px;" bind:value={updatedVpy} /></td>
-				<td><Button on:click={updateRPC} outline color="primary">UPDATE</Button></td>
+				<td><Button on:click={updateRPC} outline color="primary">ACTUALIZAR</Button></td>
 			</tr>
 		</tbody>
 		
 	</Table>
     {/await}
-    <Button outline color="secondary" on:click="{pop}">Back</Button>
+    <Button outline color="secondary" on:click="{pop}">VOLVER</Button>
 </main>
