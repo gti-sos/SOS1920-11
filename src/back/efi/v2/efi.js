@@ -158,6 +158,23 @@ var init = [
 		efitradefreed: 86.6,
 		efiinvfreed: 85.0,
 		efifinfred: 90.0 
+	},
+	{
+		country: 'Australia',
+		year: 2020,
+		efiindex: 82.6,
+		efigovint: 89.3,
+		efipropright: 82.8,
+		efijudefct: 86.1,
+		efitaxburden: 63.0,
+		efigovspend: 61.6,
+		efisicalhealth: 91.8,
+		efibusfreed: 87.8,
+		efilabfreed: 84.0,
+		efimonfreed: 86.2,
+		efitradefreed: 88.2,
+		efiinvfreed: 80.0,
+		efifinfred: 90.0 
 	}
 ]
 ;
