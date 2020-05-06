@@ -202,10 +202,9 @@
 		numTotal = await getNumTotal(query);
 
 		query = query + "&limit="+limit+"&offset="+ offset;
-
 		const res = await fetch("/api/v1/rents-per-capita"+query);
-		console.log("Sending this.." + JSON.stringify(queryRpc));
-		if (res.ok){
+		console.log("Sending ");
+		if (numTotal>0){
 			console.log("OK!");
 			const json= await res.json();
 			rpcs = json ;
@@ -214,16 +213,22 @@
 			
 		}else{
 			rpcs = [] ;
-			userMsg = "No se han encontrado datos."
 			console.log("Not found");
 		}
 	}
 
 	async function getNumTotal(query){
 		const res = await fetch("/api/v1/rents-per-capita"+query);
-		const json= await res.json();
+		if(res.ok){
+			const json= await res.json();
 		rpcs = json ;
 		return parseInt(rpcs.length);
+		}else{
+			
+			userMsg = "No se han encontrado datos."
+			return 0;
+		}
+
 	}
 
 	async function beforeOffset(){

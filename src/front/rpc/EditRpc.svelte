@@ -63,12 +63,12 @@
 			}
 		}).then(function(res){
             
-            userMsg = "EL DATO FUE ACTUALIZADO";
+            userMsg = "DATO ACTUALIZADO";
 		});	
     }
 </script>
 <main>
-    <h2>Editing RPC from {params.country} {params.year} {#if userMsg}{userMgs}{/if}</h2>
+    <h2>Editing RPC from {params.country} {params.year} {#if userMsg}<p style= "color:orange">{userMsg}</p>{/if}</h2>
 
 	{#await rpc} 
 	{:then rpc}
