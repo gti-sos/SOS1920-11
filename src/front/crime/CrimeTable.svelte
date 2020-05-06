@@ -139,51 +139,44 @@
 				query = query + "&piba="+queryCrime.cr_saferate;
 			}
 		}
-		if(queryCrime.pib1t!=""){
+		if(queryCrime.cr_homicrate!=""){
 			if (query =="?") {
-				query = query + "pib1y="+queryCrime.pib1t;
+				query = query + "pib1y="+queryCrime.cr_homicrate;
 			}else{
-				query = query + "&pib1t="+queryCrime.pib1t;
+				query = query + "&pib1t="+queryCrime.cr_homicrate;
 			}
 		}
-		if(queryCrime.pib2t!=""){
+		if(queryCrime.cr_homicount!=""){
 			if (query =="?") {
-				query = query + "pib2t="+queryCrime.pib2t;
+				query = query + "pib2t="+queryCrime.cr_homicount;
 			}else{
-				query = query + "&pib2t="+queryCrime.pib2t;
+				query = query + "&pib2t="+queryCrime.cr_homicount;
 			}
 		}
-		if(queryCrime.pib3t!=""){
+		if(queryCrime.cr_theftrate!=""){
 			if (query =="?") {
-				query = query + "pib3t="+queryCrime.pib3t;
+				query = query + "pib3t="+queryCrime.cr_theftrate;
 			}else{
-				query = query + "&pib3t="+queryCrime.pib3t;
+				query = query + "&pib3t="+queryCrime.cr_theftrate;
 			}
 		}
-		if(queryCrime.pib4t!=""){
+		if(queryCrime.cr_theftcount!=""){
 			if (query =="?") {
-				query = query + "pib4t="+queryCrime.pib4t;
+				query = query + "pib4t="+queryCrime.cr_theftcount;
 			}else{
-				query = query + "&pib4t="+queryCrime.pib4t;
-			}
-		}
-		if(queryCrime.vpy!=""){
-			if (query =="?") {
-				query = query + "vpy="+queryCrime.vpy;
-			}else{
-				query = query + "&vpy="+queryCrime.vpy;
+				query = query + "&pib4t="+queryCrime.cr_theftcount;
 			}
 		}
 		query = query + "&limit="+limit+"&offset="+ offset;
 
-		const res = await fetch("/api/v1/rents-per-capita"+query);
+		const res = await fetch("/api/v1/crime-rate-stats"+query);
 		console.log("Sending this.." + JSON.stringify(queryCrime));
 		if (res.ok){
 			console.log("OK!");
 			const json= await res.json();
-			rpcs = json ;
-			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
-			numFiltered = rpcs.length;
+			crimes2 = json ;
+			console.log("Received "+crimes2+" rpcs, offset = "+offset+".");
+			numFiltered = crimes2.length;
 			userMsg = "Mostrando "+numFiltered+" de "+numTotal+" datos."
 			
 		}else{
