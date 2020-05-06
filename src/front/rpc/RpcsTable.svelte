@@ -32,7 +32,7 @@
 	let limit = 2;
 	let numTotal;
 	let numFiltered;
-	export let userMsg;
+	let userMsg;
 	
 	onMount(getRPCS);
 
@@ -199,7 +199,7 @@
 			}
 		}
 		
-		numTotal = getNumTotal(query);
+		numTotal = await getNumTotal(query);
 
 		query = query + "&limit="+limit+"&offset="+ offset;
 
@@ -223,7 +223,7 @@
 		const res = await fetch("/api/v1/rents-per-capita"+query);
 		const json= await res.json();
 		rpcs = json ;
-		return rpcs.length;
+		return parseInt(rpcs.length);
 	}
 
 	async function beforeOffset(){
