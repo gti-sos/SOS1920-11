@@ -5,11 +5,13 @@
 	import Router from 'svelte-spa-router';
 
 	import efistable from './efi/efitable.svelte';
+	//import editefi from './efi/editefi.svelte';
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,
 		"/rpcs/:country/:year" : EditRpc,
-		"/efis": efistable
+		"/efis": efistable,
+		//"/efis/:country/:year": editefi
 		
 	}
 </script>

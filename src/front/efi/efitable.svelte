@@ -57,7 +57,7 @@
 
         if (queryEntera!=""){
             console.log("Buscando contactos");
-            const res = await fetch("/api/v1/economic-freedom-indexes"+queryEntera);
+            const res = await fetch("/api/v2/economic-freedom-indexes"+queryEntera);
 
             if (res.ok) {
                 console.log("Ok:");
@@ -91,7 +91,7 @@
 	async function getEfis() {
 
 		console.log("Buscando contactos");
-		const res = await fetch("/api/v1/economic-freedom-indexes?=limit"+limit+"&offset="+offset);
+		const res = await fetch("/api/v2/economic-freedom-indexes?=limit"+limit+"&offset="+offset);
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -125,7 +125,7 @@
         newEfi.efiinvfreed=parseFloat(newEfi.efiinvfreed),
         newEfi.efifinfred=parseFloat(newEfi.efifinfred)
         
-		const res = await fetch("/api/v1/economic-freedom-indexes/", {
+		const res = await fetch("/api/v2/economic-freedom-indexes/", {
 			method: "POST",
 			body: JSON.stringify(newEfi),
 			headers: {
@@ -147,7 +147,7 @@
 	async function deleteEfi(country,year) {
         console.log(country);
         console.log(year);
-		const res = await fetch("/api/v1/economic-freedom-indexes/" + country + "/" + year, {
+		const res = await fetch("/api/v2/economic-freedom-indexes/" + country + "/" + year, {
 			method: "DELETE"
 		}).then(function (res) {
             if (res.status!=404){
@@ -162,7 +162,7 @@
     }
     
     async function loadData(){
-        const res = await fetch("/api/v1/economic-freedom-indexes/loadInitialData");
+        const res = await fetch("/api/v2/economic-freedom-indexes/loadInitialData");
         userMsg="Datos iniciales cargados"
 		if (res.ok) {
            getEfis();
@@ -173,7 +173,7 @@
 		}
     }
     async function delData(){
-        const res = await fetch("/api/v1/economic-freedom-indexes/", {
+        const res = await fetch("/api/v2/economic-freedom-indexes/", {
 			method: "DELETE"
 		}).then(function (res) {
             if (res.status!=404){
