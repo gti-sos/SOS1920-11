@@ -21,7 +21,7 @@ router.use(function procesador(req, res, next) {
 });
 
 //loadInitialData
-//import initialdata from 'initialdata.js';
+
 var init = [
 	{
 		country: 'New Zeland',
@@ -73,6 +73,7 @@ function sizeOfObject(obj) {
 
 router.get('/loadInitialData', (req, res) => {
 	//var init = require("./initaldata.json");
+	console.log("cargando datos ")
 	db.insert(init);
 	//efis=init;
 	res.sendStatus(201, 'DATA CREATED');
@@ -90,6 +91,9 @@ router.post('/', (req, res) => {
 		res.sendStatus(400, 'BAD REQUEST');
 	} else if (sizeOfObject(newefi) != lenparametros) {
 		//falan o sobran parametros
+		res.sendStatus(400, 'BAD REQUEST');
+	} else if (newefi.country == "" || newefi.year== "") {
+		//falan nombre o año de pais
 		res.sendStatus(400, 'BAD REQUEST');
 	} else {
 		//todo en orden
@@ -207,6 +211,7 @@ router.get('/:country/:year', (req, res) => {
 //delete specific efi
 
 router.delete('/:country/:year', (req, res) => {
+	console.log("borrando efi....")
 	var p1 = {};
 	var p2 = {};
 	p1['country'] = req.params.country;

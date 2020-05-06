@@ -17,9 +17,12 @@ app.use("/",express.static("./public"));
 
 //Acceso al recurso economic-freedom-indexes
 
-const rutaEFI = BASE_API_URL + '/economic-freedom-indexes'; 
-var efis=  require('./src/back/efi/efi');
-app.use(rutaEFI,efis);
+const rutaEFI1 = "/api/v1/economic-freedom-indexes"; 
+const rutaEFI2 = '/api/v2/economic-freedom-indexes'; 
+var efis=  require('./src/back/efi/v1/efi');
+var efis2= require('./src/back/efi/v2/efi');
+app.use(rutaEFI1,efis);
+app.use(rutaEFI2,efis2);
 
 
 //Acceso a rents-per-capita
