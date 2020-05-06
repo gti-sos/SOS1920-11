@@ -175,6 +175,40 @@ var init = [
 		efitradefreed: 88.2,
 		efiinvfreed: 80.0,
 		efifinfred: 90.0 
+	},
+	{
+		country: 'Portugal',
+		year: 2020,
+		efiindex: 67.0,
+		efigovint: 68.9,
+		efipropright: 75.4,
+		efijudefct: 65.6,
+		efitaxburden: 59.6,
+		efigovspend: 39.8,
+		efisicalhealth: 74.4,
+		efibusfreed: 76.5,
+		efilabfreed: 44.1,
+		efimonfreed: 83.0,
+		efitradefreed: 86.4,
+		efiinvfreed: 70.0,
+		efifinfred: 60.0 
+	},
+	{
+		country: 'Panama',
+		year: 2020,
+		efiindex: 67.2,
+		efigovint: 37.2,
+		efipropright: 58.8,
+		efijudefct: 30.0,
+		efitaxburden: 85.3,
+		efigovspend: 85.7,
+		efisicalhealth: 91.2,
+		efibusfreed: 70.8,
+		efilabfreed: 43.3,
+		efimonfreed: 79.4,
+		efitradefreed: 79.2,
+		efiinvfreed: 75.0,
+		efifinfred: 70.0 
 	}
 ]
 ;
