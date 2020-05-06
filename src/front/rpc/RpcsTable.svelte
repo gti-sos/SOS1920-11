@@ -29,7 +29,7 @@
 	};
 
 	let offset = 0;
-	let limit = 2;
+	let limit = 10;
 	let numTotal;
 	let numFiltered;
 	let userMsg;
@@ -47,22 +47,31 @@
 		}else{
 			rpcs = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
-				userMsg = "No se han encontrado datos."
+				userMsg = "No se han encontrado datos.";
 			}
 			console.log("Datasabe empty");
 		}
 	}
 
 	async function getRPCS(){
+		var query = "";
+		numTotal = await getNumTotal(query);
 		console.log('Fetching rpcs..');
-		const res = await fetch("/api/v1/rents-per-capita");
+		query = query + "?limit="+limit+"&offset="+offset;
+		const res = await fetch("/api/v1/rents-per-capita"+query);
 
 		if (res.ok){
 			console.log("OK!");
 			const json= await res.json();
 			rpcs = json ;
 			console.log("Received "+rpcs.length+" rpcs.");
-			numTotal = rpcs.length;
+			if(userMsg == "El dato fue insertado correctamente." || userMsg =="El dato ha sido borrado."){
+				userMsg =userMsg + "\nMostrando "+rpcs.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
+
+			}else{
+				userMsg = "Mostrando "+rpcs.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
+
+			}
 		}else{
 			rpcs = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
@@ -99,8 +108,9 @@
 					"Content-Type": "application/json"
 				}
 			}).then(function(res){
-				getRPCS();
+				
 				userMsg = "El dato fue insertado correctamente.";
+				getRPCS();
 
 			});
 			}
@@ -209,10 +219,11 @@
 			const json= await res.json();
 			rpcs = json ;
 			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
-			userMsg = "Mostrando "+rpcs.length+" de "+numTotal+" datos."
+			userMsg = "Mostrando "+rpcs.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
 			
 		}else{
 			rpcs = [] ;
+			userMsg = "No se han encontrado datos.";
 			console.log("Not found");
 		}
 	}
@@ -224,8 +235,9 @@
 		rpcs = json ;
 		return parseInt(rpcs.length);
 		}else{
-			
-			userMsg = "No se han encontrado datos."
+			if(userMsg!="Todos los datos han sido borrados."){
+				userMsg = "No se han encontrado datos.";
+			}
 			return 0;
 		}
 
@@ -242,6 +254,7 @@
 		searchRPCS();
 	
 	}
+
 
 </script>
 
