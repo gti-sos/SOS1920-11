@@ -3,7 +3,7 @@
 	import EditRpc from './rpc/EditRpc.svelte';
 	import Index from './index.svelte';
 	import Router from 'svelte-spa-router';
-
+	export let userMsg;
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,

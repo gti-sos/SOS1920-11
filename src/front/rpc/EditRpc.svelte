@@ -15,7 +15,7 @@
     let updatedPib3t;
     let updatedPib4t;
     let updatedVpy;
-    let msg;
+    export let userMsg;
 
     onMount(getRPC);
 
@@ -63,7 +63,7 @@
 			}
 		}).then(function(res){
             
-            msg = "EL DATO FUE ACTUALIZADO";
+            userMsg = "EL DATO FUE ACTUALIZADO";
             location.href="/#/rpcs/";
 		});	
     }

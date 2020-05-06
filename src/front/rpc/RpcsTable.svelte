@@ -2,7 +2,7 @@
 	import {onMount} from "svelte";
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
-
+	
 	let rpcs = [];
 	let newRpc = {
 		country: "",
@@ -15,6 +15,7 @@
 		pib4t: 0,
 		vpy: 0
 	};
+	
 	let queryRpc = {
 		country: "",
 		year: "",
@@ -31,7 +32,7 @@
 	let limit = 2;
 	let numTotal;
 	let numFiltered;
-	let userMsg = "";
+	export let userMsg;
 	
 	onMount(getRPCS);
 
@@ -79,6 +80,15 @@
 				userMsg="El dato de ese año y país ya existe.";
 			}
 			});
+
+			newRpc.year= parseInt(newRpc.year);
+			newRpc.rpc= parseInt(newRpc.rpc);
+			newRpc.piba= parseInt(newRpc.piba);
+			newRpc.pib1t= parseInt(newRpc.pib1t);
+			newRpc.pib2t= parseInt(newRpc.pib2t);
+			newRpc.pib3t= parseInt(newRpc.pib3t);
+			newRpc.pib4t= parseInt(newRpc.pib4t);
+			newRpc.vpy= parseFloat(newRpc.vpy);
 		
 			if(userMsg!="El dato de ese año y país ya existe."){
 				console.log('Inserting rpc... '+ JSON.stringify(newRpc));
@@ -188,6 +198,9 @@
 				query = query + "&vpy="+queryRpc.vpy;
 			}
 		}
+		
+		numTotal = getNumTotal(query);
+
 		query = query + "&limit="+limit+"&offset="+ offset;
 
 		const res = await fetch("/api/v1/rents-per-capita"+query);
@@ -197,8 +210,7 @@
 			const json= await res.json();
 			rpcs = json ;
 			console.log("Received "+rpcs.length+" rpcs, offset = "+offset+".");
-			numFiltered = rpcs.length;
-			userMsg = "Mostrando "+numFiltered+" de "+numTotal+" datos."
+			userMsg = "Mostrando "+rpcs.length+" de "+numTotal+" datos."
 			
 		}else{
 			rpcs = [] ;
@@ -206,9 +218,16 @@
 			console.log("Not found");
 		}
 	}
-	
+
+	async function getNumTotal(query){
+		const res = await fetch("/api/v1/rents-per-capita"+query);
+		const json= await res.json();
+		rpcs = json ;
+		return rpcs.length;
+	}
+
 	async function beforeOffset(){
-		if (offset >=2) offset = offset - limit;
+		if (offset >=limit) offset = offset - limit;
 		searchRPCS();
 	
 	}
