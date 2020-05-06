@@ -189,13 +189,13 @@
 
     async function beforeOffset(){
 		if (offset >=10) offset = offset - limit;
-		searchRPCS();
+		getEfis();
 	
 	}
 
 	async function nextOffset(){
 		if((offset + limit)<numTotal) offset = offset + limit;
-		searchRPCS();
+		getEfis();
 	
 	}
 </script>
