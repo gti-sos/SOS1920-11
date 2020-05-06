@@ -33,12 +33,12 @@
 		<h2>
 			APIs
 		</h2>
+		Puedes examinar en Postman las distintas APIs que han generado cada uno de los miembros:
+		<br>
 		<ul>
-			
-			
-			<li><a href="https://documenter.getpostman.com/view/10701438/SzYUZgNc">https://sos1920-11.herokuapp.com/api/v1/economic-freedom-indexes/docs</a> (developed by Ignacio Calcedo Vázquez)</li>
-				<li><a href=" https://documenter.getpostman.com/view/10701451/Szf3aVio">https://sos1920-11.herokuapp.com/api/v1/crime-rates-stats/docs</a> (developed by José Calcedo Vázquez)</li>
-				<li><a href="https://documenter.getpostman.com/view/9107347/SzYUa25s">https://sos1920-11.herokuapp.com/api/v1/rents-per-capita/docs</a> (developed by Alberto Rubio Hurtado)</li>
+			<li><a href="https://documenter.getpostman.com/view/10701438/SzYUZgNc">API V1</a> (Deprecated) // <a href="https://documenter.getpostman.com/view/10701438/SzmcbzBj">API V2</a> (developed by Ignacio Calcedo Vázquez)</li>
+			<li><a href=" https://documenter.getpostman.com/view/10701451/Szf3aVio">https://sos1920-11.herokuapp.com/api/v1/crime-rates-stats/docs</a> (developed by José Calcedo Vázquez)</li>
+			<li><a href="https://documenter.getpostman.com/view/9107347/SzYUa25s">https://sos1920-11.herokuapp.com/api/v1/rents-per-capita/docs</a> (developed by Alberto Rubio Hurtado)</li>
 		</ul>
 		</div>
 </main>
