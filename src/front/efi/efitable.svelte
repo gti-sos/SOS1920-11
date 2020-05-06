@@ -91,7 +91,7 @@
 	async function getEfis() {
 
 		console.log("Buscando contactos");
-		const res = await fetch("/api/v2/economic-freedom-indexes?=limit"+limit+"&offset="+offset);
+		const res = await fetch("/api/v2/economic-freedom-indexes?limit="+limit+"&offset="+offset);
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -189,13 +189,13 @@
 
     async function beforeOffset(){
 		if (offset >=10) offset = offset - limit;
-		searchRPCS();
+		getEfis();
 	
 	}
 
 	async function nextOffset(){
-		if((offset + limit)<numTotal) offset = offset + limit;
-		searchRPCS();
+		if((offset + limit)<=numTotal) offset = offset + limit;
+		getEfis();
 	
 	}
 </script>
