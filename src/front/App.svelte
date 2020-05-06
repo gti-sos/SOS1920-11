@@ -2,7 +2,7 @@
 	import RpcsTable from './rpc/RpcsTable.svelte';
 	import EditRpc from './rpc/EditRpc.svelte';
 	import Index from './index.svelte';
-//	export let name;
+	export let msg;
 	import Router from 'svelte-spa-router';
 
 	import efistable from './efi/efitable.svelte';

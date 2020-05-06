@@ -2,6 +2,7 @@
 	import {onMount} from "svelte";
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
+
 	let rpcs = [];
 	let newRpc = {
 		country: "",
@@ -34,6 +35,23 @@
 
 	onMount(getRPCS);
 
+	async function loadInitialData(){
+		console.log('Loading initial rpcs..');
+		const res = await fetch("/api/v1/rents-per-capita/loadInitialData");
+
+		userMsg = "DATOS INICIALES CARGADOS.";
+		if (res.ok){
+			console.log("DATOS INICIALES CARGADOS!");
+			getRPCS();
+		}else{
+			rpcs = [] ;
+			if(userMsg!="Todos los datos han sido borrados."){
+				userMsg = "No se han encontrado datos."
+			}
+			console.log("Datasabe empty");
+		}
+	}
+
 	async function getRPCS(){
 		console.log('Fetching rpcs..');
 		const res = await fetch("/api/v1/rents-per-capita");
@@ -47,7 +65,7 @@
 		}else{
 			rpcs = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
-				userMsg = "No se han encontrado datos."
+				userMsg = "No se han encontrado datos.";
 			}
 			console.log("Datasabe empty");
 		}
@@ -194,7 +212,7 @@
 </script>
 
 <main>
-	<h2>RPCS GUI</h2>
+	<h2>RPCS GUI</h2> <Button outline color="danger" on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
 	{#if userMsg}
 	<h3><p style= "color:orange">{userMsg}</p></h3>
 	{/if}
@@ -217,15 +235,15 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input bind:value="{newRpc.country}" /></td>
-				<td><input bind:value="{newRpc.year}" /></td>
-				<td><input bind:value={newRpc.rpc} /></td>
-				<td><input bind:value={newRpc.piba} /></td>
-				<td><input bind:value={newRpc.pib1t} /></td>
-				<td><input bind:value={newRpc.pib2t} /></td>
-				<td><input bind:value={newRpc.pib3t} /></td>
-				<td><input bind:value={newRpc.pib4t} /></td>
-				<td><input bind:value={newRpc.vpy} /></td>
+				<td><input style="width: 100px;" bind:value="{newRpc.country}" /></td>
+				<td><input style="width: 50px;" bind:value="{newRpc.year}" /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.rpc} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.piba} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib1t} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib2t} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib3t} /></td>
+				<td><input style="width: 100px;" bind:value={newRpc.pib4t} /></td>
+				<td><input style="width: 50px;" bind:value={newRpc.vpy} /></td>
 				<td><Button on:click={insertRPC} outline color="primary">INSERT</Button></td>
 			</tr>
 			{#each rpcs as rpc}
@@ -247,7 +265,7 @@
 	</Table>
 	{/await}
 
-	<Table bordered style="width:auto;">
+	<Table bordered style="width: auto;">
 		<thead>
 			<tr>
 				<td>Country</td>
@@ -263,19 +281,20 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><input bind:value="{queryRpc.country}" /></td>
-				<td><input bind:value="{queryRpc.year}" /></td>
-				<td><input bind:value={queryRpc.rpc} /></td>
-				<td><input bind:value={queryRpc.piba} /></td>
-				<td><input bind:value={queryRpc.pib1t} /></td>
-				<td><input bind:value={queryRpc.pib2t} /></td>
-				<td><input bind:value={queryRpc.pib3t} /></td>
-				<td><input bind:value={queryRpc.pib4t} /></td>
-				<td><input bind:value={queryRpc.vpy} /></td>
+				<td><input style="width: 100px;" bind:value="{queryRpc.country}" /></td>
+				<td><input style="width: 50px;" bind:value="{queryRpc.year}" /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.rpc} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.piba} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib1t} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib2t} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib3t} /></td>
+				<td><input style="width: 100px;" bind:value={queryRpc.pib4t} /></td>
+				<td><input style="width: 50px;" bind:value={queryRpc.vpy} /></td>
 			</tr>
 		</tbody>
 		<Button outline color="secondary" on:click={searchRPCS}>BUSCAR</Button>
-		<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
-		<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
 	</Table>
+	<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
+	<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
 </main>
+
