@@ -255,6 +255,10 @@
 	
 	}
 
+	async function setOffsetZero(){
+		offset = 0;
+	}
+
 
 </script>
 
@@ -340,7 +344,7 @@
 				<td><input style="width: 50px;" bind:value={queryRpc.vpy} /></td>
 			</tr>
 		</tbody>
-		<Button outline color="secondary" on:click={searchRPCS}>BUSCAR</Button>
+		<Button outline color="secondary" on:click={searchRPCS} on:click={setOffsetZero}>BUSCAR</Button>
 	</Table>
 	<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
 	<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
