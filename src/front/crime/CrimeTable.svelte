@@ -30,7 +30,7 @@
         cr_theftcount: ""
 	};
 
-	onMount(getCrimes);
+	onMount(loadInitialData);
 
     async function getCrimes(){
         var query = "";
@@ -52,11 +52,11 @@
 
 			}
 		}else{
-			rpcs = [] ;
+			crimes = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
 				userMsg = "No se han encontrado datos.";
 			}
-			console.log("Datasabe empty");
+			console.log("Base de datos vacía");
 		}
     }
 
@@ -70,9 +70,9 @@
 			getCrimes();
 		}else{
 			crimes = [] ;
-			if(userMsg!="Todos los datos han sido borrados."){
-				userMsg = "No se han encontrado datos.";
-			}
+			//if(userMsg!="Todos los datos han sido borrados."){
+			//	userMsg = "No se han encontrado datos.";
+			//}
 			console.log("Base de datos vacía");
 		}
     }
@@ -155,44 +155,44 @@
 		}
 		if(queryCrime.cr_rate!=""){
 			if (query =="?") {
-				query = query + "rpc="+queryCrime.cr_rate;
+				query = query + "cr_rate="+queryCrime.cr_rate;
 			}else{
-				query = query + "&rpc="+queryCrime.cr_rate;
+				query = query + "&cr_rate="+queryCrime.cr_rate;
 			}
 		}
 		if(queryCrime.cr_saferate!=""){
 			if (query =="?") {
-				query = query + "piba="+queryCrime.cr_saferate;
+				query = query + "cr_saferate="+queryCrime.cr_saferate;
 			}else{
-				query = query + "&piba="+queryCrime.cr_saferate;
+				query = query + "&cr_saferate="+queryCrime.cr_saferate;
 			}
 		}
 		if(queryCrime.cr_homicrate!=""){
 			if (query =="?") {
-				query = query + "pib1y="+queryCrime.cr_homicrate;
+				query = query + "cr_homicrate="+queryCrime.cr_homicrate;
 			}else{
-				query = query + "&pib1t="+queryCrime.cr_homicrate;
+				query = query + "&cr_homicrate="+queryCrime.cr_homicrate;
 			}
 		}
 		if(queryCrime.cr_homicount!=""){
 			if (query =="?") {
-				query = query + "pib2t="+queryCrime.cr_homicount;
+				query = query + "cr_homicount="+queryCrime.cr_homicount;
 			}else{
-				query = query + "&pib2t="+queryCrime.cr_homicount;
+				query = query + "&cr_homicount="+queryCrime.cr_homicount;
 			}
 		}
 		if(queryCrime.cr_theftrate!=""){
 			if (query =="?") {
-				query = query + "pib3t="+queryCrime.cr_theftrate;
+				query = query + "cr_theftrate="+queryCrime.cr_theftrate;
 			}else{
-				query = query + "&pib3t="+queryCrime.cr_theftrate;
+				query = query + "&cr_theftrate="+queryCrime.cr_theftrate;
 			}
 		}
 		if(queryCrime.cr_theftcount!=""){
 			if (query =="?") {
-				query = query + "pib4t="+queryCrime.cr_theftcount;
+				query = query + "cr_theftcount="+queryCrime.cr_theftcount;
 			}else{
-				query = query + "&pib4t="+queryCrime.cr_theftcount;
+				query = query + "&cr_theftcount="+queryCrime.cr_theftcount;
 			}
 		}
 		query = query + "&limit="+limit+"&offset="+ offset;
@@ -203,12 +203,12 @@
 			console.log("OK!");
 			const json= await res.json();
 			crimes2 = json ;
-			console.log("Received "+crimes2+" rpcs, offset = "+offset+".");
+			console.log("Received "+crimes2+" crimes, offset = "+offset+".");
 			numFiltered = crimes2.length;
 			userMsg = "Mostrando "+numFiltered+" de "+numTotal+" datos."
 			
 		}else{
-			rpcs = [] ;
+			crimes = [] ;
 			userMsg = "No se han encontrado datos."
 			console.log("Not found");
 		}

@@ -61,7 +61,8 @@ function sizeOfObject(obj) {
 }
 
 router.get('/loadInitialData', (req, res) => {
-    db.insert(crimeratestats);
+	console.log("Enviando datos");
+	db.insert(crimeratestats);
     //res.sendStatus(201,"DATA CREATED");
     console.log('Datos enviados:' + JSON.stringify(crimeratestats, null, 2));
 });

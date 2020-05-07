@@ -20,7 +20,7 @@
 
     async function getCrime(){
         console.log("Buscando crimen...");
-        const res = await fetch("/api/v1/crime-rate-stats/"+params.country+"/"+params.year);
+        const res = await fetch("/api/v2/crime-rate-stats/"+params.country+"/"+params.year);
 
         if (res.ok){
             console.log("OK!");
@@ -43,7 +43,7 @@
     
     async function updateCrime(){
         console.log('Actualizando crimen con '+ JSON.stringify(params.country)+" "+JSON.stringify(params.year));
-		const res = await fetch("/api/v1/crime-rate-stats/"+params.country+"/"+params.year,{
+		const res = await fetch("/api/v2/crime-rate-stats/"+params.country+"/"+params.year,{
 			method: "PUT",
 			body: JSON.stringify({
                 country: country,
