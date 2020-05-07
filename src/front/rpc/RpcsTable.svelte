@@ -291,7 +291,7 @@
 				<td><input style="width: 100px;" bind:value={newRpc.pib3t} /></td>
 				<td><input style="width: 100px;" bind:value={newRpc.pib4t} /></td>
 				<td><input style="width: 50px;" bind:value={newRpc.vpy} /></td>
-				<td><Button on:click={insertRPC} outline color="primary">INSERT</Button></td>
+				<td><Button on:click={insertRPC} outline color="primary">INSERTAR</Button></td>
 			</tr>
 			{#each rpcs as rpc}
 			<tr>
@@ -304,7 +304,7 @@
 				<td>{rpc.pib3t}</td>
 				<td>{rpc.pib4t}</td>
 				<td>{rpc.vpy}</td>
-				<td><Button on:click={deleteRPC(rpc.country,rpc.year)} outline color="danger">DELETE</Button></td>
+				<td><Button on:click={deleteRPC(rpc.country,rpc.year)} outline color="danger">BORRAR</Button></td>
 			</tr>
 			{/each}
 		</tbody>
