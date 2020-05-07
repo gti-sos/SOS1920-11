@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 var router = express.Router();
 module.exports = router;
 var app = express();
-
+const lenparametros = 15;
 const dataStore = require('nedb');
 const path = require('path');
 
@@ -15,8 +15,6 @@ const db = new dataStore({
 });
 
 app.use(bodyParser.json());
-
-//var port = process.env.PORT || 80;
 
 var crimeratestats = [
     {
@@ -167,11 +165,23 @@ router.get("/", (req,res) =>{
 router.post('/', (req, res) => {
     var newCrime = req.body;
 
-    if (newCrime == '' || newCrime.name == null) {
-        res.sendStatus(400, 'BAD REQUEST');
-    } else {
-        db.insert(newCrime);
-    }
+    if (newCrime == '' || newCrime.country == null) {
+		//no es ni remotamente indexable.
+		res.sendStatus(400, 'BAD REQUEST');
+	} else if ('_id' in newCrime) {
+		//el cuerpo no puede tener el campo _id
+		res.sendStatus(400, 'BAD REQUEST');
+	} else if (sizeOfObject(newCrime) != lenparametros) {
+		//falan o sobran parametros
+		res.sendStatus(400, 'BAD REQUEST');
+	} else if (newCrime.country == "" || newCrime.year== "") {
+		//falan nombre o año de pais
+		res.sendStatus(400, 'BAD REQUEST');
+	} else {
+		//todo en orden
+		db.insert(newCrime);
+		res.sendStatus(201, 'CREATED');
+	}
 });
 
 // DELETE CONTACTS
@@ -211,25 +221,6 @@ router.get('/:country/:year', (req, res) => {
 router.put('/:country', (req, res) => {
     var country = req.params.country;
     var body = req.body;
-    /*	var filtro = crimeratestats.filter((c) => {
-		return (c.country == country);
-	});
-	
-	if (filtro.length==0){
-		res.sendStatus(404,"COUNTRY NOT FOUND");	
-	}else{
-		var body= req.body;
-		var nuevocrate=crimeratestats.map((c)=>{
-			if(c.country==country){
-				c.country=body["country"];
-				c.year=body["year"];
-				c.cr_rate=body["cr_rate"];
-			}
-		});
-		res.sendStatus(200,"OK");
-	}
-}); */
-
     db.update(
         { country: country },
         {

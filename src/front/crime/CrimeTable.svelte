@@ -37,7 +37,7 @@
 		numTotal = await getNumTotal(query);
 		console.log('Cargando crimenes..');
 		query = query + "?limit="+limit+"&offset="+offset;
-		const res = await fetch("/api/v2/crime-rate-stats"+query);
+		const res = await fetch("/api/v2/crime-rate-stats/"+query);
 
 		if (res.ok){
 			console.log("OK!");
@@ -69,7 +69,7 @@
 			userMsg = "Estos son los datos iniciales";
 			getCrimes();
 		}else{
-			Crimes = [] ;
+			crimes = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
 				userMsg = "No se han encontrado datos.";
 			}
@@ -105,11 +105,10 @@
 			}).then(function(res){
 				
 				userMsg = "El dato fue insertado correctamente.";
-				getRPCS();
+				getCrimes();
 
 			});
 			}
-		
 		
 		}else{
 			userMsg = "El dato insertado no tiene nombre/año válido/s .";
