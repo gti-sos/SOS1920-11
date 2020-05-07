@@ -2,7 +2,9 @@
     import {onMount} from "svelte";
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
+	
 	let msg;
+	let busquedaEsp=false;
 	let crimenes;
 	let offset = 0;
 	let limit = 10;
@@ -10,6 +12,7 @@
 	let numFiltered;
 	let userMsg = "";
 	let crimes = [];
+	
 	let newCrime = {
 		country: "",
 		year: 0,
@@ -34,30 +37,21 @@
 	onMount(getCrimes);
 
     async function getCrimes(){
-        var query = "";
-		numTotal = await getNumTotal(query);
-		console.log('Cargando crimenes..');
-		query = query + "?limit="+limit+"&offset="+offset;
-		const res = await fetch("/api/v2/crime-rate-stats/"+query);
+       console.log("Buscando contactos");
+		const res = await fetch("/api/v2crime-rate-stats?limit="+limit+"&offset="+offset);
 
-		if (res.ok){
-			console.log("OK!");
-			const json= await res.json();
-			crimes = json ;
-			console.log("Received "+crimes.length+" crimes.");
-			if(userMsg == "El dato fue insertado correctamente." || userMsg =="El dato ha sido borrado."){
-				userMsg =userMsg + "\nMostrando "+crimes.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
-
-			}else{
-				userMsg = "Mostrando "+crimes.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
-
-			}
-		}else{
-			crimes = [] ;
-			if(userMsg!="Todos los datos han sido borrados."){
+		if (res.ok) {
+			console.log("Ok:");
+			const json = await res.json();
+			crimes = json;
+            console.log("Recibidos " + crimes.length + " efis.");
+            numTotal= crimes.length;
+		} else {
+            efis=[];
+            if(userMsg!="se ha borrado correctamente"){
 				userMsg = "No se han encontrado datos.";
 			}
-			console.log("Base de datos vacía");
+			console.log("ERROR!");
 		}
     }
 
