@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 var app = express();
-const BASE_API_URL = "/api/v1";
 
 app.use(bodyParser.json());
 
