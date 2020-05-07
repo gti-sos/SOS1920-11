@@ -35,9 +35,12 @@ app.use(rutaRPC,rpcs);
 //Acceso a crime-rate-stats
 
 
-const rutaCrime = BASE_API_URL + '/crime-rate-stats';
-var rcrime=  require('./src/back/crime/API_jose');
+const rutaCrime = "/api/v1/crime-rate-stats";
+const rutaCrime2 = "/api/v1/crime-rate-stats"
+var rcrime2 = require("./src/back/crime/v2/API_jose2");
+var rcrime=  require('./src/back/crime/v1/API_jose');
 app.use(rutaCrime,rcrime);
+app.use(rutaCrime2, rcrime2);
 
 //Server start up
 app.listen(port, () => {
