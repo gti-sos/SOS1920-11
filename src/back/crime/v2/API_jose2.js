@@ -136,7 +136,7 @@ router.get("/", (req,res) =>{
 			console.log('Buscando todos los crimenes');
 			db.find({}, { _id: 0 }, (err, crimes) => {
 				//res.send(indexes);
-				console.log('get crimes');
+				console.log('Get crimes');
 				if (crimes.length != 0) {
 					res.send(crimes);
 					console.log('Data sent: ' + JSON.stringify(crimes, null, 2));

@@ -37,21 +37,30 @@
 	onMount(getCrimes);
 
     async function getCrimes(){
-       console.log("Buscando contactos");
-		const res = await fetch("/api/v2crime-rate-stats?limit="+limit+"&offset="+offset);
+		var query = "";
+		numTotal = await getNumTotal(query);
+		console.log('Buscando..');
+		query = query + "?limit="+limit+"&offset="+offset;
+		const res = await fetch("/api/v2/crime-rate-stats"+query);
 
-		if (res.ok) {
-			console.log("Ok:");
-			const json = await res.json();
-			crimes = json;
-            console.log("Recibidos " + crimes.length + " efis.");
-            numTotal= crimes.length;
-		} else {
-            efis=[];
-            if(userMsg!="se ha borrado correctamente"){
+		if (res.ok){
+			console.log("OK!");
+			const json= await res.json();
+			crimes = json ;
+			console.log("Received "+crimes.length+" rpcs.");
+			if(userMsg == "El dato fue insertado correctamente." || userMsg =="El dato ha sido borrado."){
+				userMsg =userMsg + "\nMostrando "+crimes.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
+
+			}else{
+				userMsg = "Mostrando "+crimes.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
+
+			}
+		}else{
+			crimes = [] ;
+			if(userMsg!="Todos los datos han sido borrados."){
 				userMsg = "No se han encontrado datos.";
 			}
-			console.log("ERROR!");
+			console.log("Datasabe empty");
 		}
     }
 
@@ -228,7 +237,7 @@
 		if(res.ok){
 			const json= await res.json();
 			crimenes = json ;
-		return parseInt(crimenes.length);
+			return parseInt(crimenes.length);
 		}else{
 			if(userMsg!="Todos los datos han sido borrados."){
 				userMsg = "No se han encontrado datos.";
@@ -240,7 +249,7 @@
 </script>
 <main>
 	<h2>GUI Crimes</h2> 
-	<Button outline color="danger" on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
+	<Button outline color="danger" on:click={loadInitialData()}>CARGAR DATOS INCIALES</Button>
 	{#if userMsg}
 	<h3><p>{userMsg}</p></h3>
 	{/if}
@@ -268,7 +277,7 @@
 				<td><input style="width: 100px;" bind:value={newCrime.cr_homicount} /></td>
 				<td><input style="width: 100px;" bind:value={newCrime.cr_theftrate} /></td>
 				<td><input style="width: 100px;" bind:value={newCrime.cr_theftcount} /></td>
-				<td><Button on:click={insertCrime} outline color="primary">INSERTAR</Button></td>
+				<td><Button on:click={insertCrime()} outline color="primary">INSERTAR</Button></td>
 			</tr>
 			{#each crimes as crime}
 			<tr>
