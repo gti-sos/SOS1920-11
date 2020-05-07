@@ -33,8 +33,7 @@ Our project is focused on the economic freedom of different countries and the im
 
 ## APIs
 Puedes examinar en Postman las distintas APIs que han generado cada uno de los miembros:
-*   [API V1](https://documenter.getpostman.com/view/10701438/SzYUZgNc) (Deprecated) // [API V2](https://documenter.getpostman.com/view/10701438/SzmcbzBj) (developed by Ignacio Calcedo Vázquez)(developed by Ignacio Calcedo Vázquez)
+*   [API V1](https://documenter.getpostman.com/view/10701438/SzYUZgNc) (Deprecated) // [API V2](https://documenter.getpostman.com/view/10701438/SzmcbzBj) (developed by Ignacio Calcedo Vázquez)
 *   [https://sos1920-11.herokuapp.com/api/v1/crime-rates-stats/docs]( https://documenter.getpostman.com/view/10701451/Szf3aVio) (developed by José Calcedo Vázquez)
-*   [RPC API V1](https://documenter.getpostman.com/view/9107347/Szme4dme) (Deprecated) // [RPC API V2](https://documenter.getpostman.com/view/9107347/SzYUa25s)
-[https://sos1920-11.herokuapp.com/api/v2/rents-per-capita/docs](https://documenter.getpostman.com/view/9107347/SzYUa25s) (developed by Alberto Rubio Hurtado)
+*   [RPC API V1](https://documenter.getpostman.com/view/9107347/Szme4dme) (Deprecated) // [RPC API V2](https://documenter.getpostman.com/view/9107347/SzYUa25s) (developed by Alberto Rubio Hurtado)
 
