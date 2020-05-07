@@ -33,30 +33,40 @@
 	onMount(getCrimes);
 
     async function getCrimes(){
-        console.log("Cargando crimenes");
-        const res = await fetch ("/api/v1/crime-rate-stats");
+        var query = "";
+		numTotal = await getNumTotal(query);
+		console.log('Cargando crimenes..');
+		query = query + "?limit="+limit+"&offset="+offset;
+		const res = await fetch("/api/v2/crime-rate-stats"+query);
 
-        if (res.ok){
+		if (res.ok){
 			console.log("OK!");
 			const json= await res.json();
 			crimes = json ;
-			console.log("Received "+crimes.length+" Crimes.");
-			numTotal = crimes.length;
+			console.log("Received "+crimes.length+" crimes.");
+			if(userMsg == "El dato fue insertado correctamente." || userMsg =="El dato ha sido borrado."){
+				userMsg =userMsg + "\nMostrando "+crimes.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
+
+			}else{
+				userMsg = "Mostrando "+crimes.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
+
+			}
 		}else{
-			Crimes = [] ;
+			rpcs = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
 				userMsg = "No se han encontrado datos.";
 			}
-			console.log("Base de datos vacía");
+			console.log("Datasabe empty");
 		}
     }
 
 	async function loadInitialData(){
         console.log("Cargando crimenes iniciales");
-        const res = await fetch ("/api/v1/crime-rate-stat/loadInitialData");
+        const res = await fetch ("/api/v2/crime-rate-stats/loadInitialData");
 
         if (res.ok){
 			console.log("Datos iniciales cargados");
+			userMsg = "Estos son los datos iniciales";
 			getCrimes();
 		}else{
 			Crimes = [] ;
@@ -70,27 +80,46 @@
     async function insertCrime(){
 		
 		if(newCrime.country!="" && !isNaN(parseInt(newCrime.year))){
-			console.log('Insertando crimen... '+ JSON.stringify(newCrime));
-			const res = await fetch("/api/v1/crime-rate-stats",{
+			crimes.forEach(x => {
+			if(x.country ==newCrime.country && x.year == newCrime.year){
+				userMsg="El dato de ese año y país ya existe.";
+			}
+			});
+
+			newCrime.year= parseInt(newCrime.year);
+			newCrime.cr_rate= parseFloat(newCrime.cr_rate);
+			newCrime.cr_saferate= parseFloat(newCrime.cr_saferate);
+			newCrime.cr_homicrate= parseFloat(newCrime.cr_homicrate);
+			newCrime.cr_homicount= parseInt(newCrime.cr_homicount);
+			newCrime.cr_theftrate= parseFloat(newCrime.cr_theftrate);
+			newCrime.cr_theftcount= parseInt(newCrime.cr_theftcount);
+		
+			if(userMsg!="El dato de ese año y país ya existe."){
+				console.log('Inserting rpc... '+ JSON.stringify(newCrime));
+			const res = await fetch("/api/v2/crime-rate-stats",{
 				method: "POST",
 				body: JSON.stringify(newCrime),
-				headers: {
+				headers: { 
 					"Content-Type": "application/json"
 				}
 			}).then(function(res){
-				getCrimes();
+				
 				userMsg = "El dato fue insertado correctamente.";
+				getRPCS();
 
 			});
+			}
+		
+		
 		}else{
 			userMsg = "El dato insertado no tiene nombre/año válido/s .";
-			console.log('Inserted Crime has no valid name or valid year.');
+			console.log('Inserted rpc has no valid name or valid year.');
 		}
     }
     
     async function deleteCrime(country,year){
 		console.log('Borrando crimen... ');
-		const res = await fetch("/api/v1/crime-rate-stats/"+country +"/"+year,{
+		const res = await fetch("/api/v2/crime-rate-stats/"+country +"/"+year,{
 			method: "DELETE"
 		}).then(function(res){
 			getCrimes();
@@ -100,7 +129,7 @@
     
     async function deleteteCrimes(){
 		console.log("Borrando crimenes..");
-		const res = await fetch("/api/v1/crime-rate-stats",{
+		const res = await fetch("/api/v2/crime-rate-stats",{
 			method: "DELETE"
 		}).then(function(res){
 			userMsg = "Todos los datos han sido borrados.";
@@ -169,7 +198,7 @@
 		}
 		query = query + "&limit="+limit+"&offset="+ offset;
 
-		const res = await fetch("/api/v1/crime-rate-stats"+query);
+		const res = await fetch("/api/v2/crime-rate-stats"+query);
 		console.log("Sending this.." + JSON.stringify(queryCrime));
 		if (res.ok){
 			console.log("OK!");
@@ -197,6 +226,21 @@
 		if((offset + limit)<numTotal) offset = offset + limit;
 		searchCrimeS();
 	
+	}
+
+	async function getNumTotal(query){
+		const res = await fetch("/api/v2/crime-rate-stats"+query);
+		if(res.ok){
+			const json= await res.json();
+		crimenes = json ;
+		return parseInt(crimenes.length);
+		}else{
+			if(userMsg!="Todos los datos han sido borrados."){
+				userMsg = "No se han encontrado datos.";
+			}
+			return 0;
+		}
+
 	}
 </script>
 <main>
@@ -232,7 +276,7 @@
 			</tr>
 			{#each crimes as crime}
 			<tr>
-				<td><a href="/#/Crimes/{crime.country}/{crime.year}">{crime.country}</a></td>
+				<td><a href="/#/crimes/{crime.country}/{crime.year}">{crime.country}</a></td>
 				<td>{crime.year}</td>
 				<td>{crime.cr_rate}</td>
 				<td>{crime.cr_saferate}</td>
@@ -251,15 +295,14 @@
 	<Table bordered style="width: auto;">
 		<thead>
 			<tr>
-				<td>Country</td>
-				<td>Year</td>
-				<td>RPC</td>
-				<td>PIB A</td>
-				<td>PIB 1T</td>
-				<td>PIB 2T</td>
-				<td>PIB 3T</td>
-				<td>PIB 4T</td>
-				<td>VPY</td>
+			<td>Country</td>
+            <td>Year</td>
+            <td>Crime Rate</td>
+            <td>Safe Rate</td>
+            <td>Homicide Rate</td>
+            <td>Homicide Count</td>
+            <td>Theft Rate</td>
+            <td>Theft Count</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -272,7 +315,7 @@
 				<td><input style="width: 100px;" bind:value={queryCrime.cr_homicount} /></td>
 				<td><input style="width: 100px;" bind:value={queryCrime.cr_theftrate} /></td>
 				<td><input style="width: 100px;" bind:value={queryCrime.cr_theftcount} /></td>
-
+			
 			</tr>
 		</tbody>
 		<Button outline color="secondary" on:click={searchCrimes}>BUSCAR</Button>
