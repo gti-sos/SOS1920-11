@@ -67,7 +67,8 @@
     }
 
 	async function loadInitialData(){
-        console.log("Cargando crimenes iniciales");
+		crimes = [];
+		console.log("Cargando crimenes iniciales");
         res = await fetch ("/api/v2/crime-rate-stats/loadInitialData");
 
         if (res.ok){
