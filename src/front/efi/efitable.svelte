@@ -207,7 +207,8 @@
 		if((offset + limit)<=numTotal) offset = offset + limit;
 		getEfis();
 	
-	}
+    }
+    let maxpag= numTotal>=limit;
 </script>
 
 <main>
@@ -301,8 +302,11 @@
             <Button outline color="secondary" on:click={reset}>Restaurar</Button>
         {:else}
         <Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
+        {/if}
+        {#if !maxpag}
 	    <Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button> 
         {/if}
+        {numTotal}
         <br>
         <h3>{userMsg}</h3>
         <br>
