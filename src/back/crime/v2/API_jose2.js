@@ -61,6 +61,7 @@ function sizeOfObject(obj) {
 }
 
 router.get('/loadInitialData', (req, res) => {
+	db.remove({}, { multi: true }, function(err, numRemoved) {});
 	console.log("Enviando datos");
 	db.insert(crimeratestats);
     //res.sendStatus(201,"DATA CREATED");
@@ -83,8 +84,6 @@ router.get("/", (req,res) =>{
 			objeto[x] = parseInt(query[x]);
 		} else if (x != 'limit' && x != 'offset') {
 			objeto[x] = parseFloat(query[x]);
-			
-			
 		}
 		parametros.push(objeto);
 	}

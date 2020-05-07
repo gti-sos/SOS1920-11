@@ -36,9 +36,10 @@
 
 	onMount(getCrimes);
 
+
     async function getCrimes(){
 		var query = "";
-		numTotal = await getNumTotal(query);
+		//numTotal = await getNumTotal(query);
 		console.log('Buscando..');
 		query = query + "?limit="+limit+"&offset="+offset;
 		const res = await fetch("/api/v2/crime-rate-stats"+query);
@@ -48,6 +49,7 @@
 			const json= await res.json();
 			crimes = json ;
 			console.log("Received "+crimes.length+" rpcs.");
+			numTotal=crimes.length;
 			if(userMsg == "El dato fue insertado correctamente." || userMsg =="El dato ha sido borrado."){
 				userMsg =userMsg + "\nMostrando "+crimes.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
 
@@ -66,7 +68,7 @@
 
 	async function loadInitialData(){
         console.log("Cargando crimenes iniciales");
-        const res = await fetch ("/api/v2/crime-rate-stats/loadInitialData");
+        res = await fetch ("/api/v2/crime-rate-stats/loadInitialData");
 
         if (res.ok){
 			console.log("Datos iniciales cargados");
@@ -75,7 +77,7 @@
 		}else{
 			crimes = [] ;
 			if(userMsg!="Todos los datos han sido borrados."){
-				userMsg = "No se han encontrado datos.";
+				userMsg = "No se han encontrado datos. "+ res.statusText;
 			}
 			console.log("Base de datos vacía");
 		}
@@ -117,7 +119,8 @@
 		
 		}else{
 			userMsg = "El dato insertado no tiene nombre/año válido/s .";
-			console.log('Inserted rpc has no valid name or valid year.');
+			console.log('Inserted crime has no valid name or valid year.');
+			getCrimes();
 		}
     }
     
@@ -241,8 +244,7 @@
 		}else{
 			if(userMsg!="Todos los datos han sido borrados."){
 				userMsg = "No se han encontrado datos.";
-			}
-			return 0;
+			};
 		}
 
 	}
