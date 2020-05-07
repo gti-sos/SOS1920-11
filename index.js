@@ -36,7 +36,7 @@ app.use(rutaRPC,rpcs);
 
 
 const rutaCrime = "/api/v1/crime-rate-stats";
-const rutaCrime2 = "/api/v1/crime-rate-stats"
+const rutaCrime2 = "/api/v2/crime-rate-stats";
 var rcrime2 = require("./src/back/crime/v2/API_jose2");
 var rcrime=  require('./src/back/crime/v1/API_jose');
 app.use(rutaCrime,rcrime);

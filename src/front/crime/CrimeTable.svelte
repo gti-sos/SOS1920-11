@@ -3,6 +3,7 @@
 	import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
 	let msg;
+	let crimenes;
 	let offset = 0;
 	let limit = 2;
 	let numTotal;
@@ -30,7 +31,7 @@
         cr_theftcount: ""
 	};
 
-	onMount(loadInitialData);
+	onMount(getCrimes);
 
     async function getCrimes(){
         var query = "";
@@ -70,9 +71,9 @@
 			getCrimes();
 		}else{
 			crimes = [] ;
-			//if(userMsg!="Todos los datos han sido borrados."){
-			//	userMsg = "No se han encontrado datos.";
-			//}
+			if(userMsg!="Todos los datos han sido borrados."){
+				userMsg = "No se han encontrado datos.";
+			}
 			console.log("Base de datos vacía");
 		}
     }
@@ -231,7 +232,7 @@
 		const res = await fetch("/api/v2/crime-rate-stats"+query);
 		if(res.ok){
 			const json= await res.json();
-		crimenes = json ;
+			crimenes = json ;
 		return parseInt(crimenes.length);
 		}else{
 			if(userMsg!="Todos los datos han sido borrados."){
@@ -260,6 +261,7 @@
             <td>Homicide Count</td>
             <td>Theft Rate</td>
             <td>Theft Count</td>
+			<td>Opciones</td>
         </thead>
         <tbody>
 			<tr>

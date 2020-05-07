@@ -138,7 +138,7 @@ router.get("/", (req,res) =>{
 				//res.send(indexes);
 				console.log('get crimes');
 				if (crimes.length != 0) {
-					res.send(indexes);
+					res.send(crimes);
 					console.log('Data sent: ' + JSON.stringify(crimes, null, 2));
 				} else {
 					res.sendStatus(404, 'NOT FOUND');
