@@ -27,9 +27,12 @@ app.use(rutaEFI2,efis2);
 
 //Acceso a rents-per-capita
 
-const rutaRPC = BASE_API_URL + '/rents-per-capita';
-var rpcs=  require('./src/back/rpc/API_RPC');
+const rutaRPC = "/api/v1/rents-per-capita";
+var rpcs=  require('./src/back/rpc/v1/API_RPC_v1');
 app.use(rutaRPC,rpcs);
+const rutaRPC2 = "/api/v2/rents-per-capita";
+var rpcs2=  require('./src/back/rpc/v2/API_RPC_v2');
+app.use(rutaRPC2,rpcs2);
 
 
 //Acceso a crime-rate-stats

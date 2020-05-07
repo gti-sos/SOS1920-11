@@ -21,7 +21,7 @@
 
     async function getRPC(){
         console.log('Fetching rpc..');
-        const res = await fetch("/api/v1/rents-per-capita/"+params.country+"/"+params.year);
+        const res = await fetch("/api/v2/rents-per-capita/"+params.country+"/"+params.year);
 
         if (res.ok){
             console.log("OK!");
@@ -45,7 +45,7 @@
 
     async function updateRPC(){
         console.log('Updating rpc from '+ JSON.stringify(params.country)+" "+JSON.stringify(params.year));
-		const res = await fetch("/api/v1/rents-per-capita/"+params.country+"/"+params.year,{
+		const res = await fetch("/api/v2/rents-per-capita/"+params.country+"/"+params.year,{
 			method: "PUT",
 			body: JSON.stringify({
                 country: country,

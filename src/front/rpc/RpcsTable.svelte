@@ -38,7 +38,7 @@
 
 	async function loadInitialData(){
 		console.log('Loading initial rpcs..');
-		const res = await fetch("/api/v1/rents-per-capita/loadInitialData");
+		const res = await fetch("/api/v2/rents-per-capita/loadInitialData");
 
 		userMsg = "DATOS INICIALES CARGADOS.";
 		if (res.ok){
@@ -58,7 +58,7 @@
 		numTotal = await getNumTotal(query);
 		console.log('Fetching rpcs..');
 		query = query + "?limit="+limit+"&offset="+offset;
-		const res = await fetch("/api/v1/rents-per-capita"+query);
+		const res = await fetch("/api/v2/rents-per-capita"+query);
 
 		if (res.ok){
 			console.log("OK!");
@@ -101,7 +101,7 @@
 		
 			if(userMsg!="El dato de ese año y país ya existe."){
 				console.log('Inserting rpc... '+ JSON.stringify(newRpc));
-			const res = await fetch("/api/v1/rents-per-capita",{
+			const res = await fetch("/api/v2/rents-per-capita",{
 				method: "POST",
 				body: JSON.stringify(newRpc),
 				headers: { 
@@ -124,7 +124,7 @@
 
 	async function deleteRPC(country,year){
 		console.log('Deleting rpc... ');
-		const res = await fetch("/api/v1/rents-per-capita/"+country +"/"+year,{
+		const res = await fetch("/api/v2/rents-per-capita/"+country +"/"+year,{
 			method: "DELETE"
 		}).then(function(res){
 			getRPCS();
@@ -134,7 +134,7 @@
 
 	async function deleteteRPCS(){
 		console.log('Deleting rpcs..');
-		const res = await fetch("/api/v1/rents-per-capita",{
+		const res = await fetch("/api/v2/rents-per-capita",{
 			method: "DELETE"
 		}).then(function(res){
 			userMsg = "Todos los datos han sido borrados.";
@@ -212,7 +212,7 @@
 		numTotal = await getNumTotal(query);
 
 		query = query + "&limit="+limit+"&offset="+ offset;
-		const res = await fetch("/api/v1/rents-per-capita"+query);
+		const res = await fetch("/api/v2/rents-per-capita"+query);
 		console.log("Sending ");
 		if (numTotal>0){
 			console.log("OK!");
@@ -229,7 +229,7 @@
 	}
 
 	async function getNumTotal(query){
-		const res = await fetch("/api/v1/rents-per-capita"+query);
+		const res = await fetch("/api/v2/rents-per-capita"+query);
 		if(res.ok){
 			const json= await res.json();
 		rpcs = json ;
