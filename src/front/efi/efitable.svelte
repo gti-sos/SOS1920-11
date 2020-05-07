@@ -109,7 +109,8 @@
 		}
 	}
     let entradas=Object.entries(newEfi).map((c)=>{return c[0]});
-	async function insertaEfi() {
+    
+    async function insertaEfi() {
         busquedaEsp=false;
 
         newEfi.year=parseInt(newEfi.year),
