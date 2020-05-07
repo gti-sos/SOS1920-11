@@ -121,7 +121,7 @@
 		}else{
 			userMsg = "El dato insertado no tiene nombre/año válido/s .";
 			console.log('Inserted crime has no valid name or valid year.');
-			getCrimes();
+			
 		}
     }
     
@@ -280,7 +280,7 @@
 				<td><input style="width: 100px;" bind:value={newCrime.cr_homicount} /></td>
 				<td><input style="width: 100px;" bind:value={newCrime.cr_theftrate} /></td>
 				<td><input style="width: 100px;" bind:value={newCrime.cr_theftcount} /></td>
-				<td><Button on:click={insertCrime()} outline color="primary">INSERTAR</Button></td>
+				<td><Button on:click={insertCrime} outline color="primary">INSERTAR</Button></td>
 			</tr>
 			{#each crimes as crime}
 			<tr>
