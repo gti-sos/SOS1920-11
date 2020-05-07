@@ -5,8 +5,8 @@
 	let msg;
 	let crimenes;
 	let offset = 0;
-	let limit = 2;
-	let numTotal;
+	let limit = 10;
+	let numTotal=0;
 	let numFiltered;
 	let userMsg = "";
 	let crimes = [];
@@ -87,6 +87,7 @@
 			}
 			});
 
+			newCrime.country = newCrime.country;
 			newCrime.year= parseInt(newCrime.year);
 			newCrime.cr_rate= parseFloat(newCrime.cr_rate);
 			newCrime.cr_saferate= parseFloat(newCrime.cr_saferate);
