@@ -65,7 +65,7 @@
 			const json= await res.json();
 			rpcs = json ;
 			console.log("Received "+rpcs.length+" rpcs.");
-			if(userMsg == "El dato fue insertado correctamente." || userMsg =="El dato ha sido borrado."){
+			if(userMsg == "El dato fue insertado correctamente." || userMsg =="El dato ha sido borrado." || userMsg =="DATOS INICIALES CARGADOS."){
 				userMsg =userMsg + "\nMostrando "+rpcs.length+" de "+numTotal+" datos. Página:" +(offset/limit+1);
 
 			}else{
@@ -259,6 +259,7 @@
 </script>
 
 <main>
+	<h1><a href="/#/">SOS1920-11</a></h1>
 	<h2>RPCS GUI</h2> <Button outline color="danger" on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
 	{#if userMsg}
 	<h3><p style= "color:orange">{userMsg}</p></h3>
