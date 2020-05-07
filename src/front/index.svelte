@@ -38,7 +38,7 @@
 		<ul>
 			<li><a href="https://documenter.getpostman.com/view/10701438/SzYUZgNc">API V1</a> (Deprecated) // <a href="https://documenter.getpostman.com/view/10701438/SzmcbzBj">API V2</a> (developed by Ignacio Calcedo Vázquez)</li>
 			<li><a href=" https://documenter.getpostman.com/view/10701451/Szf3aVio">API v1</a><a href="https://documenter.getpostman.com/view/10701451/Szme4dYR">API v2</a> (developed by José Calcedo Vázquez)</li>
-			<li><a href="https://documenter.getpostman.com/view/9107347/SzYUa25s">https://sos1920-11.herokuapp.com/api/v1/rents-per-capita/docs</a> (developed by Alberto Rubio Hurtado)</li>
+			<li><a href="https://documenter.getpostman.com/view/9107347/Szme4dme">API RPC V1</a> (Deprecated) // <a href="https://documenter.getpostman.com/view/9107347/SzYUa25s">RPC API v2</a> (developed by Alberto Rubio Hurtado)</li>
 		</ul>
 		</div>
 </main>
