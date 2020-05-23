@@ -7,6 +7,7 @@
 	import editefi from './efi/editefi.svelte';
 	import CrimeTable from './crime/CrimeTable.svelte';
 	import EditCrime from './crime/EditCrime.svelte';
+	import efiGraph from './efi/graphs.svelte';
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,
@@ -14,7 +15,8 @@
 		"/efis": efistable,
 		"/efis/:country/:year": editefi,
 		"/crimes": CrimeTable,
-		"/crimes/:country:/year": EditCrime
+		"/crimes/:country:/year": EditCrime,
+		"/analytics":efiGraph
 	}
 </script>
 
