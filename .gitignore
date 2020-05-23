@@ -1,8 +1,8 @@
 node_modules
-src/back/efi/v2/efis.db
-src/back/efi/v1/efis.db
-src/back/rpc/v1/rpc.db
-src/back/rpc/v2/rpc.db
-src/back/crime/v1/crimes.db
-src/back/crime/v2/crimes.db
 public/build
+/src/back/crime/v1/crimes.db
+/src/back/crime/v2/crimes.db
+/src/back/efi/v1/efis.db
+/src/back/efi/v2/efis.db
+/src/back/rpc/v1/rpc.db
+/src/back/rpc/v2/rpc.db
