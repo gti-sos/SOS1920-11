@@ -1,22 +1,22 @@
 <script>
 function dataParser(arrayofData){
-    tipo = typeof arrayofData;
-    let sol =[];
     
+    let sol =[];
+    let setofcountries = new Set();
+    //obtenemos el numero de paises
     arrayofData.forEach(element => {
-        let object = {};
-        object["name"]=element["country"];
-        countries.push(element.country);
-        object["data"]=element["efiindex"];
-        sol.push(object);
+        setofcountries.add(element.country);
+        
     });
-
+    countries = Array.from(setofcountries);
+     
     return sol;
 };
 let countries = [];
+
 let myData= [];
 let treatedData = [];
-let tipo = "";
+let tipo = typeof treatedData;
 async function cargaGraph(){
     
     const resData = await fetch ("/api/v2/economic-freedom-indexes");
@@ -94,6 +94,7 @@ async function cargaGraph(){
         un índice creado por la Heritage Fundation para medir la libertad económica
         de un país.
     </p>
-    <p>{JSON.stringify(treatedData[0])}</p>
+    <p>{countries}
+    </p>
 </figure>
 </main>
