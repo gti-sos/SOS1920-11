@@ -1,22 +1,41 @@
 <script>
+
 function dataParser(arrayofData){
     
     let sol =[];
     let setofcountries = new Set();
+    let setofyears = new Set();
     //obtenemos el numero de paises
     arrayofData.forEach(element => {
         setofcountries.add(element.country);
-        
+        setofyears.add(element.year);
     });
     countries = Array.from(setofcountries);
-     
+    years = Array.from(setofyears);
+    for(let k = 0;k<years.length;k++){
+        let object={};
+        object.name="Año "+years[k];
+        
+        indices_year=arrayofData.filter((element)=>{
+            return element.year==years[k];
+        });
+        let diff =countries.length-indices_year.length;
+        if (diff>0){
+            for (let index = 0; index < diff; index++) {
+                indices_year.push(0.0);
+            }
+        }
+        object.data= indices_year;
+        sol.push(object);
+    }
     return sol;
 };
 let countries = [];
-
+let years= [];
 let myData= [];
 let treatedData = [];
 let tipo = typeof treatedData;
+let indices_year=[];
 async function cargaGraph(){
     
     const resData = await fetch ("/api/v2/economic-freedom-indexes");
@@ -94,7 +113,6 @@ async function cargaGraph(){
         un índice creado por la Heritage Fundation para medir la libertad económica
         de un país.
     </p>
-    <p>{countries}
-    </p>
+    
 </figure>
 </main>
