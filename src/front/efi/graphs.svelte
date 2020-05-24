@@ -19,6 +19,9 @@ function dataParser(arrayofData){
         indices_year=arrayofData.filter((element)=>{
             return element.year==years[k];
         });
+        indices_year=indices_year.map((e)=>{
+            return e.efiindex;
+        })
         let diff =countries.length-indices_year.length;
         if (diff>0){
             for (let index = 0; index < diff; index++) {
