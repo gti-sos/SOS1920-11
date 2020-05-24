@@ -19,6 +19,7 @@ function dataParser(arrayofData){
         indices_year=arrayofData.filter((element)=>{
             return element.year==years[k];
         });
+        console.log("en el año "+years[k]+" es "+JSON.stringify(indices_year));
         indices_year=indices_year.map((e)=>{
             return e.efiindex;
         })
@@ -28,6 +29,7 @@ function dataParser(arrayofData){
                 indices_year.push(0.0);
             }
         }
+        console.log("Indices al final del tratado en el año "+ years[k]+" es "+indices_year);
         object.data= indices_year;
         sol.push(object);
     }
