@@ -5,32 +5,31 @@ function dataParser(arrayofData){
     let sol =[];
     let setofcountries = new Set();
     let setofyears = new Set();
+    let mapa = new Map();
     //obtenemos el numero de paises
     arrayofData.forEach(element => {
         setofcountries.add(element.country);
         setofyears.add(element.year);
+        let aux_arr=[element.country,element.year];
+        mapa.set(aux_arr,element.efiindex);
     });
     countries = Array.from(setofcountries);
     years = Array.from(setofyears);
+    console.log(mapa);
     for(let k = 0;k<years.length;k++){
         let object={};
-        object.name="Año "+years[k];
-        
-        indices_year=arrayofData.filter((element)=>{
-            return element.year==years[k];
-        });
-        console.log("en el año "+years[k]+" es "+JSON.stringify(indices_year));
-        indices_year=indices_year.map((e)=>{
-            return e.efiindex;
-        })
-        let diff =countries.length-indices_year.length;
-        if (diff>0){
-            for (let index = 0; index < diff; index++) {
-                indices_year.push(0.0);
+        let efis=[];
+        for (let a = 0; a < countries.length; a++) {
+            let array_busqueda=[countries[a],years[k]];
+            console.log(array_busqueda in mapa.keys);
+            if (array_busqueda in mapa){
+                efis.push(mapa.get(array_busqueda));
+            }
+            else{
+                efis.push(0.0);
             }
         }
-        console.log("Indices al final del tratado en el año "+ years[k]+" es "+indices_year);
-        object.data= indices_year;
+        object.data= efis;
         sol.push(object);
     }
     return sol;
