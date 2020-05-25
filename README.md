@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gti-sos/SOS1920-11.svg?branch=master)](https://travis-ci.org/gti-sos/SOS1920-11)
+
 # SOS1920-11
 
 Este es el repositorio de SOS principal de los alumnos Ignacio y José Calcedo y Alberto Rubio.
