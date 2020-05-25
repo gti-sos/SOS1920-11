@@ -1,10 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+var request = require("request");
 var app = express();
 
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 80;
+
+var paths='/api/v2/emigrants-stats';
+var apiServerHost = 'https://sos1920-01.herokuapp.com';
+
+app.use(paths, function(req, res) {
+	var url = apiServerHost + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+  });
 
 /**
 app.get("/public",(request,response)=>{
