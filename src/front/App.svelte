@@ -9,10 +9,15 @@
 	import CrimeTable from './crime/CrimeTable.svelte';
 	import EditCrime from './crime/EditCrime.svelte';
 	import efiGraph from './efi/graphs.svelte';
+	import Integrations from './rpc/Integrations.svelte';
+	import EmigrationChart from './rpc/EmigrationChart.svelte';
+	
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,
 		"/rpcs/graph" : RpcsGraph,
+		"/rpcs/integrations" : Integrations,
+		"/rpcs/integrations/emigration" : EmigrationChart,
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
 		"/efis/:country/:year": editefi,

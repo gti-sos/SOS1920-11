@@ -17,28 +17,28 @@
     	};
             EuropeCountries.push(country);
         });     
-        CountriesData.filter(data => data.continent == "Asia").forEach((data) => {
+        CountriesData.filter(data => data.continent == "Asia" && data.year == 2019).forEach((data) => {
             let country = { 
 		        'name': data.country,
 		        'value': data.rpc
     	};
             AsiaCountries.push(country);
         });
-        CountriesData.filter(data => data.continent == "America").forEach((data) => {
+        CountriesData.filter(data => data.continent == "America" && data.year == 2019).forEach((data) => {
             let country = { 
 		        'name': data.country,
 		        'value': data.rpc
     	};
             AmericaCountries.push(country);
         });
-        CountriesData.filter(data => data.continent == "Africa").forEach((data) => {
+        CountriesData.filter(data => data.continent == "Africa" && data.year == 2019).forEach((data) => {
             let country = { 
 		        'name': data.country,
 		        'value': data.rpc
     	};
             AfricaCountries.push(country);
         });
-        CountriesData.filter(data => data.continent == "Oceania").forEach((data) => {
+        CountriesData.filter(data => data.continent == "Oceania" && data.year == 2019).forEach((data) => {
             let country = { 
 		        'name': data.country,
 		        'value': data.rpc
@@ -53,7 +53,7 @@
         height: '100%'
     },
     title: {
-        text: 'Carbon emissions around the world (2014)'
+        text: 'Rents per capita (2019)'
     },
     tooltip: {
         useHTML: true,

@@ -181,7 +181,7 @@ router.get('/', (req, res) => {
 	// parseo manual de cada parametro posible dentro de una búsqueda
 	for (x in query) {
 		var objeto = {};
-		if (x == 'country' || x=='continent') {
+		if (x == 'country' || x == 'continent') {
 			objeto[x] = query[x];
 		} else if (x == 'vpy') {
 			objeto[x] = parseFloat(query[x]);
