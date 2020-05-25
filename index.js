@@ -32,6 +32,9 @@ app.use(rutaRPC,rpcs);
 const rutaRPC2 = "/api/v2/rents-per-capita";
 var rpcs2=  require('./src/back/rpc/v2/API_RPC_v2');
 app.use(rutaRPC2,rpcs2);
+const rutaRPC3 = "/api/v3/rents-per-capita";
+var rpcs3=  require('./src/back/rpc/v3/API_RPC_v3');
+app.use(rutaRPC3,rpcs3);
 
 
 //Acceso a crime-rate-stats
@@ -48,5 +51,5 @@ app.use(rutaCrime2, rcrime2);
 app.listen(port, () => {
 	console.log("Server ready");
 });
-
-console.log("Starting server...");
+ 
+console.log("Starting server in port " + port);
