@@ -8,11 +8,7 @@
 	import editefi from './efi/editefi.svelte';
 	import CrimeTable from './crime/CrimeTable.svelte';
 	import EditCrime from './crime/EditCrime.svelte';
-<<<<<<< HEAD
 	import efiGraph from './efi/graphs.svelte';
-=======
-	
->>>>>>> 506d1045b78580a8516c6265e6e2478be7651e3b
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,
