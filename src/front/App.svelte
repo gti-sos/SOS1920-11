@@ -12,12 +12,16 @@
 	import Integrations from './rpc/Integrations.svelte';
 	import EmigrationChart from './rpc/EmigrationChart.svelte';
 	
+	import OverdoseChart from './rpc/OverdoseChart.svelte';
+
 	const routes ={
 		"/" : Index,
 		"/rpcs" : RpcsTable,
 		"/rpcs/graph" : RpcsGraph,
 		"/rpcs/integrations" : Integrations,
 		"/rpcs/integrations/emigration" : EmigrationChart,
+		
+		"/rpcs/integrations/overdose" : OverdoseChart,
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
 		"/efis/:country/:year": editefi,

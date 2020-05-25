@@ -2,19 +2,30 @@ const express = require("express");
 const bodyParser = require("body-parser");
 var request = require("request");
 var app = express();
+var cors = require("cors");
 
+app.use(cors());
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 80;
+var pathEmigrants='/api/v2/emigrants-stats';
+var apiServerHostEmigrants = 'https://sos1920-01.herokuapp.com';
 
-var paths='/api/v2/emigrants-stats';
-var apiServerHost = 'https://sos1920-01.herokuapp.com';
-
-app.use(paths, function(req, res) {
-	var url = apiServerHost + req.baseUrl + req.url;
+app.use(pathEmigrants, function(req, res) {
+	var url = apiServerHostEmigrants + req.baseUrl + req.url;
 	console.log('piped: '+req.baseUrl + req.url);
 	req.pipe(request(url)).pipe(res);
-  });
+});
+
+var pathOverdose='/api/v2/overdose-deaths';
+var apiServerHostOverdose = 'https://sos1920-12.herokuapp.com';
+
+app.use(pathOverdose, function(req, res) {
+	var url = apiServerHostOverdose + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+
 
 /**
 app.get("/public",(request,response)=>{
