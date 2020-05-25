@@ -6,67 +6,69 @@
     let CountriesData2 = [];
     async function loadGraph(){
             const resData = await fetch("https://covid-193.p.rapidapi.com/statistics", {
-	"method": "GET",
-	"headers": {
+	    "method": "GET",
+	    "headers": {
 		"x-rapidapi-host": "covid-193.p.rapidapi.com",
 		"x-rapidapi-key": "0f1c9a6651mshcc6fb880746f7d2p18a345jsna7eda5bbbed3"
-	}
-});
+	    }
+    });
 
     CountriesData = await resData.json();
         console.log(CountriesData.response);
     
     CountriesData2 = CountriesData.response;
     CountriesData2.forEach((data) => {
-            let country = data.country;
-            
-            let deaths = data.deaths.total;
-            countries.push(country);
-            let data2 = [{country,deaths}];
-            Data.push(data2);
-
-        }); 
-
-
+            let country = { 
+		        'name': data.country,
+		        'value': data.deaths.total
+    	};
+    Data.push(country);
+    });
 
         Highcharts.chart('container', {
     chart: {
-        type: 'pie',
-        options3d: {
-            enabled: true,
-            alpha: 45,
-            beta: 0
-        }
+        type: 'packedbubble',
+        height: '100%'
     },
     title: {
-        text: 'Covid Deaths by Country'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
+        text: 'Deaths caused by Covid-19'
     },
     tooltip: {
-        pointFormat: '{series.name}: <b></b>'
+        useHTML: true,
+        pointFormat: '<b>{point.name}:</b> {point.value} deaths'
     },
     plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            depth: 35,
+        packedbubble: {
+            minSize: '30%',
+            maxSize: '120%',
+            zMin: 0,
+            zMax: 1000,
+            layoutAlgorithm: {
+                splitSeries: false,
+                gravitationalConstant: 0.02
+            },
             dataLabels: {
                 enabled: true,
-                format: '{point.name}'
+                format: '{point.name}',
+                filter: {
+                    property: 'y',
+                    operator: '>',
+                    value: 250
+                },
+                style: {
+                    color: 'black',
+                    textOutline: 'none',
+                    fontWeight: 'normal'
+                }
             }
         }
     },
     series: [{
-        type: 'pie',
-        name: 'Covid Deaths by Country',
+        name: 'Countries',
         data: Data
     }]
 });
-    }
+}
 </script>
 
 <svelte:head>
@@ -81,12 +83,10 @@
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        Chart demonstrating the use of a 3D pie layout.
-        The "Chrome" slice has been selected, and is offset from the pie.
-        Click on slices to select and unselect them.
-        Note that 3D pies, while decorative, can be hard to read, and the
-        viewing angles can make slices close to the user appear larger than they
-        are.
+        Packed bubble charts are visualizations where the size and optionally
+        the color of the bubbles are used to visualize the data. The positioning
+        of the bubbles is not significant, but is optimized for compactness.
+        Try dragging the bubbles in this chart around, and see the effects.
     </p>
 </figure>
 </main>
