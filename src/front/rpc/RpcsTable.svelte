@@ -270,7 +270,7 @@
 	{#if userMsg}
 	<h3><p style= "color:orange">{userMsg}</p></h3>
 	{/if}
-	{#await rpcs}
+	{#await rpcs};
 	{:then rpcs}
 	<Table bordered style="width:auto;">
 		<thead>

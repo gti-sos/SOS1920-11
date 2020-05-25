@@ -70,7 +70,7 @@
 <main>
     <h2>Editing RPC from {params.country} {params.year} {#if userMsg}<p style= "color:orange">{userMsg}</p>{/if}</h2>
 
-	{#await rpc} 
+	{#await rpc} ;
 	{:then rpc}
 	<Table bordered>
 		<thead>
