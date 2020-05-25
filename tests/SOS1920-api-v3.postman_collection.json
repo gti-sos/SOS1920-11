@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "52293b41-00a3-4a80-b144-367c9d44761c",
+		"name": "SOS1920-api-v3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get v3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b48c6a07-aa53-4bb8-930c-257654acf5ac",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
