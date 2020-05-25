@@ -35,6 +35,6 @@
     "path-to-regexp": "^6.1.0",
     "svelte-spa-router": "^2.1.0",
     "sveltestrap": "^3.3.3",
-    "request": "2.58.x"
+    "request": "2.88.x"
   }
 }
