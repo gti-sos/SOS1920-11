@@ -3,6 +3,8 @@
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
 	
+
+	
 	let rpcs = [];
 	let newRpc = {
 		country: "",
@@ -348,5 +350,6 @@
 	</Table>
 	<Button outline color="secondary" on:click={beforeOffset}>ANTERIOR</Button>
 	<Button outline color="secondary" on:click={nextOffset}>SIGUIENTE</Button>
+
 </main>
 
