@@ -11,8 +11,9 @@
 	import efiGraph from './efi/graphs.svelte';
 	import Integrations from './rpc/Integrations.svelte';
 	import EmigrationChart from './rpc/EmigrationChart.svelte';
-	
+	import CountriesChart from './rpc/CountriesChart.svelte';	
 	import OverdoseChart from './rpc/OverdoseChart.svelte';
+	import CovidChart from './rpc/CovidChart.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -20,8 +21,9 @@
 		"/rpcs/graph" : RpcsGraph,
 		"/rpcs/integrations" : Integrations,
 		"/rpcs/integrations/emigration" : EmigrationChart,
-		
+		"/rpcs/integrations/countries" : CountriesChart,
 		"/rpcs/integrations/overdose" : OverdoseChart,
+		"/rpcs/integrations/covid19" : CovidChart,
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
 		"/efis/:country/:year": editefi,

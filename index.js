@@ -5,6 +5,7 @@ var app = express();
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 80;
+
 var pathEmigrants='/api/v2/emigrants-stats';
 var apiServerHostEmigrants = 'https://sos1920-01.herokuapp.com';
 

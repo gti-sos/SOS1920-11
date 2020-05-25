@@ -9,6 +9,8 @@
 		<ul>
 			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/emigration">Emigration</a>
 			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/overdose">Overdose</a>
+			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/countries">Countries</a>
+			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/covid19">COVID-19</a>
 		</ul>
 
 </main>
