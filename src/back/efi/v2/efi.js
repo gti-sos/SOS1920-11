@@ -249,9 +249,24 @@ router.post('/', (req, res) => {
 		//falan nombre o año de pais
 		res.sendStatus(400, 'BAD REQUEST');
 	} else {
+		//buscamos si el objeto ya existe
+		var p1 = {};
+		var p2 = {};
+		p1['country'] = req.body.country;
+		p2['year'] = parseInt(req.body.year);
+		var parametros = [];
+		parametros.push(p1, p2);
 		//todo en orden
-		db.insert(newefi);
-		res.sendStatus(201, 'CREATED');
+		db.find({ $and: parametros }, { _id: 0 }, (err, indices) => {
+			console.log("nº de matches: "+ indices);
+			if (indices.length > 0) {
+				res.sendStatus(400, 'BAD REQUEST');
+			} else {
+				db.insert(newefi);
+			res.sendStatus(201, 'CREATED');
+			}
+		});
+		
 	}
 });
 

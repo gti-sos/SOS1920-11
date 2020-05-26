@@ -29,7 +29,7 @@
 		"/efis/:country/:year": editefi,
 		"/crimes": CrimeTable,
 		"/crimes/:country:/year": EditCrime,
-		"/efis/graphs":efiGraph
+		"/efis/graph":efiGraph
 	}
 </script>
 
