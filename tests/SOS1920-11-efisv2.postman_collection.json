@@ -28,9 +28,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/loadInitialData",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/loadInitialData",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -67,9 +69,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -109,9 +113,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -148,9 +154,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes?country=Spain&year=2019",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes?country=Spain&year=2019",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -193,9 +201,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes?limit=1",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes?limit=1",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -237,9 +247,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes?offset=1",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes?offset=1",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -280,9 +292,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/Spain/2019",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/Spain/2019",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -324,9 +338,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/Spain/2019",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/Spain/2019",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -368,9 +384,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/Spain/2019",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/Spain/2019",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -403,9 +421,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/Spain/2019",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/Spain/2019",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -447,9 +467,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
@@ -481,9 +503,11 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v2/economic-freedom-indexes/",
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/economic-freedom-indexes/",
 					"host": [
-						"{{URL}}"
+						"sos1920-11",
+						"herokuapp",
+						"com"
 					],
 					"path": [
 						"api",
