@@ -7,7 +7,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "node index",
-    "test": "npx newman run tests/SOS1920-11-rpc-test.postman_collection.json && npx newman run tests tests/SOS1920-11-economic-freedom-indexes V2.postman_collection.json"
+    "test": "npx newman run tests/SOS1920-11-rpc-test.postman_collection.json && npx newman run tests/SOS1920-11-economic-freedom-indexes V2.postman_collection.json"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
