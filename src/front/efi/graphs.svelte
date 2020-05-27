@@ -5,13 +5,11 @@ function dataParser(arrayofData){
     let sol =[];
     let setofcountries = new Set();
     let setofyears = new Set();
-    let mapa = new Map();
+    
     //obtenemos el numero de paises
     arrayofData.forEach(element => {
         setofcountries.add(element.country);
         setofyears.add(element.year);
-        let aux_arr=[element.country,element.year];
-        mapa.set(aux_arr,element.efiindex);
     });
     countries = Array.from(setofcountries);
     years = Array.from(setofyears);
@@ -28,6 +26,15 @@ function dataParser(arrayofData){
         });
         object.data= efis;
         sol.push(object);
+        nombre="Año "+ years[k];
+        data_ploty.push(
+            {
+             histfunc: nombre,
+                y: efis,
+                x: countries,
+                type: "histogram",
+                name: nombre}
+        );
     }
     return sol;
 };
@@ -37,64 +44,68 @@ let myData= [];
 let treatedData = [];
 let tipo = typeof treatedData;
 let indices_year=[];
+let data_ploty = [];
 async function cargaGraph(){
     
     const resData = await fetch ("/api/v2/economic-freedom-indexes");
     
     myData = await resData.json();
     treatedData = dataParser(myData);
+    //ploty
+   
+    Plotly.newPlot('myDiv', data_ploty);
+    //highcharts
     Highcharts.chart('container', {
-    chart: {
-        type: 'bar'
-    },
-    title: {
-        text: 'Índices de libertad económica'
-    },
-    subtitle: {
-        text: 'Source: <a href="https://www.heritage.org/index/">Heritage Foundation</a>'
-    },
-    xAxis: {
-        categories: countries,
-        title: {
-            text: null
-        }
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Índice de libertad económica',
-            align: 'high'
+        chart: {
+            type: 'bar'
         },
-        labels: {
-            overflow: 'justify'
-        }
-    },
-    
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
+        title: {
+            text: 'Índices de libertad económica'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://www.heritage.org/index/">Heritage Foundation</a>'
+        },
+        xAxis: {
+            categories: countries,
+            title: {
+                text: null
             }
-        }
-    },
-    legend: {
-        layout: 'vertical',
-        align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
-    },
-    credits: {
-        enabled: false
-    },
-    series: treatedData
-});
-
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Índice de libertad económica',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor:
+                Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: treatedData
+    });
 
 }
 </script>
@@ -103,6 +114,7 @@ async function cargaGraph(){
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{cargaGraph}"></script>
+<script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargaGraph}"></script>
 <style>
 .highcharts-figure, .highcharts-data-table table {
     min-width: 310px; 
@@ -155,4 +167,11 @@ async function cargaGraph(){
     </p>
     
 </figure>
+<div>
+Representación con otra librería
+<br>
+<div id="myDiv">
+
+</div>
+</div>
 </main>
