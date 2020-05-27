@@ -32,7 +32,7 @@ app.use(pathOverdose, function(req, res) {
 	req.pipe(request(url)).pipe(res);
 });
 
-var pathImc='/api/v2/indice_de_masa_corporal';
+var pathImc='/api/v3/indice_de_masa_corporal';
 var apiServerHostImc = 'https://sos1920-30.herokuapp.com';
 
 app.use(pathImc, function(req, res) {

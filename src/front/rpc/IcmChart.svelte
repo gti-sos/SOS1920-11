@@ -3,7 +3,7 @@ async function loadGraph(){
     let MyX = [];
     let MyY = [];
     let Data= [];
-const resData = await fetch("/api/v2/indice_de_masa_corporal");
+const resData = await fetch("/api/v3/indice_de_masa_corporal");
 Data = await resData.json();
 Data.filter(data => data.year == 2020).forEach((data) => {
         let x = data.place;
