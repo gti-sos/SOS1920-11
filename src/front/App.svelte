@@ -15,6 +15,7 @@
 	import OverdoseChart from './rpc/OverdoseChart.svelte';
 	import CovidChart from './rpc/CovidChart.svelte';
 	import IcmChart from './rpc/IcmChart.svelte';
+	import ComunChart from './rpc/ComunChart.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -25,6 +26,7 @@
 		"/rpcs/integrations/countries" : CountriesChart,
 		"/rpcs/integrations/overdose" : OverdoseChart,
 		"/rpcs/integrations/covid19" : CovidChart,
+		"/rpcs/integrations/comun" : ComunChart,
 		"/rpcs/integrations/icm" : IcmChart,
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
