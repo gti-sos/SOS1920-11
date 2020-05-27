@@ -5560,20 +5560,20 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "Packed bubble charts are visualizations where the size and optionally\r\n        the color of the bubbles are used to visualize the data. The positioning\r\n        of the bubbles is not significant, but is optimized for compactness.\r\n        Try dragging the bubbles in this chart around, and see the effects.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$4, 113, 8, 3161);
+    			add_location(script0, file$4, 113, 8, 3166);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-more.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$4, 114, 8, 3236);
+    			add_location(script1, file$4, 114, 8, 3241);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$4, 115, 8, 3316);
+    			add_location(script2, file$4, 115, 8, 3321);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$4, 116, 8, 3398);
+    			add_location(script3, file$4, 116, 8, 3403);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$4, 120, 4, 3570);
+    			add_location(div, file$4, 120, 4, 3575);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$4, 121, 4, 3602);
+    			add_location(p, file$4, 121, 4, 3607);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$4, 119, 4, 3530);
-    			add_location(main, file$4, 118, 0, 3518);
+    			add_location(figure, file$4, 119, 4, 3535);
+    			add_location(main, file$4, 118, 0, 3523);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5664,7 +5664,7 @@ var app = (function () {
     				minSize: "30%",
     				maxSize: "120%",
     				zMin: 0,
-    				zMax: 1000,
+    				zMax: 1000000,
     				layoutAlgorithm: {
     					splitSeries: false,
     					gravitationalConstant: 0.02
@@ -5672,7 +5672,11 @@ var app = (function () {
     				dataLabels: {
     					enabled: true,
     					format: "{point.name}",
-    					filter: { property: "y", operator: ">", value: 250 },
+    					filter: {
+    						property: "y",
+    						operator: ">",
+    						value: 10000
+    					},
     					style: {
     						color: "black",
     						textOutline: "none",

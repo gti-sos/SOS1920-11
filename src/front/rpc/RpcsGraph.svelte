@@ -64,7 +64,7 @@
             minSize: '30%',
             maxSize: '120%',
             zMin: 0,
-            zMax: 1000,
+            zMax: 1000000,
             layoutAlgorithm: {
                 splitSeries: false,
                 gravitationalConstant: 0.02
@@ -75,7 +75,7 @@
                 filter: {
                     property: 'y',
                     operator: '>',
-                    value: 250
+                    value: 10000
                 },
                 style: {
                     color: 'black',
