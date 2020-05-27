@@ -13,24 +13,29 @@ function dataParser(arrayofData){
     });
     countries = Array.from(setofcountries);
     years = Array.from(setofyears);
-    console.log(mapa);
+    
     for(let k = 0;k<years.length;k++){
         let object={};
         let efis=[];
+        let efis_2=[];
         arrayofData.forEach(element => {
             if(element.year==years[k]){
                 efis.push(element.efiindex);
+                let numerito = Math.round(element.efiindex)
+                efis_2.push(numerito.toString());
             }else{
                 efis.push(0.0);
+                efis_2.push("0");
             }
         });
+        console.log(efis_2)
         object.data= efis;
         sol.push(object);
-        nombre="Año "+ years[k];
+        let nombre="Año "+ years[k];
         data_ploty.push(
             {
              histfunc: nombre,
-                y: efis,
+                y: efis_2,
                 x: countries,
                 type: "histogram",
                 name: nombre}
@@ -113,7 +118,7 @@ async function cargaGraph(){
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js" on:load="{cargaGraph}"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js" ></script>
 <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargaGraph}"></script>
 <style>
 .highcharts-figure, .highcharts-data-table table {
