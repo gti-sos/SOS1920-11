@@ -1,63 +1,56 @@
 <script>
     async function loadGraph(){
 
-        let CountriesData = [];
-        let EuropeCountries = [];
-        let AsiaCountries = [];
-        let AmericaCountries = [];
-        let AfricaCountries = [];
-        let OceaniaCountries = [];
+        let RpcData = [];
+        let CrimeData = [];
+        let EfiData = [];
+
+        let RpcDataGraph = [];
+        let CrimeDataGraph = [];
+        let EfiDataGraph = [];
 
         const resData = await fetch("/api/v3/rents-per-capita");
-        CountriesData = await resData.json();
-        CountriesData.filter(data => data.continent == "Europe" && data.year == 2019).forEach((data) => {
-            let country = { 
-		        'name': data.country,
-		        'value': data.rpc
-    	};
-            EuropeCountries.push(country);
-        });     
-        CountriesData.filter(data => data.continent == "Asia" && data.year == 2019).forEach((data) => {
-            let country = { 
-		        'name': data.country,
-		        'value': data.rpc
-    	};
-            AsiaCountries.push(country);
-        });
-        CountriesData.filter(data => data.continent == "America" && data.year == 2019).forEach((data) => {
-            let country = { 
-		        'name': data.country,
-		        'value': data.rpc
-    	};
-            AmericaCountries.push(country);
-        });
-        CountriesData.filter(data => data.continent == "Africa" && data.year == 2019).forEach((data) => {
-            let country = { 
-		        'name': data.country,
-		        'value': data.rpc
-    	};
-            AfricaCountries.push(country);
-        });
-        CountriesData.filter(data => data.continent == "Oceania" && data.year == 2019).forEach((data) => {
-            let country = { 
-		        'name': data.country,
-		        'value': data.rpc
-    	};
-            OceaniaCountries.push(country);
-        });     
+        RpcData = await resData.json();
 
+        const resData2 = await fetch("/api/v2/economic-freedom-indexes");
+        EfiData = await resData2.json();
 
+    //    const resData3 = await fetch("/api/v2/crime-rate-stats");
+    //    CrimeData = await resData3.json();
+
+        RpcData.filter(data => data.year == 2019).forEach((data) => {
+            let country = { 
+		        'name': data.country,
+		        'value': data.rpc
+    	};
+            RpcDataGraph.push(country);
+        });     
+        EfiData.filter(data => data.year == 2019).forEach((data) => {
+            let country = { 
+		        'name': data.country,
+		        'value': data.efiindex
+    	};
+            EfiDataGraph.push(country);
+        });
+     /*   CrimeData.filter(data => data.year == 2019).forEach((data) => {
+            let country = { 
+		        'name': data.country,
+		        'value': data.cr_rate
+    	};
+            CrimeDataGraph.push(country);
+        });
+    */
         Highcharts.chart('container', {
     chart: {
         type: 'packedbubble',
         height: '100%'
     },
     title: {
-        text: 'Rents per capita (2019)'
+        text: 'Rents per capita / Economic freedom indexes / Crime rate stats (2019)'
     },
     tooltip: {
         useHTML: true,
-        pointFormat: '<b>{point.name}:</b> {point.value} mill €'
+        pointFormat: '<b>{point.name}:</b> {point.value}'
     },
     plotOptions: {
         packedbubble: {
@@ -86,25 +79,17 @@
         }
     },
             series:  [{
-        name: 'Europe',
-        data: EuropeCountries
+        name: 'Rents-per-capita',
+        data: RpcDataGraph
     },
     {
-        name: 'Asia',
-        data: AsiaCountries
-    },
+        name: 'Economic-freedom-indexes',
+        data: EfiDataGraph
+    }/*,
     {
-        name: 'Africa',
-        data: AfricaCountries
-    },
-    {
-        name: 'America',
-        data: AmericaCountries
-    },
-    {
-        name: 'Oceania',
-        data: OceaniaCountries
-    }]
+        name: 'Crime-rate-stats',
+        data: CrimeDataGraph
+    }*/]
 });
 
     }
