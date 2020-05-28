@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "6e258200-b13f-4a3d-9abd-d9afbf542cfc",
+		"name": "SOS1920-11-rpc-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get loadInitialData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4ab8c9e5-914e-4302-9076-a1ce3161ec96",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita",
+						"loadInitialData"
+					]
+				},
+				"description": "Iniciando los recursos de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "get rents-per-capita/Spain/2019",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4d6ec99d-5bfb-4d6a-b779-b9124f78e279",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita/Spain/2019",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita",
+						"Spain",
+						"2019"
+					]
+				},
+				"description": "Obtener los datos de un recurso específico."
+			},
+			"response": []
+		},
+		{
+			"name": "post /rents-per-capita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff32a790-7de4-4b8e-a449-8690e60482b7",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"country\": \"France\",\r\n    \"year\": 2019,\r\n    \"continent\": \"Europe\",\r\n    \"rpc\": 36060,\r\n    \"piba\": 2418997,\r\n    \"pib1t\": 599741,\r\n    \"pib2t\": 603961,\r\n    \"pib3t\": 607191,\r\n    \"pib4t\": 609993,\r\n    \"vpy\": 1.3\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita"
+					]
+				},
+				"description": "Añadir otro objeto al recurso de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "get /rents-per-capita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5d6495a0-2637-4be0-a696-be74eb48d70b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita"
+					]
+				},
+				"description": "Obtener todos los datos del recurso."
+			},
+			"response": []
+		},
+		{
+			"name": "get rents-per-capita?",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8cf3d3a1-7c0d-4e1b-b6b2-7f4990e393db",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita?limit=10&offset=0",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get rents-per-capita?",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdfdd14a-8400-4f7e-a367-47a58d7400b0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita?limit=10&offset=10",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete /rents-per-capita/Spain",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68492b3f-5a6b-420c-88c6-6d70551cff64",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita/Spain/2019",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita",
+						"Spain",
+						"2019"
+					]
+				},
+				"description": "Borrar los datos de un recurso en específico."
+			},
+			"response": []
+		},
+		{
+			"name": "put /rents-per-capita/France",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4a735d70-d374-4ac3-bd6c-495aaf3aa8ad",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"country\": \"France\",\r\n    \"year\": 2019,\r\n    \"continent\": \"Europe\",\r\n    \"rpc\": 20650,\r\n    \"piba\": 212254,\r\n    \"pib1t\": 52641,\r\n    \"pib2t\": 52666,\r\n    \"pib3t\": 53256,\r\n    \"pib4t\": 53691,\r\n    \"vpy\": 2.2\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita/France/2019",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita",
+						"France",
+						"2019"
+					]
+				},
+				"description": "Cambiar los parametros de un dato correctamente."
+			},
+			"response": []
+		},
+		{
+			"name": "put /rents-per-capita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "97fb67ff-c4bb-40ee-a7c9-c8228b5a61ff",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"country\": \"France\",\r\n    \"year\": 2019,\r\n    \"country\": \"continent\",\r\n    \"rpc\": 20650,\r\n    \"piba\": 212254,\r\n    \"pib1t\": 52641,\r\n    \"pib2t\": 52666,\r\n    \"pib3t\": 53256,\r\n    \"pib4t\": 53691,\r\n    \"vpy\": 2.2\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita"
+					]
+				},
+				"description": "Método no permitido."
+			},
+			"response": []
+		},
+		{
+			"name": "delete /rents-per-capita",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "796728cf-ce01-4396-8800-d4852db1ef41",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita"
+					]
+				},
+				"description": "Dejar vacío la fuente del recurso de datos."
+			},
+			"response": []
+		},
+		{
+			"name": "post /rents-per-capita/France",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ad8074a8-e420-4053-915a-d3ca81637d90",
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v3/rents-per-capita/France",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v3",
+						"rents-per-capita",
+						"France"
+					]
+				},
+				"description": "Método no permitido."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
