@@ -204,7 +204,6 @@ var options = {
 
     <h2>RENTS-PER-CAPITA (apexcharts)</h2>
  <div id="chart"></div>
-
 </main>
 
 
