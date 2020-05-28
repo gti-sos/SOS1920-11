@@ -134,7 +134,7 @@
 		});	
 	}
 
-	async function deleteteRPCS(){
+	async function deleteRPCS(){
 		console.log('Deleting rpcs..');
 		const res = await fetch("/api/v2/rents-per-capita",{
 			method: "DELETE"
@@ -315,7 +315,7 @@
 			</tr>
 			{/each}
 		</tbody>
-		<Button outline color="danger" on:click={deleteteRPCS}>BORRAR TODO</Button>
+		<Button outline color="danger" on:click={deleteRPCS}>BORRAR TODO</Button>
 	</Table>
 	{/await}
 

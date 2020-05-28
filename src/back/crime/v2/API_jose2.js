@@ -16,38 +16,7 @@ const db = new dataStore({
 
 app.use(bodyParser.json());
 
-var crimeratestats = [
-    {
-        country: 'Venezuela',
-        year: 2016,
-        cr_rate: 84.49,
-        cr_saferate: 15.51,
-        cr_homicrate: 56.3,
-        cr_homicount: 17778,
-        cr_theftrate: 1139.39,
-        cr_theftcount: 213769
-    },
-    {
-        country: 'España',
-        year: 2016,
-        cr_rate: 31.77,
-        cr_saferate: 68.23,
-        cr_homicrate: 0.6,
-        cr_homicount: 276,
-        cr_theftrate: 422.21,
-        cr_theftcount: 195910
-    },
-    {
-        country: 'Brasil',
-        year: 2017,
-        cr_rate: 70.62,
-        cr_saferate: 29.38,
-        cr_homicrate: 30.5,
-        cr_homicount: 63895,
-        cr_theftrate: 126.7,
-        cr_theftcount: 256418
-    }
-];
+
 
 function isEmpty(obj) {
 	for (var key in obj) {
@@ -63,10 +32,41 @@ function sizeOfObject(obj) {
 router.get('/loadInitialData', (req, res) => {
 	db.remove({}, { multi: true }, function (err, numRemoved) {
 	});
+	var crimeratestats = [
+		{
+			'country': 'Venezuela',
+			'year': 2016,
+			'cr_rate': 84.49,
+			'cr_saferate': 15.51,
+			'cr_homicrate': 56.3,
+			'cr_homicount': 17778,
+			'cr_theftrate': 1139.39,
+			'cr_theftcount': 213769
+		},
+		{
+			'country': 'España',
+			'year': 2016,
+			'cr_rate': 31.77,
+			'cr_saferate': 68.23,
+			'cr_homicrate': 0.6,
+			'cr_homicount': 276,
+			'cr_theftrate': 422.21,
+			'cr_theftcount': 195910
+		},
+		{
+			'country': 'Brasil',
+			'year': 2017,
+			'cr_rate': 70.62,
+			'cr_saferate': 29.38,
+			'cr_homicrate': 30.5,
+			'cr_homicount': 63895,
+			'cr_theftrate': 126.7,
+			'cr_theftcount': 256418
+		}
+	];
 	console.log("Enviando datos");
 	db.insert(crimeratestats);
-    //res.sendStatus(201,"DATA CREATED");
-    console.log('Datos enviados:' + JSON.stringify(crimeratestats, null, 2));
+    res.sendStatus(201,"DATA CREATED");
 });
 //const BASE_API_URL = "/api/v1";
 

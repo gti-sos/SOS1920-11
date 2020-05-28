@@ -15,8 +15,8 @@
         const resData2 = await fetch("/api/v2/economic-freedom-indexes");
         EfiData = await resData2.json();
 
-    //    const resData3 = await fetch("/api/v2/crime-rate-stats");
-    //    CrimeData = await resData3.json();
+        const resData3 = await fetch("/api/v2/crime-rate-stats");
+        CrimeData = await resData3.json();
 
         RpcData.filter(data => data.year == 2019).forEach((data) => {
             let country = { 
@@ -32,14 +32,14 @@
     	};
             EfiDataGraph.push(country);
         });
-     /*   CrimeData.filter(data => data.year == 2019).forEach((data) => {
+        CrimeData.filter(data => data.year == 2019).forEach((data) => {
             let country = { 
 		        'name': data.country,
 		        'value': data.cr_rate
     	};
             CrimeDataGraph.push(country);
         });
-    */
+    
         Highcharts.chart('container', {
     chart: {
         type: 'packedbubble',
@@ -85,11 +85,11 @@
     {
         name: 'Economic-freedom-indexes',
         data: EfiDataGraph
-    }/*,
+    },
     {
         name: 'Crime-rate-stats',
         data: CrimeDataGraph
-    }*/]
+    }]
 });
 
     }
