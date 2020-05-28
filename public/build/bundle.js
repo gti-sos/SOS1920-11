@@ -9639,8 +9639,8 @@ var app = (function () {
     			h3 = element("h3");
     			p = element("p");
     			t = text(/*userMsg*/ ctx[0]);
-    			add_location(p, file$8, 256, 5, 6961);
-    			add_location(h3, file$8, 256, 1, 6957);
+    			add_location(p, file$8, 256, 5, 6967);
+    			add_location(h3, file$8, 256, 1, 6963);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -9885,17 +9885,17 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			t16 = space();
     			attr_dev(a, "href", a_href_value = "/#/crimes/" + /*crime*/ ctx[36].country + "/" + /*crime*/ ctx[36].year);
-    			add_location(a, file$8, 286, 8, 8192);
-    			add_location(td0, file$8, 286, 4, 8188);
-    			add_location(td1, file$8, 287, 4, 8271);
-    			add_location(td2, file$8, 288, 4, 8298);
-    			add_location(td3, file$8, 289, 4, 8328);
-    			add_location(td4, file$8, 290, 4, 8362);
-    			add_location(td5, file$8, 291, 4, 8397);
-    			add_location(td6, file$8, 292, 4, 8432);
-    			add_location(td7, file$8, 293, 4, 8467);
-    			add_location(td8, file$8, 294, 4, 8503);
-    			add_location(tr, file$8, 285, 3, 8178);
+    			add_location(a, file$8, 286, 8, 8198);
+    			add_location(td0, file$8, 286, 4, 8194);
+    			add_location(td1, file$8, 287, 4, 8277);
+    			add_location(td2, file$8, 288, 4, 8304);
+    			add_location(td3, file$8, 289, 4, 8334);
+    			add_location(td4, file$8, 290, 4, 8368);
+    			add_location(td5, file$8, 291, 4, 8403);
+    			add_location(td6, file$8, 292, 4, 8438);
+    			add_location(td7, file$8, 293, 4, 8473);
+    			add_location(td8, file$8, 294, 4, 8509);
+    			add_location(tr, file$8, 285, 3, 8184);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -10159,43 +10159,43 @@ var app = (function () {
 
     			t27 = space();
     			create_component(button1.$$.fragment);
-    			add_location(td0, file$8, 262, 12, 7100);
-    			add_location(td1, file$8, 263, 12, 7130);
-    			add_location(td2, file$8, 264, 12, 7157);
-    			add_location(td3, file$8, 265, 12, 7190);
-    			add_location(td4, file$8, 266, 12, 7222);
-    			add_location(td5, file$8, 267, 12, 7258);
-    			add_location(td6, file$8, 268, 12, 7295);
-    			add_location(td7, file$8, 269, 12, 7328);
-    			add_location(td8, file$8, 270, 3, 7353);
-    			add_location(thead, file$8, 261, 8, 7079);
+    			add_location(td0, file$8, 262, 12, 7106);
+    			add_location(td1, file$8, 263, 12, 7136);
+    			add_location(td2, file$8, 264, 12, 7163);
+    			add_location(td3, file$8, 265, 12, 7196);
+    			add_location(td4, file$8, 266, 12, 7228);
+    			add_location(td5, file$8, 267, 12, 7264);
+    			add_location(td6, file$8, 268, 12, 7301);
+    			add_location(td7, file$8, 269, 12, 7334);
+    			add_location(td8, file$8, 270, 3, 7359);
+    			add_location(thead, file$8, 261, 8, 7085);
     			set_style(input0, "width", "100px");
-    			add_location(input0, file$8, 274, 8, 7424);
-    			add_location(td9, file$8, 274, 4, 7420);
+    			add_location(input0, file$8, 274, 8, 7430);
+    			add_location(td9, file$8, 274, 4, 7426);
     			set_style(input1, "width", "50px");
-    			add_location(input1, file$8, 275, 8, 7502);
-    			add_location(td10, file$8, 275, 4, 7498);
+    			add_location(input1, file$8, 275, 8, 7508);
+    			add_location(td10, file$8, 275, 4, 7504);
     			set_style(input2, "width", "50px");
-    			add_location(input2, file$8, 276, 8, 7576);
-    			add_location(td11, file$8, 276, 4, 7572);
+    			add_location(input2, file$8, 276, 8, 7582);
+    			add_location(td11, file$8, 276, 4, 7578);
     			set_style(input3, "width", "100px");
-    			add_location(input3, file$8, 277, 8, 7653);
-    			add_location(td12, file$8, 277, 4, 7649);
+    			add_location(input3, file$8, 277, 8, 7659);
+    			add_location(td12, file$8, 277, 4, 7655);
     			set_style(input4, "width", "100px");
-    			add_location(input4, file$8, 278, 8, 7733);
-    			add_location(td13, file$8, 278, 4, 7729);
+    			add_location(input4, file$8, 278, 8, 7739);
+    			add_location(td13, file$8, 278, 4, 7735);
     			set_style(input5, "width", "100px");
-    			add_location(input5, file$8, 279, 8, 7814);
-    			add_location(td14, file$8, 279, 4, 7810);
+    			add_location(input5, file$8, 279, 8, 7820);
+    			add_location(td14, file$8, 279, 4, 7816);
     			set_style(input6, "width", "100px");
-    			add_location(input6, file$8, 280, 8, 7895);
-    			add_location(td15, file$8, 280, 4, 7891);
+    			add_location(input6, file$8, 280, 8, 7901);
+    			add_location(td15, file$8, 280, 4, 7897);
     			set_style(input7, "width", "100px");
-    			add_location(input7, file$8, 281, 8, 7976);
-    			add_location(td16, file$8, 281, 4, 7972);
-    			add_location(td17, file$8, 282, 4, 8054);
-    			add_location(tr, file$8, 273, 3, 7410);
-    			add_location(tbody, file$8, 272, 8, 7398);
+    			add_location(input7, file$8, 281, 8, 7982);
+    			add_location(td16, file$8, 281, 4, 7978);
+    			add_location(td17, file$8, 282, 4, 8060);
+    			add_location(tr, file$8, 273, 3, 7416);
+    			add_location(tbody, file$8, 272, 8, 7404);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -10570,42 +10570,42 @@ var app = (function () {
     			input7 = element("input");
     			t23 = space();
     			create_component(button.$$.fragment);
-    			add_location(td0, file$8, 305, 3, 8815);
-    			add_location(td1, file$8, 306, 12, 8845);
-    			add_location(td2, file$8, 307, 12, 8872);
-    			add_location(td3, file$8, 308, 12, 8905);
-    			add_location(td4, file$8, 309, 12, 8937);
-    			add_location(td5, file$8, 310, 12, 8973);
-    			add_location(td6, file$8, 311, 12, 9010);
-    			add_location(td7, file$8, 312, 12, 9043);
-    			add_location(tr0, file$8, 304, 3, 8806);
-    			add_location(thead, file$8, 303, 2, 8794);
+    			add_location(td0, file$8, 305, 3, 8821);
+    			add_location(td1, file$8, 306, 12, 8851);
+    			add_location(td2, file$8, 307, 12, 8878);
+    			add_location(td3, file$8, 308, 12, 8911);
+    			add_location(td4, file$8, 309, 12, 8943);
+    			add_location(td5, file$8, 310, 12, 8979);
+    			add_location(td6, file$8, 311, 12, 9016);
+    			add_location(td7, file$8, 312, 12, 9049);
+    			add_location(tr0, file$8, 304, 3, 8812);
+    			add_location(thead, file$8, 303, 2, 8800);
     			set_style(input0, "width", "100px");
-    			add_location(input0, file$8, 317, 8, 9115);
-    			add_location(td8, file$8, 317, 4, 9111);
+    			add_location(input0, file$8, 317, 8, 9121);
+    			add_location(td8, file$8, 317, 4, 9117);
     			set_style(input1, "width", "50px");
-    			add_location(input1, file$8, 318, 8, 9195);
-    			add_location(td9, file$8, 318, 4, 9191);
+    			add_location(input1, file$8, 318, 8, 9201);
+    			add_location(td9, file$8, 318, 4, 9197);
     			set_style(input2, "width", "100px");
-    			add_location(input2, file$8, 319, 8, 9271);
-    			add_location(td10, file$8, 319, 4, 9267);
+    			add_location(input2, file$8, 319, 8, 9277);
+    			add_location(td10, file$8, 319, 4, 9273);
     			set_style(input3, "width", "100px");
-    			add_location(input3, file$8, 320, 8, 9349);
-    			add_location(td11, file$8, 320, 4, 9345);
+    			add_location(input3, file$8, 320, 8, 9355);
+    			add_location(td11, file$8, 320, 4, 9351);
     			set_style(input4, "width", "100px");
-    			add_location(input4, file$8, 321, 8, 9431);
-    			add_location(td12, file$8, 321, 4, 9427);
+    			add_location(input4, file$8, 321, 8, 9437);
+    			add_location(td12, file$8, 321, 4, 9433);
     			set_style(input5, "width", "100px");
-    			add_location(input5, file$8, 322, 8, 9514);
-    			add_location(td13, file$8, 322, 4, 9510);
+    			add_location(input5, file$8, 322, 8, 9520);
+    			add_location(td13, file$8, 322, 4, 9516);
     			set_style(input6, "width", "100px");
-    			add_location(input6, file$8, 323, 8, 9597);
-    			add_location(td14, file$8, 323, 4, 9593);
+    			add_location(input6, file$8, 323, 8, 9603);
+    			add_location(td14, file$8, 323, 4, 9599);
     			set_style(input7, "width", "100px");
-    			add_location(input7, file$8, 324, 8, 9680);
-    			add_location(td15, file$8, 324, 4, 9676);
-    			add_location(tr1, file$8, 316, 3, 9101);
-    			add_location(tbody, file$8, 315, 2, 9089);
+    			add_location(input7, file$8, 324, 8, 9686);
+    			add_location(td15, file$8, 324, 4, 9682);
+    			add_location(tr1, file$8, 316, 3, 9107);
+    			add_location(tbody, file$8, 315, 2, 9095);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -10889,8 +10889,8 @@ var app = (function () {
     			create_component(button1.$$.fragment);
     			t6 = space();
     			create_component(button2.$$.fragment);
-    			add_location(h2, file$8, 253, 1, 6827);
-    			add_location(main, file$8, 252, 0, 6818);
+    			add_location(h2, file$8, 253, 1, 6833);
+    			add_location(main, file$8, 252, 0, 6824);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -11050,7 +11050,7 @@ var app = (function () {
 
     	async function loadInitialData() {
     		console.log("Cargando crimenes iniciales");
-    		res = await fetch("/api/v2/crime-rate-stats/loadInitialData");
+    		const res = await fetch("/api/v2/crime-rate-stats/loadInitialData");
 
     		if (res.ok) {
     			console.log("Datos iniciales cargados");
