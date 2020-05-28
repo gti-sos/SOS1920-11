@@ -126,12 +126,48 @@ router.get('/loadInitialData',(req,res)=>{
 		'year': 2018,
 		'rpc':33160,
 		'piba':4195748,
+		'pib1t':1061050,
+		'pib2t':1052282,
+		'pib3t':1055801,
+		'pib4t':1028226,
+		'vpy': 0.3,
+		'continent': "Asia"
+	},
+	{ 
+		'country': "Japan",
+		'year': 2019,
+		'rpc':35883,
+		'piba': 4540300,
 		'pib1t':1142622,
 		'pib2t':1169622,
 		'pib3t':1125686,
 		'pib4t':1104669,
 		'vpy': 0.7,
 		'continent': "Asia"
+	},
+	{ 
+		'country': "Israel",
+		'year': 2019,
+		'rpc':39743,
+		'piba':352959,
+		'pib1t':92857,
+		'pib2t':90412,
+		'pib3t':86233,
+		'pib4t':84040,
+		'vpy': 3.5,
+		'continent': "Asia"
+	},
+	{ 
+		'country': "Canada",
+		'year': 2019,
+		'rpc':41923,
+		'piba': 1550895,
+		'pib1t':399850,
+		'pib2t':393755,
+		'pib3t':383262,
+		'pib4t':374207,
+		'vpy': 1.6,
+		'continent': "America"
 	},
 	{ 
 		'country': "Italia",
@@ -144,6 +180,18 @@ router.get('/loadInitialData',(req,res)=>{
 		'pib4t':445572,
 		'vpy': 0.3,
 		'continent': "Europe"
+	},
+	{ 
+		'country': "Australia",
+		'year': 2019,
+		'rpc': 50420,
+		'piba':1269014,
+		'pib1t':310242,
+		'pib2t':310730,
+		'pib3t':309913,
+		'pib4t':307750,
+		'vpy': 1.8,
+		'continent': "Oceania"
 	},
 	{ 
 		'country': "Italia",

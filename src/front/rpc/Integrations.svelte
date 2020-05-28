@@ -1,5 +1,7 @@
 <script>
 
+    import {pop} from "svelte-spa-router";
+	import Button from "sveltestrap/src/Button.svelte";
 </script>
 
 <main>
@@ -7,12 +9,14 @@
 		Integrations:
 		</h2> 
 		<ul>
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/emigration">Emigration</a>
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/overdose">Overdose</a>
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/countries">Countries</a>
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/covid19">COVID-19</a>
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/icm">ICM </a>
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs/integrations/comun">Comun </a>
+			<li><a href="/#/rpcs/integrations/emigration">Emigration</a>
+			<li><a href="/#/rpcs/integrations/overdose">Overdose</a>
+			<li><a href="/#/rpcs/integrations/countries">Countries</a>
+			<li><a href="/#/rpcs/integrations/covid19">COVID-19</a>
+			<li><a href="/#/rpcs/integrations/icm">ICM </a>
+			<li><a href="/#/rpcs/integrations/comun">Comun </a>
 		</ul>
 
+	<a href="/#"><Button outline color="warning">INICIO</Button></a>
+    <Button outline color="secondary" on:click="{pop}">VOLVER</Button>
 </main>

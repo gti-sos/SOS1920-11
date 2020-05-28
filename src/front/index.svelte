@@ -24,7 +24,7 @@
 		<ul>
 			<li><a href="http://sos1920-11.herokuapp.com/#/efis">Freedom Indexes</a>
 			<li><a href="http://sos1920-11.herokuapp.com/#/crimes">Crime Rates</a> 
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs">Rents per Capita</a>
+			<li><a href="/#/rpcs">Rents per Capita</a>
 		</ul>
 		<h2>
 			URL

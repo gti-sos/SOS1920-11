@@ -1,4 +1,7 @@
 <script>
+
+    import {pop} from "svelte-spa-router";
+	import Button from "sveltestrap/src/Button.svelte";
     async function loadGraph(){
 
         let CountriesData = [];
@@ -117,6 +120,9 @@
         <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
     </svelte:head>
 <main>
+    <a href="/#"><Button outline color="warning">INICIO</Button></a>
+    <Button outline color="secondary" on:click="{pop}">VOLVER</Button>
+
     <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">

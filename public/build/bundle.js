@@ -1890,12 +1890,39 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[36] = list[i];
+    	child_ctx[37] = list[i];
     	return child_ctx;
     }
 
-    // (269:19) <Button outline color="danger" on:click={loadInitialData}>
-    function create_default_slot_8(ctx) {
+    // (278:14) <Button outline color="warning">
+    function create_default_slot_11(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_11.name,
+    		type: "slot",
+    		source: "(278:14) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (279:1) <Button outline color="danger"  on:click={loadInitialData}>
+    function create_default_slot_10(ctx) {
     	let t;
 
     	const block = {
@@ -1912,16 +1939,70 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_8.name,
+    		id: create_default_slot_10.name,
     		type: "slot",
-    		source: "(269:19) <Button outline color=\\\"danger\\\" on:click={loadInitialData}>",
+    		source: "(279:1) <Button outline color=\\\"danger\\\"  on:click={loadInitialData}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (270:1) {#if userMsg}
+    // (280:25) <Button outline color="primary">
+    function create_default_slot_9(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("ANÁLISIS GRÁFICO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_9.name,
+    		type: "slot",
+    		source: "(280:25) <Button outline color=\\\"primary\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (281:32) <Button outline color="primary">
+    function create_default_slot_8(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INTEGRACIONES");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_8.name,
+    		type: "slot",
+    		source: "(281:32) <Button outline color=\\\"primary\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (282:1) {#if userMsg}
     function create_if_block$2(ctx) {
     	let h3;
     	let p;
@@ -1933,8 +2014,8 @@ var app = (function () {
     			p = element("p");
     			t = text(/*userMsg*/ ctx[2]);
     			set_style(p, "color", "orange");
-    			add_location(p, file$2, 270, 5, 6545);
-    			add_location(h3, file$2, 270, 1, 6541);
+    			add_location(p, file$2, 282, 5, 7014);
+    			add_location(h3, file$2, 282, 1, 7010);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -1953,7 +2034,7 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(270:1) {#if userMsg}",
+    		source: "(282:1) {#if userMsg}",
     		ctx
     	});
 
@@ -1982,7 +2063,7 @@ var app = (function () {
     	return block;
     }
 
-    // (274:1) {:then rpcs}
+    // (286:1) {:then rpcs}
     function create_then_block(ctx) {
     	let current;
 
@@ -2007,7 +2088,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			const table_changes = {};
 
-    			if (dirty[0] & /*rpcs, newRpc*/ 9 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*rpcs, newRpc*/ 9 | dirty[1] & /*$$scope*/ 512) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2031,14 +2112,14 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(274:1) {:then rpcs}",
+    		source: "(286:1) {:then rpcs}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (301:8) <Button on:click={insertRPC} outline color="primary">
+    // (315:8) <Button on:click={insertRPC} outline color="primary">
     function create_default_slot_7(ctx) {
     	let t;
 
@@ -2058,14 +2139,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(301:8) <Button on:click={insertRPC} outline color=\\\"primary\\\">",
+    		source: "(315:8) <Button on:click={insertRPC} outline color=\\\"primary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (314:8) <Button on:click={deleteRPC(rpc.country,rpc.year)} outline color="danger">
+    // (329:8) <Button on:click={deleteRPC(rpc.country,rpc.year)} outline color="danger">
     function create_default_slot_6(ctx) {
     	let t;
 
@@ -2085,56 +2166,60 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(314:8) <Button on:click={deleteRPC(rpc.country,rpc.year)} outline color=\\\"danger\\\">",
+    		source: "(329:8) <Button on:click={deleteRPC(rpc.country,rpc.year)} outline color=\\\"danger\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (303:3) {#each rpcs as rpc}
+    // (317:3) {#each rpcs as rpc}
     function create_each_block(ctx) {
     	let tr;
     	let td0;
     	let a;
-    	let t0_value = /*rpc*/ ctx[36].country + "";
+    	let t0_value = /*rpc*/ ctx[37].country + "";
     	let t0;
     	let a_href_value;
     	let t1;
     	let td1;
-    	let t2_value = /*rpc*/ ctx[36].year + "";
+    	let t2_value = /*rpc*/ ctx[37].year + "";
     	let t2;
     	let t3;
     	let td2;
-    	let t4_value = /*rpc*/ ctx[36].rpc + "";
+    	let t4_value = /*rpc*/ ctx[37].continent + "";
     	let t4;
     	let t5;
     	let td3;
-    	let t6_value = /*rpc*/ ctx[36].piba + "";
+    	let t6_value = /*rpc*/ ctx[37].rpc + "";
     	let t6;
     	let t7;
     	let td4;
-    	let t8_value = /*rpc*/ ctx[36].pib1t + "";
+    	let t8_value = /*rpc*/ ctx[37].piba + "";
     	let t8;
     	let t9;
     	let td5;
-    	let t10_value = /*rpc*/ ctx[36].pib2t + "";
+    	let t10_value = /*rpc*/ ctx[37].pib1t + "";
     	let t10;
     	let t11;
     	let td6;
-    	let t12_value = /*rpc*/ ctx[36].pib3t + "";
+    	let t12_value = /*rpc*/ ctx[37].pib2t + "";
     	let t12;
     	let t13;
     	let td7;
-    	let t14_value = /*rpc*/ ctx[36].pib4t + "";
+    	let t14_value = /*rpc*/ ctx[37].pib3t + "";
     	let t14;
     	let t15;
     	let td8;
-    	let t16_value = /*rpc*/ ctx[36].vpy + "";
+    	let t16_value = /*rpc*/ ctx[37].pib4t + "";
     	let t16;
     	let t17;
     	let td9;
+    	let t18_value = /*rpc*/ ctx[37].vpy + "";
     	let t18;
+    	let t19;
+    	let td10;
+    	let t20;
     	let current;
 
     	const button = new Button({
@@ -2148,7 +2233,7 @@ var app = (function () {
     		});
 
     	button.$on("click", function () {
-    		if (is_function(/*deleteRPC*/ ctx[6](/*rpc*/ ctx[36].country, /*rpc*/ ctx[36].year))) /*deleteRPC*/ ctx[6](/*rpc*/ ctx[36].country, /*rpc*/ ctx[36].year).apply(this, arguments);
+    		if (is_function(/*deleteRPC*/ ctx[6](/*rpc*/ ctx[37].country, /*rpc*/ ctx[37].year))) /*deleteRPC*/ ctx[6](/*rpc*/ ctx[37].country, /*rpc*/ ctx[37].year).apply(this, arguments);
     	});
 
     	const block = {
@@ -2183,21 +2268,25 @@ var app = (function () {
     			t16 = text(t16_value);
     			t17 = space();
     			td9 = element("td");
+    			t18 = text(t18_value);
+    			t19 = space();
+    			td10 = element("td");
     			create_component(button.$$.fragment);
-    			t18 = space();
-    			attr_dev(a, "href", a_href_value = "/#/rpcs/" + /*rpc*/ ctx[36].country + "/" + /*rpc*/ ctx[36].year);
-    			add_location(a, file$2, 304, 8, 7716);
-    			add_location(td0, file$2, 304, 4, 7712);
-    			add_location(td1, file$2, 305, 4, 7787);
-    			add_location(td2, file$2, 306, 4, 7812);
-    			add_location(td3, file$2, 307, 4, 7836);
-    			add_location(td4, file$2, 308, 4, 7861);
-    			add_location(td5, file$2, 309, 4, 7887);
-    			add_location(td6, file$2, 310, 4, 7913);
-    			add_location(td7, file$2, 311, 4, 7939);
-    			add_location(td8, file$2, 312, 4, 7965);
-    			add_location(td9, file$2, 313, 4, 7989);
-    			add_location(tr, file$2, 303, 3, 7702);
+    			t20 = space();
+    			attr_dev(a, "href", a_href_value = "/#/rpcs/" + /*rpc*/ ctx[37].country + "/" + /*rpc*/ ctx[37].year);
+    			add_location(a, file$2, 318, 8, 8287);
+    			add_location(td0, file$2, 318, 4, 8283);
+    			add_location(td1, file$2, 319, 4, 8358);
+    			add_location(td2, file$2, 320, 4, 8383);
+    			add_location(td3, file$2, 321, 4, 8413);
+    			add_location(td4, file$2, 322, 4, 8437);
+    			add_location(td5, file$2, 323, 4, 8462);
+    			add_location(td6, file$2, 324, 4, 8488);
+    			add_location(td7, file$2, 325, 4, 8514);
+    			add_location(td8, file$2, 326, 4, 8540);
+    			add_location(td9, file$2, 327, 4, 8566);
+    			add_location(td10, file$2, 328, 4, 8590);
+    			add_location(tr, file$2, 317, 3, 8273);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -2230,29 +2319,33 @@ var app = (function () {
     			append_dev(td8, t16);
     			append_dev(tr, t17);
     			append_dev(tr, td9);
-    			mount_component(button, td9, null);
-    			append_dev(tr, t18);
+    			append_dev(td9, t18);
+    			append_dev(tr, t19);
+    			append_dev(tr, td10);
+    			mount_component(button, td10, null);
+    			append_dev(tr, t20);
     			current = true;
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t0_value !== (t0_value = /*rpc*/ ctx[36].country + "")) set_data_dev(t0, t0_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t0_value !== (t0_value = /*rpc*/ ctx[37].country + "")) set_data_dev(t0, t0_value);
 
-    			if (!current || dirty[0] & /*rpcs*/ 8 && a_href_value !== (a_href_value = "/#/rpcs/" + /*rpc*/ ctx[36].country + "/" + /*rpc*/ ctx[36].year)) {
+    			if (!current || dirty[0] & /*rpcs*/ 8 && a_href_value !== (a_href_value = "/#/rpcs/" + /*rpc*/ ctx[37].country + "/" + /*rpc*/ ctx[37].year)) {
     				attr_dev(a, "href", a_href_value);
     			}
 
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t2_value !== (t2_value = /*rpc*/ ctx[36].year + "")) set_data_dev(t2, t2_value);
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t4_value !== (t4_value = /*rpc*/ ctx[36].rpc + "")) set_data_dev(t4, t4_value);
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t6_value !== (t6_value = /*rpc*/ ctx[36].piba + "")) set_data_dev(t6, t6_value);
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t8_value !== (t8_value = /*rpc*/ ctx[36].pib1t + "")) set_data_dev(t8, t8_value);
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t10_value !== (t10_value = /*rpc*/ ctx[36].pib2t + "")) set_data_dev(t10, t10_value);
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t12_value !== (t12_value = /*rpc*/ ctx[36].pib3t + "")) set_data_dev(t12, t12_value);
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t14_value !== (t14_value = /*rpc*/ ctx[36].pib4t + "")) set_data_dev(t14, t14_value);
-    			if ((!current || dirty[0] & /*rpcs*/ 8) && t16_value !== (t16_value = /*rpc*/ ctx[36].vpy + "")) set_data_dev(t16, t16_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t2_value !== (t2_value = /*rpc*/ ctx[37].year + "")) set_data_dev(t2, t2_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t4_value !== (t4_value = /*rpc*/ ctx[37].continent + "")) set_data_dev(t4, t4_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t6_value !== (t6_value = /*rpc*/ ctx[37].rpc + "")) set_data_dev(t6, t6_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t8_value !== (t8_value = /*rpc*/ ctx[37].piba + "")) set_data_dev(t8, t8_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t10_value !== (t10_value = /*rpc*/ ctx[37].pib1t + "")) set_data_dev(t10, t10_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t12_value !== (t12_value = /*rpc*/ ctx[37].pib2t + "")) set_data_dev(t12, t12_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t14_value !== (t14_value = /*rpc*/ ctx[37].pib3t + "")) set_data_dev(t14, t14_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t16_value !== (t16_value = /*rpc*/ ctx[37].pib4t + "")) set_data_dev(t16, t16_value);
+    			if ((!current || dirty[0] & /*rpcs*/ 8) && t18_value !== (t18_value = /*rpc*/ ctx[37].vpy + "")) set_data_dev(t18, t18_value);
     			const button_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2277,14 +2370,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(303:3) {#each rpcs as rpc}",
+    		source: "(317:3) {#each rpcs as rpc}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (318:2) <Button outline color="danger" on:click={deleteRPCS}>
+    // (333:2) <Button outline color="danger" on:click={deleteRPCS}>
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -2304,15 +2397,520 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(318:2) <Button outline color=\\\"danger\\\" on:click={deleteRPCS}>",
+    		source: "(333:2) <Button outline color=\\\"danger\\\" on:click={deleteRPCS}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (275:1) <Table bordered style="width:auto;">
+    // (287:1) <Table bordered style="width:auto;">
     function create_default_slot_4(ctx) {
+    	let thead;
+    	let tr0;
+    	let td0;
+    	let t1;
+    	let td1;
+    	let t3;
+    	let td2;
+    	let t5;
+    	let td3;
+    	let t7;
+    	let td4;
+    	let t9;
+    	let td5;
+    	let t11;
+    	let td6;
+    	let t13;
+    	let td7;
+    	let t15;
+    	let td8;
+    	let t17;
+    	let td9;
+    	let t19;
+    	let td10;
+    	let t21;
+    	let tbody;
+    	let tr1;
+    	let td11;
+    	let input0;
+    	let t22;
+    	let td12;
+    	let input1;
+    	let t23;
+    	let td13;
+    	let input2;
+    	let t24;
+    	let td14;
+    	let input3;
+    	let t25;
+    	let td15;
+    	let input4;
+    	let t26;
+    	let td16;
+    	let input5;
+    	let t27;
+    	let td17;
+    	let input6;
+    	let t28;
+    	let td18;
+    	let input7;
+    	let t29;
+    	let td19;
+    	let input8;
+    	let t30;
+    	let td20;
+    	let input9;
+    	let t31;
+    	let td21;
+    	let t32;
+    	let t33;
+    	let current;
+    	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "primary",
+    				$$slots: { default: [create_default_slot_7] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button0.$on("click", /*insertRPC*/ ctx[5]);
+    	let each_value = /*rpcs*/ ctx[3];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "danger",
+    				$$slots: { default: [create_default_slot_5] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", /*deleteRPCS*/ ctx[7]);
+
+    	const block = {
+    		c: function create() {
+    			thead = element("thead");
+    			tr0 = element("tr");
+    			td0 = element("td");
+    			td0.textContent = "Country";
+    			t1 = space();
+    			td1 = element("td");
+    			td1.textContent = "Year";
+    			t3 = space();
+    			td2 = element("td");
+    			td2.textContent = "Continent";
+    			t5 = space();
+    			td3 = element("td");
+    			td3.textContent = "RPC";
+    			t7 = space();
+    			td4 = element("td");
+    			td4.textContent = "PIB A";
+    			t9 = space();
+    			td5 = element("td");
+    			td5.textContent = "PIB 1T";
+    			t11 = space();
+    			td6 = element("td");
+    			td6.textContent = "PIB 2T";
+    			t13 = space();
+    			td7 = element("td");
+    			td7.textContent = "PIB 3T";
+    			t15 = space();
+    			td8 = element("td");
+    			td8.textContent = "PIB 4T";
+    			t17 = space();
+    			td9 = element("td");
+    			td9.textContent = "VPY";
+    			t19 = space();
+    			td10 = element("td");
+    			td10.textContent = "ACTIONS";
+    			t21 = space();
+    			tbody = element("tbody");
+    			tr1 = element("tr");
+    			td11 = element("td");
+    			input0 = element("input");
+    			t22 = space();
+    			td12 = element("td");
+    			input1 = element("input");
+    			t23 = space();
+    			td13 = element("td");
+    			input2 = element("input");
+    			t24 = space();
+    			td14 = element("td");
+    			input3 = element("input");
+    			t25 = space();
+    			td15 = element("td");
+    			input4 = element("input");
+    			t26 = space();
+    			td16 = element("td");
+    			input5 = element("input");
+    			t27 = space();
+    			td17 = element("td");
+    			input6 = element("input");
+    			t28 = space();
+    			td18 = element("td");
+    			input7 = element("input");
+    			t29 = space();
+    			td19 = element("td");
+    			input8 = element("input");
+    			t30 = space();
+    			td20 = element("td");
+    			input9 = element("input");
+    			t31 = space();
+    			td21 = element("td");
+    			create_component(button0.$$.fragment);
+    			t32 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t33 = space();
+    			create_component(button1.$$.fragment);
+    			add_location(td0, file$2, 289, 4, 7162);
+    			add_location(td1, file$2, 290, 4, 7184);
+    			add_location(td2, file$2, 291, 4, 7203);
+    			add_location(td3, file$2, 292, 4, 7227);
+    			add_location(td4, file$2, 293, 4, 7245);
+    			add_location(td5, file$2, 294, 4, 7265);
+    			add_location(td6, file$2, 295, 4, 7286);
+    			add_location(td7, file$2, 296, 4, 7307);
+    			add_location(td8, file$2, 297, 4, 7328);
+    			add_location(td9, file$2, 298, 4, 7349);
+    			add_location(td10, file$2, 299, 4, 7367);
+    			add_location(tr0, file$2, 288, 3, 7152);
+    			add_location(thead, file$2, 287, 2, 7140);
+    			set_style(input0, "width", "100px");
+    			add_location(input0, file$2, 304, 8, 7435);
+    			add_location(td11, file$2, 304, 4, 7431);
+    			set_style(input1, "width", "50px");
+    			add_location(input1, file$2, 305, 8, 7511);
+    			add_location(td12, file$2, 305, 4, 7507);
+    			set_style(input2, "width", "100px");
+    			add_location(input2, file$2, 306, 8, 7583);
+    			add_location(td13, file$2, 306, 4, 7579);
+    			set_style(input3, "width", "100px");
+    			add_location(input3, file$2, 307, 8, 7661);
+    			add_location(td14, file$2, 307, 4, 7657);
+    			set_style(input4, "width", "100px");
+    			add_location(input4, file$2, 308, 8, 7731);
+    			add_location(td15, file$2, 308, 4, 7727);
+    			set_style(input5, "width", "100px");
+    			add_location(input5, file$2, 309, 8, 7802);
+    			add_location(td16, file$2, 309, 4, 7798);
+    			set_style(input6, "width", "100px");
+    			add_location(input6, file$2, 310, 8, 7874);
+    			add_location(td17, file$2, 310, 4, 7870);
+    			set_style(input7, "width", "100px");
+    			add_location(input7, file$2, 311, 8, 7946);
+    			add_location(td18, file$2, 311, 4, 7942);
+    			set_style(input8, "width", "100px");
+    			add_location(input8, file$2, 312, 8, 8018);
+    			add_location(td19, file$2, 312, 4, 8014);
+    			set_style(input9, "width", "50px");
+    			add_location(input9, file$2, 313, 8, 8090);
+    			add_location(td20, file$2, 313, 4, 8086);
+    			add_location(td21, file$2, 314, 4, 8155);
+    			add_location(tr1, file$2, 303, 3, 7421);
+    			add_location(tbody, file$2, 302, 2, 7409);
+    		},
+    		m: function mount(target, anchor, remount) {
+    			insert_dev(target, thead, anchor);
+    			append_dev(thead, tr0);
+    			append_dev(tr0, td0);
+    			append_dev(tr0, t1);
+    			append_dev(tr0, td1);
+    			append_dev(tr0, t3);
+    			append_dev(tr0, td2);
+    			append_dev(tr0, t5);
+    			append_dev(tr0, td3);
+    			append_dev(tr0, t7);
+    			append_dev(tr0, td4);
+    			append_dev(tr0, t9);
+    			append_dev(tr0, td5);
+    			append_dev(tr0, t11);
+    			append_dev(tr0, td6);
+    			append_dev(tr0, t13);
+    			append_dev(tr0, td7);
+    			append_dev(tr0, t15);
+    			append_dev(tr0, td8);
+    			append_dev(tr0, t17);
+    			append_dev(tr0, td9);
+    			append_dev(tr0, t19);
+    			append_dev(tr0, td10);
+    			insert_dev(target, t21, anchor);
+    			insert_dev(target, tbody, anchor);
+    			append_dev(tbody, tr1);
+    			append_dev(tr1, td11);
+    			append_dev(td11, input0);
+    			set_input_value(input0, /*newRpc*/ ctx[0].country);
+    			append_dev(tr1, t22);
+    			append_dev(tr1, td12);
+    			append_dev(td12, input1);
+    			set_input_value(input1, /*newRpc*/ ctx[0].year);
+    			append_dev(tr1, t23);
+    			append_dev(tr1, td13);
+    			append_dev(td13, input2);
+    			set_input_value(input2, /*newRpc*/ ctx[0].continent);
+    			append_dev(tr1, t24);
+    			append_dev(tr1, td14);
+    			append_dev(td14, input3);
+    			set_input_value(input3, /*newRpc*/ ctx[0].rpc);
+    			append_dev(tr1, t25);
+    			append_dev(tr1, td15);
+    			append_dev(td15, input4);
+    			set_input_value(input4, /*newRpc*/ ctx[0].piba);
+    			append_dev(tr1, t26);
+    			append_dev(tr1, td16);
+    			append_dev(td16, input5);
+    			set_input_value(input5, /*newRpc*/ ctx[0].pib1t);
+    			append_dev(tr1, t27);
+    			append_dev(tr1, td17);
+    			append_dev(td17, input6);
+    			set_input_value(input6, /*newRpc*/ ctx[0].pib2t);
+    			append_dev(tr1, t28);
+    			append_dev(tr1, td18);
+    			append_dev(td18, input7);
+    			set_input_value(input7, /*newRpc*/ ctx[0].pib3t);
+    			append_dev(tr1, t29);
+    			append_dev(tr1, td19);
+    			append_dev(td19, input8);
+    			set_input_value(input8, /*newRpc*/ ctx[0].pib4t);
+    			append_dev(tr1, t30);
+    			append_dev(tr1, td20);
+    			append_dev(td20, input9);
+    			set_input_value(input9, /*newRpc*/ ctx[0].vpy);
+    			append_dev(tr1, t31);
+    			append_dev(tr1, td21);
+    			mount_component(button0, td21, null);
+    			append_dev(tbody, t32);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(tbody, null);
+    			}
+
+    			insert_dev(target, t33, anchor);
+    			mount_component(button1, target, anchor);
+    			current = true;
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[18]),
+    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[19]),
+    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[20]),
+    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[21]),
+    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[22]),
+    				listen_dev(input5, "input", /*input5_input_handler*/ ctx[23]),
+    				listen_dev(input6, "input", /*input6_input_handler*/ ctx[24]),
+    				listen_dev(input7, "input", /*input7_input_handler*/ ctx[25]),
+    				listen_dev(input8, "input", /*input8_input_handler*/ ctx[26]),
+    				listen_dev(input9, "input", /*input9_input_handler*/ ctx[27])
+    			];
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*newRpc*/ 1 && input0.value !== /*newRpc*/ ctx[0].country) {
+    				set_input_value(input0, /*newRpc*/ ctx[0].country);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input1.value !== /*newRpc*/ ctx[0].year) {
+    				set_input_value(input1, /*newRpc*/ ctx[0].year);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input2.value !== /*newRpc*/ ctx[0].continent) {
+    				set_input_value(input2, /*newRpc*/ ctx[0].continent);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input3.value !== /*newRpc*/ ctx[0].rpc) {
+    				set_input_value(input3, /*newRpc*/ ctx[0].rpc);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input4.value !== /*newRpc*/ ctx[0].piba) {
+    				set_input_value(input4, /*newRpc*/ ctx[0].piba);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input5.value !== /*newRpc*/ ctx[0].pib1t) {
+    				set_input_value(input5, /*newRpc*/ ctx[0].pib1t);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input6.value !== /*newRpc*/ ctx[0].pib2t) {
+    				set_input_value(input6, /*newRpc*/ ctx[0].pib2t);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input7.value !== /*newRpc*/ ctx[0].pib3t) {
+    				set_input_value(input7, /*newRpc*/ ctx[0].pib3t);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input8.value !== /*newRpc*/ ctx[0].pib4t) {
+    				set_input_value(input8, /*newRpc*/ ctx[0].pib4t);
+    			}
+
+    			if (dirty[0] & /*newRpc*/ 1 && input9.value !== /*newRpc*/ ctx[0].vpy) {
+    				set_input_value(input9, /*newRpc*/ ctx[0].vpy);
+    			}
+
+    			const button0_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 512) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+
+    			if (dirty[0] & /*deleteRPC, rpcs*/ 72) {
+    				each_value = /*rpcs*/ ctx[3];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(tbody, null);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+
+    			const button1_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 512) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(thead);
+    			if (detaching) detach_dev(t21);
+    			if (detaching) detach_dev(tbody);
+    			destroy_component(button0);
+    			destroy_each(each_blocks, detaching);
+    			if (detaching) detach_dev(t33);
+    			destroy_component(button1, detaching);
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_4.name,
+    		type: "slot",
+    		source: "(287:1) <Table bordered style=\\\"width:auto;\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (285:14) ;   {:then rpcs}
+    function create_pending_block(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text(";");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_pending_block.name,
+    		type: "pending",
+    		source: "(285:14) ;   {:then rpcs}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (365:2) <Button outline color="secondary" on:click={searchRPCS} on:click={setOffsetZero}>
+    function create_default_slot_3(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("BUSCAR");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_3.name,
+    		type: "slot",
+    		source: "(365:2) <Button outline color=\\\"secondary\\\" on:click={searchRPCS} on:click={setOffsetZero}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (337:1) <Table bordered style="width: auto;">
+    function create_default_slot_2(ctx) {
     	let thead;
     	let tr0;
     	let td0;
@@ -2364,46 +2962,21 @@ var app = (function () {
     	let td18;
     	let input8;
     	let t28;
-    	let td19;
-    	let t29;
-    	let t30;
     	let current;
     	let dispose;
 
-    	const button0 = new Button({
+    	const button = new Button({
     			props: {
     				outline: true,
-    				color: "primary",
-    				$$slots: { default: [create_default_slot_7] },
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot_3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	button0.$on("click", /*insertRPC*/ ctx[5]);
-    	let each_value = /*rpcs*/ ctx[3];
-    	validate_each_argument(each_value);
-    	let each_blocks = [];
-
-    	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
-    	}
-
-    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
-    		each_blocks[i] = null;
-    	});
-
-    	const button1 = new Button({
-    			props: {
-    				outline: true,
-    				color: "danger",
-    				$$slots: { default: [create_default_slot_5] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	button1.$on("click", /*deleteRPCS*/ ctx[7]);
+    	button.$on("click", /*searchRPCS*/ ctx[8]);
+    	button.$on("click", /*setOffsetZero*/ ctx[11]);
 
     	const block = {
     		c: function create() {
@@ -2416,28 +2989,28 @@ var app = (function () {
     			td1.textContent = "Year";
     			t3 = space();
     			td2 = element("td");
-    			td2.textContent = "RPC";
+    			td2.textContent = "Continent";
     			t5 = space();
     			td3 = element("td");
-    			td3.textContent = "PIB A";
+    			td3.textContent = "RPC";
     			t7 = space();
     			td4 = element("td");
-    			td4.textContent = "PIB 1T";
+    			td4.textContent = "PIB A";
     			t9 = space();
     			td5 = element("td");
-    			td5.textContent = "PIB 2T";
+    			td5.textContent = "PIB 1T";
     			t11 = space();
     			td6 = element("td");
-    			td6.textContent = "PIB 3T";
+    			td6.textContent = "PIB 2T";
     			t13 = space();
     			td7 = element("td");
-    			td7.textContent = "PIB 4T";
+    			td7.textContent = "PIB 3T";
     			t15 = space();
     			td8 = element("td");
-    			td8.textContent = "VPY";
+    			td8.textContent = "PIB 4T";
     			t17 = space();
     			td9 = element("td");
-    			td9.textContent = "ACTIONS";
+    			td9.textContent = "VPY";
     			t19 = space();
     			tbody = element("tbody");
     			tr1 = element("tr");
@@ -2468,58 +3041,48 @@ var app = (function () {
     			td18 = element("td");
     			input8 = element("input");
     			t28 = space();
-    			td19 = element("td");
-    			create_component(button0.$$.fragment);
-    			t29 = space();
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
-    			}
-
-    			t30 = space();
-    			create_component(button1.$$.fragment);
-    			add_location(td0, file$2, 277, 4, 6693);
-    			add_location(td1, file$2, 278, 4, 6715);
-    			add_location(td2, file$2, 279, 4, 6734);
-    			add_location(td3, file$2, 280, 4, 6752);
-    			add_location(td4, file$2, 281, 4, 6772);
-    			add_location(td5, file$2, 282, 4, 6793);
-    			add_location(td6, file$2, 283, 4, 6814);
-    			add_location(td7, file$2, 284, 4, 6835);
-    			add_location(td8, file$2, 285, 4, 6856);
-    			add_location(td9, file$2, 286, 4, 6874);
-    			add_location(tr0, file$2, 276, 3, 6683);
-    			add_location(thead, file$2, 275, 2, 6671);
+    			create_component(button.$$.fragment);
+    			add_location(td0, file$2, 339, 4, 8889);
+    			add_location(td1, file$2, 340, 4, 8911);
+    			add_location(td2, file$2, 341, 4, 8930);
+    			add_location(td3, file$2, 342, 4, 8954);
+    			add_location(td4, file$2, 343, 4, 8972);
+    			add_location(td5, file$2, 344, 4, 8992);
+    			add_location(td6, file$2, 345, 4, 9013);
+    			add_location(td7, file$2, 346, 4, 9034);
+    			add_location(td8, file$2, 347, 4, 9055);
+    			add_location(td9, file$2, 348, 4, 9076);
+    			add_location(tr0, file$2, 338, 3, 8879);
+    			add_location(thead, file$2, 337, 2, 8867);
     			set_style(input0, "width", "100px");
-    			add_location(input0, file$2, 291, 8, 6942);
-    			add_location(td10, file$2, 291, 4, 6938);
+    			add_location(input0, file$2, 353, 8, 9140);
+    			add_location(td10, file$2, 353, 4, 9136);
     			set_style(input1, "width", "50px");
-    			add_location(input1, file$2, 292, 8, 7018);
-    			add_location(td11, file$2, 292, 4, 7014);
+    			add_location(input1, file$2, 354, 8, 9218);
+    			add_location(td11, file$2, 354, 4, 9214);
     			set_style(input2, "width", "100px");
-    			add_location(input2, file$2, 293, 8, 7090);
-    			add_location(td12, file$2, 293, 4, 7086);
+    			add_location(input2, file$2, 355, 8, 9292);
+    			add_location(td12, file$2, 355, 4, 9288);
     			set_style(input3, "width", "100px");
-    			add_location(input3, file$2, 294, 8, 7160);
-    			add_location(td13, file$2, 294, 4, 7156);
+    			add_location(input3, file$2, 356, 8, 9364);
+    			add_location(td13, file$2, 356, 4, 9360);
     			set_style(input4, "width", "100px");
-    			add_location(input4, file$2, 295, 8, 7231);
-    			add_location(td14, file$2, 295, 4, 7227);
+    			add_location(input4, file$2, 357, 8, 9437);
+    			add_location(td14, file$2, 357, 4, 9433);
     			set_style(input5, "width", "100px");
-    			add_location(input5, file$2, 296, 8, 7303);
-    			add_location(td15, file$2, 296, 4, 7299);
+    			add_location(input5, file$2, 358, 8, 9511);
+    			add_location(td15, file$2, 358, 4, 9507);
     			set_style(input6, "width", "100px");
-    			add_location(input6, file$2, 297, 8, 7375);
-    			add_location(td16, file$2, 297, 4, 7371);
+    			add_location(input6, file$2, 359, 8, 9585);
+    			add_location(td16, file$2, 359, 4, 9581);
     			set_style(input7, "width", "100px");
-    			add_location(input7, file$2, 298, 8, 7447);
-    			add_location(td17, file$2, 298, 4, 7443);
+    			add_location(input7, file$2, 360, 8, 9659);
+    			add_location(td17, file$2, 360, 4, 9655);
     			set_style(input8, "width", "50px");
-    			add_location(input8, file$2, 299, 8, 7519);
-    			add_location(td18, file$2, 299, 4, 7515);
-    			add_location(td19, file$2, 300, 4, 7584);
-    			add_location(tr1, file$2, 290, 3, 6928);
-    			add_location(tbody, file$2, 289, 2, 6916);
+    			add_location(input8, file$2, 361, 8, 9733);
+    			add_location(td18, file$2, 361, 4, 9729);
+    			add_location(tr1, file$2, 352, 3, 9126);
+    			add_location(tbody, file$2, 351, 2, 9114);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -2548,490 +3111,54 @@ var app = (function () {
     			append_dev(tbody, tr1);
     			append_dev(tr1, td10);
     			append_dev(td10, input0);
-    			set_input_value(input0, /*newRpc*/ ctx[0].country);
+    			set_input_value(input0, /*queryRpc*/ ctx[1].country);
     			append_dev(tr1, t20);
     			append_dev(tr1, td11);
     			append_dev(td11, input1);
-    			set_input_value(input1, /*newRpc*/ ctx[0].year);
+    			set_input_value(input1, /*queryRpc*/ ctx[1].year);
     			append_dev(tr1, t21);
     			append_dev(tr1, td12);
     			append_dev(td12, input2);
-    			set_input_value(input2, /*newRpc*/ ctx[0].rpc);
+    			set_input_value(input2, /*queryRpc*/ ctx[1].rpc);
     			append_dev(tr1, t22);
     			append_dev(tr1, td13);
     			append_dev(td13, input3);
-    			set_input_value(input3, /*newRpc*/ ctx[0].piba);
+    			set_input_value(input3, /*queryRpc*/ ctx[1].piba);
     			append_dev(tr1, t23);
     			append_dev(tr1, td14);
     			append_dev(td14, input4);
-    			set_input_value(input4, /*newRpc*/ ctx[0].pib1t);
+    			set_input_value(input4, /*queryRpc*/ ctx[1].pib1t);
     			append_dev(tr1, t24);
     			append_dev(tr1, td15);
     			append_dev(td15, input5);
-    			set_input_value(input5, /*newRpc*/ ctx[0].pib2t);
+    			set_input_value(input5, /*queryRpc*/ ctx[1].pib2t);
     			append_dev(tr1, t25);
     			append_dev(tr1, td16);
     			append_dev(td16, input6);
-    			set_input_value(input6, /*newRpc*/ ctx[0].pib3t);
+    			set_input_value(input6, /*queryRpc*/ ctx[1].pib3t);
     			append_dev(tr1, t26);
     			append_dev(tr1, td17);
     			append_dev(td17, input7);
-    			set_input_value(input7, /*newRpc*/ ctx[0].pib4t);
+    			set_input_value(input7, /*queryRpc*/ ctx[1].pib4t);
     			append_dev(tr1, t27);
     			append_dev(tr1, td18);
     			append_dev(td18, input8);
-    			set_input_value(input8, /*newRpc*/ ctx[0].vpy);
-    			append_dev(tr1, t28);
-    			append_dev(tr1, td19);
-    			mount_component(button0, td19, null);
-    			append_dev(tbody, t29);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(tbody, null);
-    			}
-
-    			insert_dev(target, t30, anchor);
-    			mount_component(button1, target, anchor);
-    			current = true;
-    			if (remount) run_all(dispose);
-
-    			dispose = [
-    				listen_dev(input0, "input", /*input0_input_handler*/ ctx[18]),
-    				listen_dev(input1, "input", /*input1_input_handler*/ ctx[19]),
-    				listen_dev(input2, "input", /*input2_input_handler*/ ctx[20]),
-    				listen_dev(input3, "input", /*input3_input_handler*/ ctx[21]),
-    				listen_dev(input4, "input", /*input4_input_handler*/ ctx[22]),
-    				listen_dev(input5, "input", /*input5_input_handler*/ ctx[23]),
-    				listen_dev(input6, "input", /*input6_input_handler*/ ctx[24]),
-    				listen_dev(input7, "input", /*input7_input_handler*/ ctx[25]),
-    				listen_dev(input8, "input", /*input8_input_handler*/ ctx[26])
-    			];
-    		},
-    		p: function update(ctx, dirty) {
-    			if (dirty[0] & /*newRpc*/ 1 && input0.value !== /*newRpc*/ ctx[0].country) {
-    				set_input_value(input0, /*newRpc*/ ctx[0].country);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input1.value !== /*newRpc*/ ctx[0].year) {
-    				set_input_value(input1, /*newRpc*/ ctx[0].year);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input2.value !== /*newRpc*/ ctx[0].rpc) {
-    				set_input_value(input2, /*newRpc*/ ctx[0].rpc);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input3.value !== /*newRpc*/ ctx[0].piba) {
-    				set_input_value(input3, /*newRpc*/ ctx[0].piba);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input4.value !== /*newRpc*/ ctx[0].pib1t) {
-    				set_input_value(input4, /*newRpc*/ ctx[0].pib1t);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input5.value !== /*newRpc*/ ctx[0].pib2t) {
-    				set_input_value(input5, /*newRpc*/ ctx[0].pib2t);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input6.value !== /*newRpc*/ ctx[0].pib3t) {
-    				set_input_value(input6, /*newRpc*/ ctx[0].pib3t);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input7.value !== /*newRpc*/ ctx[0].pib4t) {
-    				set_input_value(input7, /*newRpc*/ ctx[0].pib4t);
-    			}
-
-    			if (dirty[0] & /*newRpc*/ 1 && input8.value !== /*newRpc*/ ctx[0].vpy) {
-    				set_input_value(input8, /*newRpc*/ ctx[0].vpy);
-    			}
-
-    			const button0_changes = {};
-
-    			if (dirty[1] & /*$$scope*/ 256) {
-    				button0_changes.$$scope = { dirty, ctx };
-    			}
-
-    			button0.$set(button0_changes);
-
-    			if (dirty[0] & /*deleteRPC, rpcs*/ 72) {
-    				each_value = /*rpcs*/ ctx[3];
-    				validate_each_argument(each_value);
-    				let i;
-
-    				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
-
-    					if (each_blocks[i]) {
-    						each_blocks[i].p(child_ctx, dirty);
-    						transition_in(each_blocks[i], 1);
-    					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
-    						each_blocks[i].c();
-    						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(tbody, null);
-    					}
-    				}
-
-    				group_outros();
-
-    				for (i = each_value.length; i < each_blocks.length; i += 1) {
-    					out(i);
-    				}
-
-    				check_outros();
-    			}
-
-    			const button1_changes = {};
-
-    			if (dirty[1] & /*$$scope*/ 256) {
-    				button1_changes.$$scope = { dirty, ctx };
-    			}
-
-    			button1.$set(button1_changes);
-    		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(button0.$$.fragment, local);
-
-    			for (let i = 0; i < each_value.length; i += 1) {
-    				transition_in(each_blocks[i]);
-    			}
-
-    			transition_in(button1.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(button0.$$.fragment, local);
-    			each_blocks = each_blocks.filter(Boolean);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				transition_out(each_blocks[i]);
-    			}
-
-    			transition_out(button1.$$.fragment, local);
-    			current = false;
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(thead);
-    			if (detaching) detach_dev(t19);
-    			if (detaching) detach_dev(tbody);
-    			destroy_component(button0);
-    			destroy_each(each_blocks, detaching);
-    			if (detaching) detach_dev(t30);
-    			destroy_component(button1, detaching);
-    			run_all(dispose);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_4.name,
-    		type: "slot",
-    		source: "(275:1) <Table bordered style=\\\"width:auto;\\\">",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (273:14) ;   {:then rpcs}
-    function create_pending_block(ctx) {
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			t = text(";");
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
-    		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_pending_block.name,
-    		type: "pending",
-    		source: "(273:14) ;   {:then rpcs}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (349:2) <Button outline color="secondary" on:click={searchRPCS} on:click={setOffsetZero}>
-    function create_default_slot_3(ctx) {
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			t = text("BUSCAR");
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(t);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_default_slot_3.name,
-    		type: "slot",
-    		source: "(349:2) <Button outline color=\\\"secondary\\\" on:click={searchRPCS} on:click={setOffsetZero}>",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (322:1) <Table bordered style="width: auto;">
-    function create_default_slot_2(ctx) {
-    	let thead;
-    	let tr0;
-    	let td0;
-    	let t1;
-    	let td1;
-    	let t3;
-    	let td2;
-    	let t5;
-    	let td3;
-    	let t7;
-    	let td4;
-    	let t9;
-    	let td5;
-    	let t11;
-    	let td6;
-    	let t13;
-    	let td7;
-    	let t15;
-    	let td8;
-    	let t17;
-    	let tbody;
-    	let tr1;
-    	let td9;
-    	let input0;
-    	let t18;
-    	let td10;
-    	let input1;
-    	let t19;
-    	let td11;
-    	let input2;
-    	let t20;
-    	let td12;
-    	let input3;
-    	let t21;
-    	let td13;
-    	let input4;
-    	let t22;
-    	let td14;
-    	let input5;
-    	let t23;
-    	let td15;
-    	let input6;
-    	let t24;
-    	let td16;
-    	let input7;
-    	let t25;
-    	let td17;
-    	let input8;
-    	let t26;
-    	let current;
-    	let dispose;
-
-    	const button = new Button({
-    			props: {
-    				outline: true,
-    				color: "secondary",
-    				$$slots: { default: [create_default_slot_3] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	button.$on("click", /*searchRPCS*/ ctx[8]);
-    	button.$on("click", /*setOffsetZero*/ ctx[11]);
-
-    	const block = {
-    		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			td0 = element("td");
-    			td0.textContent = "Country";
-    			t1 = space();
-    			td1 = element("td");
-    			td1.textContent = "Year";
-    			t3 = space();
-    			td2 = element("td");
-    			td2.textContent = "RPC";
-    			t5 = space();
-    			td3 = element("td");
-    			td3.textContent = "PIB A";
-    			t7 = space();
-    			td4 = element("td");
-    			td4.textContent = "PIB 1T";
-    			t9 = space();
-    			td5 = element("td");
-    			td5.textContent = "PIB 2T";
-    			t11 = space();
-    			td6 = element("td");
-    			td6.textContent = "PIB 3T";
-    			t13 = space();
-    			td7 = element("td");
-    			td7.textContent = "PIB 4T";
-    			t15 = space();
-    			td8 = element("td");
-    			td8.textContent = "VPY";
-    			t17 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td9 = element("td");
-    			input0 = element("input");
-    			t18 = space();
-    			td10 = element("td");
-    			input1 = element("input");
-    			t19 = space();
-    			td11 = element("td");
-    			input2 = element("input");
-    			t20 = space();
-    			td12 = element("td");
-    			input3 = element("input");
-    			t21 = space();
-    			td13 = element("td");
-    			input4 = element("input");
-    			t22 = space();
-    			td14 = element("td");
-    			input5 = element("input");
-    			t23 = space();
-    			td15 = element("td");
-    			input6 = element("input");
-    			t24 = space();
-    			td16 = element("td");
-    			input7 = element("input");
-    			t25 = space();
-    			td17 = element("td");
-    			input8 = element("input");
-    			t26 = space();
-    			create_component(button.$$.fragment);
-    			add_location(td0, file$2, 324, 4, 8288);
-    			add_location(td1, file$2, 325, 4, 8310);
-    			add_location(td2, file$2, 326, 4, 8329);
-    			add_location(td3, file$2, 327, 4, 8347);
-    			add_location(td4, file$2, 328, 4, 8367);
-    			add_location(td5, file$2, 329, 4, 8388);
-    			add_location(td6, file$2, 330, 4, 8409);
-    			add_location(td7, file$2, 331, 4, 8430);
-    			add_location(td8, file$2, 332, 4, 8451);
-    			add_location(tr0, file$2, 323, 3, 8278);
-    			add_location(thead, file$2, 322, 2, 8266);
-    			set_style(input0, "width", "100px");
-    			add_location(input0, file$2, 337, 8, 8515);
-    			add_location(td9, file$2, 337, 4, 8511);
-    			set_style(input1, "width", "50px");
-    			add_location(input1, file$2, 338, 8, 8593);
-    			add_location(td10, file$2, 338, 4, 8589);
-    			set_style(input2, "width", "100px");
-    			add_location(input2, file$2, 339, 8, 8667);
-    			add_location(td11, file$2, 339, 4, 8663);
-    			set_style(input3, "width", "100px");
-    			add_location(input3, file$2, 340, 8, 8739);
-    			add_location(td12, file$2, 340, 4, 8735);
-    			set_style(input4, "width", "100px");
-    			add_location(input4, file$2, 341, 8, 8812);
-    			add_location(td13, file$2, 341, 4, 8808);
-    			set_style(input5, "width", "100px");
-    			add_location(input5, file$2, 342, 8, 8886);
-    			add_location(td14, file$2, 342, 4, 8882);
-    			set_style(input6, "width", "100px");
-    			add_location(input6, file$2, 343, 8, 8960);
-    			add_location(td15, file$2, 343, 4, 8956);
-    			set_style(input7, "width", "100px");
-    			add_location(input7, file$2, 344, 8, 9034);
-    			add_location(td16, file$2, 344, 4, 9030);
-    			set_style(input8, "width", "50px");
-    			add_location(input8, file$2, 345, 8, 9108);
-    			add_location(td17, file$2, 345, 4, 9104);
-    			add_location(tr1, file$2, 336, 3, 8501);
-    			add_location(tbody, file$2, 335, 2, 8489);
-    		},
-    		m: function mount(target, anchor, remount) {
-    			insert_dev(target, thead, anchor);
-    			append_dev(thead, tr0);
-    			append_dev(tr0, td0);
-    			append_dev(tr0, t1);
-    			append_dev(tr0, td1);
-    			append_dev(tr0, t3);
-    			append_dev(tr0, td2);
-    			append_dev(tr0, t5);
-    			append_dev(tr0, td3);
-    			append_dev(tr0, t7);
-    			append_dev(tr0, td4);
-    			append_dev(tr0, t9);
-    			append_dev(tr0, td5);
-    			append_dev(tr0, t11);
-    			append_dev(tr0, td6);
-    			append_dev(tr0, t13);
-    			append_dev(tr0, td7);
-    			append_dev(tr0, t15);
-    			append_dev(tr0, td8);
-    			insert_dev(target, t17, anchor);
-    			insert_dev(target, tbody, anchor);
-    			append_dev(tbody, tr1);
-    			append_dev(tr1, td9);
-    			append_dev(td9, input0);
-    			set_input_value(input0, /*queryRpc*/ ctx[1].country);
-    			append_dev(tr1, t18);
-    			append_dev(tr1, td10);
-    			append_dev(td10, input1);
-    			set_input_value(input1, /*queryRpc*/ ctx[1].year);
-    			append_dev(tr1, t19);
-    			append_dev(tr1, td11);
-    			append_dev(td11, input2);
-    			set_input_value(input2, /*queryRpc*/ ctx[1].rpc);
-    			append_dev(tr1, t20);
-    			append_dev(tr1, td12);
-    			append_dev(td12, input3);
-    			set_input_value(input3, /*queryRpc*/ ctx[1].piba);
-    			append_dev(tr1, t21);
-    			append_dev(tr1, td13);
-    			append_dev(td13, input4);
-    			set_input_value(input4, /*queryRpc*/ ctx[1].pib1t);
-    			append_dev(tr1, t22);
-    			append_dev(tr1, td14);
-    			append_dev(td14, input5);
-    			set_input_value(input5, /*queryRpc*/ ctx[1].pib2t);
-    			append_dev(tr1, t23);
-    			append_dev(tr1, td15);
-    			append_dev(td15, input6);
-    			set_input_value(input6, /*queryRpc*/ ctx[1].pib3t);
-    			append_dev(tr1, t24);
-    			append_dev(tr1, td16);
-    			append_dev(td16, input7);
-    			set_input_value(input7, /*queryRpc*/ ctx[1].pib4t);
-    			append_dev(tr1, t25);
-    			append_dev(tr1, td17);
-    			append_dev(td17, input8);
     			set_input_value(input8, /*queryRpc*/ ctx[1].vpy);
-    			insert_dev(target, t26, anchor);
+    			insert_dev(target, t28, anchor);
     			mount_component(button, target, anchor);
     			current = true;
     			if (remount) run_all(dispose);
 
     			dispose = [
-    				listen_dev(input0, "input", /*input0_input_handler_1*/ ctx[27]),
-    				listen_dev(input1, "input", /*input1_input_handler_1*/ ctx[28]),
-    				listen_dev(input2, "input", /*input2_input_handler_1*/ ctx[29]),
-    				listen_dev(input3, "input", /*input3_input_handler_1*/ ctx[30]),
-    				listen_dev(input4, "input", /*input4_input_handler_1*/ ctx[31]),
-    				listen_dev(input5, "input", /*input5_input_handler_1*/ ctx[32]),
-    				listen_dev(input6, "input", /*input6_input_handler_1*/ ctx[33]),
-    				listen_dev(input7, "input", /*input7_input_handler_1*/ ctx[34]),
-    				listen_dev(input8, "input", /*input8_input_handler_1*/ ctx[35])
+    				listen_dev(input0, "input", /*input0_input_handler_1*/ ctx[28]),
+    				listen_dev(input1, "input", /*input1_input_handler_1*/ ctx[29]),
+    				listen_dev(input2, "input", /*input2_input_handler_1*/ ctx[30]),
+    				listen_dev(input3, "input", /*input3_input_handler_1*/ ctx[31]),
+    				listen_dev(input4, "input", /*input4_input_handler_1*/ ctx[32]),
+    				listen_dev(input5, "input", /*input5_input_handler_1*/ ctx[33]),
+    				listen_dev(input6, "input", /*input6_input_handler_1*/ ctx[34]),
+    				listen_dev(input7, "input", /*input7_input_handler_1*/ ctx[35]),
+    				listen_dev(input8, "input", /*input8_input_handler_1*/ ctx[36])
     			];
     		},
     		p: function update(ctx, dirty) {
@@ -3073,7 +3200,7 @@ var app = (function () {
 
     			const button_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -3090,9 +3217,9 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(thead);
-    			if (detaching) detach_dev(t17);
+    			if (detaching) detach_dev(t19);
     			if (detaching) detach_dev(tbody);
-    			if (detaching) detach_dev(t26);
+    			if (detaching) detach_dev(t28);
     			destroy_component(button, detaching);
     			run_all(dispose);
     		}
@@ -3102,14 +3229,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(322:1) <Table bordered style=\\\"width: auto;\\\">",
+    		source: "(337:1) <Table bordered style=\\\"width: auto;\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (351:1) <Button outline color="secondary" on:click={beforeOffset}>
+    // (367:1) <Button outline color="secondary" on:click={beforeOffset}>
     function create_default_slot_1(ctx) {
     	let t;
 
@@ -3129,14 +3256,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(351:1) <Button outline color=\\\"secondary\\\" on:click={beforeOffset}>",
+    		source: "(367:1) <Button outline color=\\\"secondary\\\" on:click={beforeOffset}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (352:1) <Button outline color="secondary" on:click={nextOffset}>
+    // (368:1) <Button outline color="secondary" on:click={nextOffset}>
     function create_default_slot(ctx) {
     	let t;
 
@@ -3156,7 +3283,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(352:1) <Button outline color=\\\"secondary\\\" on:click={nextOffset}>",
+    		source: "(368:1) <Button outline color=\\\"secondary\\\" on:click={nextOffset}>",
     		ctx
     	});
 
@@ -3166,29 +3293,66 @@ var app = (function () {
     function create_fragment$2(ctx) {
     	let main;
     	let h1;
-    	let a;
+    	let a0;
     	let t1;
     	let h2;
     	let t3;
+    	let a1;
     	let t4;
     	let t5;
-    	let promise;
+    	let a2;
     	let t6;
+    	let a3;
     	let t7;
     	let t8;
+    	let promise;
+    	let t9;
+    	let t10;
+    	let t11;
     	let current;
 
     	const button0 = new Button({
     			props: {
     				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_11] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
     				color: "danger",
+    				$$slots: { default: [create_default_slot_10] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", /*loadInitialData*/ ctx[4]);
+
+    	const button2 = new Button({
+    			props: {
+    				outline: true,
+    				color: "primary",
+    				$$slots: { default: [create_default_slot_9] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button3 = new Button({
+    			props: {
+    				outline: true,
+    				color: "primary",
     				$$slots: { default: [create_default_slot_8] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	button0.$on("click", /*loadInitialData*/ ctx[4]);
     	let if_block = /*userMsg*/ ctx[2] && create_if_block$2(ctx);
 
     	let info = {
@@ -3214,7 +3378,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	const button1 = new Button({
+    	const button4 = new Button({
     			props: {
     				outline: true,
     				color: "secondary",
@@ -3224,9 +3388,9 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button1.$on("click", /*beforeOffset*/ ctx[9]);
+    	button4.$on("click", /*beforeOffset*/ ctx[9]);
 
-    	const button2 = new Button({
+    	const button5 = new Button({
     			props: {
     				outline: true,
     				color: "secondary",
@@ -3236,34 +3400,49 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button2.$on("click", /*nextOffset*/ ctx[10]);
+    	button5.$on("click", /*nextOffset*/ ctx[10]);
 
     	const block = {
     		c: function create() {
     			main = element("main");
     			h1 = element("h1");
-    			a = element("a");
-    			a.textContent = "SOS1920-11";
+    			a0 = element("a");
+    			a0.textContent = "SOS1920-11";
     			t1 = space();
     			h2 = element("h2");
     			h2.textContent = "RPCS GUI";
     			t3 = space();
+    			a1 = element("a");
     			create_component(button0.$$.fragment);
     			t4 = space();
-    			if (if_block) if_block.c();
-    			t5 = space();
-    			info.block.c();
-    			t6 = space();
-    			create_component(table.$$.fragment);
-    			t7 = space();
     			create_component(button1.$$.fragment);
-    			t8 = space();
+    			t5 = space();
+    			a2 = element("a");
     			create_component(button2.$$.fragment);
-    			attr_dev(a, "href", "/#/");
-    			add_location(a, file$2, 267, 5, 6380);
-    			add_location(h1, file$2, 267, 1, 6376);
-    			add_location(h2, file$2, 268, 1, 6416);
-    			add_location(main, file$2, 266, 0, 6367);
+    			t6 = space();
+    			a3 = element("a");
+    			create_component(button3.$$.fragment);
+    			t7 = space();
+    			if (if_block) if_block.c();
+    			t8 = space();
+    			info.block.c();
+    			t9 = space();
+    			create_component(table.$$.fragment);
+    			t10 = space();
+    			create_component(button4.$$.fragment);
+    			t11 = space();
+    			create_component(button5.$$.fragment);
+    			attr_dev(a0, "href", "/#/");
+    			add_location(a0, file$2, 275, 5, 6599);
+    			add_location(h1, file$2, 275, 1, 6595);
+    			add_location(h2, file$2, 276, 1, 6635);
+    			attr_dev(a1, "href", "/#");
+    			add_location(a1, file$2, 277, 1, 6655);
+    			attr_dev(a2, "href", "/#/rpcs/graph");
+    			add_location(a2, file$2, 279, 1, 6814);
+    			attr_dev(a3, "href", "/#/rpcs/integrations");
+    			add_location(a3, file$2, 280, 1, 6902);
+    			add_location(main, file$2, 274, 0, 6586);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3271,34 +3450,64 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
     			append_dev(main, h1);
-    			append_dev(h1, a);
+    			append_dev(h1, a0);
     			append_dev(main, t1);
     			append_dev(main, h2);
     			append_dev(main, t3);
-    			mount_component(button0, main, null);
+    			append_dev(main, a1);
+    			mount_component(button0, a1, null);
     			append_dev(main, t4);
-    			if (if_block) if_block.m(main, null);
+    			mount_component(button1, main, null);
     			append_dev(main, t5);
+    			append_dev(main, a2);
+    			mount_component(button2, a2, null);
+    			append_dev(main, t6);
+    			append_dev(main, a3);
+    			mount_component(button3, a3, null);
+    			append_dev(main, t7);
+    			if (if_block) if_block.m(main, null);
+    			append_dev(main, t8);
     			info.block.m(main, info.anchor = null);
     			info.mount = () => main;
-    			info.anchor = t6;
-    			append_dev(main, t6);
+    			info.anchor = t9;
+    			append_dev(main, t9);
     			mount_component(table, main, null);
-    			append_dev(main, t7);
-    			mount_component(button1, main, null);
-    			append_dev(main, t8);
-    			mount_component(button2, main, null);
+    			append_dev(main, t10);
+    			mount_component(button4, main, null);
+    			append_dev(main, t11);
+    			mount_component(button5, main, null);
     			current = true;
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
     			const button0_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[1] & /*$$scope*/ 512) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 512) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    			const button2_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 512) {
+    				button2_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button2.$set(button2_changes);
+    			const button3_changes = {};
+
+    			if (dirty[1] & /*$$scope*/ 512) {
+    				button3_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button3.$set(button3_changes);
 
     			if (/*userMsg*/ ctx[2]) {
     				if (if_block) {
@@ -3306,7 +3515,7 @@ var app = (function () {
     				} else {
     					if_block = create_if_block$2(ctx);
     					if_block.c();
-    					if_block.m(main, t5);
+    					if_block.m(main, t8);
     				}
     			} else if (if_block) {
     				if_block.d(1);
@@ -3323,37 +3532,43 @@ var app = (function () {
 
     			const table_changes = {};
 
-    			if (dirty[0] & /*queryRpc*/ 2 | dirty[1] & /*$$scope*/ 256) {
+    			if (dirty[0] & /*queryRpc*/ 2 | dirty[1] & /*$$scope*/ 512) {
     				table_changes.$$scope = { dirty, ctx };
     			}
 
     			table.$set(table_changes);
-    			const button1_changes = {};
+    			const button4_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
-    				button1_changes.$$scope = { dirty, ctx };
+    			if (dirty[1] & /*$$scope*/ 512) {
+    				button4_changes.$$scope = { dirty, ctx };
     			}
 
-    			button1.$set(button1_changes);
-    			const button2_changes = {};
+    			button4.$set(button4_changes);
+    			const button5_changes = {};
 
-    			if (dirty[1] & /*$$scope*/ 256) {
-    				button2_changes.$$scope = { dirty, ctx };
+    			if (dirty[1] & /*$$scope*/ 512) {
+    				button5_changes.$$scope = { dirty, ctx };
     			}
 
-    			button2.$set(button2_changes);
+    			button5.$set(button5_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
     			transition_in(button0.$$.fragment, local);
-    			transition_in(info.block);
-    			transition_in(table.$$.fragment, local);
     			transition_in(button1.$$.fragment, local);
     			transition_in(button2.$$.fragment, local);
+    			transition_in(button3.$$.fragment, local);
+    			transition_in(info.block);
+    			transition_in(table.$$.fragment, local);
+    			transition_in(button4.$$.fragment, local);
+    			transition_in(button5.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
     			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			transition_out(button2.$$.fragment, local);
+    			transition_out(button3.$$.fragment, local);
 
     			for (let i = 0; i < 3; i += 1) {
     				const block = info.blocks[i];
@@ -3361,20 +3576,23 @@ var app = (function () {
     			}
 
     			transition_out(table.$$.fragment, local);
-    			transition_out(button1.$$.fragment, local);
-    			transition_out(button2.$$.fragment, local);
+    			transition_out(button4.$$.fragment, local);
+    			transition_out(button5.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
     			destroy_component(button0);
+    			destroy_component(button1);
+    			destroy_component(button2);
+    			destroy_component(button3);
     			if (if_block) if_block.d();
     			info.block.d();
     			info.token = null;
     			info = null;
     			destroy_component(table);
-    			destroy_component(button1);
-    			destroy_component(button2);
+    			destroy_component(button4);
+    			destroy_component(button5);
     		}
     	};
 
@@ -3425,7 +3643,7 @@ var app = (function () {
 
     	async function loadInitialData() {
     		console.log("Loading initial rpcs..");
-    		const res = await fetch("/api/v2/rents-per-capita/loadInitialData");
+    		const res = await fetch("/api/v3/rents-per-capita/loadInitialData");
     		$$invalidate(2, userMsg = "DATOS INICIALES CARGADOS.");
 
     		if (res.ok) {
@@ -3447,7 +3665,7 @@ var app = (function () {
     		numTotal = await getNumTotal(query);
     		console.log("Fetching rpcs..");
     		query = query + "?limit=" + limit + "&offset=" + offset;
-    		const res = await fetch("/api/v2/rents-per-capita" + query);
+    		const res = await fetch("/api/v3/rents-per-capita" + query);
 
     		if (res.ok) {
     			console.log("OK!");
@@ -3481,6 +3699,7 @@ var app = (function () {
 
     			$$invalidate(0, newRpc.year = parseInt(newRpc.year), newRpc);
     			$$invalidate(0, newRpc.rpc = parseInt(newRpc.rpc), newRpc);
+    			$$invalidate(0, newRpc.rpc = parseInt(newRpc.continent), newRpc);
     			$$invalidate(0, newRpc.piba = parseInt(newRpc.piba), newRpc);
     			$$invalidate(0, newRpc.pib1t = parseInt(newRpc.pib1t), newRpc);
     			$$invalidate(0, newRpc.pib2t = parseInt(newRpc.pib2t), newRpc);
@@ -3491,7 +3710,7 @@ var app = (function () {
     			if (userMsg != "El dato de ese año y país ya existe.") {
     				console.log("Inserting rpc... " + JSON.stringify(newRpc));
 
-    				const res = await fetch("/api/v2/rents-per-capita", {
+    				const res = await fetch("/api/v3/rents-per-capita", {
     					method: "POST",
     					body: JSON.stringify(newRpc),
     					headers: { "Content-Type": "application/json" }
@@ -3509,7 +3728,7 @@ var app = (function () {
     	async function deleteRPC(country, year) {
     		console.log("Deleting rpc... ");
 
-    		const res = await fetch("/api/v2/rents-per-capita/" + country + "/" + year, { method: "DELETE" }).then(function (res) {
+    		const res = await fetch("/api/v3/rents-per-capita/" + country + "/" + year, { method: "DELETE" }).then(function (res) {
     			getRPCS();
     			$$invalidate(2, userMsg = "El dato ha sido borrado.");
     		});
@@ -3518,7 +3737,7 @@ var app = (function () {
     	async function deleteRPCS() {
     		console.log("Deleting rpcs..");
 
-    		const res = await fetch("/api/v2/rents-per-capita", { method: "DELETE" }).then(function (res) {
+    		const res = await fetch("/api/v3/rents-per-capita", { method: "DELETE" }).then(function (res) {
     			$$invalidate(2, userMsg = "Todos los datos han sido borrados.");
     			getRPCS();
     		});
@@ -3541,6 +3760,14 @@ var app = (function () {
     				query = query + "year=" + queryRpc.year;
     			} else {
     				query = query + "&year=" + queryRpc.year;
+    			}
+    		}
+
+    		if (queryRpc.continent != "") {
+    			if (query == "?") {
+    				query = query + "year=" + queryRpc.continent;
+    			} else {
+    				query = query + "&year=" + queryRpc.continent;
     			}
     		}
 
@@ -3602,7 +3829,7 @@ var app = (function () {
 
     		numTotal = await getNumTotal(query);
     		query = query + "&limit=" + limit + "&offset=" + offset;
-    		const res = await fetch("/api/v2/rents-per-capita" + query);
+    		const res = await fetch("/api/v3/rents-per-capita" + query);
     		console.log("Sending ");
 
     		if (numTotal > 0) {
@@ -3619,7 +3846,7 @@ var app = (function () {
     	}
 
     	async function getNumTotal(query) {
-    		const res = await fetch("/api/v2/rents-per-capita" + query);
+    		const res = await fetch("/api/v3/rents-per-capita" + query);
 
     		if (res.ok) {
     			const json = await res.json();
@@ -3668,36 +3895,41 @@ var app = (function () {
     	}
 
     	function input2_input_handler() {
-    		newRpc.rpc = this.value;
+    		newRpc.continent = this.value;
     		$$invalidate(0, newRpc);
     	}
 
     	function input3_input_handler() {
-    		newRpc.piba = this.value;
+    		newRpc.rpc = this.value;
     		$$invalidate(0, newRpc);
     	}
 
     	function input4_input_handler() {
-    		newRpc.pib1t = this.value;
+    		newRpc.piba = this.value;
     		$$invalidate(0, newRpc);
     	}
 
     	function input5_input_handler() {
-    		newRpc.pib2t = this.value;
+    		newRpc.pib1t = this.value;
     		$$invalidate(0, newRpc);
     	}
 
     	function input6_input_handler() {
-    		newRpc.pib3t = this.value;
+    		newRpc.pib2t = this.value;
     		$$invalidate(0, newRpc);
     	}
 
     	function input7_input_handler() {
-    		newRpc.pib4t = this.value;
+    		newRpc.pib3t = this.value;
     		$$invalidate(0, newRpc);
     	}
 
     	function input8_input_handler() {
+    		newRpc.pib4t = this.value;
+    		$$invalidate(0, newRpc);
+    	}
+
+    	function input9_input_handler() {
     		newRpc.vpy = this.value;
     		$$invalidate(0, newRpc);
     	}
@@ -3814,6 +4046,7 @@ var app = (function () {
     		input6_input_handler,
     		input7_input_handler,
     		input8_input_handler,
+    		input9_input_handler,
     		input0_input_handler_1,
     		input1_input_handler_1,
     		input2_input_handler_1,
@@ -5526,8 +5759,61 @@ var app = (function () {
     }
 
     /* src\front\rpc\RpcsGraph.svelte generated by Svelte v3.22.3 */
-
     const file$4 = "src\\front\\rpc\\RpcsGraph.svelte";
+
+    // (123:17) <Button outline color="warning">
+    function create_default_slot_1$2(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$2.name,
+    		type: "slot",
+    		source: "(123:17) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (124:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$2(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$2.name,
+    		type: "slot",
+    		source: "(124:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
 
     function create_fragment$5(ctx) {
     	let script0;
@@ -5540,11 +5826,37 @@ var app = (function () {
     	let script3_src_value;
     	let t0;
     	let main;
+    	let a;
+    	let t1;
+    	let t2;
     	let figure;
     	let div;
-    	let t1;
+    	let t3;
     	let p;
+    	let current;
     	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -5554,26 +5866,33 @@ var app = (function () {
     			script3 = element("script");
     			t0 = space();
     			main = element("main");
+    			a = element("a");
+    			create_component(button0.$$.fragment);
+    			t1 = space();
+    			create_component(button1.$$.fragment);
+    			t2 = space();
     			figure = element("figure");
     			div = element("div");
-    			t1 = space();
+    			t3 = space();
     			p = element("p");
     			p.textContent = "Packed bubble charts are visualizations where the size and optionally\r\n        the color of the bubbles are used to visualize the data. The positioning\r\n        of the bubbles is not significant, but is optimized for compactness.\r\n        Try dragging the bubbles in this chart around, and see the effects.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$4, 113, 8, 3166);
+    			add_location(script0, file$4, 116, 8, 3266);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-more.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$4, 114, 8, 3241);
+    			add_location(script1, file$4, 117, 8, 3341);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$4, 115, 8, 3321);
+    			add_location(script2, file$4, 118, 8, 3421);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$4, 116, 8, 3403);
+    			add_location(script3, file$4, 119, 8, 3503);
+    			attr_dev(a, "href", "/#");
+    			add_location(a, file$4, 122, 4, 3635);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$4, 120, 4, 3575);
+    			add_location(div, file$4, 126, 4, 3819);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$4, 121, 4, 3607);
+    			add_location(p, file$4, 127, 4, 3851);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$4, 119, 4, 3535);
-    			add_location(main, file$4, 118, 0, 3523);
+    			add_location(figure, file$4, 125, 4, 3779);
+    			add_location(main, file$4, 121, 0, 3623);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5585,16 +5904,46 @@ var app = (function () {
     			append_dev(document.head, script3);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
+    			append_dev(main, a);
+    			mount_component(button0, a, null);
+    			append_dev(main, t1);
+    			mount_component(button1, main, null);
+    			append_dev(main, t2);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t1);
+    			append_dev(figure, t3);
     			append_dev(figure, p);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script3, "load", loadGraph, false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script0);
     			detach_dev(script1);
@@ -5602,6 +5951,8 @@ var app = (function () {
     			detach_dev(script3);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     			dispose();
     		}
     	};
@@ -5704,7 +6055,7 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("RpcsGraph", $$slots, []);
-    	$$self.$capture_state = () => ({ loadGraph });
+    	$$self.$capture_state = () => ({ pop, Button, loadGraph });
     	return [];
     }
 
@@ -5873,31 +6224,31 @@ var app = (function () {
     			attr_dev(a4, "href", "http://sos1920-11.herokuapp.com/#/crimes");
     			add_location(a4, file$5, 25, 7, 646);
     			add_location(li4, file$5, 25, 3, 642);
-    			attr_dev(a5, "href", "http://sos1920-11.herokuapp.com/#/rpcs");
+    			attr_dev(a5, "href", "/#/rpcs");
     			add_location(a5, file$5, 26, 7, 722);
     			add_location(li5, file$5, 26, 3, 718);
     			add_location(ul1, file$5, 23, 2, 556);
-    			add_location(h22, file$5, 28, 2, 804);
+    			add_location(h22, file$5, 28, 2, 773);
     			attr_dev(a6, "href", "http://sos1920-11.herokuapp.com");
-    			add_location(a6, file$5, 31, 3, 830);
-    			add_location(h23, file$5, 32, 2, 911);
-    			add_location(br, file$5, 36, 2, 1029);
+    			add_location(a6, file$5, 31, 3, 799);
+    			add_location(h23, file$5, 32, 2, 880);
+    			add_location(br, file$5, 36, 2, 998);
     			attr_dev(a7, "href", "https://documenter.getpostman.com/view/10701438/SzYUZgNc");
-    			add_location(a7, file$5, 38, 7, 1050);
+    			add_location(a7, file$5, 38, 7, 1019);
     			attr_dev(a8, "href", "https://documenter.getpostman.com/view/10701438/SzmcbzBj");
-    			add_location(a8, file$5, 38, 101, 1144);
-    			add_location(li6, file$5, 38, 3, 1046);
+    			add_location(a8, file$5, 38, 101, 1113);
+    			add_location(li6, file$5, 38, 3, 1015);
     			attr_dev(a9, "href", " https://documenter.getpostman.com/view/10701451/Szf3aVio");
-    			add_location(a9, file$5, 39, 7, 1274);
+    			add_location(a9, file$5, 39, 7, 1243);
     			attr_dev(a10, "href", "https://documenter.getpostman.com/view/10701451/Szme4dYR");
-    			add_location(a10, file$5, 39, 85, 1352);
-    			add_location(li7, file$5, 39, 3, 1270);
+    			add_location(a10, file$5, 39, 85, 1321);
+    			add_location(li7, file$5, 39, 3, 1239);
     			attr_dev(a11, "href", "https://documenter.getpostman.com/view/9107347/Szme4dme");
-    			add_location(a11, file$5, 40, 7, 1479);
+    			add_location(a11, file$5, 40, 7, 1448);
     			attr_dev(a12, "href", "https://documenter.getpostman.com/view/9107347/SzYUa25s");
-    			add_location(a12, file$5, 40, 104, 1576);
-    			add_location(li8, file$5, 40, 3, 1475);
-    			add_location(ul2, file$5, 37, 2, 1037);
+    			add_location(a12, file$5, 40, 104, 1545);
+    			add_location(li8, file$5, 40, 3, 1444);
+    			add_location(ul2, file$5, 37, 2, 1006);
     			attr_dev(div, "id", "");
     			add_location(div, file$5, 5, 1, 34);
     			add_location(main, file$5, 4, 0, 25);
@@ -6017,7 +6368,7 @@ var app = (function () {
     }
 
     // (219:20) <Button outline color="secondary" on:click={loadData}>
-    function create_default_slot_9(ctx) {
+    function create_default_slot_9$1(ctx) {
     	let t;
 
     	const block = {
@@ -6034,7 +6385,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_9.name,
+    		id: create_default_slot_9$1.name,
     		type: "slot",
     		source: "(219:20) <Button outline color=\\\"secondary\\\" on:click={loadData}>",
     		ctx
@@ -7379,7 +7730,7 @@ var app = (function () {
     }
 
     // (322:4) <Table bordered style="width: auto;">
-    function create_default_slot_1$2(ctx) {
+    function create_default_slot_1$3(ctx) {
     	let thead;
     	let tr0;
     	let th0;
@@ -7790,7 +8141,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$2.name,
+    		id: create_default_slot_1$3.name,
     		type: "slot",
     		source: "(322:4) <Table bordered style=\\\"width: auto;\\\">",
     		ctx
@@ -7800,7 +8151,7 @@ var app = (function () {
     }
 
     // (364:4) <Button outline color="secondary" on:click={searchefi}>
-    function create_default_slot$2(ctx) {
+    function create_default_slot$3(ctx) {
     	let t;
 
     	const block = {
@@ -7817,7 +8168,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$2.name,
+    		id: create_default_slot$3.name,
     		type: "slot",
     		source: "(364:4) <Button outline color=\\\"secondary\\\" on:click={searchefi}>",
     		ctx
@@ -7845,7 +8196,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot_9] },
+    				$$slots: { default: [create_default_slot_9$1] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -7882,7 +8233,7 @@ var app = (function () {
     			props: {
     				bordered: true,
     				style: "width: auto;",
-    				$$slots: { default: [create_default_slot_1$2] },
+    				$$slots: { default: [create_default_slot_1$3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -7892,7 +8243,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$2] },
+    				$$slots: { default: [create_default_slot$3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -8542,7 +8893,7 @@ var app = (function () {
     	const table = new Table({
     			props: {
     				bordered: true,
-    				$$slots: { default: [create_default_slot_1$3] },
+    				$$slots: { default: [create_default_slot_1$4] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -8626,7 +8977,7 @@ var app = (function () {
     }
 
     // (107:4) <Table bordered>
-    function create_default_slot_1$3(ctx) {
+    function create_default_slot_1$4(ctx) {
     	let thead;
     	let tr0;
     	let th0;
@@ -9075,7 +9426,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$3.name,
+    		id: create_default_slot_1$4.name,
     		type: "slot",
     		source: "(107:4) <Table bordered>",
     		ctx
@@ -9142,7 +9493,7 @@ var app = (function () {
     }
 
     // (155:4) <Button outline color="secondary" on:click="{pop}">
-    function create_default_slot$3(ctx) {
+    function create_default_slot$4(ctx) {
     	let t;
 
     	const block = {
@@ -9159,7 +9510,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$3.name,
+    		id: create_default_slot$4.name,
     		type: "slot",
     		source: "(155:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
     		ctx
@@ -9201,7 +9552,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$3] },
+    				$$slots: { default: [create_default_slot$4] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -10747,7 +11098,7 @@ var app = (function () {
     }
 
     // (331:1) <Button outline color="secondary" on:click={beforeOffset}>
-    function create_default_slot_1$4(ctx) {
+    function create_default_slot_1$5(ctx) {
     	let t;
 
     	const block = {
@@ -10764,7 +11115,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$4.name,
+    		id: create_default_slot_1$5.name,
     		type: "slot",
     		source: "(331:1) <Button outline color=\\\"secondary\\\" on:click={beforeOffset}>",
     		ctx
@@ -10774,7 +11125,7 @@ var app = (function () {
     }
 
     // (332:1) <Button outline color="secondary" on:click={nextOffset}>
-    function create_default_slot$4(ctx) {
+    function create_default_slot$5(ctx) {
     	let t;
 
     	const block = {
@@ -10791,7 +11142,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$4.name,
+    		id: create_default_slot$5.name,
     		type: "slot",
     		source: "(332:1) <Button outline color=\\\"secondary\\\" on:click={nextOffset}>",
     		ctx
@@ -10852,7 +11203,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot_1$4] },
+    				$$slots: { default: [create_default_slot_1$5] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -10864,7 +11215,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$4] },
+    				$$slots: { default: [create_default_slot$5] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -11569,7 +11920,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "primary",
-    				$$slots: { default: [create_default_slot_1$5] },
+    				$$slots: { default: [create_default_slot_1$6] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -11793,7 +12144,7 @@ var app = (function () {
     }
 
     // (94:21) <Button outline  color="primary" on:click={updateCrime}>
-    function create_default_slot_1$5(ctx) {
+    function create_default_slot_1$6(ctx) {
     	let t;
 
     	const block = {
@@ -11810,7 +12161,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1$5.name,
+    		id: create_default_slot_1$6.name,
     		type: "slot",
     		source: "(94:21) <Button outline  color=\\\"primary\\\" on:click={updateCrime}>",
     		ctx
@@ -11842,7 +12193,7 @@ var app = (function () {
     }
 
     // (98:4) <Button outline color="secondary" on:click="{pop}">
-    function create_default_slot$5(ctx) {
+    function create_default_slot$6(ctx) {
     	let t;
 
     	const block = {
@@ -11859,7 +12210,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$5.name,
+    		id: create_default_slot$6.name,
     		type: "slot",
     		source: "(98:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
     		ctx
@@ -11901,7 +12252,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$5] },
+    				$$slots: { default: [create_default_slot$6] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -12497,8 +12848,61 @@ var app = (function () {
     }
 
     /* src\front\rpc\Integrations.svelte generated by Svelte v3.22.3 */
-
     const file$b = "src\\front\\rpc\\Integrations.svelte";
+
+    // (20:14) <Button outline color="warning">
+    function create_default_slot_1$7(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$7.name,
+    		type: "slot",
+    		source: "(20:14) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (21:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$7(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$7.name,
+    		type: "slot",
+    		source: "(21:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
 
     function create_fragment$c(ctx) {
     	let main;
@@ -12522,6 +12926,32 @@ var app = (function () {
     	let t11;
     	let li5;
     	let a5;
+    	let t13;
+    	let a6;
+    	let t14;
+    	let current;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$7] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$7] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -12553,27 +12983,34 @@ var app = (function () {
     			li5 = element("li");
     			a5 = element("a");
     			a5.textContent = "Comun";
-    			add_location(h2, file$b, 5, 0, 33);
-    			attr_dev(a0, "href", "http://sos1920-11.herokuapp.com/#/rpcs/integrations/emigration");
-    			add_location(a0, file$b, 9, 7, 81);
-    			add_location(li0, file$b, 9, 3, 77);
-    			attr_dev(a1, "href", "http://sos1920-11.herokuapp.com/#/rpcs/integrations/overdose");
-    			add_location(a1, file$b, 10, 7, 177);
-    			add_location(li1, file$b, 10, 3, 173);
-    			attr_dev(a2, "href", "http://sos1920-11.herokuapp.com/#/rpcs/integrations/countries");
-    			add_location(a2, file$b, 11, 7, 269);
-    			add_location(li2, file$b, 11, 3, 265);
-    			attr_dev(a3, "href", "http://sos1920-11.herokuapp.com/#/rpcs/integrations/covid19");
-    			add_location(a3, file$b, 12, 7, 363);
-    			add_location(li3, file$b, 12, 3, 359);
-    			attr_dev(a4, "href", "http://sos1920-11.herokuapp.com/#/rpcs/integrations/icm");
-    			add_location(a4, file$b, 13, 7, 454);
-    			add_location(li4, file$b, 13, 3, 450);
-    			attr_dev(a5, "href", "http://sos1920-11.herokuapp.com/#/rpcs/integrations/comun");
-    			add_location(a5, file$b, 14, 7, 537);
-    			add_location(li5, file$b, 14, 3, 533);
-    			add_location(ul, file$b, 8, 2, 68);
-    			add_location(main, file$b, 4, 0, 25);
+    			t13 = space();
+    			a6 = element("a");
+    			create_component(button0.$$.fragment);
+    			t14 = space();
+    			create_component(button1.$$.fragment);
+    			add_location(h2, file$b, 7, 0, 131);
+    			attr_dev(a0, "href", "/#/rpcs/integrations/emigration");
+    			add_location(a0, file$b, 11, 7, 179);
+    			add_location(li0, file$b, 11, 3, 175);
+    			attr_dev(a1, "href", "/#/rpcs/integrations/overdose");
+    			add_location(a1, file$b, 12, 7, 244);
+    			add_location(li1, file$b, 12, 3, 240);
+    			attr_dev(a2, "href", "/#/rpcs/integrations/countries");
+    			add_location(a2, file$b, 13, 7, 305);
+    			add_location(li2, file$b, 13, 3, 301);
+    			attr_dev(a3, "href", "/#/rpcs/integrations/covid19");
+    			add_location(a3, file$b, 14, 7, 368);
+    			add_location(li3, file$b, 14, 3, 364);
+    			attr_dev(a4, "href", "/#/rpcs/integrations/icm");
+    			add_location(a4, file$b, 15, 7, 428);
+    			add_location(li4, file$b, 15, 3, 424);
+    			attr_dev(a5, "href", "/#/rpcs/integrations/comun");
+    			add_location(a5, file$b, 16, 7, 480);
+    			add_location(li5, file$b, 16, 3, 476);
+    			add_location(ul, file$b, 10, 2, 166);
+    			attr_dev(a6, "href", "/#");
+    			add_location(a6, file$b, 19, 1, 541);
+    			add_location(main, file$b, 6, 0, 123);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12600,12 +13037,44 @@ var app = (function () {
     			append_dev(li4, t11);
     			append_dev(ul, li5);
     			append_dev(li5, a5);
+    			append_dev(main, t13);
+    			append_dev(main, a6);
+    			mount_component(button0, a6, null);
+    			append_dev(main, t14);
+    			mount_component(button1, main, null);
+    			current = true;
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     		}
     	};
 
@@ -12620,7 +13089,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$c($$self, $$props) {
+    function instance$c($$self, $$props, $$invalidate) {
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -12629,6 +13098,7 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Integrations", $$slots, []);
+    	$$self.$capture_state = () => ({ pop, Button });
     	return [];
     }
 
@@ -12651,6 +13121,60 @@ var app = (function () {
     const { console: console_1$8 } = globals;
     const file$c = "src\\front\\rpc\\EmigrationChart.svelte";
 
+    // (106:17) <Button outline color="warning">
+    function create_default_slot_1$8(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$8.name,
+    		type: "slot",
+    		source: "(106:17) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (107:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$8(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$8.name,
+    		type: "slot",
+    		source: "(107:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$d(ctx) {
     	let script0;
     	let script0_src_value;
@@ -12666,11 +13190,37 @@ var app = (function () {
     	let script5_src_value;
     	let t0;
     	let main;
+    	let a;
+    	let t1;
+    	let t2;
     	let figure;
     	let div;
-    	let t1;
+    	let t3;
     	let p;
+    	let current;
     	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$8] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$8] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -12682,30 +13232,37 @@ var app = (function () {
     			script5 = element("script");
     			t0 = space();
     			main = element("main");
+    			a = element("a");
+    			create_component(button0.$$.fragment);
+    			t1 = space();
+    			create_component(button1.$$.fragment);
+    			t2 = space();
     			figure = element("figure");
     			div = element("div");
-    			t1 = space();
+    			t3 = space();
     			p = element("p");
     			p.textContent = "Chart showing emigration numbers by country. Clicking on individual columns\r\n        brings up more detailed data. This chart makes use of the drilldown\r\n        feature in Highcharts to easily switch between datasets.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$c, 95, 4, 2126);
+    			add_location(script0, file$c, 96, 4, 2222);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/data.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$c, 96, 4, 2197);
+    			add_location(script1, file$c, 97, 4, 2293);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/drilldown.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$c, 97, 4, 2270);
+    			add_location(script2, file$c, 98, 4, 2366);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$c, 98, 4, 2348);
+    			add_location(script3, file$c, 99, 4, 2444);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$c, 99, 4, 2426);
+    			add_location(script4, file$c, 100, 4, 2522);
     			if (script5.src !== (script5_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script5, "src", script5_src_value);
-    			add_location(script5, file$c, 100, 4, 2506);
+    			add_location(script5, file$c, 101, 4, 2602);
+    			attr_dev(a, "href", "/#");
+    			add_location(a, file$c, 105, 4, 2731);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$c, 105, 4, 2675);
+    			add_location(div, file$c, 108, 4, 2913);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$c, 106, 4, 2707);
+    			add_location(p, file$c, 109, 4, 2945);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$c, 104, 4, 2635);
-    			add_location(main, file$c, 103, 0, 2623);
+    			add_location(figure, file$c, 107, 4, 2873);
+    			add_location(main, file$c, 104, 0, 2719);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12719,16 +13276,46 @@ var app = (function () {
     			append_dev(document.head, script5);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
+    			append_dev(main, a);
+    			mount_component(button0, a, null);
+    			append_dev(main, t1);
+    			mount_component(button1, main, null);
+    			append_dev(main, t2);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t1);
+    			append_dev(figure, t3);
     			append_dev(figure, p);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script5, "lodad", /*loadGraph*/ ctx[0], false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 4) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 4) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script0);
     			detach_dev(script1);
@@ -12738,6 +13325,8 @@ var app = (function () {
     			detach_dev(script5);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     			dispose();
     		}
     	};
@@ -12818,7 +13407,7 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("EmigrationChart", $$slots, []);
-    	$$self.$capture_state = () => ({ CountriesData, loadGraph });
+    	$$self.$capture_state = () => ({ pop, Button, CountriesData, loadGraph });
 
     	$$self.$inject_state = $$props => {
     		if ("CountriesData" in $$props) CountriesData = $$props.CountriesData;
@@ -12850,6 +13439,60 @@ var app = (function () {
     const { console: console_1$9 } = globals;
     const file$d = "src\\front\\rpc\\CountriesChart.svelte";
 
+    // (78:17) <Button outline color="warning">
+    function create_default_slot_1$9(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$9.name,
+    		type: "slot",
+    		source: "(78:17) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (79:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$9(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$9.name,
+    		type: "slot",
+    		source: "(79:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$e(ctx) {
     	let script0;
     	let script0_src_value;
@@ -12865,11 +13508,37 @@ var app = (function () {
     	let script5_src_value;
     	let t0;
     	let main;
+    	let a;
+    	let t1;
+    	let t2;
     	let figure;
     	let div;
-    	let t1;
+    	let t3;
     	let p;
+    	let current;
     	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$9] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$9] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -12881,30 +13550,37 @@ var app = (function () {
     			script5 = element("script");
     			t0 = space();
     			main = element("main");
+    			a = element("a");
+    			create_component(button0.$$.fragment);
+    			t1 = space();
+    			create_component(button1.$$.fragment);
+    			t2 = space();
     			figure = element("figure");
     			div = element("div");
-    			t1 = space();
+    			t3 = space();
     			p = element("p");
     			p.textContent = "Chart showing basic use of 3D cylindrical columns. A 3D cylinder chart\r\n        is similar to a 3D column chart, with a different shape.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$d, 67, 0, 1330);
+    			add_location(script0, file$d, 68, 0, 1426);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-3d.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$d, 68, 0, 1397);
+    			add_location(script1, file$d, 69, 0, 1493);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/cylinder.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$d, 69, 0, 1467);
+    			add_location(script2, file$d, 70, 0, 1563);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$d, 70, 0, 1540);
+    			add_location(script3, file$d, 71, 0, 1636);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$d, 71, 0, 1614);
+    			add_location(script4, file$d, 72, 0, 1710);
     			if (script5.src !== (script5_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script5, "src", script5_src_value);
-    			add_location(script5, file$d, 72, 0, 1690);
+    			add_location(script5, file$d, 73, 0, 1786);
+    			attr_dev(a, "href", "/#");
+    			add_location(a, file$d, 77, 4, 1914);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$d, 78, 4, 1856);
+    			add_location(div, file$d, 80, 4, 2092);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$d, 79, 4, 1888);
+    			add_location(p, file$d, 81, 4, 2124);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$d, 77, 0, 1816);
-    			add_location(main, file$d, 75, 0, 1806);
+    			add_location(figure, file$d, 79, 0, 2052);
+    			add_location(main, file$d, 76, 0, 1902);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12918,16 +13594,46 @@ var app = (function () {
     			append_dev(document.head, script5);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
+    			append_dev(main, a);
+    			mount_component(button0, a, null);
+    			append_dev(main, t1);
+    			mount_component(button1, main, null);
+    			append_dev(main, t2);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t1);
+    			append_dev(figure, t3);
     			append_dev(figure, p);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script5, "load", /*loadGraph*/ ctx[0], false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 16) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 16) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script0);
     			detach_dev(script1);
@@ -12937,6 +13643,8 @@ var app = (function () {
     			detach_dev(script5);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     			dispose();
     		}
     	};
@@ -13012,6 +13720,8 @@ var app = (function () {
     	validate_slots("CountriesChart", $$slots, []);
 
     	$$self.$capture_state = () => ({
+    		pop,
+    		Button,
     		Data,
     		countries,
     		CountriesData,
@@ -13050,6 +13760,60 @@ var app = (function () {
     const { console: console_1$a } = globals;
     const file$e = "src\\front\\rpc\\OverdoseChart.svelte";
 
+    // (136:17) <Button outline color="warning">
+    function create_default_slot_1$a(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$a.name,
+    		type: "slot",
+    		source: "(136:17) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (137:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$a(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$a.name,
+    		type: "slot",
+    		source: "(137:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$f(ctx) {
     	let script0;
     	let script0_src_value;
@@ -13063,11 +13827,37 @@ var app = (function () {
     	let script4_src_value;
     	let t0;
     	let main;
+    	let a;
+    	let t1;
+    	let t2;
     	let figure;
     	let div;
-    	let t1;
+    	let t3;
     	let p;
+    	let current;
     	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$a] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$a] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -13078,28 +13868,35 @@ var app = (function () {
     			script4 = element("script");
     			t0 = space();
     			main = element("main");
+    			a = element("a");
+    			create_component(button0.$$.fragment);
+    			t1 = space();
+    			create_component(button1.$$.fragment);
+    			t2 = space();
     			figure = element("figure");
     			div = element("div");
-    			t1 = space();
+    			t3 = space();
     			p = element("p");
     			p.textContent = "Chart showing overlapping placement of columns, using different data\r\n        series. The chart is also using multiple y-axes, allowing data in\r\n        different ranges to be visualized on the same chart.";
     			if (script0.src !== (script0_src_value = "https://code.jquery.com/jquery-3.1.1.min.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$e, 125, 0, 2867);
+    			add_location(script0, file$e, 127, 0, 2965);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$e, 126, 0, 2936);
+    			add_location(script1, file$e, 128, 0, 3034);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$e, 127, 0, 3003);
+    			add_location(script2, file$e, 129, 0, 3101);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$e, 128, 0, 3077);
+    			add_location(script3, file$e, 130, 0, 3175);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$e, 129, 0, 3153);
+    			add_location(script4, file$e, 131, 0, 3251);
+    			attr_dev(a, "href", "/#");
+    			add_location(a, file$e, 135, 4, 3379);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$e, 134, 4, 3317);
+    			add_location(div, file$e, 138, 4, 3557);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$e, 135, 4, 3349);
+    			add_location(p, file$e, 139, 4, 3589);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$e, 133, 0, 3277);
-    			add_location(main, file$e, 132, 0, 3269);
+    			add_location(figure, file$e, 137, 0, 3517);
+    			add_location(main, file$e, 134, 0, 3367);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13112,16 +13909,46 @@ var app = (function () {
     			append_dev(document.head, script4);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
+    			append_dev(main, a);
+    			mount_component(button0, a, null);
+    			append_dev(main, t1);
+    			mount_component(button1, main, null);
+    			append_dev(main, t2);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t1);
+    			append_dev(figure, t3);
     			append_dev(figure, p);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script4, "load", loadGraph$1, false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script0);
     			detach_dev(script1);
@@ -13130,6 +13957,8 @@ var app = (function () {
     			detach_dev(script4);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     			dispose();
     		}
     	};
@@ -13249,7 +14078,7 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("OverdoseChart", $$slots, []);
-    	$$self.$capture_state = () => ({ loadGraph: loadGraph$1 });
+    	$$self.$capture_state = () => ({ pop, Button, loadGraph: loadGraph$1 });
     	return [];
     }
 
@@ -13272,6 +14101,60 @@ var app = (function () {
     const { console: console_1$b } = globals;
     const file$f = "src\\front\\rpc\\CovidChart.svelte";
 
+    // (84:17) <Button outline color="warning">
+    function create_default_slot_1$b(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$b.name,
+    		type: "slot",
+    		source: "(84:17) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (85:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$b(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$b.name,
+    		type: "slot",
+    		source: "(85:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$g(ctx) {
     	let script0;
     	let script0_src_value;
@@ -13285,11 +14168,37 @@ var app = (function () {
     	let script4_src_value;
     	let t0;
     	let main;
+    	let a;
+    	let t1;
+    	let t2;
     	let figure;
     	let div;
-    	let t1;
+    	let t3;
     	let p;
+    	let current;
     	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$b] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$b] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -13300,28 +14209,35 @@ var app = (function () {
     			script4 = element("script");
     			t0 = space();
     			main = element("main");
+    			a = element("a");
+    			create_component(button0.$$.fragment);
+    			t1 = space();
+    			create_component(button1.$$.fragment);
+    			t2 = space();
     			figure = element("figure");
     			div = element("div");
-    			t1 = space();
+    			t3 = space();
     			p = element("p");
     			p.textContent = "Packed bubble charts are visualizations where the size and optionally\r\n        the color of the bubbles are used to visualize the data. The positioning\r\n        of the bubbles is not significant, but is optimized for compactness.\r\n        Try dragging the bubbles in this chart around, and see the effects.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$f, 74, 0, 1888);
+    			add_location(script0, file$f, 75, 0, 1984);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-3d.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$f, 75, 0, 1955);
+    			add_location(script1, file$f, 76, 0, 2051);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$f, 76, 0, 2025);
+    			add_location(script2, file$f, 77, 0, 2121);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$f, 77, 0, 2099);
+    			add_location(script3, file$f, 78, 0, 2195);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$f, 78, 0, 2175);
+    			add_location(script4, file$f, 79, 0, 2271);
+    			attr_dev(a, "href", "/#");
+    			add_location(a, file$f, 83, 4, 2399);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$f, 83, 4, 2339);
+    			add_location(div, file$f, 86, 4, 2577);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$f, 84, 4, 2371);
+    			add_location(p, file$f, 87, 4, 2609);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$f, 82, 0, 2299);
-    			add_location(main, file$f, 81, 0, 2291);
+    			add_location(figure, file$f, 85, 0, 2537);
+    			add_location(main, file$f, 82, 0, 2387);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13334,16 +14250,46 @@ var app = (function () {
     			append_dev(document.head, script4);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
+    			append_dev(main, a);
+    			mount_component(button0, a, null);
+    			append_dev(main, t1);
+    			mount_component(button1, main, null);
+    			append_dev(main, t2);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t1);
+    			append_dev(figure, t3);
     			append_dev(figure, p);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script4, "load", /*loadGraph*/ ctx[0], false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 32) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 32) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script0);
     			detach_dev(script1);
@@ -13352,6 +14298,8 @@ var app = (function () {
     			detach_dev(script4);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     			dispose();
     		}
     	};
@@ -13438,6 +14386,8 @@ var app = (function () {
     	validate_slots("CovidChart", $$slots, []);
 
     	$$self.$capture_state = () => ({
+    		pop,
+    		Button,
     		Data,
     		countries,
     		CountriesData,
@@ -13474,34 +14424,120 @@ var app = (function () {
     }
 
     /* src\front\rpc\IcmChart.svelte generated by Svelte v3.22.3 */
-
     const file$g = "src\\front\\rpc\\IcmChart.svelte";
+
+    // (36:17) <Button outline color="warning">
+    function create_default_slot_1$c(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$c.name,
+    		type: "slot",
+    		source: "(36:17) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (37:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$c(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$c.name,
+    		type: "slot",
+    		source: "(37:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
 
     function create_fragment$h(ctx) {
     	let script;
     	let script_src_value;
     	let t0;
     	let main;
-    	let h2;
+    	let a;
+    	let t1;
     	let t2;
+    	let h2;
+    	let t4;
     	let div;
+    	let current;
     	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$c] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$c] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
     			script = element("script");
     			t0 = space();
     			main = element("main");
+    			a = element("a");
+    			create_component(button0.$$.fragment);
+    			t1 = space();
+    			create_component(button1.$$.fragment);
+    			t2 = space();
     			h2 = element("h2");
     			h2.textContent = "ÍNDICES DE MASA CORPORAL (2020)";
-    			t2 = space();
+    			t4 = space();
     			div = element("div");
     			if (script.src !== (script_src_value = "https://cdn.plot.ly/plotly-latest.min.js")) attr_dev(script, "src", script_src_value);
-    			add_location(script, file$g, 29, 0, 547);
-    			add_location(h2, file$g, 34, 0, 661);
+    			add_location(script, file$g, 31, 0, 645);
+    			attr_dev(a, "href", "/#");
+    			add_location(a, file$g, 35, 4, 761);
+    			add_location(h2, file$g, 37, 0, 899);
     			attr_dev(div, "id", "myDiv");
-    			add_location(div, file$g, 36, 0, 705);
-    			add_location(main, file$g, 32, 0, 651);
+    			add_location(div, file$g, 39, 0, 943);
+    			add_location(main, file$g, 34, 0, 749);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13510,19 +14546,51 @@ var app = (function () {
     			append_dev(document.head, script);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
-    			append_dev(main, h2);
+    			append_dev(main, a);
+    			mount_component(button0, a, null);
+    			append_dev(main, t1);
+    			mount_component(button1, main, null);
     			append_dev(main, t2);
+    			append_dev(main, h2);
+    			append_dev(main, t4);
     			append_dev(main, div);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script, "load", loadGraph$2, false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     			dispose();
     		}
     	};
@@ -13565,7 +14633,7 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("IcmChart", $$slots, []);
-    	$$self.$capture_state = () => ({ loadGraph: loadGraph$2 });
+    	$$self.$capture_state = () => ({ pop, Button, loadGraph: loadGraph$2 });
     	return [];
     }
 
@@ -13584,8 +14652,61 @@ var app = (function () {
     }
 
     /* src\front\rpc\ComunChart.svelte generated by Svelte v3.22.3 */
-
     const file$h = "src\\front\\rpc\\ComunChart.svelte";
+
+    // (107:17) <Button outline color="warning">
+    function create_default_slot_1$d(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("INICIO");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1$d.name,
+    		type: "slot",
+    		source: "(107:17) <Button outline color=\\\"warning\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (108:4) <Button outline color="secondary" on:click="{pop}">
+    function create_default_slot$d(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("VOLVER");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$d.name,
+    		type: "slot",
+    		source: "(108:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
 
     function create_fragment$i(ctx) {
     	let script0;
@@ -13598,11 +14719,37 @@ var app = (function () {
     	let script3_src_value;
     	let t0;
     	let main;
+    	let a;
+    	let t1;
+    	let t2;
     	let figure;
     	let div;
-    	let t1;
+    	let t3;
     	let p;
+    	let current;
     	let dispose;
+
+    	const button0 = new Button({
+    			props: {
+    				outline: true,
+    				color: "warning",
+    				$$slots: { default: [create_default_slot_1$d] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const button1 = new Button({
+    			props: {
+    				outline: true,
+    				color: "secondary",
+    				$$slots: { default: [create_default_slot$d] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -13612,26 +14759,33 @@ var app = (function () {
     			script3 = element("script");
     			t0 = space();
     			main = element("main");
+    			a = element("a");
+    			create_component(button0.$$.fragment);
+    			t1 = space();
+    			create_component(button1.$$.fragment);
+    			t2 = space();
     			figure = element("figure");
     			div = element("div");
-    			t1 = space();
+    			t3 = space();
     			p = element("p");
     			p.textContent = "Packed bubble charts are visualizations where the size and optionally\r\n        the color of the bubbles are used to visualize the data. The positioning\r\n        of the bubbles is not significant, but is optimized for compactness.\r\n        Try dragging the bubbles in this chart around, and see the effects.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$h, 98, 8, 2660);
+    			add_location(script0, file$h, 100, 8, 2758);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-more.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$h, 99, 8, 2735);
+    			add_location(script1, file$h, 101, 8, 2833);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$h, 100, 8, 2815);
+    			add_location(script2, file$h, 102, 8, 2913);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$h, 101, 8, 2897);
+    			add_location(script3, file$h, 103, 8, 2995);
+    			attr_dev(a, "href", "/#");
+    			add_location(a, file$h, 106, 4, 3127);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$h, 105, 4, 3069);
+    			add_location(div, file$h, 109, 4, 3309);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$h, 106, 4, 3101);
+    			add_location(p, file$h, 110, 4, 3341);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$h, 104, 4, 3029);
-    			add_location(main, file$h, 103, 0, 3017);
+    			add_location(figure, file$h, 108, 4, 3269);
+    			add_location(main, file$h, 105, 0, 3115);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13643,16 +14797,46 @@ var app = (function () {
     			append_dev(document.head, script3);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
+    			append_dev(main, a);
+    			mount_component(button0, a, null);
+    			append_dev(main, t1);
+    			mount_component(button1, main, null);
+    			append_dev(main, t2);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t1);
+    			append_dev(figure, t3);
     			append_dev(figure, p);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script3, "load", loadGraph$3, false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    			const button1_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button1.$set(button1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			transition_in(button1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			transition_out(button1.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script0);
     			detach_dev(script1);
@@ -13660,6 +14844,8 @@ var app = (function () {
     			detach_dev(script3);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    			destroy_component(button1);
     			dispose();
     		}
     	};
@@ -13773,7 +14959,7 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("ComunChart", $$slots, []);
-    	$$self.$capture_state = () => ({ loadGraph: loadGraph$3 });
+    	$$self.$capture_state = () => ({ pop, Button, loadGraph: loadGraph$3 });
     	return [];
     }
 
