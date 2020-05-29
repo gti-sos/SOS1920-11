@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 var router = express.Router();
 module.exports = router;
 var app = express();
-const lenparametros = 15;
+const lenparametros = 8;
 const dataStore = require('nedb');
 const path = require('path');
 
@@ -46,6 +46,16 @@ var crimeratestats = [
         cr_homicount: 63895,
         cr_theftrate: 126.7,
         cr_theftcount: 256418
+    },
+    {
+        country: 'Canadá',
+        year: 2019,
+        cr_rate: 40.00,
+        cr_saferate: 60.00,
+        cr_homicrate: 30.5,
+        cr_homicount: 23895,
+        cr_theftrate: 126.7,
+        cr_theftcount: 16418
     }
 ];
 
@@ -65,7 +75,7 @@ router.get('/loadInitialData', (req, res) => {
 	});
 	console.log("Enviando datos");
 	db.insert(crimeratestats);
-    //res.sendStatus(201,"DATA CREATED");
+    res.sendStatus(201,"DATA CREATED");
     console.log('Datos enviados:' + JSON.stringify(crimeratestats, null, 2));
 });
 //const BASE_API_URL = "/api/v1";

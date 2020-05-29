@@ -24,7 +24,7 @@
 		<ul>
 			<li><a href="http://sos1920-11.herokuapp.com/#/efis">Freedom Indexes</a>
 			<li><a href="http://sos1920-11.herokuapp.com/#/crimes">Crime Rates</a> 
-			<li><a href="http://sos1920-11.herokuapp.com/#/rpcs">Rents per Capita</a>
+			<li><a href="/#/rpcs">Rents per Capita</a>
 		</ul>
 		<h2>
 			URL
@@ -38,7 +38,7 @@
 		<ul>
 			<li><a href="https://documenter.getpostman.com/view/10701438/SzYUZgNc">API V1</a> (Deprecated) // <a href="https://documenter.getpostman.com/view/10701438/SzmcbzBj">API V2</a> (developed by Ignacio Calcedo Vázquez)</li>
 			<li><a href=" https://documenter.getpostman.com/view/10701451/Szf3aVio">API v1</a><a href="https://documenter.getpostman.com/view/10701451/Szme4dYR">API v2</a> (developed by José Calcedo Vázquez)</li>
-			<li><a href="https://documenter.getpostman.com/view/9107347/Szme4dme">API RPC V1</a> (Deprecated) // <a href="https://documenter.getpostman.com/view/9107347/SzYUa25s">RPC API v2</a> (developed by Alberto Rubio Hurtado)</li>
+			<li><a href="https://documenter.getpostman.com/view/9107347/Szme4dme">API RPC V1</a> (Deprecated) // <a href="https://documenter.getpostman.com/view/9107347/SzYUa25s">RPC API v2</a>  (Deprecated) // <a href="https://documenter.getpostman.com/view/9107347/SztA7UZB?version=latest">RPC API v3</a>(developed by Alberto Rubio Hurtado)</li>
 		</ul>
 		</div>
 </main>

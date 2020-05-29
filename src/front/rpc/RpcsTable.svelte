@@ -40,7 +40,7 @@
 
 	async function loadInitialData(){
 		console.log('Loading initial rpcs..');
-		const res = await fetch("/api/v2/rents-per-capita/loadInitialData");
+		const res = await fetch("/api/v3/rents-per-capita/loadInitialData");
 
 		userMsg = "DATOS INICIALES CARGADOS.";
 		if (res.ok){
@@ -60,7 +60,7 @@
 		numTotal = await getNumTotal(query);
 		console.log('Fetching rpcs..');
 		query = query + "?limit="+limit+"&offset="+offset;
-		const res = await fetch("/api/v2/rents-per-capita"+query);
+		const res = await fetch("/api/v3/rents-per-capita"+query);
 
 		if (res.ok){
 			console.log("OK!");
@@ -94,6 +94,7 @@
 
 			newRpc.year= parseInt(newRpc.year);
 			newRpc.rpc= parseInt(newRpc.rpc);
+			newRpc.rpc= parseInt(newRpc.continent);
 			newRpc.piba= parseInt(newRpc.piba);
 			newRpc.pib1t= parseInt(newRpc.pib1t);
 			newRpc.pib2t= parseInt(newRpc.pib2t);
@@ -103,7 +104,7 @@
 		
 			if(userMsg!="El dato de ese año y país ya existe."){
 				console.log('Inserting rpc... '+ JSON.stringify(newRpc));
-			const res = await fetch("/api/v2/rents-per-capita",{
+			const res = await fetch("/api/v3/rents-per-capita",{
 				method: "POST",
 				body: JSON.stringify(newRpc),
 				headers: { 
@@ -126,7 +127,7 @@
 
 	async function deleteRPC(country,year){
 		console.log('Deleting rpc... ');
-		const res = await fetch("/api/v2/rents-per-capita/"+country +"/"+year,{
+		const res = await fetch("/api/v3/rents-per-capita/"+country +"/"+year,{
 			method: "DELETE"
 		}).then(function(res){
 			getRPCS();
@@ -134,9 +135,9 @@
 		});	
 	}
 
-	async function deleteteRPCS(){
+	async function deleteRPCS(){
 		console.log('Deleting rpcs..');
-		const res = await fetch("/api/v2/rents-per-capita",{
+		const res = await fetch("/api/v3/rents-per-capita",{
 			method: "DELETE"
 		}).then(function(res){
 			userMsg = "Todos los datos han sido borrados.";
@@ -159,6 +160,13 @@
 				query = query + "year="+queryRpc.year;
 			}else{
 				query = query + "&year="+queryRpc.year;
+			}
+		}
+		if(queryRpc.continent!=""){
+			if (query =="?") {
+				query = query + "year="+queryRpc.continent;
+			}else{
+				query = query + "&year="+queryRpc.continent;
 			}
 		}
 		if(queryRpc.rpc!=""){
@@ -214,7 +222,7 @@
 		numTotal = await getNumTotal(query);
 
 		query = query + "&limit="+limit+"&offset="+ offset;
-		const res = await fetch("/api/v2/rents-per-capita"+query);
+		const res = await fetch("/api/v3/rents-per-capita"+query);
 		console.log("Sending ");
 		if (numTotal>0){
 			console.log("OK!");
@@ -231,7 +239,7 @@
 	}
 
 	async function getNumTotal(query){
-		const res = await fetch("/api/v2/rents-per-capita"+query);
+		const res = await fetch("/api/v3/rents-per-capita"+query);
 		if(res.ok){
 			const json= await res.json();
 		rpcs = json ;
@@ -266,7 +274,11 @@
 
 <main>
 	<h1><a href="/#/">SOS1920-11</a></h1>
-	<h2>RPCS GUI</h2> <Button outline color="danger" on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
+	<h2>RPCS GUI</h2>
+	<a href="/#"><Button outline color="warning">INICIO</Button></a>
+	<Button outline color="danger"  on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
+	<a href="/#/rpcs/graph"><Button outline color="primary">ANÁLISIS GRÁFICO</Button></a>
+	<a href="/#/rpcs/integrations"><Button outline color="primary">INTEGRACIONES</Button></a>
 	{#if userMsg}
 	<h3><p style= "color:orange">{userMsg}</p></h3>
 	{/if}
@@ -277,6 +289,7 @@
 			<tr>
 				<td>Country</td>
 				<td>Year</td>
+				<td>Continent</td>
 				<td>RPC</td>
 				<td>PIB A</td>
 				<td>PIB 1T</td>
@@ -291,6 +304,7 @@
 			<tr>
 				<td><input style="width: 100px;" bind:value="{newRpc.country}" /></td>
 				<td><input style="width: 50px;" bind:value="{newRpc.year}" /></td>
+				<td><input style="width: 100px;" bind:value="{newRpc.continent}" /></td>
 				<td><input style="width: 100px;" bind:value={newRpc.rpc} /></td>
 				<td><input style="width: 100px;" bind:value={newRpc.piba} /></td>
 				<td><input style="width: 100px;" bind:value={newRpc.pib1t} /></td>
@@ -304,6 +318,7 @@
 			<tr>
 				<td><a href="/#/rpcs/{rpc.country}/{rpc.year}">{rpc.country}</a></td>
 				<td>{rpc.year}</td>
+				<td>{rpc.continent}</td>
 				<td>{rpc.rpc}</td>
 				<td>{rpc.piba}</td>
 				<td>{rpc.pib1t}</td>
@@ -315,7 +330,7 @@
 			</tr>
 			{/each}
 		</tbody>
-		<Button outline color="danger" on:click={deleteteRPCS}>BORRAR TODO</Button>
+		<Button outline color="danger" on:click={deleteRPCS}>BORRAR TODO</Button>
 	</Table>
 	{/await}
 
@@ -324,6 +339,7 @@
 			<tr>
 				<td>Country</td>
 				<td>Year</td>
+				<td>Continent</td>
 				<td>RPC</td>
 				<td>PIB A</td>
 				<td>PIB 1T</td>

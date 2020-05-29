@@ -36,6 +36,23 @@
 
 	onMount(getCrimes);
 
+	
+	async function loadInitialData(){
+		console.log("Cargando crimenes iniciales");
+        const res = await fetch ("/api/v2/crime-rate-stats/loadInitialData");
+
+        if (res.ok){
+			console.log("Datos iniciales cargados");
+			userMsg = "Estos son los datos iniciales";
+			getCrimes();
+		}else{
+			crimes = [] ;
+			if(userMsg!="Todos los datos han sido borrados."){
+				userMsg = "No se han encontrado datos. "+ res.statusText;
+			}
+			console.log("Base de datos vacía");
+		}
+    }
 
     async function getCrimes(){
 		var query = "";
@@ -66,23 +83,6 @@
 		}
     }
 
-	async function loadInitialData(){
-		crimes = [];
-		console.log("Cargando crimenes iniciales");
-        res = await fetch ("/api/v2/crime-rate-stats/loadInitialData");
-
-        if (res.ok){
-			console.log("Datos iniciales cargados");
-			userMsg = "Estos son los datos iniciales";
-			getCrimes();
-		}else{
-			crimes = [] ;
-			if(userMsg!="Todos los datos han sido borrados."){
-				userMsg = "No se han encontrado datos. "+ res.statusText;
-			}
-			console.log("Base de datos vacía");
-		}
-    }
 
     async function insertCrime(){
 		
@@ -135,7 +135,7 @@
 		});	
     }
     
-    async function deleteteCrimes(){
+    async function deleteCrimes(){
 		console.log("Borrando crimenes..");
 		const res = await fetch("/api/v2/crime-rate-stats",{
 			method: "DELETE"
@@ -226,13 +226,13 @@
 
 	async function beforeOffset(){
 		if (offset >=2) offset = offset - limit;
-		searchCrimeS();
+		searchCrimes();
 	
 	}
 
 	async function nextOffset(){
 		if((offset + limit)<numTotal) offset = offset + limit;
-		searchCrimeS();
+		searchCrimes();
 	
 	}
 
@@ -252,11 +252,11 @@
 </script>
 <main>
 	<h2>GUI Crimes</h2> 
-	<Button outline color="danger" on:click={loadInitialData()}>CARGAR DATOS INCIALES</Button>
+	<Button outline color="danger" on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
 	{#if userMsg}
 	<h3><p>{userMsg}</p></h3>
 	{/if}
-	{#await crimes}
+	{#await crimes};
 	{:then crimes}
     <Table bordered style="width: auto;">
         <thead>
@@ -280,7 +280,7 @@
 				<td><input style="width: 100px;" bind:value={newCrime.cr_homicount} /></td>
 				<td><input style="width: 100px;" bind:value={newCrime.cr_theftrate} /></td>
 				<td><input style="width: 100px;" bind:value={newCrime.cr_theftcount} /></td>
-				<td><Button on:click={insertCrime()} outline color="primary">INSERTAR</Button></td>
+				<td><Button on:click={insertCrime} outline color="primary">INSERTAR</Button></td>
 			</tr>
 			{#each crimes as crime}
 			<tr>
@@ -296,7 +296,7 @@
 			</tr>
 			{/each}
 		</tbody>
-		<Button outline color="danger" on:click={deleteteCrimes}>BORRAR TODO</Button>   
+		<Button outline color="danger" on:click={deleteCrimes}>BORRAR TODO</Button>   
     </Table>
 	{/await}
 

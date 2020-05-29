@@ -1,4 +1,6 @@
 <script>
+    import {pop} from "svelte-spa-router";
+	import Button from "sveltestrap/src/Button.svelte";
 async function loadGraph(){
     let MyX = [];
     let MyY = [];
@@ -31,7 +33,8 @@ Plotly.newPlot('myDiv', MyData);
 </svelte:head>
 
 <main>
-
+    <a href="/#"><Button outline color="warning">INICIO</Button></a>
+    <Button outline color="secondary" on:click="{pop}">VOLVER</Button>
 <h2>ÍNDICES DE MASA CORPORAL (2020)</h2>
 
 <div id='myDiv'>
