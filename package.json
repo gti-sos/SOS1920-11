@@ -31,13 +31,13 @@
   "dependencies": {
     "apexcharts": "^3.19.2",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "path-to-regexp": "^6.1.0",
     "plotly.js-dist": "^1.54.1",
     "request": "2.88.x",
     "svelte-spa-router": "^2.1.0",
-    "sveltestrap": "^3.3.3",
-    
+    "sveltestrap": "^3.3.3"
   }
 }
