@@ -37,6 +37,7 @@
     "plotly.js-dist": "^1.54.1",
     "request": "2.88.x",
     "svelte-spa-router": "^2.1.0",
-    "sveltestrap": "^3.3.3"
+    "sveltestrap": "^3.3.3",
+    
   }
 }
