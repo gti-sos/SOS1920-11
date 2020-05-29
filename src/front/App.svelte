@@ -28,7 +28,7 @@
 		"/rpcs/integrations/countries" : CountriesChart,
 		"/rpcs/integrations/overdose" : OverdoseChart,
 		"/rpcs/integrations/covid19" : CovidChart,
-		"/rpcs/integrations/comun" : ComunChart,
+		"/analytics" : ComunChart,
 		"/rpcs/integrations/icm" : IcmChart,
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
