@@ -120,9 +120,6 @@ async function cargaGraph(){
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js" ></script>
 <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargaGraph}"></script>
-<style>
-
-</style>
 </svelte:head>
 <main>
 <h1>ÍNDICES DE LIBERTAD ECONÓMICA</h1>
