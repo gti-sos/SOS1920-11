@@ -25,7 +25,7 @@ async function cargagraph(){
         categories: monedas
     },
     yAxis:{
-        minRange: 5000
+        ceiling: 60000
     },
     series: [{
         type: 'column',
