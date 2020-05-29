@@ -24,18 +24,8 @@ async function cargagraph(){
     xAxis: {
         categories: monedas
     },
-    labels: {
-        items: [{
-            html: 'Volumen de intercambios de criptomoneda',
-            style: {
-                left: '50px',
-                top: '18px',
-                color: ( // theme
-                    Highcharts.defaultOptions.title.style &&
-                    Highcharts.defaultOptions.title.style.color
-                ) || 'black'
-            }
-        }]
+    yAxis:{
+        minRange: 5000
     },
     series: [{
         type: 'column',
