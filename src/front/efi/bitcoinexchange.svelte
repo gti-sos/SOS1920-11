@@ -10,18 +10,23 @@ async function cargagraph(){
 		"x-rapidapi-key": "fbc3a26ce8mshdb989f0848b0219p134cc7jsn7c3ac5c079da"
 	    }
     });
-   cryptodata = await resData.json();
-    
+   let cryptodata = await resData.json();
+   console.log(cryptodata) ;
+   cryptodata.forEach(element => {
+       monedas.push(element["name"]);
+       tradevolume.push(element["trade_volume_24h_btc_normalized"]);
+       rankings.push(element["trust_score_rank"]);
+   });
    Highcharts.chart('container', {
     title: {
         text: 'Combination chart'
     },
     xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+        categories: monedas
     },
     labels: {
         items: [{
-            html: 'Total fruit consumption',
+            html: 'Volumen de intercambios de criptomoneda',
             style: {
                 left: '50px',
                 top: '18px',
@@ -34,46 +39,16 @@ async function cargagraph(){
     },
     series: [{
         type: 'column',
-        name: 'Jane',
-        data: [3, 2, 1, 3, 4]
-    }, {
-        type: 'column',
-        name: 'John',
-        data: [2, 3, 5, 7, 6]
-    }, {
-        type: 'column',
-        name: 'Joe',
-        data: [4, 3, 3, 9, 0]
+        name: 'Volumen de intercambios de criptomoneda normalizado',
+        data: tradevolume
     }, {
         type: 'spline',
-        name: 'Average',
-        data: [3, 2.67, 3, 6.33, 3.33],
+        name: 'Ranking de trust factor',
+        data: rankings,
         marker: {
             lineWidth: 2,
             lineColor: Highcharts.getOptions().colors[3],
             fillColor: 'white'
-        }
-    }, {
-        type: 'pie',
-        name: 'Total consumption',
-        data: [{
-            name: 'Jane',
-            y: 13,
-            color: Highcharts.getOptions().colors[0] // Jane's color
-        }, {
-            name: 'John',
-            y: 23,
-            color: Highcharts.getOptions().colors[1] // John's color
-        }, {
-            name: 'Joe',
-            y: 19,
-            color: Highcharts.getOptions().colors[2] // Joe's color
-        }],
-        center: [100, 80],
-        size: 100,
-        showInLegend: false,
-        dataLabels: {
-            enabled: false
         }
     }]
 });
