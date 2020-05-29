@@ -11,9 +11,11 @@ async function cargadatos(){
 	    }
     });
     CountriesData = await resData.json();
-    for (element in CountriesData){
-
-    }
+    console.log(CountriesData);
+    CountriesData.forEach(element => {
+        if (element["gini"]!=null){chartData.push([element["name"],element["gini"]]);}
+    });
+    console.log(chartData);
     //representación
     Highcharts.chart('container', {
     chart: {
@@ -23,7 +25,7 @@ async function cargadatos(){
         text: 'Indices GINI'
     },
     subtitle: {
-        text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+        text: 'Fuente: <a href="https://data.worldbank.org/indicator/SI.POV.GINI">GINI index (World Bank estimate)</a>'
     },
     xAxis: {
         type: 'category',
@@ -49,7 +51,7 @@ async function cargadatos(){
     },
     series: [{
         name: 'Indice GINI por ',
-        data: ,
+        data: chartData,
         dataLabels: {
             enabled: true,
             rotation: -90,
@@ -77,8 +79,10 @@ async function cargadatos(){
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        Esta gráfica muestra los índices GINI de los distintos paises a lo largo del tiempo.
+        Esta gráfica muestra los índices GINI de los distintos paises del mundo. El índice GINI es
+        un derivado del coeficiente GINI. El coeficiente GINI mide la desigualdad de ingresos dentro
+        de un país. El índice GINI no es más que presentar el dicho coeficiente GINI en tanto por cien.
     </p>
 </figure>
-{patata}
+
 </main>

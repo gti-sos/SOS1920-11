@@ -32,10 +32,11 @@
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
 		"/efis/integrations/gini_index": giniChart,
+		"/efis/graph":efiGraph,
 		"/efis/:country/:year": editefi,
 		"/crimes": CrimeTable,
 		"/crimes/:country:/year": EditCrime,
-		"/efis/graph":efiGraph
+		
 		
 	}
 </script>

@@ -6,3 +6,4 @@ public/build
 /src/back/efi/v2/efis.db
 /src/back/rpc/v1/rpc.db
 /src/back/rpc/v2/rpc.db
+/public/build
