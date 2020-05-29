@@ -195,6 +195,22 @@ var init = [
 	},
 	{
 		country: 'Panama',
+		year: 2019,
+		efiindex: 68.2,
+		efigovint: 38.2,
+		efipropright: 58.8,
+		efijudefct: 30.0,
+		efitaxburden: 85.3,
+		efigovspend: 85.7,
+		efisicalhealth: 91.2,
+		efibusfreed: 70.8,
+		efilabfreed: 43.3,
+		efimonfreed: 79.4,
+		efitradefreed: 79.2,
+		efiinvfreed: 75.0,
+		efifinfred: 70.0 
+	},{
+		country: 'Panama',
 		year: 2020,
 		efiindex: 67.2,
 		efigovint: 37.2,

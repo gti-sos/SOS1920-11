@@ -1,70 +1,57 @@
 <script>
-
+import Button from "sveltestrap/src/Button.svelte";
+let yearofplotting=2020;
 function dataParser(arrayofData){
-    
+    years=[];
     let sol =[];
     let objetosauxiliares=[]
-    let setofcountries = new Set();
     let setofyears = new Set();
-    //obtenemos el numero de paises
+    
     arrayofData.forEach(element => {
         let objeto_a ={};
+        //creamos el objeto del que extraer los datos
         objeto_a.country=element.country;
         objeto_a.index=element.efiindex;
         objeto_a.year=element.year;
+        //le añadimos indice, año y pais, lo relevante de la representación
         objetosauxiliares.push(objeto_a);
+        //lo introducimos en la lista iterable
         setofyears.add(element.year);
-        setofcountries.add(element.country);
+        countries.push(element.country);
     });
-    countries = Array.from(setofcountries);
-    years = Array.from(setofyears);
     
-    for(let k = 0;k<years.length;k++){
-        let object={};
-        let efis_1 =[];
-        let efis_2=[];
-        objetosauxiliares.forEach(element => {
-            if(element.year==years[k]){
-                efis_1.push(element.index)
-                efis_2.push(element.index.toString());
-                
-            }else{
-                efis_1.push(0.0);
-                efis_2.push("0.0");
-            }
-        });
-        object.name="Año "+years[k];
-     
-        object.data=efis_1;        
-        sol.push(object);
-        let nombre="Año "+ years[k];
-        data_ploty.push(
-            {
-             histfunc: "sum",
-                y: efis_2,
-                x: countries,
-                type: "histogram",
-                name: nombre}
-        );
-    }
+    years = Array.from(setofyears);
+    let totalyears=years;
+
+    let object={};
+    let efis_1 =[];
+    let efis_2=[];
+    objetosauxiliares.forEach(element => {
+        if(element.year==yearofplotting){
+            efis_1.push(element.index)
+        }else{
+            efis_1.push(0.0);
+        }
+    });
+    object.name="Año "+yearofplotting;
+    object.data=efis_1;        
+    sol.push(object);
     return sol;
 };
 let countries = [];
 let years= [];
-let myData= [];
+
 let treatedData = [];
-let tipo = typeof treatedData;
 let indices_year=[];
-let data_ploty = [];
+
 async function cargaGraph(){
     
     const resData = await fetch ("/api/v2/economic-freedom-indexes");
     
-    myData = await resData.json();
+    let myData = await resData.json();
+    let data_ploty = [];
     treatedData = dataParser(myData);
-    //ploty
-   
-    Plotly.newPlot('myDiv', data_ploty);
+    
     //highcharts
     Highcharts.chart('container', {
         chart: {
@@ -118,18 +105,57 @@ async function cargaGraph(){
         series: treatedData
     });
 
-}
+};
+async function cargatodo(){
+
+    //ploty
+    const resData = await fetch ("/api/v2/economic-freedom-indexes");
+    let myData = await resData.json();
+    let yearset= new Set();
+    
+    myData.forEach(element => {
+        yearset.add(element.year);
+        
+    });
+    
+    let data_ploty=[];
+    for (let year of yearset){
+        let indexes =[];
+        let paises= [];
+        myData.forEach(element => {
+            paises.push(element.country);
+            if (element.year==year) {
+                indexes.push(element.efiindex.toString());
+            }
+            else{
+                indexes.push("0.0");
+            }
+        });
+        
+        
+       
+        data_ploty.push({
+            histfunc: "sum",
+            y: indexes,
+            x: paises,
+            type: "histogram",
+            name: "Año " + year
+        });
+    }
+    Plotly.newPlot('myDiv', data_ploty);
+};
 </script>
 <svelte:head>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js" ></script>
-<script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargaGraph}"></script>
+<script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargatodo}"></script>
 </svelte:head>
 <main>
 <h1>ÍNDICES DE LIBERTAD ECONÓMICA</h1>
 <h2>(Economic Freedom Indexes)</h2>
+<input bind:value="{yearofplotting}"><Button outline  color="primary" on:click={cargaGraph}>Buscar</Button>
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
@@ -140,7 +166,7 @@ async function cargaGraph(){
     
 </figure>
 <div>
-Representación con otra librería
+Representación de todo el conjunto de datos con otra librería, plotly:
 <br>
 <div id="myDiv">
 
