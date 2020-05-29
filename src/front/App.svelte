@@ -16,6 +16,7 @@
 	import CovidChart from './rpc/CovidChart.svelte';
 	import IcmChart from './rpc/IcmChart.svelte';
 	import ComunChart from './rpc/ComunChart.svelte';
+	import giniChart from './efi/gini_index.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -30,10 +31,12 @@
 		"/rpcs/integrations/icm" : IcmChart,
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
+		"/efis/integrations/gini_index": giniChart,
 		"/efis/:country/:year": editefi,
 		"/crimes": CrimeTable,
 		"/crimes/:country:/year": EditCrime,
 		"/efis/graph":efiGraph
+		
 	}
 </script>
 

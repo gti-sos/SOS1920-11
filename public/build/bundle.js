@@ -100,7 +100,7 @@ var app = (function () {
                 iterations[i].d(detaching);
         }
     }
-    function element(name) {
+    function element$1(name) {
         return document.createElement(name);
     }
     function text(data) {
@@ -659,7 +659,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			table = element("table");
+    			table = element$1("table");
     			if (default_slot) default_slot.c();
     			set_attributes(table, table_data);
     			add_location(table, file, 38, 2, 908);
@@ -727,8 +727,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div = element("div");
-    			table = element("table");
+    			div = element$1("div");
+    			table = element$1("table");
     			if (default_slot) default_slot.c();
     			set_attributes(table, table_data);
     			add_location(table, file, 33, 4, 826);
@@ -1082,7 +1082,7 @@ var app = (function () {
 
     	const block_1 = {
     		c: function create() {
-    			button = element("button");
+    			button = element$1("button");
     			if (default_slot_or_fallback) default_slot_or_fallback.c();
     			set_attributes(button, button_data);
     			add_location(button, file$1, 53, 2, 1061);
@@ -1186,7 +1186,7 @@ var app = (function () {
 
     	const block_1 = {
     		c: function create() {
-    			a = element("a");
+    			a = element$1("a");
     			if_block.c();
     			set_attributes(a, a_data);
     			add_location(a, file$1, 37, 2, 825);
@@ -1349,7 +1349,7 @@ var app = (function () {
 
     	const block_1 = {
     		c: function create() {
-    			span = element("span");
+    			span = element$1("span");
     			span.textContent = "×";
     			attr_dev(span, "aria-hidden", "true");
     			add_location(span, file$1, 64, 8, 1250);
@@ -1929,8 +1929,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			h3 = element("h3");
-    			p = element("p");
+    			h3 = element$1("h3");
+    			p = element$1("p");
     			t = text(/*userMsg*/ ctx[2]);
     			set_style(p, "color", "orange");
     			add_location(p, file$2, 270, 5, 6547);
@@ -2153,36 +2153,36 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			tr = element("tr");
-    			td0 = element("td");
-    			a = element("a");
+    			tr = element$1("tr");
+    			td0 = element$1("td");
+    			a = element$1("a");
     			t0 = text(t0_value);
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			t2 = text(t2_value);
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			t4 = text(t4_value);
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			t6 = text(t6_value);
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			t8 = text(t8_value);
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			t10 = text(t10_value);
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			t12 = text(t12_value);
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			t14 = text(t14_value);
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			t16 = text(t16_value);
     			t17 = space();
-    			td9 = element("td");
+    			td9 = element$1("td");
     			create_component(button.$$.fragment);
     			t18 = space();
     			attr_dev(a, "href", a_href_value = "/#/rpcs/" + /*rpc*/ ctx[36].country + "/" + /*rpc*/ ctx[36].year);
@@ -2407,68 +2407,68 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			td0 = element("td");
+    			thead = element$1("thead");
+    			tr0 = element$1("tr");
+    			td0 = element$1("td");
     			td0.textContent = "Country";
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			td1.textContent = "Year";
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			td2.textContent = "RPC";
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			td3.textContent = "PIB A";
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			td4.textContent = "PIB 1T";
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			td5.textContent = "PIB 2T";
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			td6.textContent = "PIB 3T";
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			td7.textContent = "PIB 4T";
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			td8.textContent = "VPY";
     			t17 = space();
-    			td9 = element("td");
+    			td9 = element$1("td");
     			td9.textContent = "ACTIONS";
     			t19 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td10 = element("td");
-    			input0 = element("input");
+    			tbody = element$1("tbody");
+    			tr1 = element$1("tr");
+    			td10 = element$1("td");
+    			input0 = element$1("input");
     			t20 = space();
-    			td11 = element("td");
-    			input1 = element("input");
+    			td11 = element$1("td");
+    			input1 = element$1("input");
     			t21 = space();
-    			td12 = element("td");
-    			input2 = element("input");
+    			td12 = element$1("td");
+    			input2 = element$1("input");
     			t22 = space();
-    			td13 = element("td");
-    			input3 = element("input");
+    			td13 = element$1("td");
+    			input3 = element$1("input");
     			t23 = space();
-    			td14 = element("td");
-    			input4 = element("input");
+    			td14 = element$1("td");
+    			input4 = element$1("input");
     			t24 = space();
-    			td15 = element("td");
-    			input5 = element("input");
+    			td15 = element$1("td");
+    			input5 = element$1("input");
     			t25 = space();
-    			td16 = element("td");
-    			input6 = element("input");
+    			td16 = element$1("td");
+    			input6 = element$1("input");
     			t26 = space();
-    			td17 = element("td");
-    			input7 = element("input");
+    			td17 = element$1("td");
+    			input7 = element$1("input");
     			t27 = space();
-    			td18 = element("td");
-    			input8 = element("input");
+    			td18 = element$1("td");
+    			input8 = element$1("input");
     			t28 = space();
-    			td19 = element("td");
+    			td19 = element$1("td");
     			create_component(button0.$$.fragment);
     			t29 = space();
 
@@ -2859,63 +2859,63 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			td0 = element("td");
+    			thead = element$1("thead");
+    			tr0 = element$1("tr");
+    			td0 = element$1("td");
     			td0.textContent = "Country";
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			td1.textContent = "Year";
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			td2.textContent = "RPC";
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			td3.textContent = "PIB A";
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			td4.textContent = "PIB 1T";
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			td5.textContent = "PIB 2T";
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			td6.textContent = "PIB 3T";
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			td7.textContent = "PIB 4T";
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			td8.textContent = "VPY";
     			t17 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td9 = element("td");
-    			input0 = element("input");
+    			tbody = element$1("tbody");
+    			tr1 = element$1("tr");
+    			td9 = element$1("td");
+    			input0 = element$1("input");
     			t18 = space();
-    			td10 = element("td");
-    			input1 = element("input");
+    			td10 = element$1("td");
+    			input1 = element$1("input");
     			t19 = space();
-    			td11 = element("td");
-    			input2 = element("input");
+    			td11 = element$1("td");
+    			input2 = element$1("input");
     			t20 = space();
-    			td12 = element("td");
-    			input3 = element("input");
+    			td12 = element$1("td");
+    			input3 = element$1("input");
     			t21 = space();
-    			td13 = element("td");
-    			input4 = element("input");
+    			td13 = element$1("td");
+    			input4 = element$1("input");
     			t22 = space();
-    			td14 = element("td");
-    			input5 = element("input");
+    			td14 = element$1("td");
+    			input5 = element$1("input");
     			t23 = space();
-    			td15 = element("td");
-    			input6 = element("input");
+    			td15 = element$1("td");
+    			input6 = element$1("input");
     			t24 = space();
-    			td16 = element("td");
-    			input7 = element("input");
+    			td16 = element$1("td");
+    			input7 = element$1("input");
     			t25 = space();
-    			td17 = element("td");
-    			input8 = element("input");
+    			td17 = element$1("td");
+    			input8 = element$1("input");
     			t26 = space();
     			create_component(button.$$.fragment);
     			add_location(td0, file$2, 324, 4, 8292);
@@ -3240,12 +3240,12 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			h1 = element("h1");
-    			a = element("a");
+    			main = element$1("main");
+    			h1 = element$1("h1");
+    			a = element$1("a");
     			a.textContent = "SOS1920-11";
     			t1 = space();
-    			h2 = element("h2");
+    			h2 = element$1("h2");
     			h2.textContent = "RPCS GUI";
     			t3 = space();
     			create_component(button0.$$.fragment);
@@ -4675,7 +4675,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			p = element("p");
+    			p = element$1("p");
     			t = text(/*userMsg*/ ctx[8]);
     			set_style(p, "color", "orange");
     			add_location(p, file$3, 70, 69, 2080);
@@ -4880,68 +4880,68 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			td0 = element("td");
+    			thead = element$1("thead");
+    			tr0 = element$1("tr");
+    			td0 = element$1("td");
     			td0.textContent = "Country";
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			td1.textContent = "Year";
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			td2.textContent = "RPC";
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			td3.textContent = "PIB A";
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			td4.textContent = "PIB 1T";
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			td5.textContent = "PIB 2T";
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			td6.textContent = "PIB 3T";
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			td7.textContent = "PIB 4T";
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			td8.textContent = "VPY";
     			t17 = space();
-    			td9 = element("td");
+    			td9 = element$1("td");
     			td9.textContent = "ACTIONS";
     			t19 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td10 = element("td");
+    			tbody = element$1("tbody");
+    			tr1 = element$1("tr");
+    			td10 = element$1("td");
     			t20 = text(t20_value);
     			t21 = space();
-    			td11 = element("td");
+    			td11 = element$1("td");
     			t22 = text(t22_value);
     			t23 = space();
-    			td12 = element("td");
-    			input0 = element("input");
+    			td12 = element$1("td");
+    			input0 = element$1("input");
     			t24 = space();
-    			td13 = element("td");
-    			input1 = element("input");
+    			td13 = element$1("td");
+    			input1 = element$1("input");
     			t25 = space();
-    			td14 = element("td");
-    			input2 = element("input");
+    			td14 = element$1("td");
+    			input2 = element$1("input");
     			t26 = space();
-    			td15 = element("td");
-    			input3 = element("input");
+    			td15 = element$1("td");
+    			input3 = element$1("input");
     			t27 = space();
-    			td16 = element("td");
-    			input4 = element("input");
+    			td16 = element$1("td");
+    			input4 = element$1("input");
     			t28 = space();
-    			td17 = element("td");
-    			input5 = element("input");
+    			td17 = element$1("td");
+    			input5 = element$1("input");
     			t29 = space();
-    			td18 = element("td");
-    			input6 = element("input");
+    			td18 = element$1("td");
+    			input6 = element$1("input");
     			t30 = space();
-    			td19 = element("td");
+    			td19 = element$1("td");
     			create_component(button.$$.fragment);
     			add_location(td0, file$3, 77, 4, 2206);
     			add_location(td1, file$3, 78, 4, 2228);
@@ -5225,8 +5225,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			h2 = element("h2");
+    			main = element$1("main");
+    			h2 = element$1("h2");
     			t0 = text("Editing RPC from ");
     			t1 = text(t1_value);
     			t2 = space();
@@ -5548,16 +5548,16 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
     			t0 = space();
-    			main = element("main");
-    			figure = element("figure");
-    			div = element("div");
+    			main = element$1("main");
+    			figure = element$1("figure");
+    			div = element$1("div");
     			t1 = space();
-    			p = element("p");
+    			p = element$1("p");
     			p.textContent = "Packed bubble charts are visualizations where the size and optionally\r\n        the color of the bubbles are used to visualize the data. The positioning\r\n        of the bubbles is not significant, but is optimized for compactness.\r\n        Try dragging the bubbles in this chart around, and see the effects.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
     			add_location(script0, file$4, 113, 8, 3166);
@@ -5783,75 +5783,75 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			div = element("div");
-    			h1 = element("h1");
+    			main = element$1("main");
+    			div = element$1("div");
+    			h1 = element$1("h1");
     			h1.textContent = "SOS1920-11";
     			t1 = space();
-    			h20 = element("h2");
+    			h20 = element$1("h2");
     			h20.textContent = "Team";
     			t3 = space();
-    			ul0 = element("ul");
-    			li0 = element("li");
-    			a0 = element("a");
+    			ul0 = element$1("ul");
+    			li0 = element$1("li");
+    			a0 = element$1("a");
     			a0.textContent = "Ignacio Calcedo Vázquez";
     			t5 = space();
-    			li1 = element("li");
-    			a1 = element("a");
+    			li1 = element$1("li");
+    			a1 = element$1("a");
     			a1.textContent = "José Calcedo Vázquez";
     			t7 = space();
-    			li2 = element("li");
-    			a2 = element("a");
+    			li2 = element$1("li");
+    			a2 = element$1("a");
     			a2.textContent = "Alberto Rubio Hurtado";
     			t9 = space();
-    			h21 = element("h2");
+    			h21 = element$1("h2");
     			h21.textContent = "Project description:";
     			t11 = text(" \r\n\t\t\tOur project is focused on the economic freedom of different countries and the impact this has in their societies with this 3 parameters:\r\n\t\t");
-    			ul1 = element("ul");
-    			li3 = element("li");
-    			a3 = element("a");
+    			ul1 = element$1("ul");
+    			li3 = element$1("li");
+    			a3 = element$1("a");
     			a3.textContent = "Freedom Indexes";
     			t13 = space();
-    			li4 = element("li");
-    			a4 = element("a");
+    			li4 = element$1("li");
+    			a4 = element$1("a");
     			a4.textContent = "Crime Rates";
     			t15 = space();
-    			li5 = element("li");
-    			a5 = element("a");
+    			li5 = element$1("li");
+    			a5 = element$1("a");
     			a5.textContent = "Rents per Capita";
     			t17 = space();
-    			h22 = element("h2");
+    			h22 = element$1("h2");
     			h22.textContent = "URL";
     			t19 = space();
-    			a6 = element("a");
+    			a6 = element$1("a");
     			a6.textContent = "http://sos1920-11.herokuapp.com";
     			t21 = space();
-    			h23 = element("h2");
+    			h23 = element$1("h2");
     			h23.textContent = "APIs";
     			t23 = text("\r\n\t\tPuedes examinar en Postman las distintas APIs que han generado cada uno de los miembros:\r\n\t\t");
-    			br = element("br");
+    			br = element$1("br");
     			t24 = space();
-    			ul2 = element("ul");
-    			li6 = element("li");
-    			a7 = element("a");
+    			ul2 = element$1("ul");
+    			li6 = element$1("li");
+    			a7 = element$1("a");
     			a7.textContent = "API V1";
     			t26 = text(" (Deprecated) // ");
-    			a8 = element("a");
+    			a8 = element$1("a");
     			a8.textContent = "API V2";
     			t28 = text(" (developed by Ignacio Calcedo Vázquez)");
     			t29 = space();
-    			li7 = element("li");
-    			a9 = element("a");
+    			li7 = element$1("li");
+    			a9 = element$1("a");
     			a9.textContent = "API v1";
-    			a10 = element("a");
+    			a10 = element$1("a");
     			a10.textContent = "API v2";
     			t32 = text(" (developed by José Calcedo Vázquez)");
     			t33 = space();
-    			li8 = element("li");
-    			a11 = element("a");
+    			li8 = element$1("li");
+    			a11 = element$1("a");
     			a11.textContent = "API RPC V1";
     			t35 = text(" (Deprecated) // ");
-    			a12 = element("a");
+    			a12 = element$1("a");
     			a12.textContent = "RPC API v2";
     			t37 = text(" (developed by Alberto Rubio Hurtado)");
     			add_location(h1, file$5, 6, 2, 50);
@@ -6134,22 +6134,22 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div0 = element("div");
+    			div0 = element$1("div");
     			create_component(table.$$.fragment);
     			t0 = space();
-    			div1 = element("div");
+    			div1 = element$1("div");
     			if_block0.c();
     			t1 = space();
     			if (if_block1) if_block1.c();
     			t2 = space();
     			t3 = text(/*numTotal*/ ctx[3]);
     			t4 = space();
-    			br0 = element("br");
+    			br0 = element$1("br");
     			t5 = space();
-    			h3 = element("h3");
+    			h3 = element$1("h3");
     			t6 = text(/*userMsg*/ ctx[4]);
     			t7 = space();
-    			br1 = element("br");
+    			br1 = element$1("br");
     			set_style(div0, "width", "auto");
     			set_style(div0, "width", "100%");
     			set_style(div0, "overflow-x", "auto");
@@ -6388,54 +6388,54 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			tr = element("tr");
-    			td0 = element("td");
-    			a = element("a");
+    			tr = element$1("tr");
+    			td0 = element$1("td");
+    			a = element$1("a");
     			t0 = text(t0_value);
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			t2 = text(t2_value);
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			t4 = text(t4_value);
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			t6 = text(t6_value);
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			t8 = text(t8_value);
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			t10 = text(t10_value);
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			t12 = text(t12_value);
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			t14 = text(t14_value);
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			t16 = text(t16_value);
     			t17 = space();
-    			td9 = element("td");
+    			td9 = element$1("td");
     			t18 = text(t18_value);
     			t19 = space();
-    			td10 = element("td");
+    			td10 = element$1("td");
     			t20 = text(t20_value);
     			t21 = space();
-    			td11 = element("td");
+    			td11 = element$1("td");
     			t22 = text(t22_value);
     			t23 = space();
-    			td12 = element("td");
+    			td12 = element$1("td");
     			t24 = text(t24_value);
     			t25 = space();
-    			td13 = element("td");
+    			td13 = element$1("td");
     			t26 = text(t26_value);
     			t27 = space();
-    			td14 = element("td");
+    			td14 = element$1("td");
     			t28 = text(t28_value);
     			t29 = space();
-    			td15 = element("td");
+    			td15 = element$1("td");
     			create_component(button.$$.fragment);
     			t30 = space();
     			attr_dev(a, "href", a_href_value = "#/efis/" + /*efi*/ ctx[51].country + "/" + /*efi*/ ctx[51].year);
@@ -6680,104 +6680,104 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			th0 = element("th");
+    			thead = element$1("thead");
+    			tr0 = element$1("tr");
+    			th0 = element$1("th");
     			th0.textContent = "country";
     			t1 = space();
-    			th1 = element("th");
+    			th1 = element$1("th");
     			th1.textContent = "year";
     			t3 = space();
-    			th2 = element("th");
+    			th2 = element$1("th");
     			th2.textContent = "efiindex";
     			t5 = space();
-    			th3 = element("th");
+    			th3 = element$1("th");
     			th3.textContent = "efigovint";
     			t7 = space();
-    			th4 = element("th");
+    			th4 = element$1("th");
     			th4.textContent = "efipropright";
     			t9 = space();
-    			th5 = element("th");
+    			th5 = element$1("th");
     			th5.textContent = "efijudefct";
     			t11 = space();
-    			th6 = element("th");
+    			th6 = element$1("th");
     			th6.textContent = "efitaxburden";
     			t13 = space();
-    			th7 = element("th");
+    			th7 = element$1("th");
     			th7.textContent = "efigovspend";
     			t15 = space();
-    			th8 = element("th");
+    			th8 = element$1("th");
     			th8.textContent = "efifiscalhealth";
     			t17 = space();
-    			th9 = element("th");
+    			th9 = element$1("th");
     			th9.textContent = "efibusfreed";
     			t19 = space();
-    			th10 = element("th");
+    			th10 = element$1("th");
     			th10.textContent = "efilabfreed";
     			t21 = space();
-    			th11 = element("th");
+    			th11 = element$1("th");
     			th11.textContent = "efimonfreed";
     			t23 = space();
-    			th12 = element("th");
+    			th12 = element$1("th");
     			th12.textContent = "efitradefreed";
     			t25 = space();
-    			th13 = element("th");
+    			th13 = element$1("th");
     			th13.textContent = "efiinvfreed";
     			t27 = space();
-    			th14 = element("th");
+    			th14 = element$1("th");
     			th14.textContent = "efifinfreed";
     			t29 = space();
-    			th15 = element("th");
+    			th15 = element$1("th");
     			th15.textContent = "Acciones";
     			t31 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td0 = element("td");
-    			input0 = element("input");
+    			tbody = element$1("tbody");
+    			tr1 = element$1("tr");
+    			td0 = element$1("td");
+    			input0 = element$1("input");
     			t32 = space();
-    			td1 = element("td");
-    			input1 = element("input");
+    			td1 = element$1("td");
+    			input1 = element$1("input");
     			t33 = space();
-    			td2 = element("td");
-    			input2 = element("input");
+    			td2 = element$1("td");
+    			input2 = element$1("input");
     			t34 = space();
-    			td3 = element("td");
-    			input3 = element("input");
+    			td3 = element$1("td");
+    			input3 = element$1("input");
     			t35 = space();
-    			td4 = element("td");
-    			input4 = element("input");
+    			td4 = element$1("td");
+    			input4 = element$1("input");
     			t36 = space();
-    			td5 = element("td");
-    			input5 = element("input");
+    			td5 = element$1("td");
+    			input5 = element$1("input");
     			t37 = space();
-    			td6 = element("td");
-    			input6 = element("input");
+    			td6 = element$1("td");
+    			input6 = element$1("input");
     			t38 = space();
-    			td7 = element("td");
-    			input7 = element("input");
+    			td7 = element$1("td");
+    			input7 = element$1("input");
     			t39 = space();
-    			td8 = element("td");
-    			input8 = element("input");
+    			td8 = element$1("td");
+    			input8 = element$1("input");
     			t40 = space();
-    			td9 = element("td");
-    			input9 = element("input");
+    			td9 = element$1("td");
+    			input9 = element$1("input");
     			t41 = space();
-    			td10 = element("td");
-    			input10 = element("input");
+    			td10 = element$1("td");
+    			input10 = element$1("input");
     			t42 = space();
-    			td11 = element("td");
-    			input11 = element("input");
+    			td11 = element$1("td");
+    			input11 = element$1("input");
     			t43 = space();
-    			td12 = element("td");
-    			input12 = element("input");
+    			td12 = element$1("td");
+    			input12 = element$1("input");
     			t44 = space();
-    			td13 = element("td");
-    			input13 = element("input");
+    			td13 = element$1("td");
+    			input13 = element$1("input");
     			t45 = space();
-    			td14 = element("td");
-    			input14 = element("input");
+    			td14 = element$1("td");
+    			input14 = element$1("input");
     			t46 = space();
-    			td15 = element("td");
+    			td15 = element$1("td");
     			create_component(button.$$.fragment);
     			t47 = space();
 
@@ -7462,99 +7462,99 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			th0 = element("th");
+    			thead = element$1("thead");
+    			tr0 = element$1("tr");
+    			th0 = element$1("th");
     			th0.textContent = "country";
     			t1 = space();
-    			th1 = element("th");
+    			th1 = element$1("th");
     			th1.textContent = "year";
     			t3 = space();
-    			th2 = element("th");
+    			th2 = element$1("th");
     			th2.textContent = "efiindex";
     			t5 = space();
-    			th3 = element("th");
+    			th3 = element$1("th");
     			th3.textContent = "efigovint";
     			t7 = space();
-    			th4 = element("th");
+    			th4 = element$1("th");
     			th4.textContent = "efipropright";
     			t9 = space();
-    			th5 = element("th");
+    			th5 = element$1("th");
     			th5.textContent = "efijudefct";
     			t11 = space();
-    			th6 = element("th");
+    			th6 = element$1("th");
     			th6.textContent = "efitaxburden";
     			t13 = space();
-    			th7 = element("th");
+    			th7 = element$1("th");
     			th7.textContent = "efigovspend";
     			t15 = space();
-    			th8 = element("th");
+    			th8 = element$1("th");
     			th8.textContent = "efifiscalhealth";
     			t17 = space();
-    			th9 = element("th");
+    			th9 = element$1("th");
     			th9.textContent = "efibusfreed";
     			t19 = space();
-    			th10 = element("th");
+    			th10 = element$1("th");
     			th10.textContent = "efilabfreed";
     			t21 = space();
-    			th11 = element("th");
+    			th11 = element$1("th");
     			th11.textContent = "efimonfreed";
     			t23 = space();
-    			th12 = element("th");
+    			th12 = element$1("th");
     			th12.textContent = "efitradefreed";
     			t25 = space();
-    			th13 = element("th");
+    			th13 = element$1("th");
     			th13.textContent = "efiinvfreed";
     			t27 = space();
-    			th14 = element("th");
+    			th14 = element$1("th");
     			th14.textContent = "efifinfreed";
     			t29 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td0 = element("td");
-    			input0 = element("input");
+    			tbody = element$1("tbody");
+    			tr1 = element$1("tr");
+    			td0 = element$1("td");
+    			input0 = element$1("input");
     			t30 = space();
-    			td1 = element("td");
-    			input1 = element("input");
+    			td1 = element$1("td");
+    			input1 = element$1("input");
     			t31 = space();
-    			td2 = element("td");
-    			input2 = element("input");
+    			td2 = element$1("td");
+    			input2 = element$1("input");
     			t32 = space();
-    			td3 = element("td");
-    			input3 = element("input");
+    			td3 = element$1("td");
+    			input3 = element$1("input");
     			t33 = space();
-    			td4 = element("td");
-    			input4 = element("input");
+    			td4 = element$1("td");
+    			input4 = element$1("input");
     			t34 = space();
-    			td5 = element("td");
-    			input5 = element("input");
+    			td5 = element$1("td");
+    			input5 = element$1("input");
     			t35 = space();
-    			td6 = element("td");
-    			input6 = element("input");
+    			td6 = element$1("td");
+    			input6 = element$1("input");
     			t36 = space();
-    			td7 = element("td");
-    			input7 = element("input");
+    			td7 = element$1("td");
+    			input7 = element$1("input");
     			t37 = space();
-    			td8 = element("td");
-    			input8 = element("input");
+    			td8 = element$1("td");
+    			input8 = element$1("input");
     			t38 = space();
-    			td9 = element("td");
-    			input9 = element("input");
+    			td9 = element$1("td");
+    			input9 = element$1("input");
     			t39 = space();
-    			td10 = element("td");
-    			input10 = element("input");
+    			td10 = element$1("td");
+    			input10 = element$1("input");
     			t40 = space();
-    			td11 = element("td");
-    			input11 = element("input");
+    			td11 = element$1("td");
+    			input11 = element$1("input");
     			t41 = space();
-    			td12 = element("td");
-    			input12 = element("input");
+    			td12 = element$1("td");
+    			input12 = element$1("input");
     			t42 = space();
-    			td13 = element("td");
-    			input13 = element("input");
+    			td13 = element$1("td");
+    			input13 = element$1("input");
     			t43 = space();
-    			td14 = element("td");
-    			input14 = element("input");
+    			td14 = element$1("td");
+    			input14 = element$1("input");
     			add_location(th0, file$6, 324, 4, 9969);
     			add_location(th1, file$6, 325, 16, 10003);
     			add_location(th2, file$6, 326, 16, 10034);
@@ -7902,19 +7902,19 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			div0 = element("div");
-    			table0 = element("table");
-    			tbody = element("tbody");
-    			tr0 = element("tr");
+    			main = element$1("main");
+    			div0 = element$1("div");
+    			table0 = element$1("table");
+    			tbody = element$1("tbody");
+    			tr0 = element$1("tr");
     			create_component(button0.$$.fragment);
     			t0 = space();
-    			tr1 = element("tr");
+    			tr1 = element$1("tr");
     			create_component(button1.$$.fragment);
     			t1 = space();
     			info.block.c();
     			t2 = space();
-    			div1 = element("div");
+    			div1 = element$1("div");
     			create_component(table1.$$.fragment);
     			t3 = space();
     			create_component(button2.$$.fragment);
@@ -8550,7 +8550,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div = element$1("div");
     			create_component(table.$$.fragment);
     			set_style(div, "width", "auto");
     			set_style(div, "width", "100%");
@@ -8726,104 +8726,104 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			th0 = element("th");
+    			thead = element$1("thead");
+    			tr0 = element$1("tr");
+    			th0 = element$1("th");
     			th0.textContent = "country";
     			t1 = space();
-    			th1 = element("th");
+    			th1 = element$1("th");
     			th1.textContent = "year";
     			t3 = space();
-    			th2 = element("th");
+    			th2 = element$1("th");
     			th2.textContent = "efiindex";
     			t5 = space();
-    			th3 = element("th");
+    			th3 = element$1("th");
     			th3.textContent = "efigovint";
     			t7 = space();
-    			th4 = element("th");
+    			th4 = element$1("th");
     			th4.textContent = "efipropright";
     			t9 = space();
-    			th5 = element("th");
+    			th5 = element$1("th");
     			th5.textContent = "efijudefct";
     			t11 = space();
-    			th6 = element("th");
+    			th6 = element$1("th");
     			th6.textContent = "efitaxburden";
     			t13 = space();
-    			th7 = element("th");
+    			th7 = element$1("th");
     			th7.textContent = "efigovspend";
     			t15 = space();
-    			th8 = element("th");
+    			th8 = element$1("th");
     			th8.textContent = "efifiscalhealth";
     			t17 = space();
-    			th9 = element("th");
+    			th9 = element$1("th");
     			th9.textContent = "efibusfreed";
     			t19 = space();
-    			th10 = element("th");
+    			th10 = element$1("th");
     			th10.textContent = "efilabfreed";
     			t21 = space();
-    			th11 = element("th");
+    			th11 = element$1("th");
     			th11.textContent = "efimonfreed";
     			t23 = space();
-    			th12 = element("th");
+    			th12 = element$1("th");
     			th12.textContent = "efitradefreed";
     			t25 = space();
-    			th13 = element("th");
+    			th13 = element$1("th");
     			th13.textContent = "efiinvfreed";
     			t27 = space();
-    			th14 = element("th");
+    			th14 = element$1("th");
     			th14.textContent = "efifinfreed";
     			t29 = space();
-    			th15 = element("th");
+    			th15 = element$1("th");
     			th15.textContent = "Acciones";
     			t31 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td0 = element("td");
+    			tbody = element$1("tbody");
+    			tr1 = element$1("tr");
+    			td0 = element$1("td");
     			t32 = text(/*updatecountry*/ ctx[1]);
     			t33 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			t34 = text(/*updateyear*/ ctx[2]);
     			t35 = space();
-    			td2 = element("td");
-    			input0 = element("input");
+    			td2 = element$1("td");
+    			input0 = element$1("input");
     			t36 = space();
-    			td3 = element("td");
-    			input1 = element("input");
+    			td3 = element$1("td");
+    			input1 = element$1("input");
     			t37 = space();
-    			td4 = element("td");
-    			input2 = element("input");
+    			td4 = element$1("td");
+    			input2 = element$1("input");
     			t38 = space();
-    			td5 = element("td");
-    			input3 = element("input");
+    			td5 = element$1("td");
+    			input3 = element$1("input");
     			t39 = space();
-    			td6 = element("td");
-    			input4 = element("input");
+    			td6 = element$1("td");
+    			input4 = element$1("input");
     			t40 = space();
-    			td7 = element("td");
-    			input5 = element("input");
+    			td7 = element$1("td");
+    			input5 = element$1("input");
     			t41 = space();
-    			td8 = element("td");
-    			input6 = element("input");
+    			td8 = element$1("td");
+    			input6 = element$1("input");
     			t42 = space();
-    			td9 = element("td");
-    			input7 = element("input");
+    			td9 = element$1("td");
+    			input7 = element$1("input");
     			t43 = space();
-    			td10 = element("td");
-    			input8 = element("input");
+    			td10 = element$1("td");
+    			input8 = element$1("input");
     			t44 = space();
-    			td11 = element("td");
-    			input9 = element("input");
+    			td11 = element$1("td");
+    			input9 = element$1("input");
     			t45 = space();
-    			td12 = element("td");
-    			input10 = element("input");
+    			td12 = element$1("td");
+    			input10 = element$1("input");
     			t46 = space();
-    			td13 = element("td");
-    			input11 = element("input");
+    			td13 = element$1("td");
+    			input11 = element$1("input");
     			t47 = space();
-    			td14 = element("td");
-    			input12 = element("input");
+    			td14 = element$1("td");
+    			input12 = element$1("input");
     			t48 = space();
-    			td15 = element("td");
+    			td15 = element$1("td");
     			create_component(button.$$.fragment);
     			add_location(th0, file$7, 109, 16, 3739);
     			add_location(th1, file$7, 110, 16, 3773);
@@ -9113,7 +9113,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			p = element("p");
+    			p = element$1("p");
     			t = text(/*msg*/ ctx[16]);
     			set_style(p, "color", "red");
     			add_location(p, file$7, 152, 8, 5542);
@@ -9211,8 +9211,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			h2 = element("h2");
+    			main = element$1("main");
+    			h2 = element$1("h2");
     			t0 = text("Editando EFI del pais ");
     			t1 = text(t1_value);
     			t2 = text(" y año ");
@@ -9636,8 +9636,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			h3 = element("h3");
-    			p = element("p");
+    			h3 = element$1("h3");
+    			p = element$1("p");
     			t = text(/*userMsg*/ ctx[0]);
     			add_location(p, file$8, 256, 5, 6978);
     			add_location(h3, file$8, 256, 1, 6974);
@@ -9855,33 +9855,33 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			tr = element("tr");
-    			td0 = element("td");
-    			a = element("a");
+    			tr = element$1("tr");
+    			td0 = element$1("td");
+    			a = element$1("a");
     			t0 = text(t0_value);
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			t2 = text(t2_value);
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			t4 = text(t4_value);
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			t6 = text(t6_value);
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			t8 = text(t8_value);
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			t10 = text(t10_value);
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			t12 = text(t12_value);
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			t14 = text(t14_value);
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			create_component(button.$$.fragment);
     			t16 = space();
     			attr_dev(a, "href", a_href_value = "/#/crimes/" + /*crime*/ ctx[36].country + "/" + /*crime*/ ctx[36].year);
@@ -10095,61 +10095,61 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			td0 = element("td");
+    			thead = element$1("thead");
+    			td0 = element$1("td");
     			td0.textContent = "Country";
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			td1.textContent = "Year";
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			td2.textContent = "Crime Rate";
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			td3.textContent = "Safe Rate";
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			td4.textContent = "Homicide Rate";
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			td5.textContent = "Homicide Count";
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			td6.textContent = "Theft Rate";
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			td7.textContent = "Theft Count";
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			td8.textContent = "Opciones";
     			t17 = space();
-    			tbody = element("tbody");
-    			tr = element("tr");
-    			td9 = element("td");
-    			input0 = element("input");
+    			tbody = element$1("tbody");
+    			tr = element$1("tr");
+    			td9 = element$1("td");
+    			input0 = element$1("input");
     			t18 = space();
-    			td10 = element("td");
-    			input1 = element("input");
+    			td10 = element$1("td");
+    			input1 = element$1("input");
     			t19 = space();
-    			td11 = element("td");
-    			input2 = element("input");
+    			td11 = element$1("td");
+    			input2 = element$1("input");
     			t20 = space();
-    			td12 = element("td");
-    			input3 = element("input");
+    			td12 = element$1("td");
+    			input3 = element$1("input");
     			t21 = space();
-    			td13 = element("td");
-    			input4 = element("input");
+    			td13 = element$1("td");
+    			input4 = element$1("input");
     			t22 = space();
-    			td14 = element("td");
-    			input5 = element("input");
+    			td14 = element$1("td");
+    			input5 = element$1("input");
     			t23 = space();
-    			td15 = element("td");
-    			input6 = element("input");
+    			td15 = element$1("td");
+    			input6 = element$1("input");
     			t24 = space();
-    			td16 = element("td");
-    			input7 = element("input");
+    			td16 = element$1("td");
+    			input7 = element$1("input");
     			t25 = space();
-    			td17 = element("td");
+    			td17 = element$1("td");
     			create_component(button0.$$.fragment);
     			t26 = space();
 
@@ -10509,57 +10509,57 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			thead = element("thead");
-    			tr0 = element("tr");
-    			td0 = element("td");
+    			thead = element$1("thead");
+    			tr0 = element$1("tr");
+    			td0 = element$1("td");
     			td0.textContent = "Country";
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			td1.textContent = "Year";
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			td2.textContent = "Crime Rate";
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			td3.textContent = "Safe Rate";
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			td4.textContent = "Homicide Rate";
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			td5.textContent = "Homicide Count";
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			td6.textContent = "Theft Rate";
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			td7.textContent = "Theft Count";
     			t15 = space();
-    			tbody = element("tbody");
-    			tr1 = element("tr");
-    			td8 = element("td");
-    			input0 = element("input");
+    			tbody = element$1("tbody");
+    			tr1 = element$1("tr");
+    			td8 = element$1("td");
+    			input0 = element$1("input");
     			t16 = space();
-    			td9 = element("td");
-    			input1 = element("input");
+    			td9 = element$1("td");
+    			input1 = element$1("input");
     			t17 = space();
-    			td10 = element("td");
-    			input2 = element("input");
+    			td10 = element$1("td");
+    			input2 = element$1("input");
     			t18 = space();
-    			td11 = element("td");
-    			input3 = element("input");
+    			td11 = element$1("td");
+    			input3 = element$1("input");
     			t19 = space();
-    			td12 = element("td");
-    			input4 = element("input");
+    			td12 = element$1("td");
+    			input4 = element$1("input");
     			t20 = space();
-    			td13 = element("td");
-    			input5 = element("input");
+    			td13 = element$1("td");
+    			input5 = element$1("input");
     			t21 = space();
-    			td14 = element("td");
-    			input6 = element("input");
+    			td14 = element$1("td");
+    			input6 = element$1("input");
     			t22 = space();
-    			td15 = element("td");
-    			input7 = element("input");
+    			td15 = element$1("td");
+    			input7 = element$1("input");
     			t23 = space();
     			create_component(button.$$.fragment);
     			add_location(td0, file$8, 305, 3, 8835);
@@ -10866,8 +10866,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			h2 = element("h2");
+    			main = element$1("main");
+    			h2 = element$1("h2");
     			h2.textContent = "GUI Crimes";
     			t1 = space();
     			create_component(button0.$$.fragment);
@@ -11457,7 +11457,7 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			p = element("p");
+    			p = element$1("p");
     			t = text(/*userMsg*/ ctx[9]);
     			set_style(p, "color", "orange");
     			add_location(p, file$9, 68, 90, 2173);
@@ -11572,61 +11572,61 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			table = element("table");
-    			thead = element("thead");
-    			td0 = element("td");
+    			table = element$1("table");
+    			thead = element$1("thead");
+    			td0 = element$1("td");
     			td0.textContent = "Country";
     			t1 = space();
-    			td1 = element("td");
+    			td1 = element$1("td");
     			td1.textContent = "Year";
     			t3 = space();
-    			td2 = element("td");
+    			td2 = element$1("td");
     			td2.textContent = "Crime Rate";
     			t5 = space();
-    			td3 = element("td");
+    			td3 = element$1("td");
     			td3.textContent = "Safe Rate";
     			t7 = space();
-    			td4 = element("td");
+    			td4 = element$1("td");
     			td4.textContent = "Homicide Rate";
     			t9 = space();
-    			td5 = element("td");
+    			td5 = element$1("td");
     			td5.textContent = "Homicide Count";
     			t11 = space();
-    			td6 = element("td");
+    			td6 = element$1("td");
     			td6.textContent = "Theft Rate";
     			t13 = space();
-    			td7 = element("td");
+    			td7 = element$1("td");
     			td7.textContent = "Theft Count";
     			t15 = space();
-    			td8 = element("td");
+    			td8 = element$1("td");
     			td8.textContent = "OPCIONES";
     			t17 = space();
-    			tbody = element("tbody");
-    			td9 = element("td");
+    			tbody = element$1("tbody");
+    			td9 = element$1("td");
     			t18 = text(/*country*/ ctx[1]);
     			t19 = space();
-    			td10 = element("td");
+    			td10 = element$1("td");
     			t20 = text(/*year*/ ctx[2]);
     			t21 = space();
-    			td11 = element("td");
-    			input0 = element("input");
+    			td11 = element$1("td");
+    			input0 = element$1("input");
     			t22 = space();
-    			td12 = element("td");
-    			input1 = element("input");
+    			td12 = element$1("td");
+    			input1 = element$1("input");
     			t23 = space();
-    			td13 = element("td");
-    			input2 = element("input");
+    			td13 = element$1("td");
+    			input2 = element$1("input");
     			t24 = space();
-    			td14 = element("td");
-    			input3 = element("input");
+    			td14 = element$1("td");
+    			input3 = element$1("input");
     			t25 = space();
-    			td15 = element("td");
-    			input4 = element("input");
+    			td15 = element$1("td");
+    			input4 = element$1("input");
     			t26 = space();
-    			td16 = element("td");
-    			input5 = element("input");
+    			td16 = element$1("td");
+    			input5 = element$1("input");
     			t27 = space();
-    			td17 = element("td");
+    			td17 = element$1("td");
     			create_component(button.$$.fragment);
     			add_location(td0, file$9, 74, 12, 2306);
     			add_location(td1, file$9, 75, 4, 2328);
@@ -11904,8 +11904,8 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			h2 = element("h2");
+    			main = element$1("main");
+    			h2 = element$1("h2");
     			t0 = text("Editando crimen para el país ");
     			t1 = text(t1_value);
     			t2 = text(" y el año ");
@@ -12230,31 +12230,31 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
-    			script4 = element("script");
-    			style = element("style");
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
+    			script4 = element$1("script");
+    			style = element$1("style");
     			t0 = space();
-    			main = element("main");
-    			h1 = element("h1");
+    			main = element$1("main");
+    			h1 = element$1("h1");
     			h1.textContent = "ÍNDICES DE LIBERTAD ECONÓMICA";
     			t2 = space();
-    			h2 = element("h2");
+    			h2 = element$1("h2");
     			h2.textContent = "(Economic Freedom Indexes)";
     			t4 = space();
-    			figure = element("figure");
-    			div0 = element("div");
+    			figure = element$1("figure");
+    			div0 = element$1("div");
     			t5 = space();
-    			p = element("p");
+    			p = element$1("p");
     			p.textContent = "Aquí veremos un desglose de distintos indices de libertad económica,\r\n        un índice creado por la Heritage Fundation para medir la libertad económica\r\n        de un país.";
     			t7 = space();
-    			div2 = element("div");
+    			div2 = element$1("div");
     			t8 = text("Representación con otra librería\r\n");
-    			br = element("br");
+    			br = element$1("br");
     			t9 = space();
-    			div1 = element("div");
+    			div1 = element$1("div");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
     			add_location(script0, file$a, 117, 0, 2990);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script1, "src", script1_src_value);
@@ -12518,33 +12518,33 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
-    			h2 = element("h2");
+    			main = element$1("main");
+    			h2 = element$1("h2");
     			h2.textContent = "Integrations:";
     			t1 = space();
-    			ul = element("ul");
-    			li0 = element("li");
-    			a0 = element("a");
+    			ul = element$1("ul");
+    			li0 = element$1("li");
+    			a0 = element$1("a");
     			a0.textContent = "Emigration";
     			t3 = space();
-    			li1 = element("li");
-    			a1 = element("a");
+    			li1 = element$1("li");
+    			a1 = element$1("a");
     			a1.textContent = "Overdose";
     			t5 = space();
-    			li2 = element("li");
-    			a2 = element("a");
+    			li2 = element$1("li");
+    			a2 = element$1("a");
     			a2.textContent = "Countries";
     			t7 = space();
-    			li3 = element("li");
-    			a3 = element("a");
+    			li3 = element$1("li");
+    			a3 = element$1("a");
     			a3.textContent = "COVID-19";
     			t9 = space();
-    			li4 = element("li");
-    			a4 = element("a");
+    			li4 = element$1("li");
+    			a4 = element$1("a");
     			a4.textContent = "ICM";
     			t11 = space();
-    			li5 = element("li");
-    			a5 = element("a");
+    			li5 = element$1("li");
+    			a5 = element$1("a");
     			a5.textContent = "Comun";
     			add_location(h2, file$b, 5, 0, 33);
     			attr_dev(a0, "href", "http://sos1920-11.herokuapp.com/#/rpcs/integrations/emigration");
@@ -12667,18 +12667,18 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
-    			script4 = element("script");
-    			script5 = element("script");
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
+    			script4 = element$1("script");
+    			script5 = element$1("script");
     			t0 = space();
-    			main = element("main");
-    			figure = element("figure");
-    			div = element("div");
+    			main = element$1("main");
+    			figure = element$1("figure");
+    			div = element$1("div");
     			t1 = space();
-    			p = element("p");
+    			p = element$1("p");
     			p.textContent = "Chart showing emigration numbers by country. Clicking on individual columns\r\n        brings up more detailed data. This chart makes use of the drilldown\r\n        feature in Highcharts to easily switch between datasets.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
     			add_location(script0, file$c, 95, 4, 2126);
@@ -12866,18 +12866,18 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
-    			script4 = element("script");
-    			script5 = element("script");
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
+    			script4 = element$1("script");
+    			script5 = element$1("script");
     			t0 = space();
-    			main = element("main");
-    			figure = element("figure");
-    			div = element("div");
+    			main = element$1("main");
+    			figure = element$1("figure");
+    			div = element$1("div");
     			t1 = space();
-    			p = element("p");
+    			p = element$1("p");
     			p.textContent = "Chart showing basic use of 3D cylindrical columns. A 3D cylinder chart\r\n        is similar to a 3D column chart, with a different shape.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
     			add_location(script0, file$d, 67, 0, 1330);
@@ -13064,17 +13064,17 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
-    			script4 = element("script");
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
+    			script4 = element$1("script");
     			t0 = space();
-    			main = element("main");
-    			figure = element("figure");
-    			div = element("div");
+    			main = element$1("main");
+    			figure = element$1("figure");
+    			div = element$1("div");
     			t1 = space();
-    			p = element("p");
+    			p = element$1("p");
     			p.textContent = "Chart showing overlapping placement of columns, using different data\r\n        series. The chart is also using multiple y-axes, allowing data in\r\n        different ranges to be visualized on the same chart.";
     			if (script0.src !== (script0_src_value = "https://code.jquery.com/jquery-3.1.1.min.js")) attr_dev(script0, "src", script0_src_value);
     			add_location(script0, file$e, 125, 0, 2867);
@@ -13286,17 +13286,17 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
-    			script4 = element("script");
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
+    			script4 = element$1("script");
     			t0 = space();
-    			main = element("main");
-    			figure = element("figure");
-    			div = element("div");
+    			main = element$1("main");
+    			figure = element$1("figure");
+    			div = element$1("div");
     			t1 = space();
-    			p = element("p");
+    			p = element$1("p");
     			p.textContent = "Packed bubble charts are visualizations where the size and optionally\r\n        the color of the bubbles are used to visualize the data. The positioning\r\n        of the bubbles is not significant, but is optimized for compactness.\r\n        Try dragging the bubbles in this chart around, and see the effects.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
     			add_location(script0, file$f, 74, 0, 1888);
@@ -13482,13 +13482,13 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script = element("script");
+    			script = element$1("script");
     			t0 = space();
-    			main = element("main");
-    			h2 = element("h2");
+    			main = element$1("main");
+    			h2 = element$1("h2");
     			h2.textContent = "ÍNDICES DE MASA CORPORAL (2020)";
     			t2 = space();
-    			div = element("div");
+    			div = element$1("div");
     			if (script.src !== (script_src_value = "https://cdn.plot.ly/plotly-latest.min.js")) attr_dev(script, "src", script_src_value);
     			add_location(script, file$g, 29, 0, 547);
     			add_location(h2, file$g, 34, 0, 661);
@@ -13599,16 +13599,16 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
     			t0 = space();
-    			main = element("main");
-    			figure = element("figure");
-    			div = element("div");
+    			main = element$1("main");
+    			figure = element$1("figure");
+    			div = element$1("div");
     			t1 = space();
-    			p = element("p");
+    			p = element$1("p");
     			p.textContent = "Packed bubble charts are visualizations where the size and optionally\r\n        the color of the bubbles are used to visualize the data. The positioning\r\n        of the bubbles is not significant, but is optimized for compactness.\r\n        Try dragging the bubbles in this chart around, and see the effects.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
     			add_location(script0, file$h, 98, 8, 2672);
@@ -13782,10 +13782,234 @@ var app = (function () {
     	}
     }
 
-    /* src\front\App.svelte generated by Svelte v3.22.3 */
-    const file$i = "src\\front\\App.svelte";
+    /* src\front\efi\gini_index.svelte generated by Svelte v3.22.3 */
+
+    const file$i = "src\\front\\efi\\gini_index.svelte";
 
     function create_fragment$j(ctx) {
+    	let script0;
+    	let script0_src_value;
+    	let script1;
+    	let script1_src_value;
+    	let script2;
+    	let script2_src_value;
+    	let script3;
+    	let script3_src_value;
+    	let t0;
+    	let main;
+    	let figure;
+    	let div;
+    	let t1;
+    	let p;
+    	let t3;
+    	let t4_value = JSON.stringify(/*CountriesData*/ ctx[0][0]) + "";
+    	let t4;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			script0 = element$1("script");
+    			script1 = element$1("script");
+    			script2 = element$1("script");
+    			script3 = element$1("script");
+    			t0 = space();
+    			main = element$1("main");
+    			figure = element$1("figure");
+    			div = element$1("div");
+    			t1 = space();
+    			p = element$1("p");
+    			p.textContent = "Esta gráfica muestra los índices GINI de los distintos paises a lo largo del tiempo.";
+    			t3 = space();
+    			t4 = text(t4_value);
+    			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
+    			add_location(script0, file$i, 90, 0, 2385);
+    			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script1, "src", script1_src_value);
+    			add_location(script1, file$i, 91, 0, 2452);
+    			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script2, "src", script2_src_value);
+    			add_location(script2, file$i, 92, 0, 2526);
+    			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
+    			add_location(script3, file$i, 93, 0, 2602);
+    			attr_dev(div, "id", "container");
+    			add_location(div, file$i, 97, 4, 2767);
+    			attr_dev(p, "class", "highcharts-description");
+    			add_location(p, file$i, 98, 4, 2799);
+    			attr_dev(figure, "class", "highcharts-figure");
+    			add_location(figure, file$i, 96, 0, 2727);
+    			add_location(main, file$i, 95, 0, 2719);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor, remount) {
+    			append_dev(document.head, script0);
+    			append_dev(document.head, script1);
+    			append_dev(document.head, script2);
+    			append_dev(document.head, script3);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, main, anchor);
+    			append_dev(main, figure);
+    			append_dev(figure, div);
+    			append_dev(figure, t1);
+    			append_dev(figure, p);
+    			append_dev(main, t3);
+    			append_dev(main, t4);
+    			if (remount) dispose();
+    			dispose = listen_dev(script3, "load", /*cargadatos*/ ctx[1], false, false, false);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*CountriesData*/ 1 && t4_value !== (t4_value = JSON.stringify(/*CountriesData*/ ctx[0][0]) + "")) set_data_dev(t4, t4_value);
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			detach_dev(script0);
+    			detach_dev(script1);
+    			detach_dev(script2);
+    			detach_dev(script3);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(main);
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$j.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$j($$self, $$props, $$invalidate) {
+    	let CountriesData = [];
+    	let chartData = [];
+
+    	async function cargadatos() {
+    		const resData = await fetch("https://restcountries-v1.p.rapidapi.com/all", {
+    			"method": "GET",
+    			"headers": {
+    				"x-rapidapi-host": "restcountries-v1.p.rapidapi.com",
+    				"x-rapidapi-key": "fbc3a26ce8mshdb989f0848b0219p134cc7jsn7c3ac5c079da"
+    			}
+    		});
+
+    		$$invalidate(0, CountriesData = await resData.json());
+
+    		for (element in CountriesData) {
+    			
+    		}
+
+    		//representación
+    		Highcharts.chart("container", {
+    			chart: { type: "column" },
+    			title: { text: "World's largest cities per 2017" },
+    			subtitle: {
+    				text: "Source: <a href=\"http://en.wikipedia.org/wiki/List_of_cities_proper_by_population\">Wikipedia</a>"
+    			},
+    			xAxis: {
+    				type: "category",
+    				labels: {
+    					rotation: -45,
+    					style: {
+    						fontSize: "13px",
+    						fontFamily: "Verdana, sans-serif"
+    					}
+    				}
+    			},
+    			yAxis: {
+    				min: 0,
+    				title: { text: "Population (millions)" }
+    			},
+    			legend: { enabled: false },
+    			tooltip: {
+    				pointFormat: "Population in 2017: <b>{point.y:.1f} millions</b>"
+    			},
+    			series: [
+    				{
+    					name: "Indice GINI por ",
+    					data: [
+    						["Shanghai", 24.2],
+    						["Beijing", 20.8],
+    						["Karachi", 14.9],
+    						["Shenzhen", 13.7],
+    						["Guangzhou", 13.1],
+    						["Istanbul", 12.7],
+    						["Mumbai", 12.4],
+    						["Moscow", 12.2],
+    						["São Paulo", 12],
+    						["Delhi", 11.7],
+    						["Kinshasa", 11.5],
+    						["Tianjin", 11.2],
+    						["Lahore", 11.1],
+    						["Jakarta", 10.6],
+    						["Dongguan", 10.6],
+    						["Lagos", 10.6],
+    						["Bengaluru", 10.3],
+    						["Seoul", 9.8],
+    						["Foshan", 9.3],
+    						["Tokyo", 9.3]
+    					],
+    					dataLabels: {
+    						enabled: true,
+    						rotation: -90,
+    						color: "#FFFFFF",
+    						align: "right",
+    						format: "{point.y:.1f}", // one decimal
+    						y: 10, // 10 pixels down from the top
+    						style: {
+    							fontSize: "13px",
+    							fontFamily: "Verdana, sans-serif"
+    						}
+    					}
+    				}
+    			]
+    		});
+    	}
+
+    	
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Gini_index> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Gini_index", $$slots, []);
+    	$$self.$capture_state = () => ({ CountriesData, chartData, cargadatos });
+
+    	$$self.$inject_state = $$props => {
+    		if ("CountriesData" in $$props) $$invalidate(0, CountriesData = $$props.CountriesData);
+    		if ("chartData" in $$props) chartData = $$props.chartData;
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [CountriesData, cargadatos];
+    }
+
+    class Gini_index extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$j, create_fragment$j, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Gini_index",
+    			options,
+    			id: create_fragment$j.name
+    		});
+    	}
+    }
+
+    /* src\front\App.svelte generated by Svelte v3.22.3 */
+    const file$j = "src\\front\\App.svelte";
+
+    function create_fragment$k(ctx) {
     	let main;
     	let current;
 
@@ -13796,9 +14020,9 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			main = element("main");
+    			main = element$1("main");
     			create_component(router.$$.fragment);
-    			add_location(main, file$i, 39, 0, 1493);
+    			add_location(main, file$j, 42, 0, 1595);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13826,7 +14050,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$j.name,
+    		id: create_fragment$k.name,
     		type: "component",
     		source: "",
     		ctx
@@ -13835,7 +14059,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$j($$self, $$props, $$invalidate) {
+    function instance$k($$self, $$props, $$invalidate) {
     	const routes = {
     		"/": Front,
     		"/rpcs": RpcsTable,
@@ -13849,6 +14073,7 @@ var app = (function () {
     		"/rpcs/integrations/icm": IcmChart,
     		"/rpcs/:country/:year": EditRpc,
     		"/efis": Efitable,
+    		"/efis/integrations/gini_index": Gini_index,
     		"/efis/:country/:year": Editefi,
     		"/crimes": CrimeTable,
     		"/crimes/:country:/year": EditCrime,
@@ -13882,6 +14107,7 @@ var app = (function () {
     		CovidChart,
     		IcmChart,
     		ComunChart,
+    		giniChart: Gini_index,
     		routes
     	});
 
@@ -13891,13 +14117,13 @@ var app = (function () {
     class App extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$j, create_fragment$j, safe_not_equal, {});
+    		init(this, options, instance$k, create_fragment$k, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$j.name
+    			id: create_fragment$k.name
     		});
     	}
     }
