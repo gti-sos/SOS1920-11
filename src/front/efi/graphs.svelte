@@ -3,33 +3,39 @@
 function dataParser(arrayofData){
     
     let sol =[];
+    let objetosauxiliares=[]
     let setofcountries = new Set();
     let setofyears = new Set();
-    
     //obtenemos el numero de paises
     arrayofData.forEach(element => {
-        setofcountries.add(element.country);
+        let objeto_a ={};
+        objeto_a.country=element.country;
+        objeto_a.index=element.efiindex;
+        objeto_a.year=element.year;
+        objetosauxiliares.push(objeto_a);
         setofyears.add(element.year);
+        setofcountries.add(element.country);
     });
     countries = Array.from(setofcountries);
     years = Array.from(setofyears);
     
     for(let k = 0;k<years.length;k++){
         let object={};
-        let efis=[];
+        let efis_1 =[];
         let efis_2=[];
-        arrayofData.forEach(element => {
+        objetosauxiliares.forEach(element => {
             if(element.year==years[k]){
-                efis.push(element.efiindex);
-                let numerito = Math.round(element.efiindex)
-                efis_2.push(numerito.toString());
+                efis_1.push(element.index)
+                efis_2.push(element.index.toString());
+                
             }else{
-                efis.push(0.0);
-                efis_2.push("0");
+                efis_1.push(0.0);
+                efis_2.push("0.0");
             }
         });
-        console.log(efis_2)
-        object.data= efis;
+        object.name="Año "+years[k];
+     
+        object.data=efis_1;        
         sol.push(object);
         let nombre="Año "+ years[k];
         data_ploty.push(
