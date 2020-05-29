@@ -19,7 +19,7 @@ async function cargagraph(){
    });
    Highcharts.chart('container', {
     title: {
-        text: 'Combination chart'
+        text: 'Volumen de intercambio de criptomonedas'
     },
     xAxis: {
         categories: monedas
@@ -41,15 +41,6 @@ async function cargagraph(){
         type: 'column',
         name: 'Volumen de intercambios de criptomoneda normalizado',
         data: tradevolume
-    }, {
-        type: 'spline',
-        name: 'Ranking de trust factor',
-        data: rankings,
-        marker: {
-            lineWidth: 2,
-            lineColor: Highcharts.getOptions().colors[3],
-            fillColor: 'white'
-        }
     }]
 });
 }
@@ -63,10 +54,9 @@ async function cargagraph(){
 </svelte:head>
 <main>
 <figure class="highcharts-figure">
-    <div id="container"></div>
+    <div id="container" ></div>
     <p class="highcharts-description">
-        Esta gráfica representa los volumenes de comercio de distintas criptomonedas por su nombre y el
-        su puntuación en un ranking de trust factor
+        Esta gráfica representa los volumenes de comercio de distintas criptomonedas por su nombre
     </p>
 </figure>
 </main>
