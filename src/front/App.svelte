@@ -17,6 +17,7 @@
 	import IcmChart from './rpc/IcmChart.svelte';
 	import ComunChart from './rpc/ComunChart.svelte';
 	import giniChart from './efi/gini_index.svelte';
+	import crypto from './efi/bitcoinexchange.svelte'
 
 	const routes ={
 		"/" : Index,
@@ -32,6 +33,7 @@
 		"/rpcs/:country/:year" : EditRpc,
 		"/efis": efistable,
 		"/efis/integrations/gini_index": giniChart,
+		"/efis/integrations/cryptocurrency": crypto,
 		"/efis/graph":efiGraph,
 		"/efis/:country/:year": editefi,
 		"/crimes": CrimeTable,
