@@ -54,7 +54,35 @@ var efis2= require('./src/back/efi/v2/efi');
 app.use(rutaEFI1,efis);
 app.use(rutaEFI2,efis2);
 
+//pipes de acceso a las APIs:
+// grupo 7: importaciones
+var pathBeerimports='/api/v2/imports';
+var apiServerHostImports = 'https://sos1920-07.herokuapp.com';
 
+app.use(pathBeerimports, function(req, res) {
+	var url = apiServerHostImports + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+
+// grupo 28: produccion internacional, vehiculos, GCE
+var pathGCE='/api/v1/gce';
+var apiServerHostGCE = 'https://sos1920-28.herokuapp.com';
+
+app.use(pathGCE, function(req, res) {
+	var url = apiServerHostGCE + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+//grupo 22: ranking de posiciones de nadadores
+
+var pathswim='api/v1/swim-stats';
+var apiServerHostswim = 'https://sos1920-22.herokuapp.com';
+
+app.use(pathswim, function(req, res) {
+	var url = apiServerHostswim + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
 //Acceso a rents-per-capita
 
 const rutaRPC = "/api/v1/rents-per-capita";
