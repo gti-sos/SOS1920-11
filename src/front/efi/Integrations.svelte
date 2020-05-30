@@ -6,14 +6,14 @@
 
 <main>
 <h2>
-		Integrations:
+		Integraciones:
 		</h2> 
 		<ul>
 			<li><a href="/#/efis/integrations/gini_index">Índice GINI</a>
 			<li><a href="/#/efis/integrations/cryptocurrency">Criptomonedas</a>
 			<li><a href="/#/efis/integrations/beerimports">Importación de alcohol</a>
 			<li><a href="/#/efis/integrations/contamination">Contaminación por producción de vehiculos</a>
-			<li><a href="/#/efis/integrations/icm">ICM </a>
+			<li><a href="/#/efis/integrations/swimrecords">Records de natacion</a>
 			
 		</ul>
 
