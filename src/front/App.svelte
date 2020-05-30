@@ -20,6 +20,7 @@
 	import crypto from './efi/bitcoinexchange.svelte';
 	import beerimports from './efi/beerimports.svelte';
 	import contamination from './efi/gce.svelte';
+	import efiintegrations from './efi/Integrations.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -35,6 +36,7 @@
 		"/rpcs/:country/:year" : EditRpc,
 		//efis
 		"/efis": efistable,
+		"/efis/integrations": efiintegrations,
 		"/efis/integrations/gini_index": giniChart,
 		"/efis/integrations/cryptocurrency": crypto,
 		"/efis/integrations/beerimports": beerimports,
