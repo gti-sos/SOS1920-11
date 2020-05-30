@@ -76,6 +76,8 @@ async function cargadatos(){
 <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{cargadatos}"></script>
 </svelte:head>
 <main>
+<h1>INDICES GINI</h1>
+<h2>Medición de la desigualdad de ingresos</h2>
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">

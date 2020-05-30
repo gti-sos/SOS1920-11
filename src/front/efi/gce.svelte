@@ -1,29 +1,35 @@
 <script>
 async function cargadatos() {
-    const resData = await fetch("/api/v2/imports");
+    const resData = await fetch("/api/v1/gce");
     let data = await resData.json();
     let data_ploty=[];
     let countrys=[];
-    let wastes=[];
-    let alcoholimports=[];
+    let contaminacion=[];
+    let vehiculos=[];
     data.forEach(element => {
         countrys.push(element.country);
-        wastes.push(element["gdawaste"]);
-        alcoholimports.push(element["gdaethylalcohol"]);
+        contaminacion.push(element["gce_country"]);
+        vehiculos.push(element["gce_cars"]);
     });
     data_ploty.push({
         histfunc: "sum",
-        y: wastes,
+        y: contaminacion,
         x: countrys,
+        marker: {
+        color: 'pink',
+	    },
         type: "histogram",
-        name: "Desechos totales"
+        name: "Contaminacion total"
     });
     data_ploty.push({
         histfunc: "sum",
-        y: alcoholimports,
+        y: vehiculos,
         x: countrys,
+        marker: {
+        color: '#FEE1C7',
+	    },
         type: "histogram",
-        name: "importaciones totales"
+        name: "total de vehiculos generados"
     });
     Plotly.newPlot('myDiv', data_ploty);
 }
@@ -32,10 +38,11 @@ async function cargadatos() {
 <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
 </svelte:head>
 <main>
-<h1>Importaciones</h1>
-<h2>Importaciones de alcohol y residuos</h2>
+<h1>Contaminación producida por la producción de vehículos</h1>
+<br>
 <div>
-En esta gráfica se representa el nivel de importación de alcohol comparado con los residuos producidos por pais
+Representación de la contaminacion producida por paises a lo largo del tiempo y
+comparado con el numero de vehiculos producidos.
 <br>
 <div id="myDiv"></div>
 </div>

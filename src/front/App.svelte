@@ -19,6 +19,7 @@
 	import giniChart from './efi/gini_index.svelte';
 	import crypto from './efi/bitcoinexchange.svelte';
 	import beerimports from './efi/beerimports.svelte';
+	import contamination from './efi/gce.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -36,6 +37,7 @@
 		"/efis/integrations/gini_index": giniChart,
 		"/efis/integrations/cryptocurrency": crypto,
 		"/efis/integrations/beerimports": beerimports,
+		"/efis/integrations/contamination": contamination,
 		"/efis/graph":efiGraph,
 		"/efis/:country/:year": editefi,
 		"/crimes": CrimeTable,
