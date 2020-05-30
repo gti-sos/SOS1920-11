@@ -21,6 +21,7 @@
 	import beerimports from './efi/beerimports.svelte';
 	import contamination from './efi/gce.svelte';
 	import efiintegrations from './efi/Integrations.svelte';
+	import swimrecords from './efi/swimrecords.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -41,8 +42,10 @@
 		"/efis/integrations/cryptocurrency": crypto,
 		"/efis/integrations/beerimports": beerimports,
 		"/efis/integrations/contamination": contamination,
+		"efis/integrations/swimrecords": swimrecords,
 		"/efis/graph":efiGraph,
 		"/efis/:country/:year": editefi,
+		//crimes
 		"/crimes": CrimeTable,
 		"/crimes/:country:/year": EditCrime,
 		
