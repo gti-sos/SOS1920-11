@@ -1,38 +1,38 @@
 <script>
  async function cargadatos() {
-    const resData = await fetch("/api/v1/books-exports");
+    const resData = await fetch("/api/v2/natality-stats");
     let data = await resData.json();
     let data_ploty=[];
     let countrys=[];
-    let books=[];
-    let editorials=[];
-    let graph_sectors=[];
+    let natalities=[];
+    let man_natalities=[];
+    let woman_natalities=[];
     data.forEach(element => {
         countrys.push(element.country);
-        books.push(element["exp_book"]);
-        editorials.push(element["exp_editorial"]);
-        graph_sectors.push(element["exp_graphic_sector"]);
+        natalities.push(element["natalities_total"]);
+        woman_natalities.push(element["natality_women"]);
+        man_natalities.push(element["natalitiy_men"]);
     });
     data_ploty.push({
         histfunc: "sum",
-        y: books,
+        y: natalities,
         x: countrys,
         type: "histogram",
-        name: "Libros Exportados"
+        name: "Natalidad total"
     });
     data_ploty.push({
         histfunc: "sum",
-        y: editorials,
+        y: woman_natalities,
         x: countrys,
         type: "histogram",
-        name: "Exportaciones de editoriales"
+        name: "Natalidad de mujeres"
     });
     data_ploty.push({
         histfunc: "sum",
-        y: graph_sectors,
+        y: man_natalities,
         x: countrys,
         type: "histogram",
-        name: "Exportaciones de sectores gráficos"
+        name: "Natalidad de hombres"
     });
     Plotly.newPlot('myDiv', data_ploty);
 }
@@ -41,9 +41,9 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
 </svelte:head>
 <main>
-<h1>Exportaciones de libros</h1>
+<h1>Natalidad por países</h1>
 <div>
-En esta gráfica se representan las exportaciones de libros por país 
+En esta gráfica se representa la natalidad de varios paises
 <br>
 <div id="myDiv"></div>
 </div>
