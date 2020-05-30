@@ -65,7 +65,7 @@ app.use(pathBeerimports, function(req, res) {
 	req.pipe(request(url)).pipe(res);
 });
 
-// grupo 28: produccion internacional, vehiculos, GCE
+// grupo 28: contaminacion global asociada a produccion de vehiculos.
 var pathGCE='/api/v1/gce';
 var apiServerHostGCE = 'https://sos1920-28.herokuapp.com';
 
@@ -83,6 +83,7 @@ app.use(pathswim, function(req, res) {
 	var url = apiServerHostswim + req.baseUrl + req.url;
 	console.log('piped: '+req.baseUrl + req.url);
 	req.pipe(request(url)).pipe(res);
+});
 //Acceso a rents-per-capita
 
 const rutaRPC = "/api/v1/rents-per-capita";
