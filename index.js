@@ -76,7 +76,7 @@ app.use(pathGCE, function(req, res) {
 });
 //grupo 22: ranking de posiciones de nadadores
 
-var pathswim='api/v1/swim-stats';
+var pathswim='/api/v1/swim-stats';
 var apiServerHostswim = 'https://sos1920-22.herokuapp.com';
 
 app.use(pathswim, function(req, res) {

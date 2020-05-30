@@ -42,7 +42,7 @@
 		"/efis/integrations/cryptocurrency": crypto,
 		"/efis/integrations/beerimports": beerimports,
 		"/efis/integrations/contamination": contamination,
-		"efis/integrations/swimrecords": swimrecords,
+		"/efis/integrations/swimrecords": swimrecords,
 		"/efis/graph":efiGraph,
 		"/efis/:country/:year": editefi,
 		//crimes
