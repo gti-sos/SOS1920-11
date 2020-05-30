@@ -43,6 +43,8 @@ async function cargagraph(){
 <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{cargagraph}"></script>
 </svelte:head>
 <main>
+<h1>Criptomonedas</h1>
+<h2>volumenes de comercio</h2>
 <figure class="highcharts-figure">
     <div id="container" ></div>
     <p class="highcharts-description">

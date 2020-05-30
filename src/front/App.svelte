@@ -33,6 +33,7 @@
 		"/analytics" : ComunChart,
 		"/rpcs/integrations/icm" : IcmChart,
 		"/rpcs/:country/:year" : EditRpc,
+		//efis
 		"/efis": efistable,
 		"/efis/integrations/gini_index": giniChart,
 		"/efis/integrations/cryptocurrency": crypto,
