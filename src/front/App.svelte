@@ -52,6 +52,7 @@
 		"/efis/:country/:year": editefi,
 		//crimes
 		"/crimes": CrimeTable,
+		"/crimes/integrations": Integrations,
 		"/crimes/integrations/traffic_accidents": trafficAccidents,
 		"/crimes/integrations/natality_stats": natalityStats,
 		"/crimes/integrations/sugarconsume": sugarConsume,
