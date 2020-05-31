@@ -22,6 +22,11 @@
 	import contamination from './efi/gce.svelte';
 	import efiintegrations from './efi/Integrations.svelte';
 	import swimrecords from './efi/swimrecords.svelte';
+	import trafficAccidents from './crime/trafficAccidents.svelte';
+	import natalityStats from './crime/natalityStats.svelte';
+	import sugarConsume from './crime/sugarConsume.svelte';
+	import drugOffences from './crime/drugOffences.svelte';
+	import bookExports from './crime/bookExports.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -47,6 +52,11 @@
 		"/efis/:country/:year": editefi,
 		//crimes
 		"/crimes": CrimeTable,
+		"/crimes/integrations/traffic_accidents": trafficAccidents,
+		"/crimes/integrations/natality_stats": natalityStats,
+		"/crimes/integrations/sugarconsume": sugarConsume,
+		"/crimes/integrations/book_exports": bookExports,
+		"/crimes/integrations/drug_offences": drugOffences,
 		"/crimes/:country:/year": EditCrime,
 		
 		
