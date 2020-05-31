@@ -9,8 +9,11 @@
 		Integrations:
 		</h2> 
 		<ul>
-		
-			
+			<li><a href="/#/crimes/integrations/bookExports">Exportaciones de libros</a>
+			<li><a href="/#/crimes/integrations/sugarConsume">Consumo de azúcar</a>
+			<li><a href="/#/crimes/integrations/drugOffences">Crímenes de drogas</a>
+			<li><a href="/#/crimes/integrations/natalityStats">Natalidad</a>
+			<li><a href="/#/crimes/integrations/trafficAccidents">Accidentes de tráfico</a>
 		</ul>
 
 	<a href="/#"><Button outline color="warning">INICIO</Button></a>
