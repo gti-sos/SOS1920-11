@@ -99,6 +99,14 @@ app.use(rutaRPC3,rpcs3);
 
 //Acceso a crime-rate-stats
 
+var pathnatal='/api/v2/natality-stats';
+var apiServerHostnatal = 'https://sos1920-01.herokuapp.com';
+
+app.use(pathnatal, function(req, res) {
+	var url = apiServerHostnatal + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
 
 const rutaCrime = "/api/v1/crime-rate-stats";
 const rutaCrime2 = "/api/v2/crime-rate-stats";
