@@ -14,7 +14,7 @@
 			<li><a href="/#/rpcs/integrations/countries">Countries</a>
 			<li><a href="/#/rpcs/integrations/covid19">COVID-19</a>
 			<li><a href="/#/rpcs/integrations/icm">ICM </a>
-			<li><a href="/#/rpcs/integrations/comun">Comun </a>
+			<li><a href="/#/analytics">Comun </a>
 		</ul>
 
 	<a href="/#"><Button outline color="warning">INICIO</Button></a>

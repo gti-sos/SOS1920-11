@@ -67,7 +67,7 @@
 </script>
 <main>
     <h2>Editando crimen para el país {params.country} y el año {params.year} {#if userMsg}<p style= "color:orange">{userMsg}</p>{/if}</h2>
-    {#await crime}
+    {#await crime};
 
     {:then crime}
     <table>

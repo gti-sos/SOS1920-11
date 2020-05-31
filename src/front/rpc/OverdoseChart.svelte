@@ -10,7 +10,7 @@
         let Data = [];
 
          let CountriesData1 = [];
-        const resData1 = await fetch("api/v2/rents-per-capita");
+        const resData1 = await fetch("api/v3/rents-per-capita");
         
         CountriesData1 = await resData1.json();
 

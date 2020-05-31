@@ -96,7 +96,7 @@
 </script>
 <main>
 <h2>Editando EFI del pais {params.country} y año {params.year}</h2>
-{#await efi}
+{#await efi};
 
 {:then efi}
 <div style="width:auto;
