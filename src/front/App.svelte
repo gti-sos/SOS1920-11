@@ -27,6 +27,7 @@
 	import sugarConsume from './crime/sugarConsume.svelte';
 	import drugOffences from './crime/drugOffences.svelte';
 	import bookExports from './crime/bookExports.svelte';
+	import Integrations2 from './crime/Integrations2.svelte';
 
 	const routes ={
 		"/" : Index,
@@ -52,7 +53,7 @@
 		"/efis/:country/:year": editefi,
 		//crimes
 		"/crimes": CrimeTable,
-		"/crimes/integrations": Integrations,
+		"/crimes/integrations": Integrations2,
 		"/crimes/integrations/traffic_accidents": trafficAccidents,
 		"/crimes/integrations/natality_stats": natalityStats,
 		"/crimes/integrations/sugarconsume": sugarConsume,
