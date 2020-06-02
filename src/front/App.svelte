@@ -9,13 +9,13 @@
 	import CrimeTable from './crime/CrimeTable.svelte';
 	import EditCrime from './crime/EditCrime.svelte';
 	import efiGraph from './efi/graphs.svelte';
-	import Integrations from './rpc/Integrations.svelte';
+	import RpcsIntegrations from './rpc/RpcsIntegrations.svelte';
 	import EmigrationChart from './rpc/EmigrationChart.svelte';
 	import CountriesChart from './rpc/CountriesChart.svelte';	
 	import OverdoseChart from './rpc/OverdoseChart.svelte';
 	import CovidChart from './rpc/CovidChart.svelte';
 	import IcmChart from './rpc/IcmChart.svelte';
-	import ComunChart from './rpc/ComunChart.svelte';
+	import CommonChart from './rpc/CommonChart.svelte';
 	import giniChart from './efi/gini_index.svelte';
 	import crypto from './efi/bitcoinexchange.svelte';
 	import beerimports from './efi/beerimports.svelte';
@@ -28,17 +28,19 @@
 	import drugOffences from './crime/drugOffences.svelte';
 	import bookExports from './crime/bookExports.svelte';
 	import Integrations2 from './crime/Integrations2.svelte';
+	import Integrations from './Integrations.svelte';
 
 	const routes ={
+		//rpcs
 		"/" : Index,
 		"/rpcs" : RpcsTable,
 		"/rpcs/graph" : RpcsGraph,
-		"/rpcs/integrations" : Integrations,
+		"/rpcs/integrations" : RpcsIntegrations,
 		"/rpcs/integrations/emigration" : EmigrationChart,
 		"/rpcs/integrations/countries" : CountriesChart,
 		"/rpcs/integrations/overdose" : OverdoseChart,
 		"/rpcs/integrations/covid19" : CovidChart,
-		"/analytics" : ComunChart,
+		"/analytics" : CommonChart,
 		"/rpcs/integrations/icm" : IcmChart,
 		"/rpcs/:country/:year" : EditRpc,
 		//efis
@@ -60,7 +62,8 @@
 		"/crimes/integrations/book_exports": bookExports,
 		"/crimes/integrations/drug_offences": drugOffences,
 		"/crimes/:country:/year": EditCrime,
-		
+		//integrations
+		"/integrations" : Integrations
 		
 	}
 </script>

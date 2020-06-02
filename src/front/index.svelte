@@ -26,6 +26,15 @@
 			<li><a href="http://sos1920-11.herokuapp.com/#/crimes">Crime Rates</a> 
 			<li><a href="/#/rpcs">Rents per Capita</a>
 		</ul>
+
+		<h2>
+		Graphic Analysis
+		</h2> 
+			
+		<ul>
+			<li><a href="/#/integrations">Integrations</a>
+			<li><a href="/#/analytics">Common Graph</a>
+		</ul>
 		<h2>
 			URL
 		</h2>
