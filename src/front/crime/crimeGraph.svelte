@@ -1,4 +1,7 @@
 <script>
+
+    import {onMount} from 'svelte';
+
     Highcharts.chart('container', {
     data: {
         table: 'datatable'
