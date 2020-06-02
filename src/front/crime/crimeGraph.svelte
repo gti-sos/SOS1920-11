@@ -10,7 +10,7 @@
         text: 'Data extracted from a HTML table in the page'
     },
     yAxis: {
-        allowDecimals: false,
+        allowDecimals: true,
         title: {
             text: 'Units'
         }
