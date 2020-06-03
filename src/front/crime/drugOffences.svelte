@@ -43,7 +43,7 @@
 <main>
 <h1>Crímenes de drogas</h1>
 <div>
-En esta gráfica se representan la cantidad de delitos relacionados con drogas por país
+    En esta gráfica se representan la cantidad de delitos relacionados con drogas por país
 <br>
 <div id="myDiv"></div>
 </div>
