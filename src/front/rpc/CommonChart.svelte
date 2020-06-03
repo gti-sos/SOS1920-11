@@ -20,23 +20,23 @@
         const resData3 = await fetch("/api/v2/crime-rate-stats");
         CrimeData = await resData3.json();
 
-        RpcData.filter(data => data.year == 2019).forEach((data) => {
+        RpcData.forEach((data) => {
             let country = { 
-		        'name': data.country,
+		        'name': data.country+"-"+data.year,
 		        'value': data.rpc
     	};
             RpcDataGraph.push(country);
         });     
-        EfiData.filter(data => data.year == 2019).forEach((data) => {
+        EfiData.forEach((data) => {
             let country = { 
-		        'name': data.country,
+		        'name': data.country+"-"+data.year,
 		        'value': data.efiindex
     	};
             EfiDataGraph.push(country);
         });
-        CrimeData.filter(data => data.year == 2019).forEach((data) => {
+        CrimeData.forEach((data) => {
             let country = { 
-		        'name': data.country,
+		        'name': data.country+"-"+data.year,
 		        'value': data.cr_rate
     	};
             CrimeDataGraph.push(country);
@@ -48,7 +48,7 @@
         height: '100%'
     },
     title: {
-        text: 'Rents per capita / Economic freedom indexes / Crime rate stats (2019)'
+        text: 'Rents per capita / Economic freedom indexes / Crime rate stats'
     },
     tooltip: {
         useHTML: true,
