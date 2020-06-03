@@ -22,7 +22,6 @@
     async function getRPC(){
         console.log('Fetching rpc..');
         const res = await fetch("/api/v3/rents-per-capita/"+params.country+"/"+params.year);
-
         if (res.ok){
             console.log("OK!");
             const json= await res.json();
