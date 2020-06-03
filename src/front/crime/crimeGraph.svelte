@@ -67,12 +67,12 @@ var myChart = new Chart(ctx,{
         type: 'column'
     },
     title: {
-        text: 'Data extracted from a HTML table in the page'
+        text: 'Crime Rate stats'
     },
     yAxis: {
         allowDecimals: true,
         title: {
-            text: 'Units'
+            text: 'Crime rates'
         }
     },
     tooltip: {
@@ -103,40 +103,40 @@ var myChart = new Chart(ctx,{
         <thead>
             <tr>
                 <th></th>
-                <th>Jane</th>
-                <th>John</th>
+                <th>Venezuela</th>
+                <th>España</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th>Crime Rate</th>
-                <td>3</td>
-                <td>4</td>
+                <td>84.49</td>
+                <td>31.77</td>
             </tr>
             <tr>
                 <th>Safe Rate</th>
-                <td>2</td>
-                <td>0</td>
+                <td>15.51</td>
+                <td>68.23</td>
             </tr>
             <tr>
                 <th>Homicide Rate</th>
-                <td>5</td>
-                <td>11</td>
+                <td>56.3</td>
+                <td>0.6</td>
             </tr>
             <tr>
                 <th>Homicide Count</th>
-                <td>1</td>
-                <td>1</td>
+                <td>17778</td>
+                <td>276</td>
             </tr>
             <tr>
                 <th>Theft Rate</th>
-                <td>2</td>
-                <td>4</td>
+                <td>39.39</td>
+                <td>42.21</td>
             </tr>
             <tr>
                 <th>Theft Count</th>
-                <td>2</td>
-                <td>4</td>
+                <td>213769</td>
+                <td>195910</td>
             </tr>
         </tbody>
     </table>
