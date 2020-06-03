@@ -46,7 +46,7 @@ let indices_year=[];
 
 async function cargaGraph(){
     
-    const resData = await fetch ("/api/v2/economic-freedom-indexes");
+    const resData = await fetch ("/api/v2/economic-freedom-indexes?year="+yearofplotting);
     
     let myData = await resData.json();
     let data_ploty = [];
