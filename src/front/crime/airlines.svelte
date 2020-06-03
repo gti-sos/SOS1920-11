@@ -42,7 +42,7 @@ async function cargadatos(){
 <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
 </svelte:head>
 <main>
-<h1>Dosis de drogas</h1>
+<h1>Aerolíneas</h1>
 <div>
     En esta gráfica se representan las dosis de diversas drogas
 <br>

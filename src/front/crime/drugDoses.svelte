@@ -1,4 +1,5 @@
-<script>
+<script>  
+
  async function cargadatos() {
     const resData = await fetch("https://iterar-mapi-us.p.rapidapi.com/api/reserpine/doses.json", {
 	    "method": "GET",
@@ -29,9 +30,9 @@
 <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
 </svelte:head>
 <main>
-<h1>Dosis de drogas</h1>
+<h1>Dosis de reserpina</h1>
 <div>
-    En esta gráfica se representan las dosis de diversas drogas
+    En esta gráfica se representan las dosis de la reserpina
 <br>
 <div id="myDiv"></div>
 </div>

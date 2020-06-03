@@ -141,6 +141,6 @@ var myChart = new Chart(ctx,{
         </tbody>
     </table>
     </figure>
-    <h2>Crime rate stats - Highcharts</h2>
+    <h2>Crime rate stats - Chart.js</h2>
     <canvas id="myChart" width="400" height="400"></canvas>
 </main>
