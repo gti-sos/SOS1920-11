@@ -14,6 +14,198 @@ const dbfile = path.join(__dirname, 'rpc.db');
 
 var db = new dataStore({ filename: dbfile, autoload: true });
 
+var init=[{ 
+	country: "Spain",
+	year: 2019,
+	rpc:26420,
+	piba:1244757,
+	pib1t:306678,
+	pib2t:310381,
+	pib3t:311917,
+	pib4t:315781,
+	vpy: 2.0,
+	continent: "Europe"
+},
+{ 
+	country: "Slovenia",
+	year: 2019,
+	rpc:22980,
+	piba:48007,
+	pib1t:11900,
+	pib2t:11961,
+	pib3t:12104,
+	pib4t:12200,
+	vpy: 2.4,
+	continent: "Europe"
+},
+{ 
+	country: "Slovakia",
+	year: 2019,
+	rpc:17270,
+	piba:94177,
+	pib1t:23205,
+	pib2t:23402,
+	pib3t:23614,
+	pib4t:23955,
+	vpy: 2.3,
+	continent: "Europe"
+},
+{ 
+	country: "Portugal",
+	year: 2019,
+	rpc:20650,
+	piba:212254,
+	pib1t:52641,
+	pib2t:52666,
+	pib3t:53256,
+	pib4t:53691,
+	vpy: 2.2,
+	continent: "Europe"
+},
+{ 
+	country: "France",
+	year: 2019,
+	rpc:36060,
+	piba:2418997,
+	pib1t:599741,
+	pib2t:603961,
+	pib3t:607191,
+	pib4t:608993,
+	vpy: 1.3,
+	continent: "Europe"
+},
+{ 
+	country: "Denmark",
+	year: 2019,
+	rpc:53370,
+	piba:310576,
+	pib1t:78703,
+	pib2t:78258,
+	pib3t:77397,
+	pib4t:76579,
+	vpy: 2.2,
+	continent: "Europe"
+},
+{ 
+	country: "Brasil",
+	year: 2018,
+	rpc:7562,
+	piba:1584004,
+	pib1t:403131,
+	pib2t:376765,
+	pib3t:398160,
+	pib4t:425216,
+	vpy: 1.3,
+	continent: "America"
+},
+{ 
+	country: "Germany",
+	year: 2019,
+	rpc:41350,
+	piba:3435990,
+	pib1t:869130,
+	pib2t:862026,
+	pib3t:856448,
+	pib4t:853979,
+	vpy: 0.5,
+	continent: "Europe"
+},
+{ 
+	country: "Japan",
+	year: 2018,
+	rpc:33160,
+	piba:4195748,
+	pib1t:1061050,
+	pib2t:1052282,
+	pib3t:1055801,
+	pib4t:1028226,
+	vpy: 0.3,
+	continent: "Asia"
+},
+{ 
+	country: "Japan",
+	year: 2019,
+	rpc:35883,
+	piba: 4540300,
+	pib1t:1142622,
+	pib2t:1169622,
+	pib3t:1125686,
+	pib4t:1104669,
+	vpy: 0.7,
+	continent: "Asia"
+},
+{ 
+	country: "Israel",
+	year: 2019,
+	rpc:39743,
+	piba:352959,
+	pib1t:92857,
+	pib2t:90412,
+	pib3t:86233,
+	pib4t:84040,
+	vpy: 3.5,
+	continent: "Asia"
+},
+{ 
+	country: "Canada",
+	year: 2019,
+	rpc:41923,
+	piba: 1550895,
+	pib1t:399850,
+	pib2t:393755,
+	pib3t:383262,
+	pib4t:374207,
+	vpy: 1.6,
+	continent: "America"
+},
+{ 
+	country: "Italia",
+	year: 2019,
+	rpc: 29610,
+	piba:1787664,
+	pib1t:448217,
+	pib2t:447673,
+	pib3t:445847,
+	pib4t:445572,
+	vpy: 0.3,
+	continent: "Europe"
+},
+{ 
+	country: "Australia",
+	year: 2019,
+	rpc: 50420,
+	piba:1269014,
+	pib1t:310242,
+	pib2t:310730,
+	pib3t:309913,
+	pib4t:307750,
+	vpy: 1.8,
+	continent: "Oceania"
+},
+{ 
+	country: "Italia",
+	year: 2018,
+	rpc: 29220,
+	piba:1765421,
+	pib1t:442365,
+	pib2t:440953,
+	pib3t:442171,
+	pib4t:440378,
+	vpy: 0.8,
+	continent: "Europe"
+},
+{ 
+	country: "Italia",
+	year: 2017,
+	rpc: 28690,
+	piba: 1736602,
+	pib1t:439706,
+	pib2t:435928,
+	pib3t:433200,
+	pib4t:429565,
+	vpy: 1.7,
+	continent: "Europe"
+}];
 
 //route handler
 router.use(function procesador(req,res,next){
@@ -25,199 +217,6 @@ router.use(function procesador(req,res,next){
 router.get('/loadInitialData',(req,res)=>{
 	db.remove({}, { multi: true }, function(err, numRemoved) {
 	});
-	var init=[{ 
-		'country': "Spain",
-		'year': 2019,
-		'rpc':26420,
-		'piba':1244757,
-		'pib1t':306678,
-		'pib2t':310381,
-		'pib3t':311917,
-		'pib4t':315781,
-		'vpy': 2.0,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Slovenia",
-		'year': 2019,
-		'rpc':22980,
-		'piba':48007,
-		'pib1t':11900,
-		'pib2t':11961,
-		'pib3t':12104,
-		'pib4t':12200,
-		'vpy': 2.4,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Slovakia",
-		'year': 2019,
-		'rpc':17270,
-		'piba':94177,
-		'pib1t':23205,
-		'pib2t':23402,
-		'pib3t':23614,
-		'pib4t':23955,
-		'vpy': 2.3,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Portugal",
-		'year': 2019,
-		'rpc':20650,
-		'piba':212254,
-		'pib1t':52641,
-		'pib2t':52666,
-		'pib3t':53256,
-		'pib4t':53691,
-		'vpy': 2.2,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "France",
-		'year': 2019,
-		'rpc':36060,
-		'piba':2418997,
-		'pib1t':599741,
-		'pib2t':603961,
-		'pib3t':607191,
-		'pib4t':608993,
-		'vpy': 1.3,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Denmark",
-		'year': 2019,
-		'rpc':53370,
-		'piba':310576,
-		'pib1t':78703,
-		'pib2t':78258,
-		'pib3t':77397,
-		'pib4t':76579,
-		'vpy': 2.2,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Brasil",
-		'year': 2018,
-		'rpc':7562,
-		'piba':1584004,
-		'pib1t':403131,
-		'pib2t':376765,
-		'pib3t':398160,
-		'pib4t':425216,
-		'vpy': 1.3,
-		'continent': "America"
-	},
-	{ 
-		'country': "Germany",
-		'year': 2019,
-		'rpc':41350,
-		'piba':3435990,
-		'pib1t':869130,
-		'pib2t':862026,
-		'pib3t':856448,
-		'pib4t':853979,
-		'vpy': 0.5,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Japan",
-		'year': 2018,
-		'rpc':33160,
-		'piba':4195748,
-		'pib1t':1061050,
-		'pib2t':1052282,
-		'pib3t':1055801,
-		'pib4t':1028226,
-		'vpy': 0.3,
-		'continent': "Asia"
-	},
-	{ 
-		'country': "Japan",
-		'year': 2019,
-		'rpc':35883,
-		'piba': 4540300,
-		'pib1t':1142622,
-		'pib2t':1169622,
-		'pib3t':1125686,
-		'pib4t':1104669,
-		'vpy': 0.7,
-		'continent': "Asia"
-	},
-	{ 
-		'country': "Israel",
-		'year': 2019,
-		'rpc':39743,
-		'piba':352959,
-		'pib1t':92857,
-		'pib2t':90412,
-		'pib3t':86233,
-		'pib4t':84040,
-		'vpy': 3.5,
-		'continent': "Asia"
-	},
-	{ 
-		'country': "Canada",
-		'year': 2019,
-		'rpc':41923,
-		'piba': 1550895,
-		'pib1t':399850,
-		'pib2t':393755,
-		'pib3t':383262,
-		'pib4t':374207,
-		'vpy': 1.6,
-		'continent': "America"
-	},
-	{ 
-		'country': "Italia",
-		'year': 2019,
-		'rpc': 29610,
-		'piba':1787664,
-		'pib1t':448217,
-		'pib2t':447673,
-		'pib3t':445847,
-		'pib4t':445572,
-		'vpy': 0.3,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Australia",
-		'year': 2019,
-		'rpc': 50420,
-		'piba':1269014,
-		'pib1t':310242,
-		'pib2t':310730,
-		'pib3t':309913,
-		'pib4t':307750,
-		'vpy': 1.8,
-		'continent': "Oceania"
-	},
-	{ 
-		'country': "Italia",
-		'year': 2018,
-		'rpc': 29220,
-		'piba':1765421,
-		'pib1t':442365,
-		'pib2t':440953,
-		'pib3t':442171,
-		'pib4t':440378,
-		'vpy': 0.8,
-		'continent': "Europe"
-	},
-	{ 
-		'country': "Italia",
-		'year': 2017,
-		'rpc': 28690,
-		'piba': 1736602,
-		'pib1t':439706,
-		'pib2t':435928,
-		'pib3t':433200,
-		'pib4t':429565,
-		'vpy': 1.7,
-		'continent': "Europe"
-	}];
-
 	db.insert(init);
 	res.sendStatus(201,"DATA CREATED");
 });

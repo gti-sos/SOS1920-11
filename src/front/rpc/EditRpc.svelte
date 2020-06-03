@@ -21,7 +21,7 @@
 
     async function getRPC(){
         console.log('Fetching rpc..');
-        const res = await fetch("/api/v2/rents-per-capita/"+params.country+"/"+params.year);
+        const res = await fetch("/api/v3/rents-per-capita/"+params.country+"/"+params.year);
 
         if (res.ok){
             console.log("OK!");
@@ -29,6 +29,7 @@
             rpc = json ;
             country = rpc.country;
             year = rpc.year;
+            continent = rpc.continent;
             updatedRPC = rpc.rpc;
             updatedPiba = rpc.piba;
             updatedPib1t = rpc.pib1t;
@@ -50,6 +51,7 @@
 			body: JSON.stringify({
                 country: country,
                 year: year,
+                continent: continent,
                 rpc: updatedRPC,
                 piba: updatedPiba,
                 pib1t: updatedPib1t,
@@ -77,6 +79,7 @@
 			<tr>
 				<td>Country</td>
 				<td>Year</td>
+				<td>Continent</td>
 				<td>RPC</td>
 				<td>PIB A</td>
 				<td>PIB 1T</td>
@@ -91,6 +94,7 @@
 			<tr>
 				<td>{rpc.country}</td>
 				<td>{rpc.year}</td>
+				<td>{rpc.continent}</td>
 				<td><input style="width: 100px;" bind:value={updatedRPC} /></td>
 				<td><input style="width: 100px;" bind:value={updatedPiba} /></td>
 				<td><input style="width: 100px;" bind:value={updatedPib1t} /></td>
