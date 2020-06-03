@@ -1,29 +1,16 @@
 <script>
-let CountriesData = [];
-let chartData =[];
-var nun = 0;
-var bb = 0;
-async function cuentaAeros(p, a){
-    for (i in a) {
-        if (i.nameCountry == p.nameCountry){
-            bb = bb +1;
-        }
-    }
-    return bb;
-};
-async function cargadatos(){
-    const resData = await fetch("https://iatacodes-iatacodes-v1.p.rapidapi.com/api/v5/airports", {
+ async function cargadatos() {
+    const resData = await fetch("https://iterar-mapi-us.p.rapidapi.com/api/reserpine/doses.json", {
 	    "method": "GET",
 	    "headers": {
-		"x-rapidapi-host": "leopieters-iata-and-icao-v1.p.rapidapi.com",
+		"x-rapidapi-host": "iterar-mapi-us.p.rapidapi.com",
 	    "x-rapidapi-key": "3bccf248c4msh3d4a9dedc2c020cp1a889bjsn31014b11cae5"
-	    }
-    });
-
+        }});
+        
     let data = await resData.json();
     let data_ploty=[];
-    let countries=[];
-    let aeropuertos=[];
+    let drugs=[];
+    let dosis=[];
     data.forEach(element => {
         drugs.push(element.name);
         dosis.push(element[""]);
