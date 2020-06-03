@@ -52,7 +52,7 @@
 		<h2>
 			Sobre nuestras APIS
 		</h2>
-		En <a href="https://sos1920-11.herokuapp.com/#/about">este enlace</a> podrás acceder a una lista de videos explicando nuestras API
+		En <a href="/#/about">este enlace</a> podrás acceder a una lista de videos explicando nuestras API
 		<br>
 
 		</div>
