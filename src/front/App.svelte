@@ -29,6 +29,7 @@
 	import bookExports from './crime/bookExports.svelte';
 	import Integrations2 from './crime/Integrations2.svelte';
 	import Integrations from './Integrations.svelte';
+	import about from './about.svelte';
 
 	const routes ={
 		//rpcs
@@ -63,7 +64,8 @@
 		"/crimes/integrations/drug_offences": drugOffences,
 		"/crimes/:country:/year": EditCrime,
 		//integrations
-		"/integrations" : Integrations
+		"/integrations" : Integrations,
+		"/about": about
 		
 	}
 </script>
