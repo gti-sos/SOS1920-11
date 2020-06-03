@@ -28,6 +28,8 @@
 	import drugOffences from './crime/drugOffences.svelte';
 	import bookExports from './crime/bookExports.svelte';
 	import Integrations2 from './crime/Integrations2.svelte';
+	import population from './crime/population.svelte';
+	import countryCodes from './crime/countryCodes.svelte';
 	import Integrations from './Integrations.svelte';
 	import about from './about.svelte';
 
@@ -57,6 +59,8 @@
 		//crimes
 		"/crimes": CrimeTable,
 		"/crimes/integrations": Integrations2,
+		"/crimes/integrations/population":population,
+		"/crimes/integrations/countrycodes":countryCodes, 
 		"/crimes/integrations/traffic_accidents": trafficAccidents,
 		"/crimes/integrations/natality_stats": natalityStats,
 		"/crimes/integrations/sugarconsume": sugarConsume,
