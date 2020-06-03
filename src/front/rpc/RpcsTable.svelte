@@ -168,9 +168,9 @@
 		}
 		if(queryRpc.continent!=""){
 			if (query =="?") {
-				query = query + "year="+queryRpc.continent;
+				query = query + "continent="+queryRpc.continent;
 			}else{
-				query = query + "&year="+queryRpc.continent;
+				query = query + "&continent="+queryRpc.continent;
 			}
 		}
 		if(queryRpc.rpc!=""){
