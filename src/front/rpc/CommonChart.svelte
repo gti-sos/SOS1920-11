@@ -70,7 +70,7 @@
                 filter: {
                     property: 'y',
                     operator: '>',
-                    value: 10000
+                    value: 30
                 },
                 style: {
                     color: 'black',
@@ -81,15 +81,15 @@
         }
     },
             series:  [{
-        name: 'Rents-per-capita',
+        name: 'Rents-per-capita (€)',
         data: RpcDataGraph
     },
     {
-        name: 'Economic-freedom-indexes',
+        name: 'Economic-freedom-indexes (%)',
         data: EfiDataGraph
     },
     {
-        name: 'Crime-rate-stats',
+        name: 'Crime-rate-stats (%)',
         data: CrimeDataGraph
     }]
 });
