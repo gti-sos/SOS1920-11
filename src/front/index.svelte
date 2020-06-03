@@ -49,5 +49,11 @@
 			<li><a href=" https://documenter.getpostman.com/view/10701451/Szf3aVio">API v1</a><a href="https://documenter.getpostman.com/view/10701451/Szme4dYR">API v2</a> (developed by José Calcedo Vázquez)</li>
 			<li><a href="https://documenter.getpostman.com/view/9107347/Szme4dme">API RPC V1</a> (Deprecated) // <a href="https://documenter.getpostman.com/view/9107347/SzYUa25s">RPC API v2</a>  (Deprecated) // <a href="https://documenter.getpostman.com/view/9107347/SztA7UZB?version=latest">RPC API v3</a>(developed by Alberto Rubio Hurtado)</li>
 		</ul>
+		<h2>
+			Sobre nuestras APIS
+		</h2>
+		En <a href="https://sos1920-11.herokuapp.com/#/about">este enlace</a> podrás acceder a una lista de videos explicando nuestras API
+		<br>
+
 		</div>
 </main>
