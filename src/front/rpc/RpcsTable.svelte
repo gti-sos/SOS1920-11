@@ -358,7 +358,7 @@
 			<tr>
 				<td><input style="width: 100px;" bind:value="{queryRpc.country}" /></td>
 				<td><input style="width: 50px;" bind:value="{queryRpc.year}" /></td>
-				<td><input style="width: 100px;" bind:value="{queryRpc.country}" /></td>
+				<td><input style="width: 100px;" bind:value="{queryRpc.continent}" /></td>
 				<td><input style="width: 100px;" bind:value={queryRpc.rpc} /></td>
 				<td><input style="width: 100px;" bind:value={queryRpc.piba} /></td>
 				<td><input style="width: 100px;" bind:value={queryRpc.pib1t} /></td>

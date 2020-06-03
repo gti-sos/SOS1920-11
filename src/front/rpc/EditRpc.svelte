@@ -8,6 +8,7 @@
     let rpc = {};
     let country;
     let year;
+    let continent;
     let updatedRPC;
     let updatedPiba;
     let updatedPib1t;
