@@ -24,7 +24,7 @@ var crimeratestats = [
         cr_saferate: 15.51,
         cr_homicrate: 56.3,
         cr_homicount: 17778,
-        cr_theftrate: 1139.39,
+        cr_theftrate: 39.39,
         cr_theftcount: 213769
     },
     {
@@ -34,7 +34,7 @@ var crimeratestats = [
         cr_saferate: 68.23,
         cr_homicrate: 0.6,
         cr_homicount: 276,
-        cr_theftrate: 422.21,
+        cr_theftrate: 42.21,
         cr_theftcount: 195910
     },
     {
@@ -44,7 +44,7 @@ var crimeratestats = [
         cr_saferate: 29.38,
         cr_homicrate: 30.5,
         cr_homicount: 63895,
-        cr_theftrate: 126.7,
+        cr_theftrate: 12.67,
         cr_theftcount: 256418
     },
     {
@@ -54,8 +54,18 @@ var crimeratestats = [
         cr_saferate: 60.00,
         cr_homicrate: 30.5,
         cr_homicount: 23895,
-        cr_theftrate: 126.7,
+        cr_theftrate: 12.67,
         cr_theftcount: 16418
+	},
+	{
+        country: 'Grecia',
+        year: 2020,
+        cr_rate: 30.00,
+        cr_saferate: 70.00,
+        cr_homicrate: 10.5,
+        cr_homicount: 1895,
+        cr_theftrate: 21.7,
+        cr_theftcount: 1498
     }
 ];
 

@@ -39,6 +39,9 @@ var myChart = new Chart(ctx,{
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)'
             ],
             borderWidth: 1
         }]
@@ -89,11 +92,55 @@ var myChart = new Chart(ctx,{
 <main>
     <h2>Crime rate stats - Highcharts</h2>
     <figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
+        <div id="container"></div>
+        <p class="highcharts-description">
         En este gráfico podemos apreciar la tasa de criminalidad y de seguridad de varios países
-        dadas por el índice de asesinatos y el de robos por país.
+        dadas por el índice de asesinatos y el de robos por país. Los datos de la tabla y del gráfico no son
+        todos los recursos de mi aplicación. 
     </p>
+
+    <table id="datatable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Jane</th>
+                <th>John</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Crime Rate</th>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <th>Safe Rate</th>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <th>Homicide Rate</th>
+                <td>5</td>
+                <td>11</td>
+            </tr>
+            <tr>
+                <th>Homicide Count</th>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <th>Theft Rate</th>
+                <td>2</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <th>Theft Count</th>
+                <td>2</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
+    </figure>
     <h2>Crime rate stats - Highcharts</h2>
     <canvas id="myChart" width="400" height="400"></canvas>
 </main>
