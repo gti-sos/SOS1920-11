@@ -1,23 +1,37 @@
 <script>
-
+let paises= [];
 import {onMount} from 'svelte';
 
 async function cargaLabels(){
 
-    const resData = await fetch("/api/v3/rents-per-capita");
+    const resData = await fetch("/api/v2/crime-rate-stats");
     datos = await resData.json;
+    for (x in datos){
+        paises.push(x.country);
+    } 
+    return paises;
+};
 
-}
+async function cargaRates(){
+    const resData = await fetch("/api/v2/crime-rate-stats");
+    datos = await resData.json;
+    for (x in datos){
+        paises.push(x.cr_rate);
+    } 
+    return paises;
+};  
 
 var Chart = require('chart.js');
 var ctx = document.getElementById('myChart');
+x1 = cargaLabels;
+x2 = cargaRates;
 var myChart = new Chart(ctx,{
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: x1,
         datasets: [{
             label: 'Crime rate stats',
-            data: [12, 19, 3, 5, 2, 3],
+            data: x2,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -41,15 +55,12 @@ var myChart = new Chart(ctx,{
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: false
                 }
             }]
         }
     }
 });
-
-
-
 
     Highcharts.chart('container', {
     data: {
