@@ -8,6 +8,7 @@
 	let rpcs = [];
 	let newRpc = {
 		country: "",
+		continent: "",
 		year: 0,
 		rpc: 0,
 		piba: 0,
@@ -20,6 +21,7 @@
 	
 	let queryRpc = {
 		country: "",
+		continent: "",
 		year: "",
 		rpc: "",
 		piba: "",
@@ -84,23 +86,25 @@
 	}
 
 	async function insertRPC(){
-		
-		if(newRpc.country!="" && !isNaN(parseInt(newRpc.year))){
-			rpcs.forEach(x => {
-			if(x.country ==newRpc.country && x.year == newRpc.year){
-				userMsg="El dato de ese año y país ya existe.";
-			}
-			});
 
 			newRpc.year= parseInt(newRpc.year);
 			newRpc.rpc= parseInt(newRpc.rpc);
-			newRpc.rpc= parseInt(newRpc.continent);
 			newRpc.piba= parseInt(newRpc.piba);
 			newRpc.pib1t= parseInt(newRpc.pib1t);
 			newRpc.pib2t= parseInt(newRpc.pib2t);
 			newRpc.pib3t= parseInt(newRpc.pib3t);
 			newRpc.pib4t= parseInt(newRpc.pib4t);
 			newRpc.vpy= parseFloat(newRpc.vpy);
+		
+		if(newRpc.country!=""&& !isNaN(newRpc.year) && newRpc.year>1900 &&
+				((newRpc.continent=="Asia") || (newRpc.continent=="America")|| (newRpc.continent=="Africa")|| (newRpc.continent=="Europe")|| (newRpc.continent=="Oceania"))){
+			rpcs.forEach(x => {
+			if(x.country ==newRpc.country && x.year == newRpc.year){
+				userMsg="El dato de ese año y país ya existe.";
+			}
+			});
+
+			
 		
 			if(userMsg!="El dato de ese año y país ya existe."){
 				console.log('Inserting rpc... '+ JSON.stringify(newRpc));
@@ -120,8 +124,8 @@
 		
 		
 		}else{
-			userMsg = "El dato insertado no tiene nombre/año válido/s .";
-			console.log('Inserted rpc has no valid name or valid year.');
+			userMsg = "El dato insertado no tiene nombre/año/continente válido/s .";
+			console.log('Inserted rpc has no valid name, year or continent.');
 		}
 	}
 
@@ -275,6 +279,7 @@
 <main>
 	<h1><a href="/#/">SOS1920-11</a></h1>
 	<h2>RPCS GUI</h2>
+	<p>*Tips: Country no debe estar vacío / El año debe ser superior a 1900 / Continente debe ser Africa, Asia, America, Europe u Oceania</p>
 	<a href="/#"><Button outline color="warning">INICIO</Button></a>
 	<Button outline color="danger"  on:click={loadInitialData}>CARGAR DATOS INCIALES</Button>
 	<a href="/#/rpcs/graph"><Button outline color="primary">ANÁLISIS GRÁFICO</Button></a>
