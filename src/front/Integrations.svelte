@@ -31,6 +31,8 @@
 			<li><a href="/#/crimes/integrations/drugOffences">Crímenes de drogas</a>
 			<li><a href="/#/crimes/integrations/natalityStats">Natalidad</a>
 			<li><a href="/#/crimes/integrations/trafficAccidents">Accidentes de tráfico</a>
+			<li><a href="/#/crimes/integrations/population">Población total por país</a>
+			<li><a href="/#/crimes/integrations/countryCodes">Código de cada país</a>
 		</ul>
 
 	<a href="/#"><Button outline color="warning">INICIO</Button></a>
