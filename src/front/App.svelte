@@ -9,6 +9,7 @@
 	import CrimeTable from './crime/CrimeTable.svelte';
 	import EditCrime from './crime/EditCrime.svelte';
 	import efiGraph from './efi/graphs.svelte';
+	import crimeGraph from './crime/crimeGraph.svelte';
 	import RpcsIntegrations from './rpc/RpcsIntegrations.svelte';
 	import EmigrationChart from './rpc/EmigrationChart.svelte';
 	import CountriesChart from './rpc/CountriesChart.svelte';	
@@ -61,6 +62,7 @@
 		"/crimes/integrations": Integrations2,
 		"/crimes/integrations/population":population,
 		"/crimes/integrations/countrycodes":countryCodes, 
+		"/crimes/graph": crimeGraph,
 		"/crimes/integrations/traffic_accidents": trafficAccidents,
 		"/crimes/integrations/natality_stats": natalityStats,
 		"/crimes/integrations/sugarconsume": sugarConsume,
