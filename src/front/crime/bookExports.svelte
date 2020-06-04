@@ -1,4 +1,5 @@
 <script>
+
 import Button from "sveltestrap/src/Button.svelte";
  async function cargadatos() {
      console.log("cargando datos...");
@@ -42,7 +43,7 @@ import Button from "sveltestrap/src/Button.svelte";
 }
 </script>
 <svelte:head>
-<script src='https://cdn.plot.ly/plotly-latest.min.js' on:click="{cargadatos}"></script>
+<script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
 </svelte:head>
 <main>
 <h1>Exportaciones de libros</h1>

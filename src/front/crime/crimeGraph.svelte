@@ -1,63 +1,78 @@
 <script>
 let paises= [];
 import {onMount} from 'svelte';
+import Button from "sveltestrap/src/Button.svelte";
 
 //Chart.js
-
-async function cargaLabels(){
-
+async function cargadatos (){
     const resData = await fetch("/api/v2/crime-rate-stats");
-    datos = await resData.json;
-    for (x in datos){
-        paises.push(x.country);
-    } 
-    return paises;
+    let data = await resData.json();
+    let data_ploty=[];
+    let countries=[];
+    let crimerates=[];
+    let saferates=[];
+    let theftrates=[];
+    let theftcounts = [];
+    let homirates=[];
+    let homicounts = [];
+    data.forEach(element => {
+        countries.push(element.country);
+        crimerates.push(element["cr_rate"]);
+        saferates.push(element["cr_saferate"]);
+        theftrates.push(element["cr_theftrate"]);
+        theftcounts.push(element["cr_theftcount"]);
+        homirates.push(element["cr_homicrate"]);
+        homicounts.push(element["cr_homicount"]);
+    });
+    data_ploty.push({
+        histfunc: "sum",
+        y: crimerates,
+        x: countries,
+        type: "histogram",
+        name: "Criminalidad"
+    });
+    data_ploty.push({
+        histfunc: "sum",
+        y: saferates,
+        x: countries,
+        type: "histogram",
+        name: "Tasa de seguridad"
+    });
+    data_ploty.push({
+        histfunc: "sum",
+        y: theftrates,
+        x: countries,
+        type: "histogram",
+        name: "Tasa de robo"
+    });
+    data_ploty.push({
+        histfunc: "sum",
+        y: theftcounts,
+        x: countries,
+        type: "histogram",
+        name: "Conteo de robos"
+    });
+    data_ploty.push({
+        histfunc: "sum",
+        y: homirates,
+        x: countries,
+        type: "histogram",
+        name: "Tasa de homicidios"
+    });
+    data_ploty.push({
+        histfunc: "sum",
+        y: homicounts,
+        x: countries,
+        type: "histogram",
+        name: "Conteo de homicidios"
+    });
+    Plotly.newPlot('myDiv', data_ploty);
 };
 
-async function cargaRates(){
-    const resData = await fetch("/api/v2/crime-rate-stats");
-    datos = await resData.json;
-    for (x in datos){
-        paises.push(x.cr_rate);
-    } 
-    return paises;
-};  
-
-var Chart = require('chart.js');
-var ctx = document.getElementById('myChart');
-var x1 = cargaLabels();
-var x2 = cargaRates();
-var myChart = new Chart(ctx,{
-    type: 'bar',
-    data: {
-        labels: x1,
-        datasets: [{
-            label: 'Crime rate stats',
-            data: x2,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 99, 132, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: false
-                }
-            }]
-        }
-    }
-});
-
 //Highcharts
+async function cargaHigh() {
+
+    const resData = await fetch("/api/v2/crime-rate-stats");
 
     Highcharts.chart('container', {
     data: {
@@ -82,15 +97,20 @@ var myChart = new Chart(ctx,{
         }
     }
 });
+};
+
 </script>
 <svelte:head>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" ></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{cargaHigh}"></script>
 </svelte:head>
 <main>
     <h2>Crime rate stats - Highcharts</h2>
+    
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
@@ -142,5 +162,8 @@ var myChart = new Chart(ctx,{
     </table>
     </figure>
     <h2>Crime rate stats - Chart.js</h2>
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <div id="myDiv">
+
+    </div>
+
 </main>
