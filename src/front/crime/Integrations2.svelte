@@ -9,7 +9,7 @@
 		Integrations:
 		</h2> 
 		<ul>
-			<li><a href="/#/crimes/integrations/bookExports">Exportaciones de libros</a>
+			<li><a href="/#/crimes/integrations/book_exports">Exportaciones de libros</a>
 			<li><a href="/#/crimes/integrations/sugarConsume">Consumo de azúcar</a>
 			<li><a href="/#/crimes/integrations/drugOffences">Crímenes de drogas</a>
 			<li><a href="/#/crimes/integrations/natalityStats">Natalidad</a>

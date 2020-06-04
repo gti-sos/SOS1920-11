@@ -26,7 +26,7 @@
 		</ul>
         <ul>
         <h3>CRIMES INTEGRATIONS</h3>
-			<li><a href="/#/crimes/integrations/bookExports">Exportaciones de libros</a>
+			<li><a href="/#/crimes/integrations/book_exports">Exportaciones de libros</a>
 			<li><a href="/#/crimes/integrations/sugarConsume">Consumo de azúcar</a>
 			<li><a href="/#/crimes/integrations/drugOffences">Crímenes de drogas</a>
 			<li><a href="/#/crimes/integrations/natality_stats">Natalidad</a>

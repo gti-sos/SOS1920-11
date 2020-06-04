@@ -126,7 +126,7 @@ app.use(path2, function(req, res) {
 	req.pipe(request(url)).pipe(res);
 });
 
-var path3='/api/v1/book-exports';
+var path3='/api/v1/books-exports';
 var apiServerHost3 = 'https://sos1920-05.herokuapp.com';
 
 app.use(path3, function(req, res) {

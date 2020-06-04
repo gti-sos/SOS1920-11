@@ -9,10 +9,14 @@
     let woman_natalities=[];
     data.forEach(element => {
         countrys.push(element.country);
-        natalities.push(element["natalities_total"]);
+        natalities.push(element["natality_totals"]);
         woman_natalities.push(element["natality_women"]);
-        man_natalities.push(element["natalitiy_men"]);
+        man_natalities.push(element["natality_men"]);
     });
+    
+    console.log("numero total de natalidades:", natalities);
+    console.log("numero total de natalidades hombres:", man_natalities);
+    console.log("numero total de natalidades mujeres:", woman_natalities);
     data_ploty.push({
         histfunc: "sum",
         y: natalities,
