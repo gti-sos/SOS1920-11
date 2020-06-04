@@ -1,6 +1,7 @@
 <script>
 let linkEFIS= "https://youtu.be/pHpb6nUrVC8";
 let linkRpcs = "https://youtu.be/PEMHXeP17-g";
+let linkCrimes = "https://youtu.be/NBy4LSOhF2w";
 </script>
 <main>
 
@@ -11,7 +12,7 @@ Los enlaces llevarán a videos de Youtube ocultos donde informarse al respecto:
 </p>
 <ul>
 <li><a href={linkEFIS} target="_blank">Economic Freedom Indexes</a></li>
-<li><a>Crime Rates Stats</a></li>
+<li><a href={linkCrimes} target="_blank">Crime Rates Stats</a></li>
 <li><a href={linkRpcs} target="_blank">Rents per Capita</a></li>
 </ul>
 
