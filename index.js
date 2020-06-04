@@ -99,6 +99,15 @@ app.use(rutaRPC3,rpcs3);
 
 //Acceso a crime-rate-stats
 
+
+
+const rutaCrime = "/api/v1/crime-rate-stats";
+const rutaCrime2 = "/api/v2/crime-rate-stats";
+var rcrime2 = require("./src/back/crime/v2/API_jose2");
+var rcrime=  require('./src/back/crime/v1/API_jose');
+app.use(rutaCrime,rcrime);
+app.use(rutaCrime2, rcrime2);
+
 var pathnatal='/api/v2/natality-stats';
 var apiServerHostnatal = 'https://sos1920-01.herokuapp.com';
 
@@ -108,12 +117,42 @@ app.use(pathnatal, function(req, res) {
 	req.pipe(request(url)).pipe(res);
 });
 
-const rutaCrime = "/api/v1/crime-rate-stats";
-const rutaCrime2 = "/api/v2/crime-rate-stats";
-var rcrime2 = require("./src/back/crime/v2/API_jose2");
-var rcrime=  require('./src/back/crime/v1/API_jose');
-app.use(rutaCrime,rcrime);
-app.use(rutaCrime2, rcrime2);
+var path2='/api/v2/sugarconsume';
+var apiServerHost2 = 'https://sos1920-30.herokuapp.com';
+
+app.use(path2, function(req, res) {
+	var url = apiServerHost2 + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+
+var path3='/api/v1/book-exports';
+var apiServerHost3 = 'https://sos1920-05.herokuapp.com';
+
+app.use(path3, function(req, res) {
+	var url = apiServerHost3 + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+
+var path4='/api/v2/traffic-accidents';
+var apiServerHost4 = 'https://sos1920-02.herokuapp.com';
+
+app.use(path4, function(req, res) {
+	var url = apiServerHost4 + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+
+var path5='/api/v1/drug_offences';
+var apiServerHost5 = 'https://sos1920-12.herokuapp.com';
+
+app.use(path5, function(req, res) {
+	var url = apiServerHost5 + req.baseUrl + req.url;
+	console.log('piped: '+req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+
 
 //Server start up
 app.listen(port, () => {

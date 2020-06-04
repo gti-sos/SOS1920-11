@@ -23,6 +23,7 @@
 	import contamination from './efi/gce.svelte';
 	import efiintegrations from './efi/Integrations.svelte';
 	import swimrecords from './efi/swimrecords.svelte';
+	
 	import trafficAccidents from './crime/trafficAccidents.svelte';
 	import natalityStats from './crime/natalityStats.svelte';
 	import sugarConsume from './crime/sugarConsume.svelte';

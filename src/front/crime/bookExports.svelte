@@ -1,4 +1,5 @@
 <script>
+import Button from "sveltestrap/src/Button.svelte";
  async function cargadatos() {
     const resData = await fetch("/api/v1/books-exports");
     let data = await resData.json();
@@ -13,6 +14,7 @@
         editorials.push(element["exp_editorial"]);
         graph_sectors.push(element["exp_graphic_sector"]);
     });
+    console.log(books,editorials,graph_sectors);
     data_ploty.push({
         histfunc: "sum",
         y: books,
@@ -38,12 +40,13 @@
 }
 </script>
 <svelte:head>
-<script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 </svelte:head>
 <main>
 <h1>Exportaciones de libros</h1>
 <div>
-En esta gráfica se representan las exportaciones de libros por país 
+En esta gráfica se representan las exportaciones de libros por país:
+<button on:click={cargadatos}>Cargar</button> 
 <br>
 <div id="myDiv"></div>
 </div>

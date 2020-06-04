@@ -1,6 +1,7 @@
 <script>
  async function cargadatos() {
     const resData = await fetch("/api/v2/traffic-accidents");
+    console.log(resData.status);
     let data = await resData.json();
     let data_ploty=[];
     let provincias=[];

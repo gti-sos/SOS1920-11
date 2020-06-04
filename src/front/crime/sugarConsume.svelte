@@ -1,22 +1,25 @@
 <script>
  async function cargadatos() {
     const resData = await fetch("/api/v2/sugarconsume");
-    let data = await resData.json();
+    console.log(resData.status);
+    let data = await resData.json();   
+    
     let data_ploty=[];
     let countrys=[];
     let consumes=[];
     data.forEach(element => {
-        countrys.push(element.country);
+        countrys.push(element["place"]);
         consumes.push(element["sugarconsume"]);
     });
-    data_ploty.push({
-        histfunc: "sum",
-        y: consumes,
-        x: countrys,
-        type: "histogram",
-        name: "Consumo de azucar"
-    });
-    Plotly.newPlot('myDiv', data_ploty);
+    console.log(countrys,consumes);
+    var data1 = [
+  {
+    x: countrys,
+    y: consumes,
+    type: 'bar'
+  }
+];
+    Plotly.newPlot('myDiv', data1);
 }
 </script>
 <svelte:head>
