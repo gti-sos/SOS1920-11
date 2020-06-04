@@ -23,8 +23,8 @@ async function cargadatos(){
     });
     data_ploty.push({
         histfunc: "sum",
-        y: dosis,
-        x: drugs,
+        y: poblacion,
+        x: countries,
         type: "histogram",
         name: "Poblacion de paises"
     });

@@ -8,14 +8,19 @@
 	"x-rapidapi-key": "3bccf248c4msh3d4a9dedc2c020cp1a889bjsn31014b11cae5"
         }});
         
-    let data = await resData.json();
+    let dataapiexterna = await resData.json();
+    console.log(dataapiexterna);
     let data_ploty=[];
     let paises=[];
     let codigos=[];
-    data.forEach(element => {
+    for (let index = 0; index < dataapiexterna.length; index++) {
+        let element= dataapiexterna[index];
         paises.push(element.name);
         codigos.push(element["countryCode"]);
-    });
+        
+    }
+    console.log(paises);
+    console.log(codigos);
     data_ploty.push({
         histfunc: "sum",
         y: codigos,
