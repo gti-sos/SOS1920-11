@@ -1,9 +1,6 @@
 <script>
 let paises= [];
-import {onMount} from 'svelte';
-import Button from "sveltestrap/src/Button.svelte";
 
-//Chart.js
 async function cargadatos (){
     const resData = await fetch("/api/v2/crime-rate-stats");
     let data = await resData.json();
@@ -24,6 +21,34 @@ async function cargadatos (){
         homirates.push(element["cr_homicrate"]);
         homicounts.push(element["cr_homicount"]);
     });
+//....................................
+    let crratemedio = crimerates.reduce((a, b) => a + b, 0)/crimerates.length;
+    let sfratemedio= 100.0 - crratemedio;
+    let thefmedio= theftrates.reduce((a, b) => a + b, 0)/theftrates.length;
+    let hommedio = homirates.reduce((a, b) => a + b, 0)/homirates.length;
+    Highcharts.chart('contenedor1', {
+        
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Crime Rate stats'
+        },
+        xAxis:{
+            categories:["crime rate medio","safe rate medio", "tasa homicidios medios","tasa robo medio"]
+        },
+        yAxis: {
+            allowDecimals: true,
+            title: {
+                text: 'Crime rates'
+            }
+        },
+        series:{
+            name: "Datos medios",
+            data:[crratemedio,sfratemedio,thefmedio,hommedio]
+        }
+    });
+//....................................
     data_ploty.push({
         histfunc: "sum",
         y: crimerates,
@@ -68,41 +93,17 @@ async function cargadatos (){
     });
     Plotly.newPlot('myDiv', data_ploty);
 
-    let crratemedio = crimerates.reduce((a, b) => a + b, 0)/crimerates.length;
-    let sfratemedio= 100.0 - crratemedio;
-    let thefmedio= theftrates.reduce((a, b) => a + b, 0)/theftrates.length;
-    let hommedio = homirates.reduce((a, b) => a + b, 0)/homirates.length;
-    Highcharts.chart('contenedor1', {
-        
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Crime Rate stats'
-        },
-        xAxis:{
-            categories:["crime rate medio","safe rate medio", "tasa homicidios medios","tasa robo medio"]
-        },
-        yAxis: {
-            allowDecimals: true,
-            title: {
-                text: 'Crime rates'
-            }
-        },
-        series:{
-            name: "Datos medios",
-            data:[crratemedio,sfratemedio,thefmedio,hommedio]
-        }
-    });
+    
 };
 
 </script>
 <svelte:head>
-    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{cargadatos}"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" ></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js' on:load="{cargadatos}"></script>
     
 </svelte:head>
 <main>
