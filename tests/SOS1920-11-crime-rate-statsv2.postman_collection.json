@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "683ac9c7-2a3e-4eb2-aee7-8c20bc1e3037",
+		"name": "SOS1920-11-crime-rate-stats v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get loadinitialdata",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "692477d7-6be5-46d4-ba14-66ae5fb61467",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"apiworking\"] = jsonData.length !== 0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats/loadInitialData",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get crimenes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "707f45ce-fad1-4208-abf5-0f83d6772ba3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post crimenes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\":\"Italia\",\n\t\"year\":\"2017\",\n\t\"cr_rate\":\"41.6\",\n\t\"cr_saferate\":\"58.4\",\n\t\"cr-homirate\":\"0.8\",\n\t\"cr-homicount\":\"292\",\n\t\"cr-theftrate\":\"392,1\",\n\t\"cr-theftcount\":\"153569\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get crimenes ciudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats/España/2016",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats",
+						"España",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get crimenes ciudad con params",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats?country=Spain&year=2016",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "Spain"
+						},
+						{
+							"key": "year",
+							"value": "2016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get crimenes offset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/crime-rate-stats?offset=1",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get crimenes limit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos1920-11.herokuapp.com/api/v2/crime-rate-stats?limit=1",
+					"protocol": "https",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put recurso",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\t\r\n\t\t\"country\": \"España\",\r\n\t\t\"year\": \"2016\",\r\n\t\t\"cr_rate\": \"74.79\",\r\n\t\t\"cr_saferate\": \"15.51\",\r\n\t\t\"cr_homicrate\": \"56.3\",\r\n\t\t\"cr_homicount\": \"17778\",\r\n\t\t\"cr_theftrate\": \"1139.39\",\r\n\t\t\"cr_theftcount\": \"213769\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats/España/2016",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats",
+						"España",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post ciudad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\":\"Italia\",\n\t\"year\":\"2017\",\n\t\"cr_rate\":\"41.6\",\n\t\"cr_saferate\":\"58.4\",\n\t\"cr-homirate\":\"0.8\",\n\t\"cr-homicount\":\"292\",\n\t\"cr-theftrate\":\"392,1\",\n\t\"cr-theftcount\":\"153569\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats/España/2019",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats",
+						"España",
+						"2019"
+					]
+				},
+				"description": "da error"
+			},
+			"response": []
+		},
+		{
+			"name": "put crimenes",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"country\":\"Italia\",\n\t\"year\":\"2018\",\n\t\"cr_rate\":\"41.6\",\n\t\"cr_saferate\":\"58.4\",\n\t\"cr-homirate\":\"0.8\",\n\t\"cr-homicount\":\"292\",\n\t\"cr-theftrate\":\"392,1\",\n\t\"cr-theftcount\":\"153569\"\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats"
+					]
+				},
+				"description": "da error"
+			},
+			"response": []
+		},
+		{
+			"name": "delete recurso",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats/Venezuela/2016",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats",
+						"Venezuela",
+						"2016"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete crimenes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1674a0de-4866-4fc8-83f7-4afc1c3da26d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"apiworking\"] = jsonData.length === 0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://sos1920-11.herokuapp.com/api/v2/crime-rate-stats",
+					"protocol": "http",
+					"host": [
+						"sos1920-11",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"crime-rate-stats"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
