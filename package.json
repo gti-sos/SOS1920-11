@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/gti-sos/SOS1920-11#readme",
   "dependencies": {
-    "apexcharts": "^3.19.2",
+    "apexcharts": "^3.24.0",
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "cors": "^2.8.5",
