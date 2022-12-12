@@ -33,7 +33,7 @@
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.3",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nedb": "^1.8.0",
     "path-to-regexp": "^6.1.0",
     "plotly.js-dist": "^1.54.1",
